@@ -1,0 +1,12 @@
+# SEC company facts run to several megabytes each (52MB and growing) and are a
+# pure cache -- financials.py re-downloads anything missing.
+data/reference/companyfacts/
+
+# Reports are rebuilt from the committed CSVs by build_site.py on every run, so
+# committing them would just add ~180KB of churn per day for nothing.
+data/report_*.html
+site/
+
+__pycache__/
+*.pyc
+.DS_Store

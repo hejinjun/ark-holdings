@@ -1,0 +1,152 @@
+[
+ {
+  "symbol": "HPQ",
+  "name": "HP INC",
+  "sector": "Technology",
+  "industry": "Computer Manufacturing"
+ },
+ {
+  "symbol": "NNDM",
+  "name": "NANO DIMENSION LTD - ADR",
+  "sector": "Technology",
+  "industry": "Electrical Products"
+ },
+ {
+  "symbol": "DDD",
+  "name": "3D SYSTEMS CORP",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "SSYS",
+  "name": "STRATASYS LTD",
+  "sector": "Technology",
+  "industry": "Computer peripheral equipment"
+ },
+ {
+  "symbol": "MTLS",
+  "name": "MATERIALISE NV-ADR",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "PRLB",
+  "name": "PROTO LABS INC",
+  "sector": "Industrials",
+  "industry": "Metal Fabrications"
+ },
+ {
+  "symbol": "VELO",
+  "name": "VELO3D INC",
+  "sector": "Technology",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "XMTR",
+  "name": "XOMETRY INC-A",
+  "sector": "Consumer Discretionary",
+  "industry": "Business Services"
+ },
+ {
+  "symbol": "MOG.A",
+  "name": "MOOG INC-CLASS A",
+  "sector": "",
+  "industry": ""
+ },
+ {
+  "symbol": "KALU",
+  "name": "KAISER ALUMINUM CORP",
+  "sector": "Industrials",
+  "industry": "Metal Fabrications"
+ },
+ {
+  "symbol": "GE",
+  "name": "GENERAL ELECTRIC",
+  "sector": "Technology",
+  "industry": "Consumer Electronics/Appliances"
+ },
+ {
+  "symbol": "LECO",
+  "name": "LINCOLN ELECTRIC HOLDINGS",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "AME",
+  "name": "AMETEK INC",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "ALGN",
+  "name": "ALIGN TECHNOLOGY INC",
+  "sector": "Health Care",
+  "industry": "Industrial Specialties"
+ },
+ {
+  "symbol": "CNTN",
+  "name": "CANTON STRATEGIC HOLDINGS IN",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations"
+ },
+ {
+  "symbol": "ROKU",
+  "name": "ROKU INC",
+  "sector": "Telecommunications",
+  "industry": "Cable & Other Pay Television Services"
+ },
+ {
+  "symbol": "BABA",
+  "name": "ALIBABA GROUP HOLDING-SP ADR",
+  "sector": "Consumer Discretionary",
+  "industry": "Business Services"
+ },
+ {
+  "symbol": "SRTA",
+  "name": "STRATA CRITICAL MEDICAL INC",
+  "sector": "Consumer Discretionary",
+  "industry": "Transportation Services"
+ },
+ {
+  "symbol": "MMM",
+  "name": "3M CO",
+  "sector": "Health Care",
+  "industry": "Medical/Dental Instruments"
+ },
+ {
+  "symbol": "ATI",
+  "name": "ATI INC",
+  "sector": "Industrials",
+  "industry": "Steel/Iron Ore"
+ },
+ {
+  "symbol": "JBL",
+  "name": "JABIL INC",
+  "sector": "Technology",
+  "industry": "Electrical Products"
+ },
+ {
+  "symbol": "CRS",
+  "name": "CARPENTER TECHNOLOGY",
+  "sector": "Industrials",
+  "industry": "Steel/Iron Ore"
+ },
+ {
+  "symbol": "AVNT",
+  "name": "AVIENT CORP",
+  "sector": "Industrials",
+  "industry": "Major Chemicals"
+ },
+ {
+  "symbol": "KMT",
+  "name": "KENNAMETAL INC",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "MTRN",
+  "name": "MATERION CORP",
+  "sector": "Industrials",
+  "industry": "Industrial Specialties"
+ }
+]

@@ -1,0 +1,1017 @@
+<title>ARK ETF Holdings</title>
+
+<style>
+  :root {
+    color-scheme: light;
+    --ground:      #f4f6f8;
+    --surface:     #ffffff;
+    --surface-alt: #eef1f4;
+    --ink:         #151a1f;
+    --ink-2:       #5a646e;
+    --ink-3:       #8b959f;
+    --rule:        #dde2e7;
+    --rule-strong: #c4ccd4;
+    --accent:      #2a78d6;
+    --accent-soft: #dfebfa;
+    --violet:      #4a3aa7;
+    --orange:      #c04f22;
+    --aqua:        #157f5a;
+    --bar:         #b9d3f0;
+    --pos1-bg: #12508f;  --pos1-fg: #ffffff;
+    --pos2-bg: #2f6fb8;  --pos2-fg: #ffffff;
+    --pos3-bg: #b9d5f0;  --pos3-fg: #123a63;
+    --pos4-bg: #e7eef5;  --pos4-fg: #4a5560;
+
+    --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans:  ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono:  ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground:      #101418;
+      --surface:     #171c21;
+      --surface-alt: #1e242a;
+      --ink:         #e9edf1;
+      --ink-2:       #9aa5af;
+      --ink-3:       #6d7883;
+      --rule:        #262d34;
+      --rule-strong: #3a434c;
+      --accent:      #3987e5;
+      --accent-soft: #1b2c42;
+      --violet:      #9085e9;
+      --orange:      #e0763f;
+      --aqua:        #35b98a;
+      --bar:         #2c4d73;
+      --pos1-bg: #6aa9ea;  --pos1-fg: #0b1620;
+      --pos2-bg: #2f6fb8;  --pos2-fg: #ffffff;
+      --pos3-bg: #27435f;  --pos3-fg: #cfe0f2;
+      --pos4-bg: #232a31;  --pos4-fg: #8a949e;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground:      #101418;
+    --surface:     #171c21;
+    --surface-alt: #1e242a;
+    --ink:         #e9edf1;
+    --ink-2:       #9aa5af;
+    --ink-3:       #6d7883;
+    --rule:        #262d34;
+    --rule-strong: #3a434c;
+    --accent:      #3987e5;
+    --accent-soft: #1b2c42;
+    --violet:      #9085e9;
+    --orange:      #e0763f;
+    --aqua:        #35b98a;
+    --bar:         #2c4d73;
+    --pos1-bg: #6aa9ea;  --pos1-fg: #0b1620;
+    --pos2-bg: #2f6fb8;  --pos2-fg: #ffffff;
+    --pos3-bg: #27435f;  --pos3-fg: #cfe0f2;
+    --pos4-bg: #232a31;  --pos4-fg: #8a949e;
+  }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  /* ---- masthead ---- */
+
+  .masthead { display: flex; flex-direction: column; gap: 10px; }
+
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .langswitch { display: flex; gap: 0; }
+  .langswitch button {
+    font: inherit;
+    font-size: 12px;
+    font-family: var(--mono);
+    padding: 5px 11px;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    cursor: pointer;
+  }
+  .langswitch button:first-child { border-radius: 3px 0 0 3px; }
+  .langswitch button:last-child { border-radius: 0 3px 3px 0; border-left: none; }
+  .langswitch button[aria-pressed="true"] {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .langswitch button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .standfirst {
+    color: var(--ink-2);
+    max-width: 62ch;
+    margin: 0;
+    font-size: 14.5px;
+  }
+
+  .provenance {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    border-top: 1px solid var(--rule);
+    padding-top: 10px;
+    margin-top: 4px;
+  }
+
+  /* ---- summary tiles ---- */
+
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .tile {
+    background: var(--surface);
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .tile-label {
+    font-size: 10.5px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+
+  .tile-value {
+    font-family: var(--mono);
+    font-size: 21px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  .tile-note { font-size: 12px; color: var(--ink-2); }
+
+  /* ---- fund strip ---- */
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .hint { font-size: 12.5px; color: var(--ink-3); }
+
+  .scroller { overflow-x: auto; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+
+  thead th {
+    text-align: left;
+    font-size: 10.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--rule-strong);
+    white-space: nowrap;
+    background: var(--surface);
+  }
+
+  tbody td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: baseline;
+  }
+
+  .num {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .fundtable {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    max-width: 660px;
+  }
+  .fundtable td:first-child, .fundtable th:first-child { padding-left: 18px; }
+  .fundtable td:last-child, .fundtable th:last-child { padding-right: 18px; }
+  .fundtable tbody tr:last-child td { border-bottom: none; font-weight: 600; }
+  .fundtable tbody tr:last-child td { border-top: 1px solid var(--rule-strong); }
+  .ticker-cell { font-family: var(--mono); font-weight: 600; }
+
+  /* ---- controls ---- */
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .search {
+    flex: 1 1 220px;
+    min-width: 180px;
+    font: inherit;
+    font-size: 14px;
+    padding: 8px 12px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+  }
+  .search::placeholder { color: var(--ink-3); }
+  .search:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .chipset { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .filterbar {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .filter-top { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+  .filter-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid var(--rule);
+    padding-top: 12px;
+  }
+
+  .filter-row {
+    display: grid;
+    grid-template-columns: 116px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .filter-label {
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+    padding-top: 7px;
+  }
+
+  .chip .count {
+    color: var(--ink-3);
+    font-weight: 400;
+    margin-left: 5px;
+  }
+  .chip[aria-pressed="true"] .count { color: var(--ink-2); }
+  .chip[data-empty="1"] { opacity: 0.4; }
+
+  .clear {
+    font: inherit;
+    font-size: 12px;
+    padding: 6px 10px;
+    color: var(--ink-2);
+    background: transparent;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .clear:hover { border-color: var(--accent); color: var(--ink); }
+  .clear:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  @media (max-width: 720px) {
+    .filter-row { grid-template-columns: 1fr; gap: 4px; }
+    .filter-label { padding-top: 0; }
+  }
+
+  .chip {
+    font: inherit;
+    font-size: 12px;
+    font-family: var(--mono);
+    padding: 6px 10px;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--ink); }
+  .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .chip[aria-pressed="true"] {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ---- holdings table ---- */
+
+  /* A capped height makes the container the vertical scroller, which is what
+     the sticky header sticks to; without it `top: 0` has nothing to act on. */
+  .holdings-wrap {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: auto;
+    max-height: 74vh;
+  }
+
+  #holdings { font-size: 13px; min-width: 1190px; }
+  #holdings thead th { position: sticky; top: 0; z-index: 2; }
+  #holdings th.sortable { cursor: pointer; user-select: none; }
+  #holdings th.sortable:hover { color: var(--ink); }
+  #holdings th.sortable:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  #holdings th .arrow { opacity: 0; margin-left: 3px; }
+  #holdings th[data-dir] .arrow { opacity: 1; color: var(--accent); }
+  #holdings td:first-child, #holdings th:first-child { padding-left: 18px; }
+  #holdings td:last-child, #holdings th:last-child { padding-right: 18px; }
+
+  .row-main { cursor: pointer; }
+  .row-main:hover { background: var(--surface-alt); }
+  .row-main:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .row-main.open { background: var(--surface-alt); }
+
+  /* Enough columns now that the browser would rather wrap the name than
+     scroll; a floor keeps it on one or two lines and lets the wrapper scroll. */
+  .name-cell { min-width: 236px; max-width: 340px; }
+  .name { display: block; }
+  .cusip {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+  }
+
+  /* magnitude bar sits behind the value, anchored to the right edge */
+  .mv-cell { position: relative; }
+  .mv-inner {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  /* Order-of-magnitude badge on ARK's position. A single hue stepped
+     light-to-dark, because size is ordinal -- categorical colours would imply
+     these tiers are unrelated kinds rather than a scale. The tier is spelled
+     out on the badge so it never depends on colour alone. */
+  .mv-tier {
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    padding: 1px 5px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .mv-tier[data-t="p1"] { background: var(--pos1-bg); color: var(--pos1-fg); }
+  .mv-tier[data-t="p2"] { background: var(--pos2-bg); color: var(--pos2-fg); }
+  .mv-tier[data-t="p3"] { background: var(--pos3-bg); color: var(--pos3-fg); }
+  .mv-tier[data-t="p4"] { background: var(--pos4-bg); color: var(--pos4-fg); }
+
+  .mv-bar {
+    position: absolute;
+    right: 12px;
+    bottom: 3px;
+    height: 3px;
+    border-radius: 0 0 0 0;
+    background: var(--bar);
+  }
+  .mv-val { position: relative; }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.03em;
+    padding: 2px 6px;
+    border-radius: 2px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .tag[data-i="0"] { color: var(--ink-3); }
+  .tag[data-i="1"] { color: var(--violet); }
+  .tag[data-i="2"] { color: var(--orange); }
+  .tag[data-i="3"] { color: var(--aqua); }
+
+  .price-cell { font-family: var(--mono); font-variant-numeric: tabular-nums;
+                text-align: right; white-space: nowrap; }
+
+  /* 52-week range: a track spanning low..high with the last price marked. */
+  .range { display: flex; flex-direction: column; gap: 3px; min-width: 104px; }
+  .range-track {
+    position: relative;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--rule-strong);
+  }
+  .range-mark {
+    position: absolute;
+    top: -2px;
+    width: 3px;
+    height: 8px;
+    border-radius: 1px;
+    background: var(--accent);
+    transform: translateX(-1.5px);
+  }
+  .range-ends {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-3);
+    gap: 8px;
+  }
+
+  .funds-cell { font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); white-space: nowrap; }
+
+  .detail td { background: var(--surface-alt); border-bottom: 1px solid var(--rule-strong); }
+  .detail-desc {
+    margin: 0;
+    /* Fills the detail row instead of wrapping three times in a narrow column,
+       but stays under the table's min-width: an auto-layout table grows to fit
+       its widest cell, so an unbounded line here stretches the whole table and
+       pushes the last columns out of view. */
+    max-width: 1080px;
+    padding-right: 24px;
+    font-size: 13.5px;
+    /* Chinese needs the looser leading; it reads cramped at English spacing. */
+    line-height: 1.7;
+    color: var(--ink);
+    /* Stops a one-word last line -- "software." was orphaning on its own row. */
+    text-wrap: pretty;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+
+  .detail-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+  }
+
+  .detail-body {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 10px 0 12px;
+  }
+
+  .fin-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-2);
+  }
+  .fin-row b { color: var(--ink); font-weight: 600; }
+  .fin-row .neg { color: var(--orange); }
+  .fin-row .warn { color: var(--ink-3); font-style: italic; }
+
+  .detail-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .detail-inner span { color: var(--ink-2); }
+  .detail-inner b { color: var(--ink); font-weight: 600; }
+
+  .empty { padding: 28px 18px; color: var(--ink-2); font-size: 14px; }
+
+  .status {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    font-size: 12.5px;
+    color: var(--ink-2);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  footer b { color: var(--ink); font-weight: 600; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <div class="eyebrow" id="eyebrow"></div>
+      <div class="langswitch" id="langswitch" role="group" aria-label="Language"></div>
+    </div>
+    <h1 id="title"></h1>
+    <p class="standfirst" id="standfirst"></p>
+    <div class="provenance" id="provenance"></div>
+  </header>
+
+  <section class="tiles" id="tiles"></section>
+
+  <section>
+    <div class="section-head">
+      <h2 id="h-byfund"></h2>
+      <span class="hint" id="hint-byfund"></span>
+    </div>
+    <div class="scroller fundtable" style="margin-top:12px">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col" id="fh-fund"></th>
+            <th scope="col" class="num" id="fh-pos"></th>
+            <th scope="col" class="num" id="fh-mv"></th>
+            <th scope="col" class="num" id="fh-share"></th>
+          </tr>
+        </thead>
+        <tbody id="fund-rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 id="h-holdings"></h2>
+      <span class="hint" id="hint-holdings"></span>
+    </div>
+
+    <div class="filterbar" style="margin:14px 0 10px">
+      <div class="filter-top">
+        <input class="search" id="search" type="search" placeholder="Search ticker, company, or CUSIP" aria-label="Search holdings">
+        <button class="clear" type="button" id="clear" hidden></button>
+      </div>
+      <div class="filter-groups" id="filter-groups"></div>
+    </div>
+
+    <div class="status" id="status"></div>
+
+    <div class="holdings-wrap" style="margin-top:8px">
+      <table id="holdings">
+        <thead>
+          <tr>
+            <th scope="col" class="sortable" data-key="t" tabindex="0"><span class="hd" data-t="t"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable" data-key="n" tabindex="0"><span class="hd" data-t="n"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable" data-key="k" tabindex="0"><span id="dim-label"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="p" tabindex="0"><span class="hd" data-t="p"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable" data-key="rp" tabindex="0"><span class="hd" data-t="rp"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="oh" tabindex="0"><span class="hd" data-t="oh"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="ol" tabindex="0"><span class="hd" data-t="ol"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="s" tabindex="0"><span class="hd" data-t="s"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="v" tabindex="0"><span class="hd" data-t="v"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="nf" tabindex="0"><span class="hd" data-t="nf"></span><span class="arrow">▾</span></th>
+            <th scope="col" id="hd-heldby"></th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="empty" id="empty" hidden></div>
+    </div>
+  </section>
+
+  <footer id="footnotes"></footer>
+
+</div>
+
+<script>
+const DATA = /*__DATA__*/;
+
+const usd = n => n.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+/* Both languages ship in the payload, so switching is a re-render, not a fetch.
+   The choice is remembered so a reopened file comes back in the same language. */
+const LANGS = DATA.langs.map(l => l.v);
+let lang = (() => {
+  try { const v = localStorage.getItem('ark-lang'); if (LANGS.includes(v)) return v; }
+  catch (e) {}
+  return LANGS[0];
+})();
+const page = () => DATA.i18n[lang];
+const t = k => page().ui[k];
+const lbl = o => (lang === 'zh' && o.label_zh) ? o.label_zh : o.label;
+
+const desc = s => (lang === 'zh' && s.dz) ? s.dz : (s.d || '');
+
+/* Abbreviate to the unit a reader actually holds in their head: 94.8B, not
+   94,827,000,000. The reporting currency is shown when it is not USD --
+   Spotify files in EUR, TSMC in TWD, so the raw magnitudes are not comparable. */
+function money(v, cur) {
+  const sign = v < 0 ? '-' : '';
+  const a = Math.abs(v);
+  const unit = a >= 1e9 ? [1e9, 'B'] : a >= 1e6 ? [1e6, 'M'] : a >= 1e3 ? [1e3, 'K'] : [1, ''];
+  const sym = (!cur || cur === 'USD') ? '$' : '';
+  const suffix = (!cur || cur === 'USD') ? '' : ' ' + cur;
+  return sign + sym + (a / unit[0]).toFixed(a / unit[0] >= 100 ? 0 : 1) + unit[1] + suffix;
+}
+const pct = v => (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+
+function fin(s) {
+  const f = s.fin;
+  if (!f) return '';
+  const cur = f.currency;
+  const bits = [];
+  if (f.revenue_annual !== undefined) {
+    const yoy = f.revenue_yoy_pct !== undefined
+      ? ` <span class="${f.revenue_yoy_pct < 0 ? 'neg' : ''}">${pct(f.revenue_yoy_pct)}</span>` : '';
+    bits.push(`${t('finRevenue')} <b>${money(f.revenue_annual, cur)}</b>${yoy}`);
+  }
+  if (f.gross_margin_pct !== undefined)
+    bits.push(`${t('finMargin')} <b>${f.gross_margin_pct.toFixed(1)}%</b>`);
+  if (f.net_income_annual !== undefined)
+    bits.push(`${t('finNetIncome')} <b class="${f.net_income_annual < 0 ? 'neg' : ''}">${money(f.net_income_annual, cur)}</b>`);
+  if (f.cash !== undefined)
+    bits.push(`${t('finCash')} <b>${money(f.cash, cur)}</b>`);
+  if (f.runway_quarters !== undefined)
+    bits.push(`${t('finRunway')} <b>${f.runway_quarters}${t('finQuarters')}</b>`);
+  if (f.share_growth_pct !== undefined)
+    bits.push(`${t('finDilution')} <b class="${f.share_growth_pct > 5 ? 'neg' : ''}">${pct(f.share_growth_pct)}</b>`);
+  else if (f.share_basis_changed)
+    bits.push(`<span class="warn">${t('finBasisChanged')}</span>`);
+  if (!bits.length) return '';
+  const asOf = f.revenue_annual_end ? `  ·  ${f.revenue_annual_end}` : '';
+  return `<div class="fin-row">${bits.join('')}<span class="warn">${asOf}</span></div>`;
+}
+const tier = s => {
+  const key = s.sg && s.sg.pos;
+  const table = DATA.posBadge && (DATA.posBadge[lang] || DATA.posBadge.en);
+  return (key && table) ? (table[key] || '') : '';
+};
+const sectorLabel = v => {
+  const g = (DATA.segFilters || []).find(x => x.key === 'sec');
+  const o = g && g.options.find(x => x.v === v);
+  return o ? lbl(o) : v;
+};
+
+const HEADS = {t: 'colTicker', n: 'colSecurity', p: 'colPrice', rp: 'colRange',
+               oh: 'colOffHigh', ol: 'colOffLow', s: 'colShares', v: 'colMarketValue',
+               nf: 'colFunds'};
+
+function paintStatic() {
+  const c = page();
+  document.getElementById('eyebrow').textContent = c.eyebrow;
+  document.getElementById('title').textContent = c.title;
+  document.getElementById('standfirst').textContent = c.standfirst;
+  document.getElementById('provenance').textContent = c.provenance;
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+  document.getElementById('tiles').innerHTML = c.tiles.map(([l, v, n]) => `
+    <div class="tile">
+      <span class="tile-label">${l}</span>
+      <span class="tile-value">${v}</span>
+      <span class="tile-note">${n}</span>
+    </div>`).join('');
+
+  document.getElementById('footnotes').innerHTML = c.footnotes
+    .map(([b, x]) => `<div>${b ? `<b>${b}</b> ` : ''}${x}</div>`).join('');
+
+  document.getElementById('h-byfund').textContent = t('byFund');
+  document.getElementById('hint-byfund').textContent = t('byFundHint');
+  document.getElementById('h-holdings').textContent = t('holdings');
+  document.getElementById('hint-holdings').textContent = t('holdingsHint');
+  document.getElementById('fh-fund').textContent = t('colFund');
+  document.getElementById('fh-pos').textContent = t('colPositions');
+  document.getElementById('fh-mv').textContent = t('colMarketValue');
+  document.getElementById('fh-share').textContent = t('colShare');
+  document.getElementById('hd-heldby').textContent = t('colHeldBy');
+
+  document.getElementById('fund-rows').innerHTML = DATA.funds.map(f => `
+    <tr>
+      <td class="ticker-cell">${f.f}</td>
+      <td class="num">${f.n}</td>
+      <td class="num">${usd(f.v)}</td>
+      <td class="num">${(100 * f.v / total).toFixed(2)}%</td>
+    </tr>`).join('') + `
+    <tr>
+      <td class="ticker-cell">${t('total')}</td>
+      <td class="num">${positions}</td>
+      <td class="num">${usd(total)}</td>
+      <td class="num">100.00%</td>
+    </tr>`;
+  document.getElementById('empty').textContent = t('empty');
+  document.getElementById('clear').textContent = t('clear');
+  document.getElementById('search').placeholder = t('search');
+  document.querySelectorAll('#holdings .hd').forEach(el => {
+    el.textContent = t(HEADS[el.dataset.t]);
+  });
+  document.querySelectorAll('#filter-groups .filter-label').forEach(el => {
+    const g = GROUPS.find(x => x.key === el.id.slice(4));
+    if (g) el.textContent = lbl(g);
+  });
+  document.querySelectorAll('#filter-groups .chip').forEach(btn => {
+    const key = btn.closest('[data-group]').dataset.group;
+    const g = GROUPS.find(x => x.key === key);
+    const o = g && g.options.find(x => String(x.v) === btn.dataset.v);
+    if (o) btn.childNodes[0].nodeValue = lbl(o);
+  });
+}
+
+const switcher = document.getElementById('langswitch');
+switcher.innerHTML = DATA.langs.map(l =>
+  `<button type="button" data-l="${l.v}" aria-pressed="false">${l.label}</button>`).join('');
+switcher.hidden = DATA.langs.length < 2;
+switcher.addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b || b.dataset.l === lang) return;
+  lang = b.dataset.l;
+  try { localStorage.setItem('ark-lang', lang); } catch (err) {}
+  paintStatic();
+  render();
+});
+
+/* ---------- masthead + tiles ---------- */
+
+const total = DATA.funds.reduce((a, f) => a + f.v, 0);
+const positions = DATA.funds.reduce((a, f) => a + f.n, 0);
+
+const DIM_INDEX = {};
+DATA.dims.forEach((d, i) => { DIM_INDEX[d.v] = i; });
+const dimLabel = v => (DATA.dims.find(d => d.v === v) || {label: v}).label;
+
+
+/* ---------- fund table ---------- */
+
+
+/* ---------- filters ---------- */
+
+/* Every group is one row of chips. Within a group the selections are ORed;
+   across groups they are ANDed -- so "Mega cap" + "Health Care" means both,
+   while "Mega" + "Large" means either. */
+const GROUPS = [
+  {key: 'fund', label: 'Fund', label_zh: '基金',
+   options: DATA.funds.map(f => ({v: f.f, label: f.f, label_zh: f.f}))},
+  {key: 'exch', label: DATA.dimLabel, label_zh: DATA.dimLabelZh, options: DATA.dims},
+  ...(DATA.segFilters || []),
+];
+
+const state = {q: '', sel: {}, key: 'v', dir: -1, open: new Set()};
+GROUPS.forEach(g => { state.sel[g.key] = new Set(); });
+
+/* What a row's value is for a given group. */
+function valueOf(s, key) {
+  if (key === 'fund') return s.f;          // array: matches if any fund selected
+  if (key === 'exch') return s.k;
+  if (key === 'sec') return s.sec || '';
+  return (s.sg || {})[key];
+}
+
+function matchesGroup(s, g) {
+  const chosen = state.sel[g.key];
+  if (!chosen.size) return true;
+  const v = valueOf(s, g.key);
+  return Array.isArray(v) ? v.some(x => chosen.has(x)) : chosen.has(v);
+}
+
+function matchesSearch(s) {
+  if (!state.q) return true;
+  return (s.t + ' ' + s.n + ' ' + s.c).toLowerCase().includes(state.q);
+}
+
+function visible() {
+  return DATA.securities.filter(s => matchesSearch(s) && GROUPS.every(g => matchesGroup(s, g)));
+}
+
+/* Facet count: how many rows a chip would leave, ignoring its own group. */
+function countFor(g, v) {
+  return DATA.securities.filter(s => {
+    if (!matchesSearch(s)) return false;
+    for (const other of GROUPS) if (other.key !== g.key && !matchesGroup(s, other)) return false;
+    const val = valueOf(s, g.key);
+    return Array.isArray(val) ? val.includes(v) : val === v;
+  }).length;
+}
+
+const groupsEl = document.getElementById('filter-groups');
+groupsEl.innerHTML = GROUPS.map(g => `
+  <div class="filter-row">
+    <div class="filter-label" id="lbl-${g.key}">${g.label}</div>
+    <div class="chipset" role="group" aria-labelledby="lbl-${g.key}" data-group="${g.key}">
+      ${g.options.map(o => `<button class="chip" type="button" data-v="${o.v}"
+        aria-pressed="false">${o.label}<span class="count"></span></button>`).join('')}
+    </div>
+  </div>`).join('');
+
+groupsEl.addEventListener('click', e => {
+  const btn = e.target.closest('.chip');
+  if (!btn) return;
+  const key = btn.closest('[data-group]').dataset.group;
+  const v = btn.dataset.v;
+  const bucket = state.sel[key];
+  if (bucket.has(v)) bucket.delete(v); else bucket.add(v);
+  render();
+});
+
+const clearBtn = document.getElementById('clear');
+clearBtn.addEventListener('click', () => {
+  GROUPS.forEach(g => state.sel[g.key].clear());
+  state.q = '';
+  document.getElementById('search').value = '';
+  render();
+});
+
+document.getElementById('search').addEventListener('input', e => {
+  state.q = e.target.value.trim().toLowerCase();
+  render();
+});
+
+function paintChips() {
+  let active = 0;
+  GROUPS.forEach(g => {
+    active += state.sel[g.key].size;
+    const wrap = groupsEl.querySelector(`[data-group="${g.key}"]`);
+    g.options.forEach(o => {
+      const btn = wrap.querySelector(`[data-v="${CSS.escape(o.v)}"]`);
+      const on = state.sel[g.key].has(o.v);
+      const n = countFor(g, o.v);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.dataset.empty = (!on && n === 0) ? '1' : '0';
+      btn.querySelector('.count').textContent = n;
+    });
+  });
+  clearBtn.hidden = active === 0 && !state.q;
+}
+
+/* ---------- sorting ---------- */
+
+document.querySelectorAll('#holdings th.sortable').forEach(th => {
+  const activate = () => {
+    const key = th.dataset.key;
+    if (state.key === key) state.dir *= -1;
+    else { state.key = key; state.dir = (key === 't' || key === 'n' || key === 'k') ? 1 : -1; }
+    render();
+  };
+  th.addEventListener('click', activate);
+  th.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+  });
+});
+
+/* ---------- render ---------- */
+
+function render() {
+  paintChips();
+  const rows = visible();
+  const key = state.key;
+  rows.sort((a, b) => {
+    const va = key === 'nf' ? a.f.length : a[key];
+    const vb = key === 'nf' ? b.f.length : b[key];
+    if (typeof va === 'string') return state.dir * va.localeCompare(vb);
+    return state.dir * (va - vb);
+  });
+
+  document.querySelectorAll('#holdings th.sortable').forEach(th => {
+    if (th.dataset.key === key) {
+      th.dataset.dir = state.dir > 0 ? 'asc' : 'desc';
+      th.querySelector('.arrow').textContent = state.dir > 0 ? '▴' : '▾';
+      th.setAttribute('aria-sort', state.dir > 0 ? 'ascending' : 'descending');
+    } else {
+      delete th.dataset.dir;
+      th.removeAttribute('aria-sort');
+    }
+  });
+
+  const shown = rows.reduce((a, s) => a + s.v, 0);
+  document.getElementById('status').textContent = t('status')
+    .replace('{n}', rows.length)
+    .replace('{t}', DATA.securities.length)
+    .replace('{v}', usd(shown))
+    .replace('{p}', (100 * shown / total).toFixed(1));
+
+  const max = rows.length ? Math.max(...rows.map(s => s.v)) : 1;
+
+  document.getElementById('rows').innerHTML = rows.map(s => {
+    const open = state.open.has(s.c);
+    const w = Math.max(2, Math.round(110 * s.v / max));
+    const split = DATA.funds
+      .filter(f => s.bf[f.f] !== undefined)
+      .map(f => `<span>${f.f} <b>${usd(s.bf[f.f])}</b></span>`)
+      .join('');
+    return `
+      <tr class="row-main${open ? ' open' : ''}" data-c="${s.c}" tabindex="0"
+          aria-expanded="${open}">
+        <td class="ticker-cell">${s.t || '—'}</td>
+        <td class="name-cell"><span class="name">${s.n}</span><span class="cusip">${s.c}</span></td>
+        <td><span class="tag" data-i="${DIM_INDEX[s.k] ?? 0}">${dimLabel(s.k)}</span></td>
+        ${s.p === undefined ? '<td class="price-cell">—</td><td>—</td><td class="num">—</td><td class="num">—</td>' : `
+        <td class="price-cell">${s.p.toFixed(2)}</td>
+        <td>
+          <div class="range">
+            <div class="range-track"><div class="range-mark" style="left:${s.rp.toFixed(1)}%"></div></div>
+            <div class="range-ends"><span>${s.lo.toFixed(2)}</span><span>${s.hi.toFixed(2)}</span></div>
+          </div>
+        </td>
+        <td class="num">${s.oh.toFixed(1)}%</td>
+        <td class="num">+${s.ol.toFixed(1)}%</td>`}
+        <td class="num">${usd(s.s)}</td>
+        <td class="num mv-cell">
+          <div class="mv-inner">
+            ${tier(s) ? `<span class="mv-tier" data-t="${s.sg.pos}">${tier(s)}</span>` : ''}
+            <span class="mv-val">${usd(s.v)}</span>
+          </div>
+          <span class="mv-bar" style="width:${w}px"></span>
+        </td>
+        <td class="num">${s.f.length}</td>
+        <td class="funds-cell">${s.f.join(' ')}</td>
+      </tr>
+      ${open ? `<tr class="detail"><td colspan="11"><div class="detail-body">
+        ${desc(s) ? `<p class="detail-desc">${desc(s)}</p>` : ''}
+        ${s.sec ? `<div class="detail-meta">${sectorLabel(s.sec)}${s.ind ? '  ·  ' + s.ind : ''}</div>` : ''}
+        ${fin(s)}
+        <div class="detail-inner"><span>${t('sharesByFund')}</span>${split}</div>
+      </div></td></tr>` : ''}`;
+  }).join('');
+
+  document.getElementById('empty').hidden = rows.length > 0;
+}
+
+document.getElementById('rows').addEventListener('click', e => {
+  const tr = e.target.closest('.row-main');
+  if (!tr) return;
+  const c = tr.dataset.c;
+  if (state.open.has(c)) state.open.delete(c); else state.open.add(c);
+  render();
+});
+
+document.getElementById('rows').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const tr = e.target.closest('.row-main');
+  if (!tr) return;
+  e.preventDefault();
+  const c = tr.dataset.c;
+  if (state.open.has(c)) state.open.delete(c); else state.open.add(c);
+  render();
+});
+
+paintStatic();
+render();
+</script>

@@ -1,0 +1,170 @@
+[
+ {
+  "symbol": "MELI",
+  "name": "MERCADOLIBRE INC",
+  "sector": "Consumer Discretionary",
+  "industry": "Business Services"
+ },
+ {
+  "symbol": "JOBY",
+  "name": "JOBY AVIATION INC",
+  "sector": "Industrials",
+  "industry": "Aerospace"
+ },
+ {
+  "symbol": "ESLT",
+  "name": "ELBIT SYSTEMS LTD",
+  "sector": "Industrials",
+  "industry": "Military/Government/Technical"
+ },
+ {
+  "symbol": "NRIX",
+  "name": "NURIX THERAPEUTICS INC",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations"
+ },
+ {
+  "symbol": "BFLY",
+  "name": "BUTTERFLY NETWORK INC",
+  "sector": "Health Care",
+  "industry": "Medical Electronics"
+ },
+ {
+  "symbol": "NET",
+  "name": "CLOUDFLARE INC - CLASS A",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "GOOGL",
+  "name": "ALPHABET INC-CL A",
+  "sector": "Technology",
+  "industry": "Computer Software: Programming Data Processing"
+ },
+ {
+  "symbol": "PACB",
+  "name": "PACIFIC BIOSCIENCES OF CALIF",
+  "sector": "Industrials",
+  "industry": "Biotechnology: Laboratory Analytical Instruments"
+ },
+ {
+  "symbol": "CAT",
+  "name": "CATERPILLAR INC",
+  "sector": "Industrials",
+  "industry": "Construction/Ag Equipment/Trucks"
+ },
+ {
+  "symbol": "SPOT",
+  "name": "SPOTIFY TECHNOLOGY SA",
+  "sector": "Consumer Discretionary",
+  "industry": "Broadcasting"
+ },
+ {
+  "symbol": "AUR",
+  "name": "AURORA INNOVATION INC",
+  "sector": "Technology",
+  "industry": "EDP Services"
+ },
+ {
+  "symbol": "SDGR",
+  "name": "SCHRODINGER INC",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations"
+ },
+ {
+  "symbol": "CCJ",
+  "name": "CAMECO CORP",
+  "sector": "Basic Materials",
+  "industry": "Other Metals and Minerals"
+ },
+ {
+  "symbol": "SYM",
+  "name": "SYMBOTIC INC",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "IONS",
+  "name": "IONIS PHARMACEUTICALS INC",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations"
+ },
+ {
+  "symbol": "DKNG",
+  "name": "DRAFTKINGS INC-CL A",
+  "sector": "Consumer Discretionary",
+  "industry": "Services-Misc. Amusement & Recreation"
+ },
+ {
+  "symbol": "SNPS",
+  "name": "SYNOPSYS INC",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "P",
+  "name": "EVERPURE INC-A",
+  "sector": "Technology",
+  "industry": "Electronic Components"
+ },
+ {
+  "symbol": "ALMR",
+  "name": "ALAMAR BIOSCIENCES INC",
+  "sector": "Industrials",
+  "industry": "Biotechnology: Laboratory Analytical Instruments"
+ },
+ {
+  "symbol": "ISRG",
+  "name": "INTUITIVE SURGICAL INC",
+  "sector": "Health Care",
+  "industry": "Industrial Specialties"
+ },
+ {
+  "symbol": "RBRK",
+  "name": "RUBRIK INC-A",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "PONY",
+  "name": "PONY AI INC",
+  "sector": "Technology",
+  "industry": "EDP Services"
+ },
+ {
+  "symbol": "PRME",
+  "name": "PRIME MEDICINE INC",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Biological Products (No Diagnostic Substances)"
+ },
+ {
+  "symbol": "ABNB",
+  "name": "AIRBNB INC-CLASS A",
+  "sector": "Consumer Discretionary",
+  "industry": "Diversified Commercial Services"
+ },
+ {
+  "symbol": "WRD",
+  "name": "WERIDE INC-ADR",
+  "sector": "Technology",
+  "industry": "EDP Services"
+ },
+ {
+  "symbol": "GTLB",
+  "name": "GITLAB INC-CL A",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "BIDU",
+  "name": "BAIDU INC - SPON ADR",
+  "sector": "Technology",
+  "industry": "Computer Software: Programming Data Processing"
+ },
+ {
+  "symbol": "NFLX",
+  "name": "NETFLIX INC",
+  "sector": "Consumer Discretionary",
+  "industry": "Consumer Electronics/Video Chains"
+ }
+]

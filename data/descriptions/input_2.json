@@ -1,0 +1,170 @@
+[
+ {
+  "symbol": "ACHR",
+  "name": "ARCHER AVIATION INC-A",
+  "sector": "Industrials",
+  "industry": "Aerospace"
+ },
+ {
+  "symbol": "NTRA",
+  "name": "NATERA INC",
+  "sector": "Health Care",
+  "industry": "Medical Specialities"
+ },
+ {
+  "symbol": "BLSH",
+  "name": "BULLISH",
+  "sector": "Finance",
+  "industry": "Finance: Consumer Services"
+ },
+ {
+  "symbol": "CBRS",
+  "name": "CEREBRAS SYSTEMS INC - A",
+  "sector": "Technology",
+  "industry": "Semiconductors"
+ },
+ {
+  "symbol": "LHX",
+  "name": "L3HARRIS TECHNOLOGIES INC",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "XE",
+  "name": "X-ENERGY INC",
+  "sector": "Industrials",
+  "industry": "Metal Fabrications"
+ },
+ {
+  "symbol": "VCYT",
+  "name": "VERACYTE INC",
+  "sector": "Health Care",
+  "industry": "Medical Specialities"
+ },
+ {
+  "symbol": "LLY",
+  "name": "ELI LILLY & CO",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations"
+ },
+ {
+  "symbol": "RXRX",
+  "name": "RECURSION PHARMACEUTICALS-A",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Biological Products (No Diagnostic Substances)"
+ },
+ {
+  "symbol": "RKLB",
+  "name": "ROCKET LAB",
+  "sector": "Industrials",
+  "industry": "Military/Government/Technical"
+ },
+ {
+  "symbol": "WGS",
+  "name": "GENEDX HOLDINGS CORP",
+  "sector": "Technology",
+  "industry": "Retail: Computer Software & Peripheral Equipment"
+ },
+ {
+  "symbol": "BWXT",
+  "name": "BWX TECHNOLOGIES INC",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "AVAV",
+  "name": "AEROVIRONMENT INC",
+  "sector": "Industrials",
+  "industry": "Aerospace"
+ },
+ {
+  "symbol": "PSNL",
+  "name": "PERSONALIS INC",
+  "sector": "Health Care",
+  "industry": "Medical Specialities"
+ },
+ {
+  "symbol": "ABSI",
+  "name": "ABSCI CORP",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Commercial Physical & Biological Resarch"
+ },
+ {
+  "symbol": "DASH",
+  "name": "DOORDASH INC - A",
+  "sector": "Technology",
+  "industry": "EDP Services"
+ },
+ {
+  "symbol": "GH",
+  "name": "GUARDANT HEALTH INC",
+  "sector": "Health Care",
+  "industry": "Medical Specialities"
+ },
+ {
+  "symbol": "TRMB",
+  "name": "TRIMBLE INC",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "SNOW",
+  "name": "SNOWFLAKE INC",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "CRWD",
+  "name": "CROWDSTRIKE HOLDINGS INC - A",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "TOST",
+  "name": "TOAST INC-CLASS A",
+  "sector": "Technology",
+  "industry": "EDP Services"
+ },
+ {
+  "symbol": "CDNA",
+  "name": "CAREDX INC",
+  "sector": "Health Care",
+  "industry": "Medical Specialities"
+ },
+ {
+  "symbol": "SOFI",
+  "name": "SOFI TECHNOLOGIES INC",
+  "sector": "Finance",
+  "industry": "Finance: Consumer Services"
+ },
+ {
+  "symbol": "CMPS",
+  "name": "COMPASS PATHWAYS PLC",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations"
+ },
+ {
+  "symbol": "CERS",
+  "name": "CERUS CORP",
+  "sector": "Technology",
+  "industry": "EDP Services"
+ },
+ {
+  "symbol": "ADPT",
+  "name": "ADAPTIVE BIOTECHNOLOGIES",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Biological Products (No Diagnostic Substances)"
+ },
+ {
+  "symbol": "LUNR",
+  "name": "INTUITIVE MACHINES INC",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "DDOG",
+  "name": "DATADOG INC - CLASS A",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ }
+]

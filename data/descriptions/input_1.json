@@ -1,0 +1,170 @@
+[
+ {
+  "symbol": "TSLA",
+  "name": "TESLA INC",
+  "sector": "Industrials",
+  "industry": "Auto Manufacturing"
+ },
+ {
+  "symbol": "AMD",
+  "name": "ADVANCED MICRO DEVICES",
+  "sector": "Technology",
+  "industry": "Semiconductors"
+ },
+ {
+  "symbol": "SPCX",
+  "name": "SPACE EXPLORATION TECHN-CL A",
+  "sector": "Technology",
+  "industry": "Computer Software: Programming Data Processing"
+ },
+ {
+  "symbol": "SHOP",
+  "name": "SHOPIFY INC - CLASS A",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "TEM",
+  "name": "TEMPUS AI INC-CL A",
+  "sector": "Technology",
+  "industry": "Computer Software: Programming Data Processing"
+ },
+ {
+  "symbol": "CRSP",
+  "name": "CRISPR THERAPEUTICS AG",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Biological Products (No Diagnostic Substances)"
+ },
+ {
+  "symbol": "COIN",
+  "name": "COINBASE GLOBAL INC -CLASS A",
+  "sector": "Finance",
+  "industry": "Finance: Consumer Services"
+ },
+ {
+  "symbol": "TXG",
+  "name": "10X GENOMICS INC-CLASS A",
+  "sector": "Industrials",
+  "industry": "Biotechnology: Laboratory Analytical Instruments"
+ },
+ {
+  "symbol": "PLTR",
+  "name": "PALANTIR TECHNOLOGIES INC-A",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "AMZN",
+  "name": "AMAZON.COM INC",
+  "sector": "Consumer Discretionary",
+  "industry": "Catalog/Specialty Distribution"
+ },
+ {
+  "symbol": "HOOD",
+  "name": "ROBINHOOD MARKETS INC - A",
+  "sector": "Finance",
+  "industry": "Investment Bankers/Brokers/Service"
+ },
+ {
+  "symbol": "CRCL",
+  "name": "CIRCLE INTERNET GROUP INC",
+  "sector": "Finance",
+  "industry": "Finance: Consumer Services"
+ },
+ {
+  "symbol": "TWST",
+  "name": "TWIST BIOSCIENCE CORP",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Biological Products (No Diagnostic Substances)"
+ },
+ {
+  "symbol": "GOOG",
+  "name": "ALPHABET INC-CL C",
+  "sector": "Technology",
+  "industry": "Computer Software: Programming Data Processing"
+ },
+ {
+  "symbol": "RBLX",
+  "name": "ROBLOX CORP -CLASS A",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "NVDA",
+  "name": "NVIDIA CORP",
+  "sector": "Technology",
+  "industry": "Semiconductors"
+ },
+ {
+  "symbol": "XYZ",
+  "name": "BLOCK INC",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "BEAM",
+  "name": "BEAM THERAPEUTICS INC",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Biological Products (No Diagnostic Substances)"
+ },
+ {
+  "symbol": "KTOS",
+  "name": "KRATOS DEFENSE & SECURITY",
+  "sector": "Industrials",
+  "industry": "Military/Government/Technical"
+ },
+ {
+  "symbol": "TER",
+  "name": "TERADYNE INC",
+  "sector": "Industrials",
+  "industry": "Electrical Products"
+ },
+ {
+  "symbol": "TSM",
+  "name": "TAIWAN SEMICONDUCTOR-SP ADR",
+  "sector": "Technology",
+  "industry": "Semiconductors"
+ },
+ {
+  "symbol": "CRWV",
+  "name": "COREWEAVE INC-CL A",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "DE",
+  "name": "DEERE & CO",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "ILMN",
+  "name": "ILLUMINA INC",
+  "sector": "Health Care",
+  "industry": "Medical Specialities"
+ },
+ {
+  "symbol": "META",
+  "name": "META PLATFORMS INC-CLASS A",
+  "sector": "Technology",
+  "industry": "Computer Software: Programming Data Processing"
+ },
+ {
+  "symbol": "NTLA",
+  "name": "INTELLIA THERAPEUTICS INC",
+  "sector": "Health Care",
+  "industry": "Biotechnology: In Vitro & In Vivo Diagnostic Substances"
+ },
+ {
+  "symbol": "BMNR",
+  "name": "BITMINE IMMERSION TECHNOLOGI",
+  "sector": "Finance",
+  "industry": "Finance: Consumer Services"
+ },
+ {
+  "symbol": "AVGO",
+  "name": "BROADCOM INC",
+  "sector": "Technology",
+  "industry": "Semiconductors"
+ }
+]

@@ -1,0 +1,170 @@
+[
+ {
+  "symbol": "FIG",
+  "name": "FIGMA INC-CL A",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "OKLO",
+  "name": "OKLO INC",
+  "sector": "Utilities",
+  "industry": "Electric Utilities: Central"
+ },
+ {
+  "symbol": "GENB",
+  "name": "GENERATE BIOMEDICINES INC",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations"
+ },
+ {
+  "symbol": "GENI",
+  "name": "GENIUS SPORTS LTD",
+  "sector": "Consumer Discretionary",
+  "industry": "Services-Misc. Amusement & Recreation"
+ },
+ {
+  "symbol": "KDK",
+  "name": "KODIAK AI INC",
+  "sector": "Technology",
+  "industry": "EDP Services"
+ },
+ {
+  "symbol": "SE",
+  "name": "SEA LTD-ADR",
+  "sector": "Consumer Discretionary",
+  "industry": "Other Consumer Services"
+ },
+ {
+  "symbol": "ARCT",
+  "name": "ARCTURUS THERAPEUTICS HOLDIN",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations"
+ },
+ {
+  "symbol": "TDY",
+  "name": "TELEDYNE TECHNOLOGIES INC",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "NU",
+  "name": "NU HOLDINGS LTD/CAYMAN ISL-A",
+  "sector": "Finance",
+  "industry": "Finance: Consumer Services"
+ },
+ {
+  "symbol": "HEI",
+  "name": "HEICO CORP",
+  "sector": "Industrials",
+  "industry": "Aerospace"
+ },
+ {
+  "symbol": "MASS",
+  "name": "908 DEVICES INC",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "IRDM",
+  "name": "IRIDIUM COMMUNICATIONS INC",
+  "sector": "Telecommunications",
+  "industry": "Telecommunications Equipment"
+ },
+ {
+  "symbol": "GRMN",
+  "name": "GARMIN LTD",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "KLAR",
+  "name": "KLARNA GROUP PLC",
+  "sector": "Finance",
+  "industry": "Finance: Consumer Services"
+ },
+ {
+  "symbol": "ATAI",
+  "name": "ATAIBECKLEY INC",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations"
+ },
+ {
+  "symbol": "FUTU",
+  "name": "FUTU HOLDINGS LTD-ADR",
+  "sector": "Finance",
+  "industry": "Investment Bankers/Brokers/Service"
+ },
+ {
+  "symbol": "ETOR",
+  "name": "ETORO GROUP LTD-A",
+  "sector": "Finance",
+  "industry": "Investment Bankers/Brokers/Service"
+ },
+ {
+  "symbol": "LMT",
+  "name": "LOCKHEED MARTIN CORP",
+  "sector": "Industrials",
+  "industry": "Military/Government/Technical"
+ },
+ {
+  "symbol": "SCTX",
+  "name": "SCRIBE THERAPEUTICS INC",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Biological Products (No Diagnostic Substances)"
+ },
+ {
+  "symbol": "Z",
+  "name": "ZILLOW GROUP INC - C",
+  "sector": "Consumer Discretionary",
+  "industry": "Business Services"
+ },
+ {
+  "symbol": "QSI",
+  "name": "QUANTUM-SI INC",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components"
+ },
+ {
+  "symbol": "SECZ",
+  "name": "SECURITIZE CORP",
+  "sector": "Finance",
+  "industry": "Finance: Consumer Services"
+ },
+ {
+  "symbol": "HONA",
+  "name": "HONEYWELL AEROSPACE INC",
+  "sector": "Industrials",
+  "industry": "Aerospace"
+ },
+ {
+  "symbol": "PAYP",
+  "name": "PAYPAY CORP",
+  "sector": "Consumer Discretionary",
+  "industry": "Business Services"
+ },
+ {
+  "symbol": "KSPI",
+  "name": "JSC KASPI.KZ ADR",
+  "sector": "",
+  "industry": ""
+ },
+ {
+  "symbol": "ADSK",
+  "name": "AUTODESK INC",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "PTC",
+  "name": "PTC INC",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software"
+ },
+ {
+  "symbol": "XRAY",
+  "name": "DENTSPLY SIRONA INC",
+  "sector": "Health Care",
+  "industry": "Medical/Dental Instruments"
+ }
+]

@@ -1,0 +1,82 @@
+name: Update holdings
+
+# ARK overwrites one file per fund in place and keeps no history, so the point
+# of this job is as much to archive each day's CSV into git as it is to rebuild
+# the site. 08:00 ET on Tue-Sat picks up the previous session.
+on:
+  schedule:
+    - cron: "0 12 * * 2-6"
+  workflow_dispatch:
+
+# Every source is keyless -- ARK, Nasdaq Trader, Nasdaq screener, Yahoo, SEC --
+# so there are no secrets to configure.
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update-holdings
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Holdings are the one step that must not fail quietly. fetch.py exits
+      # non-zero when a fund's file lags the rest of the complex, which is how
+      # a silent rename shows up -- ARKX served stale data for months that way.
+      - name: Fetch holdings
+        run: python3 fetch.py
+
+      - name: Merge and filter
+        run: |
+          python3 baseline.py
+          python3 tradeable.py
+
+      # Quotes and company facts are best-effort: one flaky symbol should not
+      # cost the day's archive. The report renders without them.
+      - name: Quotes
+        continue-on-error: true
+        run: python3 quotes.py
+
+      - name: Company facts
+        continue-on-error: true
+        run: python3 fundamentals.py
+
+      - name: Commit the day's data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw data/*.csv data/reference/nasdaq_screener.json
+          if git diff --cached --quiet; then
+            echo "no change -- ARK did not publish a new file"
+          else
+            git commit -m "data: holdings for $(ls data/raw | sort | tail -1)"
+            git push
+          fi
+
+      # Rebuilt from every committed CSV, so the archive survives without the
+      # HTML ever being stored in the repository.
+      - name: Build site
+        run: python3 build_site.py --out site
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
