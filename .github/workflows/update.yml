@@ -43,6 +43,11 @@ jobs:
           python3 baseline.py
           python3 tradeable.py
 
+      # Needs two snapshots; on the very first run there is only one.
+      - name: Derive trades
+        continue-on-error: true
+        run: python3 diff.py
+
       # Quotes and company facts are best-effort: one flaky symbol should not
       # cost the day's archive. The report renders without them.
       - name: Quotes
