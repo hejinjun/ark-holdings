@@ -518,6 +518,22 @@
     padding: 10px 0 12px;
   }
 
+  .detail-links { display: flex; flex-wrap: wrap; gap: 6px; }
+  .detail-links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 8px;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .detail-links a:hover { border-color: var(--accent); color: var(--accent); }
+  .detail-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .detail-links a::after { content: " ↗"; opacity: 0.45; }
+
   .fin-row {
     display: flex;
     flex-wrap: wrap;
@@ -675,6 +691,21 @@ function money(v, cur) {
   return sign + sym + (a / unit[0]).toFixed(a / unit[0] >= 100 ? 0 : 1) + unit[1] + suffix;
 }
 const pct = v => (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+
+const SITE_LABEL = {};
+(DATA.sites || []).forEach(x => { SITE_LABEL[x.key] = x; });
+
+function siteLinks(s) {
+  if (!s.lk || !s.lk.length) return '';
+  const a = s.lk.map(l => {
+    const site = SITE_LABEL[l.k];
+    if (!site) return '';
+    // rel=noopener because these open in a new tab; noreferrer keeps the
+    // holdings page out of the destination's referrer logs.
+    return `<a href="${l.u}" target="_blank" rel="noopener noreferrer">${lbl(site)}</a>`;
+  }).join('');
+  return `<div class="detail-links">${a}</div>`;
+}
 
 function fin(s) {
   const f = s.fin;
@@ -987,6 +1018,7 @@ function render() {
         ${desc(s) ? `<p class="detail-desc">${desc(s)}</p>` : ''}
         ${s.sec ? `<div class="detail-meta">${sectorLabel(s.sec)}${s.ind ? '  ·  ' + s.ind : ''}</div>` : ''}
         ${fin(s)}
+        ${siteLinks(s)}
         <div class="detail-inner"><span>${t('sharesByFund')}</span>${split}</div>
       </div></td></tr>` : ''}`;
   }).join('');

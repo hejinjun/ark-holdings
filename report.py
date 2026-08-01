@@ -17,8 +17,10 @@ import sys
 import webbrowser
 from pathlib import Path
 
+import financials
 import fundamentals
 import i18n
+import links
 import segments
 from funds import ETFS
 from tradeable import EXCLUDED_FUNDS
@@ -150,16 +152,22 @@ def load_tradeable(date: str) -> dict:
         return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
     descriptions = _load("descriptions.json")
     descriptions_zh = _load("descriptions_zh.json")
-    financials = _load(f"financials_{date}.json")
+    fin_data = _load(f"financials_{date}.json")
+
+    try:
+        ciks = financials.cik_map()
+    except Exception:
+        ciks = {}                     # links still work without the SEC entry
 
     facts = fundamentals.load()
     for s in securities:
+        s["lk"] = links.for_symbol(s["t"], financials.cik_for(s["t"], ciks))
         if s["t"] in descriptions:
             s["d"] = descriptions[s["t"]]
         if s["t"] in descriptions_zh:
             s["dz"] = descriptions_zh[s["t"]]
-        if SHOW_FINANCIALS and s["t"] in financials:
-            fin = financials[s["t"]]
+        if SHOW_FINANCIALS and s["t"] in fin_data:
+            fin = fin_data[s["t"]]
             s["fin"] = {k: fin[k] for k in (
                 "revenue_annual", "revenue_annual_end", "revenue_yoy_pct",
                 "gross_margin_pct", "net_income_annual", "cash", "runway_quarters",
@@ -250,6 +258,7 @@ def load_tradeable(date: str) -> dict:
         "asOf": date,
         "langs": [{"v": k, "label": lb} for k, lb in i18n.LANGS],
         "posBadge": i18n.POSITION_BADGE,
+        "sites": links.SITES,
         "i18n": {k: page(k) for k, _ in i18n.LANGS},
         "dimLabel": "Exchange",
         "dimLabelZh": "交易所",
