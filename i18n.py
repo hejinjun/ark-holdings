@@ -168,13 +168,9 @@ PAGE = {
 FOOTNOTES = {
     "en": [
         ["Listing status is checked, not inferred.",
-         "Every symbol is matched against Nasdaq Trader's official directories, which "
-         "cover Nasdaq, NYSE, NYSE American, NYSE Arca, Cboe and IEX. CUSIP cannot "
-         "answer this — CRISPR carries a Swiss CINS and trades on Nasdaq as CRSP."],
-        ["Ticker equality alone is not evidence.",
-         "Issuer names must agree too. Airbus trades as AIR in Paris while AIR on the "
-         "NYSE is AAR Corp; Titomic is ASX:TTT while TTT is a Treasury ETF. Each quote "
-         "is also cross-checked against ARK's own mark to catch what slips through."],
+         "Every symbol is matched against Nasdaq Trader's official directories, and the "
+         "issuer names have to agree before a match counts — ticker equality alone puts "
+         "Airbus on AAR Corp."],
         ["Business descriptions are generated, not sourced from filings.",
          "Each was written by a language model, web-checked for recent listings and "
          "renames, and says what the company sells rather than how it markets itself. "
@@ -191,13 +187,8 @@ FOOTNOTES = {
     ],
     "zh": [
         ["上市状态是逐个核对的，不是推断的。",
-         "每个代码都与 Nasdaq Trader 官方目录比对，覆盖 Nasdaq、NYSE、NYSE American、"
-         "NYSE Arca、Cboe 和 IEX。CUSIP 判断不了这件事——CRISPR 用的是瑞士 CINS 编码，"
-         "却在纳斯达克以 CRSP 交易。"],
-        ["代码相同不等于是同一家公司。",
-         "发行人名称也必须对得上。空客在巴黎的代码是 AIR，而纽交所的 AIR 是 AAR Corp；"
-         "Titomic 是澳交所 TTT，而美股 TTT 是国债 ETF。每条报价还会与 ARK 自己的隐含价"
-         "交叉校验，兜住漏网的。"],
+         "每个代码都与 Nasdaq Trader 官方目录比对，且发行人名称必须对得上才算匹配"
+         "——只看代码相同，会把空客算成 AAR Corp。"],
         ["公司介绍由模型生成，不是取自财报。",
          "每条都经过联网核实近期上市和更名情况，写的是这家公司卖什么，而不是它如何宣传自己。"
          "请当作快速了解，而非尽职调查。"],
