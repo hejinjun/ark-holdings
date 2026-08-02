@@ -6,6 +6,11 @@ actually buy, published as a single self-contained page.
 ARK overwrites one CSV per fund in place and keeps no history. Archiving each
 day's file is therefore the whole point — everything else is rebuilt from it.
 
+Nasdaq's stock screener behaves the same way, so the market cap leaderboard is
+archived on the same principle: `leaders.html` ranks the 200 largest companies
+trading on a US exchange, and can say who climbed and who dropped out only
+because yesterday's ranking was written down.
+
 ## Pipeline
 
 Each step defaults to the newest data on disk, so ordinary runs take no arguments.
@@ -18,13 +23,21 @@ Each step defaults to the newest data on disk, so ordinary runs take no argument
 | `quotes.py` | Last price and 52-week range from Yahoo | daily |
 | `fundamentals.py` | Market cap, sector, industry from the Nasdaq screener | daily |
 | `financials.py` | Revenue, margin, cash, runway, dilution from SEC XBRL | quarterly, currently unused |
+| `leaders.py` | Snapshots the 200 largest companies on the US market, and quotes them | daily, after `fundamentals.py` |
 | `report.py` | Renders the bilingual HTML report | daily |
+| `home.py` | Renders the daily brief: the day's moves and every source's freshness | daily |
 | `build_site.py` | Rebuilds every date into `site/` for publishing | daily |
 
 ```bash
 python3 fetch.py && python3 baseline.py && python3 tradeable.py && \
 python3 quotes.py && python3 fundamentals.py && python3 report.py --open
 ```
+
+`leaders.py` reads the screener cache, so it must run after `fundamentals.py`
+has refreshed it. A run with no arguments snapshots today and rebuilds the page;
+`--refresh` fetches the screener itself first. Dates are UTC everywhere, so a
+local run and the scheduled job land on the same file rather than inventing a
+day of rank movement between them.
 
 No API keys anywhere: ARK, Nasdaq Trader, the Nasdaq screener, Yahoo and SEC
 EDGAR are all open endpoints.
@@ -44,12 +57,65 @@ Titomic on a Treasury ETF. `listings.py` requires the issuer names to agree, and
 **Nasdaq sector labels.** Frequently wrong — SpaceX is tagged Computer Software,
 GE Aerospace as Consumer Electronics. Good enough to filter on, not to classify.
 
+**Dual-class lines on the leaderboard.** The screener reports Alphabet's whole
+market cap against both GOOG and GOOGL, and Berkshire's against both classes.
+Summing them invents a company and shifts every rank below it, while looking
+entirely plausible. `leaders.py` collapses the known pairs by hand and
+`check_unhandled()` fails the build when a new one appears rather than counting
+it twice. Fox and News Corp are the other kind — each class carries its own cap
+— and are deliberately left alone.
+
+**Securities that are not companies.** `CCZ` is Comcast Holdings' zero-coupon
+exchangeable notes, and the screener prices it at $234B against Comcast's own
+common at $85B — a debt instrument outranking the company it converts into.
+Excluded by name. The near-misses are the reason the rule is narrow: `BNS` reads
+"Bank Nova Scotia Halifax Pfd 3 Ordinary Shares" but is the common, and Digital
+Realty **Trust** and Warner Bros. Discovery **Series A** are ordinary companies.
+
+## The site
+
+| Page | What it answers |
+|------|-----------------|
+| `index.html` | What ARK did in the last session, and whether every feed is current |
+| `holdings.html` | The tradeable book on the newest date |
+| `activity.html` | Every move over the last 30 sessions |
+| `leaders.html` | The 200 largest companies on the US market, and what moved |
+| `archive.html` | One report per archived date |
+
+The home page holds no parsing of its own. Each source module answers for its
+own data through a `summary()` — `report.summary()`, `activity.summary()`,
+`leaders.summary()` — and `home.py` only arranges the answers, so adding a
+source is a summary plus a card rather than a second copy of the merge rules.
+
+Freshness is counted in sessions, not clock time, so a Friday file read on
+Sunday is current. Market holidays are not modelled: the day after one reads
+as a session behind, which errs toward looking.
+
+Shared pieces are inlined into every page at build time by `shell.py` —
+`styles.css` and `nav.js` — because each page has to stay a single file with
+no external requests. Add a page to `NAV_PAGES` and `i18n.NAV` and it appears
+in the nav on all of them.
+
 ## Data
 
 `data/raw/<date>/` holds the bytes exactly as ARK served them; everything under
-`data/*.csv` is derived and reproducible. SEC company facts are cached under
-`data/reference/companyfacts/` and excluded from git — they are large and
-rebuildable.
+`data/*.csv` is derived and reproducible — with one exception.
+
+`data/leaders_<date>.csv` is an archive, not a derivation. Nasdaq's screener
+overwrites in place and keeps no history, exactly as ARK's files do, so nothing
+can rebuild a past day's ranking once the endpoint has moved on. Delete one and
+the rank movement, the entries and exits, and the record of where the threshold
+used to sit go with it. The same holds for `data/leaders_meta.json`, which
+stores each day's whole-market total so an archived page is measured against
+its own day rather than against today. `data/leaders_quotes_<date>.csv` is the
+52-week range for that snapshot and is optional: the page renders without it.
+
+Company descriptions in `data/descriptions*.json` cover 310 symbols — the ARK
+book and the leaderboard — and were written by a language model, not taken from
+filings. `data/descriptions/` keeps the per-batch inputs and outputs behind them.
+
+SEC company facts are cached under `data/reference/companyfacts/` and excluded
+from git — they are large and rebuildable.
 
 ## Publishing
 
@@ -57,6 +123,12 @@ rebuildable.
 the day's CSVs, and deploys `site/` to GitHub Pages. Reports are not stored in
 the repository; they are rebuilt from the committed CSVs on every run, so a
 template change reflows the whole archive at once.
+
+The workflow triggers on `schedule` and `workflow_dispatch` only, not on push:
+a code change reaches the site when the next run happens, or when you ask for
+one with `gh workflow run update.yml`. The cron covers Tuesday to Saturday, so
+a Monday leaves a gap in the leaderboard archive and the movement column then
+spans two days rather than one.
 
 ---
 

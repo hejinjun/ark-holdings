@@ -1,0 +1,212 @@
+[
+ {
+  "symbol": "PM",
+  "name": "Philip Morris International Inc",
+  "sector": "Health Care",
+  "industry": "Medicinal Chemicals and Botanical Products",
+  "country": "United States"
+ },
+ {
+  "symbol": "RY",
+  "name": "Royal Bank Of Canada",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "Canada"
+ },
+ {
+  "symbol": "RTX",
+  "name": "RTX Corporation",
+  "sector": "Industrials",
+  "industry": "Aerospace",
+  "country": "United States"
+ },
+ {
+  "symbol": "PANW",
+  "name": "Palo Alto Networks Inc.",
+  "sector": "Technology",
+  "industry": "Computer peripheral equipment",
+  "country": "United States"
+ },
+ {
+  "symbol": "MUFG",
+  "name": "Mitsubishi UFJ Financial Group Inc.",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "Japan"
+ },
+ {
+  "symbol": "GEV",
+  "name": "GE Vernova Inc.",
+  "sector": "",
+  "industry": "",
+  "country": "United States"
+ },
+ {
+  "symbol": "AZN",
+  "name": "AstraZeneca PLC",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations",
+  "country": "United Kingdom"
+ },
+ {
+  "symbol": "DELL",
+  "name": "Dell Technologies Inc.",
+  "sector": "Technology",
+  "industry": "Computer Manufacturing",
+  "country": "United States"
+ },
+ {
+  "symbol": "WFC",
+  "name": "Wells Fargo & Company",
+  "sector": "Finance",
+  "industry": "Major Banks",
+  "country": "United States"
+ },
+ {
+  "symbol": "TXN",
+  "name": "Texas Instruments Incorporated",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "United States"
+ },
+ {
+  "symbol": "KLAC",
+  "name": "KLA Corporation",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "country": "United States"
+ },
+ {
+  "symbol": "ANET",
+  "name": "Arista Networks Inc.",
+  "sector": "Telecommunications",
+  "industry": "Computer Communications Equipment",
+  "country": "United States"
+ },
+ {
+  "symbol": "AXP",
+  "name": "American Express Company",
+  "sector": "Finance",
+  "industry": "Finance: Consumer Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "C",
+  "name": "Citigroup Inc.",
+  "sector": "Finance",
+  "industry": "Major Banks",
+  "country": "United States"
+ },
+ {
+  "symbol": "SAP",
+  "name": "SAP  SE ADS",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software",
+  "country": "Germany"
+ },
+ {
+  "symbol": "LIN",
+  "name": "Linde plc",
+  "sector": "Basic Materials",
+  "industry": "Major Chemicals",
+  "country": "United States"
+ },
+ {
+  "symbol": "TMO",
+  "name": "Thermo Fisher Scientific Inc",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components",
+  "country": "United States"
+ },
+ {
+  "symbol": "IBM",
+  "name": "International Business Machines Corporation",
+  "sector": "Technology",
+  "industry": "Computer Manufacturing",
+  "country": "United States"
+ },
+ {
+  "symbol": "NVO",
+  "name": "Novo Nordisk A/S",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations",
+  "country": "Denmark"
+ },
+ {
+  "symbol": "AMGN",
+  "name": "Amgen Inc.",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Biological Products (No Diagnostic Substances)",
+  "country": "United States"
+ },
+ {
+  "symbol": "SAN",
+  "name": "Banco Santander S.A. Sponsored ADR (Spain)",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "Spain"
+ },
+ {
+  "symbol": "TD",
+  "name": "The Toronto Dominion Bank",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "Canada"
+ },
+ {
+  "symbol": "APH",
+  "name": "Amphenol Corporation",
+  "sector": "Technology",
+  "industry": "Electrical Products",
+  "country": "United States"
+ },
+ {
+  "symbol": "VZ",
+  "name": "Verizon Communications Inc.",
+  "sector": "Telecommunications",
+  "industry": "Telecommunications Equipment",
+  "country": "United States"
+ },
+ {
+  "symbol": "STX",
+  "name": "Seagate Technology Holdings PLC",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "country": "Ireland"
+ },
+ {
+  "symbol": "MCD",
+  "name": "McDonald's Corporation",
+  "sector": "Consumer Discretionary",
+  "industry": "Restaurants",
+  "country": "United States"
+ },
+ {
+  "symbol": "TTE",
+  "name": "TotalEnergies SE",
+  "sector": "Energy",
+  "industry": "Oil & Gas Production",
+  "country": "France"
+ },
+ {
+  "symbol": "PEP",
+  "name": "PepsiCo Inc.",
+  "sector": "Consumer Staples",
+  "industry": "Beverages (Production/Distribution)",
+  "country": "United States"
+ },
+ {
+  "symbol": "WDC",
+  "name": "Western Digital Corporation",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "country": "United States"
+ },
+ {
+  "symbol": "TMUS",
+  "name": "T-Mobile US Inc.",
+  "sector": "Telecommunications",
+  "industry": "Telecommunications Equipment",
+  "country": "United States"
+ }
+]

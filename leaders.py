@@ -1,4 +1,4 @@
-"""The 200 largest US companies by market cap, archived daily.
+"""The 200 largest companies on the US market by market cap, archived daily.
 
 Nasdaq's screener overwrites in place and keeps no history, exactly like ARK's
 holdings files. Snapshotting the ranking each day is therefore the whole point:
@@ -6,10 +6,11 @@ without `data/leaders_<date>.csv` there is no way to say who climbed, who fell
 out, or what the entry threshold used to be -- the endpoint only ever knows
 today.
 
-Scope is US-registered operating companies. Foreign issuers are excluded even
-when they trade here (TSMC would rank eighth), because "largest US company" and
-"largest company on a US exchange" are different lists and mixing them makes
-the ranking mean neither.
+Scope is the US market as an investor meets it: every operating company whose
+shares trade on a US exchange, wherever it is incorporated. TSMC, ASML, Novo
+Nordisk and Toyota are all buyable from a US brokerage account and all belong
+in a ranking of what the market actually holds. Where a company is registered
+is kept as a filter, not as a gate.
 """
 
 import csv
@@ -25,6 +26,7 @@ import fundamentals
 import i18n
 import links
 import segments
+import shell
 
 HERE = Path(__file__).parent
 DATA = HERE / "data"
@@ -32,12 +34,28 @@ TEMPLATE = HERE / "leaders_template.html"
 
 SIZE = 200
 
+# The screener's spelling of the domestic country, used to split the ranking
+# into domestic and foreign rather than to exclude anything.
+US = "United States"
+
 # Everything the screener returns that is not a share in an operating company.
 # Closed-end funds are matched on the word `fund`, which also catches the
 # handful of listed trusts that are portfolios rather than businesses.
+# `ZONES` are zero-coupon notes exchangeable for stock. Comcast Holdings' line
+# is the one that matters: the screener prices it at $234B against Comcast's
+# own common at $85B, so leaving it in ranks a debt instrument above the
+# company it converts into. It is matched by name because nothing else in the
+# row says it is not equity.
+#
+# Deliberately NOT matched: "Pfd", which appears inside Bank of Nova Scotia's
+# name ("Bank Nova Scotia Halifax Pfd 3 Ordinary Shares") where the security is
+# in fact the common. Nor "Trust" or "Series A", which Digital Realty Trust and
+# Warner Bros. Discovery carry legitimately.
+# ZONES is scoped case-sensitive with (?-i:...) so it matches the security type
+# in caps and not a company that happens to have "zones" in its name.
 NOT_A_COMPANY = re.compile(
     r"warrant|\bunits?\b|\bright[s]?\b|preferred|depositary shares|%\s|"
-    r"\bnotes?\b|debenture|\bbond|\bfund\b", re.I)
+    r"\bnotes?\b|debenture|\bbond|\bfund\b|(?-i:\bZONES\b)", re.I)
 
 # Where a company has two listed classes, Nasdaq sometimes reports the whole
 # company's market cap against BOTH lines -- Alphabet's C shares and A shares
@@ -110,8 +128,13 @@ def _money(text: str) -> float:
 
 
 def universe() -> list[dict]:
-    """Every US-registered operating company with a reported market cap,
-    largest first, one row per company."""
+    """Every operating company trading on a US exchange with a reported market
+    cap, largest first, one row per company.
+
+    Country of registration is carried on each row but is not filtered on: a
+    ranking of the US market is a ranking of what trades here, and TSMC and
+    ASML trade here.
+    """
     raw = json.loads(
         (DATA / "reference" / "nasdaq_screener.json").read_text(encoding="utf-8"))
     rows = []
@@ -121,14 +144,13 @@ def universe() -> list[dict]:
         cap = _money(r.get("marketCap"))
         if not sym or NOT_A_COMPANY.search(name) or cap <= 0:
             continue
-        if (r.get("country") or "").strip() != "United States":
-            continue
         rows.append({
             "symbol": _symbol(sym),
             "company": _clean(name),
             "market_cap": cap,
             "sector": (r.get("sector") or "").strip(),
             "industry": (r.get("industry") or "").strip(),
+            "country": (r.get("country") or "").strip(),
             "ipo_year": (r.get("ipoyear") or "").strip(),
             "price": _money(r.get("lastsale")),
             "pct_change": _money(str(r.get("pctchange") or "").replace("%", "")),
@@ -170,7 +192,7 @@ def check_unhandled(rows: list[dict]) -> None:
 # ---- daily snapshot ----
 
 COLUMNS = ["rank", "symbol", "company", "market_cap", "sector", "industry",
-           "ipo_year", "price", "pct_change", "alt_symbols"]
+           "country", "ipo_year", "price", "pct_change", "alt_symbols"]
 
 # The 200 are stated as a share of the whole US universe, which is a fact about
 # the day they were captured. Recomputing it at render time would silently
@@ -300,9 +322,15 @@ def today() -> str:
     return datetime.now(timezone.utc).date().isoformat()
 
 
+# Only a date-stamped file is a snapshot. `leaders_quotes_<date>.csv` sits in
+# the same directory under the same prefix, and a plain glob would offer it as
+# a ranking to read.
+SNAPSHOT = re.compile(r"^leaders_(\d{4}-\d{2}-\d{2})\.csv$")
+
+
 def snapshots() -> list[str]:
-    return sorted(p.name.removeprefix("leaders_").removesuffix(".csv")
-                  for p in DATA.glob("leaders_*.csv"))
+    return sorted(m.group(1) for p in DATA.glob("leaders_*.csv")
+                  if (m := SNAPSHOT.match(p.name)))
 
 
 def read_snapshot(date: str) -> list[dict]:
@@ -414,7 +442,7 @@ def build(date: str, prev_date: str | None) -> dict:
             "w": r["market_cap"] / total * 100,
             "sec": r["sector"], "ind": r["industry"],
             "p": r["price"], "ch": r["pct_change"],
-            "iy": r["ipo_year"], "mv": move,
+            "iy": r["ipo_year"], "mv": move, "cty": r["country"],
             "lk": links.for_symbol(sym, cik_of(sym)),
             # Yahoo's price wins where it exists: it is newer than the
             # screener's last sale and is what the 52-week range is measured
@@ -454,6 +482,15 @@ def build(date: str, prev_date: str | None) -> dict:
         "key": "sec", "label": "Sector", "label_zh": "板块",
         "options": [{"v": s, "label": s, "label_zh": i18n.SECTORS.get(s, s)} for s in sectors],
     })
+    # Registration is a dimension, not a gate. Two chips rather than one per
+    # country: with 44 foreign issuers spread over a dozen countries, a chip
+    # each would be a row of ones. The country itself is on the row.
+    if any(c["cty"] and c["cty"] != US for c in companies):
+        seg_filters.append({
+            "key": "cty", "label": "Domicile", "label_zh": "注册地",
+            "options": [{"v": "us", "label": "US", "label_zh": "美国"},
+                        {"v": "intl", "label": "Foreign", "label_zh": "外国"}],
+        })
     seg_filters.append({
         "key": "ark", "label": "ARK", "label_zh": "ARK",
         "options": [{"v": "y", "label": "Held by ARK", "label_zh": "ARK 持有"},
@@ -468,8 +505,8 @@ def build(date: str, prev_date: str | None) -> dict:
                         {"v": "in", "label": "New entry", "label_zh": "新进榜"}],
         })
 
-    # Market share is stated against the whole US-registered universe, not
-    # against the 200 -- "the top 200 are 100% of the top 200" says nothing.
+    # Market share is stated against the whole listed universe, not against the
+    # 200 -- "the top 200 are 100% of the top 200" says nothing.
     meta = read_meta(date)
     market, n_universe = meta["market_cap"], meta["companies"]
 
@@ -520,6 +557,7 @@ def page(lang, date, prev_date, companies, total, market, n_universe, ark, gone)
         "provenance": c["provenance"].format(date=date, n=len(companies),
                                              u=f"{n_universe:,}", held=held),
         "tiles": tiles,
+        "nav": i18n.NAV[lang],
         "footnotes": i18n.LEADERS_FOOTNOTES[lang],
         "ui": i18n.LEADERS[lang],
     }
@@ -549,11 +587,8 @@ def main(argv: list[str]) -> int:
     earlier = [d for d in have if d < date]
     payload = build(date, earlier[-1] if earlier else None)
 
-    html = TEMPLATE.read_text(encoding="utf-8")
-    html = html.replace("/*__STYLES__*/", (HERE / "styles.css").read_text(encoding="utf-8"))
     out = DATA / f"leaders_{date}.html"
-    out.write_text(html.replace("/*__DATA__*/", json.dumps(payload, separators=(",", ":"))),
-                   encoding="utf-8")
+    out.write_text(shell.render(TEMPLATE, payload), encoding="utf-8")
     print(f"{out}  ({out.stat().st_size:,} bytes, {len(payload['companies'])} rows"
           + (f", vs {payload['prevDate']}" if payload["prevDate"] else ", no prior snapshot")
           + ")")

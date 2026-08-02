@@ -1,13 +1,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Largest US companies by market cap</title>
+<title>Largest companies on the US market</title>
 
 <style>
 /*__STYLES__*/
 
 /* ---- leaderboard ---- */
 
-#board { font-size: 13px; min-width: 1020px; }
+#board { font-size: 13px; min-width: 1310px; }
 #board thead th { position: sticky; top: 0; z-index: 2; }
 #board th.sortable { cursor: pointer; user-select: none; }
 #board th.sortable:hover { color: var(--ink); }
@@ -75,6 +75,10 @@
 }
 
 .sector-cell { color: var(--ink-2); font-size: 12.5px; }
+/* Domicile shows only where it is not the default, the same way the holdings
+   page prints a CUSIP under the name: present when it matters, silent when
+   it does not. */
+.cty { display: block; font-size: 11px; color: var(--ink-3); }
 .alt-sym { color: var(--ink-3); font-weight: 400; }
 
 .dropped-list {
@@ -101,13 +105,10 @@
 
   <header class="masthead">
     <div class="masthead-top">
-      <div class="eyebrow" id="eyebrow"></div>
-      <div style="display:flex; gap:10px; align-items:center">
-        <a class="clear" id="toholdings" href="index.html" style="text-decoration:none"></a>
-        <a class="clear" id="tofeed" href="activity.html" style="text-decoration:none"></a>
-        <div class="langswitch" id="langswitch" role="group" aria-label="Language"></div>
-      </div>
+      <nav class="sitenav" id="sitenav" aria-label="Sections"></nav>
+      <div class="langswitch" id="langswitch" role="group" aria-label="Language"></div>
     </div>
+    <div class="eyebrow" id="eyebrow"></div>
     <h1 id="title"></h1>
     <p class="standfirst" id="standfirst"></p>
     <div class="provenance" id="provenance"></div>
@@ -144,6 +145,9 @@
             <th scope="col" class="sortable num" data-key="w" tabindex="0"><span class="hd" data-t="w"></span><span class="arrow">▾</span></th>
             <th scope="col" class="sortable num" data-key="p" tabindex="0"><span class="hd" data-t="p"></span><span class="arrow">▾</span></th>
             <th scope="col" class="sortable num" data-key="ch" tabindex="0"><span class="hd" data-t="ch"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable" data-key="rp" tabindex="0"><span class="hd" data-t="rp"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="oh" tabindex="0"><span class="hd" data-t="oh"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="ol" tabindex="0"><span class="hd" data-t="ol"></span><span class="arrow">▾</span></th>
             <th scope="col" id="hd-ark"></th>
           </tr>
         </thead>
@@ -179,6 +183,9 @@ let lang = (() => {
 })();
 const page = () => DATA.i18n[lang];
 const t = k => page().ui[k];
+
+const HERE = 'leaders';
+/*__NAV__*/
 const lbl = o => (lang === 'zh' && o.label_zh) ? o.label_zh : o.label;
 const desc = c => (lang === 'zh' && c.dz) ? c.dz : (c.d || '');
 
@@ -228,6 +235,7 @@ function moveCell(c) {
 }
 
 const HEADS = {r: 'colRank', t: 'colTicker', n: 'colCompany', sec: 'colSector',
+               rp: 'colRange', oh: 'colOffHigh', ol: 'colOffLow',
                cap: 'colCap', w: 'colWeight', p: 'colPrice', ch: 'colChange'};
 
 /* ---- filters ---- */
@@ -241,6 +249,7 @@ GROUPS.forEach(g => { state.sel[g.key] = new Set(); });
 function valueOf(c, key) {
   if (key === 'sec') return c.sec || '';
   if (key === 'ark') return c.ark !== undefined ? 'y' : 'n';
+  if (key === 'cty') return c.cty === 'United States' ? 'us' : 'intl';
   if (key === 'mv') return c.mv;
   return (c.sg || {})[key];
 }
@@ -316,6 +325,7 @@ function paintChips() {
 
 function paintStatic() {
   const c = page();
+  paintNav();
   document.getElementById('eyebrow').textContent = c.eyebrow;
   document.getElementById('title').textContent = c.title;
   document.getElementById('standfirst').textContent = c.standfirst;
@@ -339,8 +349,6 @@ function paintStatic() {
   document.getElementById('empty').textContent = t('empty');
   document.getElementById('clear').textContent = t('clear');
   document.getElementById('search').placeholder = t('search');
-  document.getElementById('toholdings').textContent = t('toHoldings');
-  document.getElementById('tofeed').textContent = t('toFeed');
   document.querySelectorAll('#board .hd').forEach(el => {
     el.textContent = t(HEADS[el.dataset.t]);
   });
@@ -444,7 +452,7 @@ function render() {
         <td class="rank-cell">${c.r}</td>
         ${moveCell(c)}
         <td class="ticker-cell">${c.t}${c.alt ? ` <span class="alt-sym">${c.alt}</span>` : ''}</td>
-        <td class="name-cell"><span class="name">${c.n}</span></td>
+        <td class="name-cell"><span class="name">${c.n}</span>${c.cty && c.cty !== 'United States' ? `<span class="cty">${c.cty}</span>` : ''}</td>
         <td class="sector-cell">${c.sec ? sectorLabel(c.sec) : '—'}</td>
         <td class="num cap-cell">
           <span class="cap-val">${cap(c.cap)}</span>
@@ -453,12 +461,23 @@ function render() {
         <td class="num">${c.w.toFixed(2)}%</td>
         <td class="num price-cell">${c.p ? c.p.toFixed(2) : '—'}</td>
         <td class="num chg-cell" data-d="${c.ch > 0 ? 'up' : c.ch < 0 ? 'down' : ''}">${pct(c.ch)}</td>
+        ${c.rp === undefined
+          ? '<td>—</td><td class="num">—</td><td class="num">—</td>'
+          : `<td>
+          <div class="range">
+            <div class="range-track"><div class="range-mark" style="left:${c.rp.toFixed(1)}%"></div></div>
+            <div class="range-ends"><span>${c.lo.toFixed(2)}</span><span>${c.hi.toFixed(2)}</span></div>
+          </div>
+        </td>
+        <td class="num">${c.oh.toFixed(1)}%</td>
+        <td class="num">+${c.ol.toFixed(1)}%</td>`}
         <td>${c.ark !== undefined ? `<span class="ark-badge">${t('arkHeld')}</span>` : ''}</td>
       </tr>
-      ${open ? `<tr class="detail"><td colspan="10"><div class="detail-body">
+      ${open ? `<tr class="detail"><td colspan="13"><div class="detail-body">
         ${desc(c) ? `<p class="detail-desc">${desc(c)}</p>` : ''}
         <div class="detail-meta">${[
           c.sec ? sectorLabel(c.sec) + (c.ind ? '  ·  ' + c.ind : '') : '',
+          c.cty || '',
           listed,
           was,
           c.ark !== undefined ? `${t('arkPosition')} ${money(c.ark)}` : '',

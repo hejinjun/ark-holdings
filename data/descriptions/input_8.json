@@ -1,0 +1,212 @@
+[
+ {
+  "symbol": "SCHW",
+  "name": "The Charles Schwab Corporation",
+  "sector": "Finance",
+  "industry": "Investment Bankers/Brokers/Service",
+  "country": "United States"
+ },
+ {
+  "symbol": "ABT",
+  "name": "Abbott Laboratories",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations",
+  "country": "United States"
+ },
+ {
+  "symbol": "NEE",
+  "name": "NextEra Energy Inc.",
+  "sector": "Technology",
+  "industry": "EDP Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "SNDK",
+  "name": "Sandisk Corporation",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "country": "United States"
+ },
+ {
+  "symbol": "ADI",
+  "name": "Analog Devices Inc.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "United States"
+ },
+ {
+  "symbol": "TJX",
+  "name": "The TJX Companies Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "Clothing/Shoe/Accessory Stores",
+  "country": "United States"
+ },
+ {
+  "symbol": "UNP",
+  "name": "Union Pacific Corporation",
+  "sector": "Industrials",
+  "industry": "Railroads",
+  "country": "United States"
+ },
+ {
+  "symbol": "BA",
+  "name": "The Boeing Company",
+  "sector": "Industrials",
+  "industry": "Aerospace",
+  "country": "United States"
+ },
+ {
+  "symbol": "BUD",
+  "name": "Anheuser-Busch Inbev SA Sponsored ADR (Belgium)",
+  "sector": "Consumer Staples",
+  "industry": "Beverages (Production/Distribution)",
+  "country": "Belgium"
+ },
+ {
+  "symbol": "BLK",
+  "name": "BlackRock Inc.",
+  "sector": "Finance",
+  "industry": "Investment Bankers/Brokers/Service",
+  "country": "United States"
+ },
+ {
+  "symbol": "WELL",
+  "name": "Welltower Inc.",
+  "sector": "Real Estate",
+  "industry": "Real Estate Investment Trusts",
+  "country": "United States"
+ },
+ {
+  "symbol": "DIS",
+  "name": "The Walt Disney Company",
+  "sector": "Consumer Discretionary",
+  "industry": "Services-Misc. Amusement & Recreation",
+  "country": "United States"
+ },
+ {
+  "symbol": "MRVL",
+  "name": "Marvell Technology Inc.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "United States"
+ },
+ {
+  "symbol": "UBS",
+  "name": "UBS Group AG Registered",
+  "sector": "Finance",
+  "industry": "Major Banks",
+  "country": "Switzerland"
+ },
+ {
+  "symbol": "GILD",
+  "name": "Gilead Sciences Inc.",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Biological Products (No Diagnostic Substances)",
+  "country": "United States"
+ },
+ {
+  "symbol": "ETN",
+  "name": "Eaton Corporation PLC",
+  "sector": "Technology",
+  "industry": "Industrial Machinery/Components",
+  "country": "Ireland"
+ },
+ {
+  "symbol": "BBVA",
+  "name": "Banco Bilbao Vizcaya Argentaria S.A.",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "Spain"
+ },
+ {
+  "symbol": "T",
+  "name": "AT&T Inc.",
+  "sector": "Telecommunications",
+  "industry": "Telecommunications Equipment",
+  "country": "United States"
+ },
+ {
+  "symbol": "QCOM",
+  "name": "QUALCOMM Incorporated",
+  "sector": "Technology",
+  "industry": "Radio And Television Broadcasting And Communications Equipment",
+  "country": "United States"
+ },
+ {
+  "symbol": "SCCO",
+  "name": "Southern Copper Corporation",
+  "sector": "Basic Materials",
+  "industry": "Metal Mining",
+  "country": "United States"
+ },
+ {
+  "symbol": "CRM",
+  "name": "Salesforce Inc.",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software",
+  "country": "United States"
+ },
+ {
+  "symbol": "BKNG",
+  "name": "Booking Holdings Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "Transportation Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "IBKR",
+  "name": "Interactive Brokers Group Inc.",
+  "sector": "Finance",
+  "industry": "Investment Bankers/Brokers/Service",
+  "country": "United States"
+ },
+ {
+  "symbol": "COP",
+  "name": "ConocoPhillips",
+  "sector": "Energy",
+  "industry": "Integrated oil Companies",
+  "country": "United States"
+ },
+ {
+  "symbol": "UBER",
+  "name": "Uber Technologies Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "Business Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "PFE",
+  "name": "Pfizer Inc.",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations",
+  "country": "United States"
+ },
+ {
+  "symbol": "DHR",
+  "name": "Danaher Corporation",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components",
+  "country": "United States"
+ },
+ {
+  "symbol": "CB",
+  "name": "Chubb Limited",
+  "sector": "Finance",
+  "industry": "Property-Casualty Insurers",
+  "country": "Switzerland"
+ },
+ {
+  "symbol": "PLD",
+  "name": "Prologis Inc.",
+  "sector": "Real Estate",
+  "industry": "Real Estate Investment Trusts",
+  "country": "United States"
+ },
+ {
+  "symbol": "BMY",
+  "name": "Bristol-Myers Squibb Company",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations",
+  "country": "United States"
+ }
+]

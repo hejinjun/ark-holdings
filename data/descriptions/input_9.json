@@ -1,0 +1,212 @@
+[
+ {
+  "symbol": "CVS",
+  "name": "CVS Health Corporation",
+  "sector": "Consumer Staples",
+  "industry": "Retail-Drug Stores and Proprietary Stores",
+  "country": "United States"
+ },
+ {
+  "symbol": "APP",
+  "name": "Applovin Corporation",
+  "sector": "Technology",
+  "industry": "Computer Software: Programming Data Processing",
+  "country": "United States"
+ },
+ {
+  "symbol": "BTI",
+  "name": "British American Tobacco  Industries p.l.c. Common Stock ADR",
+  "sector": "Health Care",
+  "industry": "Medicinal Chemicals and Botanical Products",
+  "country": "United Kingdom"
+ },
+ {
+  "symbol": "MFG",
+  "name": "Mizuho Financial Group Inc. Sponosred ADR (Japan)",
+  "sector": "Finance",
+  "industry": "Major Banks",
+  "country": "Japan"
+ },
+ {
+  "symbol": "COF",
+  "name": "Capital One Financial Corporation",
+  "sector": "Finance",
+  "industry": "Major Banks",
+  "country": "United States"
+ },
+ {
+  "symbol": "BMO",
+  "name": "Bank Of Montreal",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "Canada"
+ },
+ {
+  "symbol": "PBR",
+  "name": "Petroleo Brasileiro S.A. Petrobras ADS",
+  "sector": "Energy",
+  "industry": "Oil & Gas Production",
+  "country": "Brazil"
+ },
+ {
+  "symbol": "SYK",
+  "name": "Stryker Corporation",
+  "sector": "Health Care",
+  "industry": "Medical/Dental Instruments",
+  "country": "United States"
+ },
+ {
+  "symbol": "PGR",
+  "name": "The Progressive Corporation",
+  "sector": "Finance",
+  "industry": "Property-Casualty Insurers",
+  "country": "United States"
+ },
+ {
+  "symbol": "PH",
+  "name": "Parker-Hannifin Corporation",
+  "sector": "Industrials",
+  "industry": "Metal Fabrications",
+  "country": "United States"
+ },
+ {
+  "symbol": "HDB",
+  "name": "HDFC Bank Limited",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "India"
+ },
+ {
+  "symbol": "RIO",
+  "name": "Rio Tinto Plc",
+  "sector": "Basic Materials",
+  "industry": "Metal Mining",
+  "country": "Australia"
+ },
+ {
+  "symbol": "SPGI",
+  "name": "S&P Global Inc.",
+  "sector": "Finance",
+  "industry": "Finance: Consumer Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "VRTX",
+  "name": "Vertex Pharmaceuticals Incorporated",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations",
+  "country": "United States"
+ },
+ {
+  "symbol": "SBUX",
+  "name": "Starbucks Corporation",
+  "sector": "Consumer Discretionary",
+  "industry": "Restaurants",
+  "country": "United States"
+ },
+ {
+  "symbol": "GLW",
+  "name": "Corning Incorporated",
+  "sector": "Industrials",
+  "industry": "Telecommunications Equipment",
+  "country": "United States"
+ },
+ {
+  "symbol": "ENB",
+  "name": "Enbridge Inc",
+  "sector": "Energy",
+  "industry": "Natural Gas Distribution",
+  "country": "Canada"
+ },
+ {
+  "symbol": "FTNT",
+  "name": "Fortinet Inc.",
+  "sector": "Technology",
+  "industry": "Computer peripheral equipment",
+  "country": "United States"
+ },
+ {
+  "symbol": "BP",
+  "name": "BP p.l.c.",
+  "sector": "Energy",
+  "industry": "Integrated oil Companies",
+  "country": "United Kingdom"
+ },
+ {
+  "symbol": "LOW",
+  "name": "Lowe's Companies Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "RETAIL: Building Materials",
+  "country": "United States"
+ },
+ {
+  "symbol": "NOW",
+  "name": "ServiceNow Inc.",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software",
+  "country": "United States"
+ },
+ {
+  "symbol": "MO",
+  "name": "Altria Group Inc.",
+  "sector": "Health Care",
+  "industry": "Medicinal Chemicals and Botanical Products",
+  "country": "United States"
+ },
+ {
+  "symbol": "HWM",
+  "name": "Howmet Aerospace Inc.",
+  "sector": "Industrials",
+  "industry": "Metal Fabrications",
+  "country": "United States"
+ },
+ {
+  "symbol": "ACN",
+  "name": "Accenture plc",
+  "sector": "Consumer Discretionary",
+  "industry": "Business Services",
+  "country": "Ireland"
+ },
+ {
+  "symbol": "MDT",
+  "name": "Medtronic plc.",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Electromedical & Electrotherapeutic Apparatus",
+  "country": "United States"
+ },
+ {
+  "symbol": "CM",
+  "name": "Canadian Imperial Bank of Commerce",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "Canada"
+ },
+ {
+  "symbol": "BNS",
+  "name": "Bank Nova Scotia Halifax Pfd 3",
+  "sector": "Finance",
+  "industry": "Major Banks",
+  "country": "Canada"
+ },
+ {
+  "symbol": "IBN",
+  "name": "ICICI Bank Limited",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "India"
+ },
+ {
+  "symbol": "BNY",
+  "name": "The Bank of New York Mellon Corporation",
+  "sector": "Finance",
+  "industry": "Major Banks",
+  "country": "United States"
+ },
+ {
+  "symbol": "ADP",
+  "name": "Automatic Data Processing Inc.",
+  "sector": "Industrials",
+  "industry": "Diversified Commercial Services",
+  "country": "United States"
+ }
+]

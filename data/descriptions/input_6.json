@@ -1,0 +1,212 @@
+[
+ {
+  "symbol": "AAPL",
+  "name": "Apple Inc.",
+  "sector": "Technology",
+  "industry": "Computer Manufacturing",
+  "country": "United States"
+ },
+ {
+  "symbol": "MSFT",
+  "name": "Microsoft Corporation",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software",
+  "country": "United States"
+ },
+ {
+  "symbol": "BRK.B",
+  "name": "Berkshire Hathaway Inc.",
+  "sector": "",
+  "industry": "",
+  "country": "United States"
+ },
+ {
+  "symbol": "JPM",
+  "name": "JP Morgan Chase & Co.",
+  "sector": "Finance",
+  "industry": "Major Banks",
+  "country": "United States"
+ },
+ {
+  "symbol": "MU",
+  "name": "Micron Technology Inc.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "United States"
+ },
+ {
+  "symbol": "WMT",
+  "name": "Walmart Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "Department/Specialty Retail Stores",
+  "country": "United States"
+ },
+ {
+  "symbol": "V",
+  "name": "Visa Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "Business Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "XOM",
+  "name": "ExxonMobil Holdings Corporation",
+  "sector": "Energy",
+  "industry": "Integrated oil Companies",
+  "country": "United States"
+ },
+ {
+  "symbol": "ASML",
+  "name": "ASML Holding N.V. New York Registry",
+  "sector": "Technology",
+  "industry": "Industrial Machinery/Components",
+  "country": "Netherlands"
+ },
+ {
+  "symbol": "JNJ",
+  "name": "Johnson & Johnson",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations",
+  "country": "United States"
+ },
+ {
+  "symbol": "MA",
+  "name": "Mastercard Incorporated",
+  "sector": "Consumer Discretionary",
+  "industry": "Business Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "CSCO",
+  "name": "Cisco Systems Inc.",
+  "sector": "Telecommunications",
+  "industry": "Computer Communications Equipment",
+  "country": "United States"
+ },
+ {
+  "symbol": "INTC",
+  "name": "Intel Corporation",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "United States"
+ },
+ {
+  "symbol": "ABBV",
+  "name": "AbbVie Inc.",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations",
+  "country": "United States"
+ },
+ {
+  "symbol": "BAC",
+  "name": "Bank of America Corporation",
+  "sector": "Finance",
+  "industry": "Major Banks",
+  "country": "United States"
+ },
+ {
+  "symbol": "COST",
+  "name": "Costco Wholesale Corporation",
+  "sector": "Consumer Discretionary",
+  "industry": "Department/Specialty Retail Stores",
+  "country": "United States"
+ },
+ {
+  "symbol": "AMAT",
+  "name": "Applied Materials Inc.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "United States"
+ },
+ {
+  "symbol": "CVX",
+  "name": "Chevron Corporation",
+  "sector": "Energy",
+  "industry": "Integrated oil Companies",
+  "country": "United States"
+ },
+ {
+  "symbol": "KO",
+  "name": "The Coca-Cola Company",
+  "sector": "Consumer Staples",
+  "industry": "Beverages (Production/Distribution)",
+  "country": "United States"
+ },
+ {
+  "symbol": "UNH",
+  "name": "UnitedHealth Group Incorporated",
+  "sector": "Health Care",
+  "industry": "Medical Specialities",
+  "country": "United States"
+ },
+ {
+  "symbol": "ORCL",
+  "name": "Oracle Corporation",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software",
+  "country": "United States"
+ },
+ {
+  "symbol": "LRCX",
+  "name": "Lam Research Corporation",
+  "sector": "Technology",
+  "industry": "Industrial Machinery/Components",
+  "country": "United States"
+ },
+ {
+  "symbol": "HSBC",
+  "name": "HSBC Holdings plc.",
+  "sector": "Finance",
+  "industry": "Savings Institutions",
+  "country": "United Kingdom"
+ },
+ {
+  "symbol": "PG",
+  "name": "The Procter & Gamble Company",
+  "sector": "Consumer Discretionary",
+  "industry": "Package Goods/Cosmetics",
+  "country": "United States"
+ },
+ {
+  "symbol": "MS",
+  "name": "Morgan Stanley",
+  "sector": "Finance",
+  "industry": "Investment Bankers/Brokers/Service",
+  "country": "United States"
+ },
+ {
+  "symbol": "HD",
+  "name": "The Home Depot Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "RETAIL: Building Materials",
+  "country": "United States"
+ },
+ {
+  "symbol": "MRK",
+  "name": "Merck & Company Inc.",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations",
+  "country": "United States"
+ },
+ {
+  "symbol": "GS",
+  "name": "The Goldman Sachs Group Inc.",
+  "sector": "Finance",
+  "industry": "Investment Bankers/Brokers/Service",
+  "country": "United States"
+ },
+ {
+  "symbol": "TM",
+  "name": "Toyota Motor Corporation",
+  "sector": "Industrials",
+  "industry": "Auto Manufacturing",
+  "country": "Japan"
+ },
+ {
+  "symbol": "NVS",
+  "name": "Novartis AG",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations",
+  "country": "Switzerland"
+ }
+]

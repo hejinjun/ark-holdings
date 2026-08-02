@@ -1,0 +1,212 @@
+[
+ {
+  "symbol": "SO",
+  "name": "The Southern Company",
+  "sector": "Utilities",
+  "industry": "Electric Utilities: Central",
+  "country": "United States"
+ },
+ {
+  "symbol": "SNY",
+  "name": "Sanofi ADS",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations",
+  "country": "France"
+ },
+ {
+  "symbol": "BN",
+  "name": "Brookfield Corporation Class A Limited Voting",
+  "sector": "Real Estate",
+  "industry": "Building operators",
+  "country": "Canada"
+ },
+ {
+  "symbol": "GD",
+  "name": "General Dynamics Corporation",
+  "sector": "Industrials",
+  "industry": "Marine Transportation",
+  "country": "United States"
+ },
+ {
+  "symbol": "MCK",
+  "name": "McKesson Corporation",
+  "sector": "Health Care",
+  "industry": "Other Pharmaceuticals",
+  "country": "United States"
+ },
+ {
+  "symbol": "EQNR",
+  "name": "Equinor ASA",
+  "sector": "Energy",
+  "industry": "Integrated oil Companies",
+  "country": "Norway"
+ },
+ {
+  "symbol": "ING",
+  "name": "ING Group N.V.",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "Netherlands"
+ },
+ {
+  "symbol": "EQIX",
+  "name": "Equinix Inc.",
+  "sector": "Real Estate",
+  "industry": "Real Estate Investment Trusts",
+  "country": "United States"
+ },
+ {
+  "symbol": "TT",
+  "name": "Trane Technologies plc",
+  "sector": "Industrials",
+  "industry": "Auto Parts:O.E.M.",
+  "country": "Ireland"
+ },
+ {
+  "symbol": "PNC",
+  "name": "The PNC Financial Services Group Inc.",
+  "sector": "Finance",
+  "industry": "Major Banks",
+  "country": "United States"
+ },
+ {
+  "symbol": "PWR",
+  "name": "Quanta Services Inc.",
+  "sector": "Industrials",
+  "industry": "Engineering & Construction",
+  "country": "United States"
+ },
+ {
+  "symbol": "ADBE",
+  "name": "Adobe Inc.",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software",
+  "country": "United States"
+ },
+ {
+  "symbol": "CNQ",
+  "name": "Canadian Natural Resources Limited",
+  "sector": "Energy",
+  "industry": "Oil & Gas Production",
+  "country": "Canada"
+ },
+ {
+  "symbol": "NEM",
+  "name": "Newmont Corporation",
+  "sector": "Basic Materials",
+  "industry": "Precious Metals",
+  "country": "United States"
+ },
+ {
+  "symbol": "MAR",
+  "name": "Marriott International",
+  "sector": "Consumer Discretionary",
+  "industry": "Hotels/Resorts",
+  "country": "United States"
+ },
+ {
+  "symbol": "DUK",
+  "name": "Duke Energy Corporation",
+  "sector": "Utilities",
+  "industry": "Power Generation",
+  "country": "United States"
+ },
+ {
+  "symbol": "USB",
+  "name": "U.S. Bancorp",
+  "sector": "Finance",
+  "industry": "Major Banks",
+  "country": "United States"
+ },
+ {
+  "symbol": "CME",
+  "name": "CME Group Inc.",
+  "sector": "Finance",
+  "industry": "Investment Bankers/Brokers/Service",
+  "country": "United States"
+ },
+ {
+  "symbol": "BCS",
+  "name": "Barclays PLC",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "United Kingdom"
+ },
+ {
+  "symbol": "BX",
+  "name": "Blackstone Inc.",
+  "sector": "Finance",
+  "industry": "Investment Managers",
+  "country": "United States"
+ },
+ {
+  "symbol": "CEG",
+  "name": "Constellation Energy Corporation",
+  "sector": "Utilities",
+  "industry": "Electric Utilities: Central",
+  "country": "United States"
+ },
+ {
+  "symbol": "MNST",
+  "name": "Monster Beverage Corporation",
+  "sector": "Consumer Staples",
+  "industry": "Beverages (Production/Distribution)",
+  "country": "United States"
+ },
+ {
+  "symbol": "CDNS",
+  "name": "Cadence Design Systems Inc.",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software",
+  "country": "United States"
+ },
+ {
+  "symbol": "CSX",
+  "name": "CSX Corporation",
+  "sector": "Industrials",
+  "industry": "Railroads",
+  "country": "United States"
+ },
+ {
+  "symbol": "VRT",
+  "name": "Vertiv Holdings LLC",
+  "sector": "Technology",
+  "industry": "Industrial Machinery/Components",
+  "country": "United States"
+ },
+ {
+  "symbol": "VLO",
+  "name": "Valero Energy Corporation",
+  "sector": "Energy",
+  "industry": "Integrated oil Companies",
+  "country": "United States"
+ },
+ {
+  "symbol": "MPC",
+  "name": "Marathon Petroleum Corporation",
+  "sector": "Energy",
+  "industry": "Integrated oil Companies",
+  "country": "United States"
+ },
+ {
+  "symbol": "RACE",
+  "name": "Ferrari N.V.",
+  "sector": "Industrials",
+  "industry": "Auto Manufacturing",
+  "country": "Italy"
+ },
+ {
+  "symbol": "KKR",
+  "name": "KKR & Co. Inc.",
+  "sector": "Finance",
+  "industry": "Investment Managers",
+  "country": "United States"
+ },
+ {
+  "symbol": "WM",
+  "name": "Waste Management Inc.",
+  "sector": "Utilities",
+  "industry": "Environmental Services",
+  "country": "United States"
+ }
+]

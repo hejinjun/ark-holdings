@@ -1,0 +1,163 @@
+[
+ {
+  "symbol": "MRSH",
+  "name": "Marsh",
+  "sector": "Finance",
+  "industry": "Specialty Insurers",
+  "country": "United States"
+ },
+ {
+  "symbol": "FCX",
+  "name": "Freeport-McMoRan Inc.",
+  "sector": "Basic Materials",
+  "industry": "Metal Mining",
+  "country": "United States"
+ },
+ {
+  "symbol": "JCI",
+  "name": "Johnson Controls International plc",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components",
+  "country": "Switzerland"
+ },
+ {
+  "symbol": "UPS",
+  "name": "United Parcel Service Inc.",
+  "sector": "Industrials",
+  "industry": "Trucking Freight/Courier Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "CMI",
+  "name": "Cummins Inc.",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components",
+  "country": "United States"
+ },
+ {
+  "symbol": "WMB",
+  "name": "The Williams Companies Inc.",
+  "sector": "Utilities",
+  "industry": "Natural Gas Distribution",
+  "country": "United States"
+ },
+ {
+  "symbol": "E",
+  "name": "ENI S.p.A.",
+  "sector": "Energy",
+  "industry": "Oil & Gas Production",
+  "country": "Italy"
+ },
+ {
+  "symbol": "HCA",
+  "name": "HCA Healthcare Inc.",
+  "sector": "Health Care",
+  "industry": "Hospital/Nursing Management",
+  "country": "United States"
+ },
+ {
+  "symbol": "INTU",
+  "name": "Intuit Inc.",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software",
+  "country": "United States"
+ },
+ {
+  "symbol": "ICE",
+  "name": "Intercontinental Exchange Inc.",
+  "sector": "Finance",
+  "industry": "Investment Bankers/Brokers/Service",
+  "country": "United States"
+ },
+ {
+  "symbol": "RCL",
+  "name": "Royal Caribbean Cruises Ltd.",
+  "sector": "Consumer Discretionary",
+  "industry": "Marine Transportation",
+  "country": "United States"
+ },
+ {
+  "symbol": "CMCSA",
+  "name": "Comcast Corporation",
+  "sector": "Telecommunications",
+  "industry": "Cable & Other Pay Television Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "PSX",
+  "name": "Phillips 66",
+  "sector": "Energy",
+  "industry": "Integrated oil Companies",
+  "country": "United States"
+ },
+ {
+  "symbol": "EMR",
+  "name": "Emerson Electric Company",
+  "sector": "Technology",
+  "industry": "Consumer Electronics/Appliances",
+  "country": "United States"
+ },
+ {
+  "symbol": "MCO",
+  "name": "Moody's Corporation",
+  "sector": "Finance",
+  "industry": "Finance: Consumer Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "SHW",
+  "name": "The Sherwin-Williams Company",
+  "sector": "Consumer Discretionary",
+  "industry": "RETAIL: Building Materials",
+  "country": "United States"
+ },
+ {
+  "symbol": "ITW",
+  "name": "Illinois Tool Works Inc.",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components",
+  "country": "United States"
+ },
+ {
+  "symbol": "EPD",
+  "name": "Enterprise Products Partners L.P.",
+  "sector": "Utilities",
+  "industry": "Natural Gas Distribution",
+  "country": "United States"
+ },
+ {
+  "symbol": "CTAS",
+  "name": "Cintas Corporation",
+  "sector": "Industrials",
+  "industry": "Garments and Clothing",
+  "country": "United States"
+ },
+ {
+  "symbol": "ELV",
+  "name": "Elevance Health Inc.",
+  "sector": "Health Care",
+  "industry": "Medical Specialities",
+  "country": "United States"
+ },
+ {
+  "symbol": "AMT",
+  "name": "American Tower Corporation",
+  "sector": "Real Estate",
+  "industry": "Real Estate Investment Trusts",
+  "country": "United States"
+ },
+ {
+  "symbol": "ROST",
+  "name": "Ross Stores Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "Clothing/Shoe/Accessory Stores",
+  "country": "United States"
+ },
+ {
+  "symbol": "REGN",
+  "name": "Regeneron Pharmaceuticals Inc.",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations",
+  "country": "United States"
+ }
+]

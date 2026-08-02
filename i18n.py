@@ -331,6 +331,9 @@ LEADERS = {
         "colWeight": "Weight",
         "colPrice": "Price",
         "colChange": "Change",
+        "colRange": "52-week range",
+        "colOffHigh": "Off high",
+        "colOffLow": "Off low",
         "colArk": "ARK",
         "arkHeld": "held",
         "listed": "listed",
@@ -359,6 +362,9 @@ LEADERS = {
         "colWeight": "权重",
         "colPrice": "现价",
         "colChange": "涨跌",
+        "colRange": "52 周区间",
+        "colOffHigh": "距高点",
+        "colOffLow": "距低点",
         "colArk": "ARK",
         "arkHeld": "持有",
         "listed": "上市于",
@@ -378,17 +384,17 @@ LEADERS = {
 LEADERS_PAGE = {
     "en": {
         "eyebrow": "Market cap leaderboard",
-        "title": "The 200 largest US companies",
+        "title": "The 200 largest companies on the US market",
         "standfirst": (
-            "Every US-registered operating company listed on a US exchange, ranked by "
-            "market capitalisation, cut at 200. Foreign issuers are excluded even though "
-            "they trade here — TSMC would rank eighth — because the largest US "
-            "companies and the largest companies on a US exchange are different lists. "
-            "Nasdaq's screener has no memory, so each day's ranking is archived here; "
-            "the movement column is what that archive buys."
+            "Every operating company whose shares trade on a US exchange, ranked by "
+            "market capitalisation, cut at 200. Where a company is incorporated does not "
+            "decide membership — TSMC, ASML and Novo Nordisk are all buyable from a US "
+            "brokerage account and all rank here — but it is a filter, so the domestic "
+            "list stays one chip away. Nasdaq's screener has no memory, so each day's "
+            "ranking is archived here; the movement column is what that archive buys."
         ),
         "tileCap": "Leaderboard market cap",
-        "tileCapNote": "{p}% of all {n} US-listed US companies",
+        "tileCapNote": "{p}% of all {n} US-listed companies",
         "tileCutoff": "Entry threshold",
         "tileCutoffNote": "#200 is {t}",
         "tileTop10": "Top 10 share",
@@ -397,21 +403,21 @@ LEADERS_PAGE = {
         "tileTurnoverNote": "since {d}",
         "tileArk": "Held by ARK",
         "tileArkNote": "overlap with the ARK book",
-        "provenance": ("as of {date}  ·  top {n} of {u} US-registered companies  ·  "
+        "provenance": ("as of {date}  ·  top {n} of {u} US-listed companies  ·  "
                        "{held} also held by ARK  ·  market caps from the Nasdaq screener"),
     },
     "zh": {
         "eyebrow": "市值榜",
-        "title": "美国市值最大的 200 家公司",
+        "title": "美股市值最大的 200 家公司",
         "standfirst": (
-            "在美国交易所挂牌、且注册地在美国的经营性公司，按市值排序取前 200 名。"
-            "在美上市的外国公司即使市值很高也不计入——台积电本可排到第八"
-            "——因为「美国最大的公司」和「美股上最大的公司」是两份不同的名单。"
+            "在美国交易所挂牌交易的经营性公司，按市值排序取前 200 名。"
+            "注册地不决定是否入榜——台积电、ASML、诺和诺德都能用美股账户买到，"
+            "也都排在榜上——注册地只是一个筛选维度，想只看美国公司点一下就行。"
             "Nasdaq 的筛选器不保留历史，所以每天的排名都在这里存档，"
             "「变化」这一列就是存档换来的东西。"
         ),
         "tileCap": "榜单总市值",
-        "tileCapNote": "占全部 {n} 家美国公司的 {p}%",
+        "tileCapNote": "占全部 {n} 家美股上市公司的 {p}%",
         "tileCutoff": "入榜门槛",
         "tileCutoffNote": "第 200 名是 {t}",
         "tileTop10": "前十占比",
@@ -420,17 +426,18 @@ LEADERS_PAGE = {
         "tileTurnoverNote": "相比 {d}",
         "tileArk": "ARK 持有",
         "tileArkNote": "与 ARK 持仓的重叠",
-        "provenance": ("数据日期 {date}  ·  {u} 家美国注册公司中的前 {n} 名  ·  "
+        "provenance": ("数据日期 {date}  ·  {u} 家美股上市公司中的前 {n} 名  ·  "
                        "其中 {held} 家被 ARK 持有  ·  市值来自 Nasdaq 筛选器"),
     },
 }
 
 LEADERS_FOOTNOTES = {
     "en": [
-        ["Registration decides membership, not where the shares trade.",
-         "The screener's country field is what is filtered on. TSMC, ASML, Novo Nordisk "
-         "and Toyota all trade on a US exchange and are all excluded; so are the 223 "
-         "Canadian issuers. This is a ranking of US companies, not of US listings."],
+        ["This ranks the US market, not US companies.",
+         "Membership is decided by where the shares trade, not by where the issuer is "
+         "incorporated: TSMC ranks sixth, and ASML, Novo Nordisk, Toyota, Shell and the "
+         "Canadian banks all rank. Domicile is a filter instead — one chip narrows the "
+         "board to US-incorporated issuers, which is a different and smaller list."],
         ["Dual-class lines are collapsed by hand, not by rule.",
          "Nasdaq reports Alphabet's whole market cap against both GOOG and GOOGL, and "
          "Berkshire's against both BRK.A and BRK.B — summing them would invent a "
@@ -445,16 +452,16 @@ LEADERS_FOOTNOTES = {
          "SpaceX is tagged Computer Software, GE Aerospace is tagged Consumer "
          "Electronics. Useful for narrowing the list, not for classifying it."],
         ["Companies with no reported market cap are absent, not zero.",
-         "Around 315 listings — almost all 2025-26 SPACs — return a blank cap "
+         "Around 320 listings — almost all 2025-26 SPACs — return a blank cap "
          "from the screener. None are anywhere near the threshold."],
         ["", "Source: Nasdaq's stock screener, archived daily. "
              "Market data, not investment advice."],
     ],
     "zh": [
-        ["决定是否入榜的是注册地，不是股票在哪里交易。",
-         "筛选依据是数据源的 country 字段。台积电、ASML、诺和诺德、丰田都在美国交易所"
-         "挂牌，但都不计入；223 家加拿大公司同样不计入。这是一份美国公司的榜单，"
-         "不是一份美股挂牌公司的榜单。"],
+        ["这份榜单排的是美股市场，不是美国公司。",
+         "决定是否入榜的是股票在哪里交易，而不是公司在哪里注册：台积电排第六，"
+         "ASML、诺和诺德、丰田、壳牌和加拿大的几家银行也都在榜上。注册地改成了筛选维度"
+         "——点一下就能把榜单收窄成「在美国注册的公司」，那是另一份更短的名单。"],
         ["双重股权是逐个手工归并的，不是靠规则。",
          "Nasdaq 把 Alphabet 的整家公司市值同时挂在 GOOG 和 GOOGL 两条线上，"
          "Berkshire 的 BRK.A 和 BRK.B 也一样——两条相加会凭空造出一家公司，"
@@ -467,7 +474,7 @@ LEADERS_FOOTNOTES = {
          "SpaceX 被标成「计算机软件」，GE 航空发动机被标成「消费电子」。"
          "适合用来缩小范围，不适合当分类依据。"],
         ["没有市值数据的公司是缺失，不是零。",
-         "约 315 只标的——几乎全是 2025-26 年的 SPAC 壳——"
+         "约 320 只标的——几乎全是 2025-26 年的 SPAC 壳——"
          "在数据源里市值为空，没有一只接近入榜门槛。"],
         ["", "数据来源：Nasdaq 股票筛选器，每日存档。"
              "仅为市场数据，不构成投资建议。"],
@@ -511,7 +518,9 @@ HOME = {
         "sourcesHint": "Every source overwrites in place at origin. These are the "
                        "newest copies archived here, and how far behind they are.",
         "ok": "current", "late": "late", "stale": "stale", "missing": "missing",
-        "sessionsBehind": "{n} session(s) behind",
+        "sessionBehind": "1 session behind",
+        "sessionsBehind": "{n} sessions behind",
+        "dayBehind": "1 day old",
         "daysBehind": "{n} days old",
         "never": "never fetched",
         "moves": "What ARK did",
@@ -541,7 +550,9 @@ HOME = {
         "sourcesHint": "每个数据源在原站点都是就地覆盖、不留历史。这里是本地存档的最新副本，"
                        "以及它落后了多久。",
         "ok": "最新", "late": "偏旧", "stale": "过期", "missing": "缺失",
+        "sessionBehind": "落后 1 个交易日",
         "sessionsBehind": "落后 {n} 个交易日",
+        "dayBehind": "1 天前",
         "daysBehind": "{n} 天前",
         "never": "从未抓取",
         "moves": "ARK 今天做了什么",
