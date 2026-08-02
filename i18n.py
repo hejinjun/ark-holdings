@@ -845,6 +845,56 @@ FILER_PAGE = {
     },
 }
 
+# The ARK feed's footnotes describe machinery a filing has none of: a flow
+# factor, a trade date inferred from a file date, a daily reconstruction to
+# check against. Stating them here would explain the wrong thing carefully.
+FILER_ACTIVITY_FOOTNOTES = {
+    "en": [
+        ["Share counts are differenced, never market value.",
+         "Market value moves with price whether or not the manager traded."],
+        ["No flow correction is applied, and that is deliberate.",
+         "The correction exists to divide out an ETF's creations and redemptions. "
+         "A 13F filer has no such mechanism, so a move across the whole book is a "
+         "decision rather than plumbing, and dividing it out would report untouched "
+         "positions as purchases."],
+        ["A quarter is one observation, filed late.",
+         "Everything between two filings is invisible: a position opened and closed "
+         "inside a quarter never appears, and one that merely fell below the "
+         "reporting threshold looks identical to one that was sold."],
+        ["Dates are quarter ends, not decision dates.",
+         "The change is stamped with the earlier of the two filings it was derived "
+         "from. It happened somewhere in the three months after that, and was "
+         "public up to 45 days after that."],
+        ["", "Source: the manager's own 13F-HR filings on SEC EDGAR. "
+             "Holdings data, not investment advice."],
+    ],
+    "zh": [
+        ["差分的是股数，不是市值。",
+         "市值每天都随价格变动，与经理是否交易无关。"],
+        ["这里不做资金流剥离，而且是刻意的。",
+         "那个校正是用来除掉 ETF 申购赎回的。13F 申报人没有这个机制，"
+         "所以全账本的同向变动是决策而不是机制；除掉它反而会把没动过的仓位"
+         "报成买入。"],
+        ["一个季度只有一个观测点，而且申报滞后。",
+         "两次申报之间发生的一切都不可见：季度内建仓又清仓的仓位从不出现，"
+         "而仅仅跌破申报门槛的仓位，看起来和被卖掉的一模一样。"],
+        ["日期是季度末，不是决策日。",
+         "变动被标记在推导它的较早那次申报上。它实际发生在此后的三个月内，"
+         "并且最晚在那之后 45 天才公开。"],
+        ["", "数据来源：该经理提交给 SEC EDGAR 的 13F-HR 申报。"
+             "仅为持仓数据，不构成投资建议。"],
+    ],
+}
+
+# UI strings the filer page overrides on top of ACTIVITY. Only the ones that
+# would otherwise say "session" about a quarter.
+FILER_ACTIVITY_UI = {
+    "en": {"status": "{n} of {t} changes  ·  {d} quarter(s)",
+           "empty": "No change matches those filters."},
+    "zh": {"status": "{n} / {t} 笔变动  ·  {d} 个季度",
+           "empty": "没有符合筛选条件的变动。"},
+}
+
 FILER_ACTIVITY_PAGE = {
     "en": {
         "eyebrow": "Quarterly changes",
@@ -858,6 +908,9 @@ FILER_ACTIVITY_PAGE = {
         ),
         "provenance": ("{first} to {last}  ·  {days} quarters  ·  {n} changes  ·  "
                        "derived from consecutive 13F-HR filings"),
+        "tileSessions": "Quarters", "tileSessionsNote": "since {first}",
+        "tileMoves": "Changes", "tileMovesNote": "one filer, summed by CUSIP",
+        "tileTouched": "Positions touched", "tileTouchedNote": "distinct securities",
     },
     "zh": {
         "eyebrow": "季度调仓",
@@ -870,5 +923,8 @@ FILER_ACTIVITY_PAGE = {
         ),
         "provenance": ("{first} 至 {last}  ·  {days} 个季度  ·  {n} 笔变动  ·  "
                        "由相邻 13F-HR 申报差分推导"),
+        "tileSessions": "季度数", "tileSessionsNote": "自 {first} 起",
+        "tileMoves": "变动数", "tileMovesNote": "单一申报人，按 CUSIP 汇总",
+        "tileTouched": "涉及标的", "tileTouchedNote": "去重后的证券数",
     },
 }

@@ -37,7 +37,11 @@ def use_source(name: str) -> None:
     if not DATA.is_dir():
         raise SystemExit(f"no data for source {name!r} at {DATA}")
 
+# How many snapshots back the feed reaches. A snapshot is a trading session for
+# ARK and a quarter for a 13F filer, so one number cannot serve both: 30 is six
+# weeks of ARK and seven and a half years of filings.
 DEFAULT_DAYS = 30
+FILER_DEFAULT = 8
 # Sweeping the money-market position is cash management, not a view on a
 # company, and it is large enough to sit at the top of every day if left in.
 SKIP_CLASSES = {"cash"}
@@ -205,6 +209,10 @@ def build(days: int) -> dict:
         "kinds": [{"v": k, "label": i18n.ACTIVITY[ "en"][k], "label_zh": i18n.ACTIVITY["zh"][k]}
                   for k in ("new", "buy", "sell", "exit")],
         "funds": [{"v": f, "label": f, "label_zh": f} for f in funds],
+        # One filer cannot agree with itself: the fund column, the fund filter
+        # and the agreement filter would all be a constant. Offering a filter
+        # that can never narrow anything is worse than not offering it.
+        "single": len(funds) <= 1,
         "sites": links.SITES,
         "events": events,
         "byDay": [{"d": d, **by_day[d]} for d in sorted(by_day, reverse=True)],
@@ -231,25 +239,33 @@ def page(lang: str, dates: list[str], events: list[dict], conviction: int) -> di
         "provenance": (f or c)["provenance"].format(
             first=dates[0], last=dates[-1], days=len(dates), n=len(events)),
         "tiles": [
-            [c["tileSessions"], str(len(dates)), c["tileSessionsNote"].format(first=dates[0])],
-            [c["tileMoves"], str(len(events)), c["tileMovesNote"]],
-            [c["tileConviction"], str(conviction),
-             c["tileConvictionNote"].format(n=CONVICTION)],
+            [(f or c)["tileSessions"], str(len(dates)),
+             (f or c)["tileSessionsNote"].format(first=dates[0])],
+            [(f or c)["tileMoves"], str(len(events)), (f or c)["tileMovesNote"]],
+            # Agreement counts funds moving the same way, which a single filer
+            # can never do. How many securities it touched says something.
+            ([f["tileTouched"], str(len({e["c"] for e in events})), f["tileTouchedNote"]]
+             if f else
+             [c["tileConviction"], str(conviction),
+              c["tileConvictionNote"].format(n=CONVICTION)]),
             [c["tileOpened"],
              f'{sum(1 for e in events if e["k"] == "new")} / '
              f'{sum(1 for e in events if e["k"] == "exit")}',
              c["tileOpenedNote"]],
         ],
         "nav": i18n.NAV[lang],
-        "footnotes": i18n.ACTIVITY_FOOTNOTES[lang],
-        "ui": i18n.ACTIVITY[lang],
+        "footnotes": (i18n.FILER_ACTIVITY_FOOTNOTES if f
+                      else i18n.ACTIVITY_FOOTNOTES)[lang],
+        "ui": {**i18n.ACTIVITY[lang],
+               **(i18n.FILER_ACTIVITY_UI[lang] if f else {})},
     }
 
 
 def main(argv: list[str]) -> int:
     if "--source" in argv:
         use_source(argv[argv.index("--source") + 1])
-    days = int(argv[argv.index("--days") + 1]) if "--days" in argv else DEFAULT_DAYS
+    days = (int(argv[argv.index("--days") + 1]) if "--days" in argv
+            else DEFAULT_DAYS if SOURCE == "ark" else FILER_DEFAULT)
     payload = build(days)
     out = DATA / "activity.html"
     out.write_text(shell.render(TEMPLATE, payload), encoding="utf-8")

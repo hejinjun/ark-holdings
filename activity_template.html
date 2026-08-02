@@ -95,6 +95,13 @@
 }
 .feedhead .r { text-align: right; }
 
+/* With one filer the funds column carries a constant, so it is dropped from
+   the grid as well as from the markup -- otherwise it reserves 150px of
+   nothing at the right edge of every row. */
+body.single .move, body.single .feedhead {
+  grid-template-columns: 74px 82px minmax(200px, 1fr) 120px 118px;
+}
+
 @media (max-width: 760px) {
   .move, .feedhead { grid-template-columns: 1fr 1fr; gap: 4px 12px; }
   .feedhead { display: none; }
@@ -154,6 +161,8 @@ const desc = e => (lang === 'zh' && e.dz) ? e.dz : (e.ds || '');
 const HERE = 'activity';
 /*__NAV__*/
 
+document.body.classList.toggle('single', !!DATA.single);
+
 const usd = n => n.toLocaleString('en-US', {maximumFractionDigits: 0});
 function money(v) {
   const a = Math.abs(v);
@@ -161,13 +170,17 @@ function money(v) {
   return '$' + (a / div).toFixed(a / div >= 100 ? 0 : 1) + suf;
 }
 
+// A single filer cannot agree with itself, so those two dimensions are left
+// out rather than offered and permanently empty.
 const GROUPS = [
   {key: 'kind', label: 'Action', label_zh: '动作', options: DATA.kinds},
-  {key: 'fund', label: 'Fund', label_zh: '基金', options: DATA.funds},
-  {key: 'agree', label: 'Agreement', label_zh: '一致性', options: [
-    {v: '2', label: '2+ funds', label_zh: '2 只以上'},
-    {v: '3', label: '3+ funds', label_zh: '3 只以上'},
-  ]},
+  ...(DATA.single ? [] : [
+    {key: 'fund', label: 'Fund', label_zh: '基金', options: DATA.funds},
+    {key: 'agree', label: 'Agreement', label_zh: '一致性', options: [
+      {v: '2', label: '2+ funds', label_zh: '2 只以上'},
+      {v: '3', label: '3+ funds', label_zh: '3 只以上'},
+    ]},
+  ]),
 ];
 
 const state = {q: '', sel: {}, open: new Set()};
@@ -266,7 +279,8 @@ function paintStatic() {
   document.getElementById('feedhead').innerHTML = `
     <span>${t('colDate')}</span><span>${t('colAction')}</span>
     <span>${t('colCompany')}</span><span class="r">${t('colShares')}</span>
-    <span class="r">${t('colValue')}</span><span>${t('colFunds')}</span>`;
+    <span class="r">${t('colValue')}</span>
+    <span>${DATA.single ? '' : t('colFunds')}</span>`;
 
   document.querySelectorAll('#filter-groups .filter-label').forEach(el => {
     const g = GROUPS.find(x => x.key === el.id.slice(4));
@@ -338,7 +352,8 @@ function render() {
         <span><span class="tick">${e.t || '—'}</span> <span class="co">${e.n}</span></span>
         <span class="num">${usd(Math.abs(e.s))}</span>
         <span class="num">${e.v ? money(e.v) : '—'}</span>
-        <span class="fundlist"><span class="fundcount">${e.f.length}</span> ${e.f.join(' ')}</span>
+        ${DATA.single ? '<span></span>' : `<span class="fundlist"><span
+          class="fundcount">${e.f.length}</span> ${e.f.join(' ')}</span>`}
       </div>
       ${open ? `<div class="movedetail">
         ${desc(e) ? `<p class="detail-desc">${desc(e)}</p>` : ''}
