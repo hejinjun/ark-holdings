@@ -490,11 +490,11 @@ LEADERS_FOOTNOTES = {
 NAV = {
     "en": {
         "index": "Today", "holdings": "Holdings", "activity": "Trades",
-        "leaders": "Top 300", "archive": "Archive",
+        "leaders": "Top 300", "manager": "13F", "archive": "Archive",
     },
     "zh": {
         "index": "今日", "holdings": "持仓", "activity": "交易",
-        "leaders": "市值榜", "archive": "存档",
+        "leaders": "市值榜", "manager": "管理人", "archive": "存档",
     },
 }
 
@@ -548,6 +548,7 @@ HOME = {
         "managerBook": "{n} positions · {q} quarters on file",
         "managerChurn": "{opened} opened · {closed} closed vs {d}",
         "managerLag": "as of {d} — a quarter end, not today",
+        "managerAll": "the whole book →",
         "next": "Not wired up yet",
         "nextHint": "Collected or planned, but not yet on a page.",
         "empty": "Nothing on file yet.",
@@ -585,6 +586,7 @@ HOME = {
         "managerBook": "{n} 个仓位 · 已存档 {q} 个季度",
         "managerChurn": "相比 {d}：建仓 {opened} · 清仓 {closed}",
         "managerLag": "数据截至 {d}——是季度末，不是今天",
+        "managerAll": "查看完整持仓 →",
         "next": "尚未接入",
         "nextHint": "已经在采集或已列入计划，但还没有对应页面。",
         "empty": "还没有数据。",
@@ -647,19 +649,161 @@ HOME_FOOTNOTES = {
 # not shown" is a judgement about the site, not a fact about the code.
 HOME_NEXT = {
     "en": [
-        ["A page per manager", "The book above is one card. Thirteen years of "
-                               "quarterly filings can say when a position was opened "
-                               "and how it was sized; nothing displays that yet."],
         ["More filers", "The registry knows Key Square and Berkshire. Neither has "
-                        "been ingested, so nothing here compares two managers."],
+                        "been ingested, so nothing here compares two managers -- "
+                        "which is the only real test of whether the ingest generalises."],
         ["Watchlist", "Nothing here follows what you own or want to own. That is the "
                       "next thing worth having."],
     ],
     "zh": [
-        ["管理人独立页面", "上面那张卡片只是一个快照。13 年的季度申报能说清一个仓位"
-                           "什么时候建的、加到多大、什么时候清的，目前没有任何一页展示这些。"],
         ["更多管理人", "注册表里还有 Key Square 和 Berkshire，都还没抓过，"
-                       "所以现在无法做两个管理人之间的对比。"],
+                       "所以现在无法做两个管理人之间的对比——而那才是检验这套抓取"
+                       "能不能推广的唯一办法。"],
         ["关注列表", "目前没有任何一页跟踪你自己持有或想持有的标的。这是下一个值得做的东西。"],
+    ],
+}
+
+
+# ---- manager (13F) ----
+
+MANAGER = {
+    "en": {
+        "book": "The book",
+        "bookHint": "Click a row for the full quarter-by-quarter history. "
+                    "Click a column head to sort.",
+        "search": "Search ticker or company",
+        "clear": "Clear filters",
+        "colTicker": "Ticker",
+        "colCompany": "Company",
+        "colWeight": "Weight",
+        "colValue": "Value",
+        "colShares": "Shares",
+        "colHistory": "Weight over time",
+        "colHeld": "Quarters",
+        "colSince": "Held since",
+        "status": "{n} of {t} positions  ·  {p}% of the book",
+        "empty": "No position matches those filters.",
+        "exits": "Recently closed",
+        "exitsHint": "Held within the last {n} quarters, gone now. Sized as it was "
+                     "when last reported.",
+        "lastSeen": "last seen {d}",
+        "historyOf": "Weight in the book, by quarter",
+        "quartersHeld": "{n} quarters held, first reported {d}",
+        "notHeld": "not held",
+        "unidentified": "no ticker resolved",
+        "peak": "peak {w}%",
+        "tooltipQuarter": "Quarter",
+        "tooltipWeight": "Weight",
+        "tooltipValue": "Value",
+        "tooltipShares": "Shares",
+    },
+    "zh": {
+        "book": "当前持仓",
+        "bookHint": "点击某一行查看逐季度完整历史，点击列头排序。",
+        "search": "搜索代码或公司名",
+        "clear": "清除筛选",
+        "colTicker": "代码",
+        "colCompany": "公司",
+        "colWeight": "权重",
+        "colValue": "市值",
+        "colShares": "股数",
+        "colHistory": "权重变化",
+        "colHeld": "持有季度",
+        "colSince": "本轮建仓",
+        "status": "{n} / {t} 个仓位  ·  占账本 {p}%",
+        "empty": "没有符合筛选条件的仓位。",
+        "exits": "近期清仓",
+        "exitsHint": "最近 {n} 个季度内持有过、现在已不在。金额为最后一次申报时的规模。",
+        "lastSeen": "最后出现于 {d}",
+        "historyOf": "该仓位在账本中的权重，按季度",
+        "quartersHeld": "累计持有 {n} 个季度，最早申报于 {d}",
+        "notHeld": "未持有",
+        "unidentified": "未解析出代码",
+        "peak": "最高 {w}%",
+        "tooltipQuarter": "季度",
+        "tooltipWeight": "权重",
+        "tooltipValue": "市值",
+        "tooltipShares": "股数",
+    },
+}
+
+MANAGER_PAGE = {
+    "en": {
+        "eyebrow": "13F filings",
+        "title": "{label}",
+        "standfirst": (
+            "One filer's US equity book, quarter by quarter. Every row carries its "
+            "own history, because that is what an archive of filings can say and a "
+            "daily holdings feed cannot: not what is held today, but when it was "
+            "opened, how it was sized, and how long the conviction lasted."
+        ),
+        "tileValue": "Reported book",
+        "tileValueNote": "long US equity, ETFs and ADRs only",
+        "tilePositions": "Positions",
+        "tilePositionsNote": "{n} opened this quarter",
+        "tileTop10": "Top 10 weight",
+        "tileTop10Note": "of the reported book",
+        "tileLasting": "Held 2+ years",
+        "tileLastingNote": "eight quarters or more",
+        "provenance": ("as of {period}  ·  {n} positions  ·  {q} quarters archived "
+                       "from {first}  ·  filed with the SEC on Form 13F"),
+    },
+    "zh": {
+        "eyebrow": "13F 申报",
+        "title": "{label}",
+        "standfirst": (
+            "一位管理人的美股持仓，逐季度展开。每一行都带着自己的历史——"
+            "这正是一份申报存档能说、而每日持仓数据说不了的东西："
+            "不是今天持有什么，而是这个仓位什么时候建的、加到多大、这份信心持续了多久。"
+        ),
+        "tileValue": "申报账本",
+        "tileValueNote": "仅美股多头、ETF 与 ADR",
+        "tilePositions": "仓位数",
+        "tilePositionsNote": "本季度新建 {n} 个",
+        "tileTop10": "前十权重",
+        "tileTop10Note": "占申报账本",
+        "tileLasting": "持有 2 年以上",
+        "tileLastingNote": "累计八个季度或更久",
+        "provenance": ("数据截至 {period}  ·  {n} 个仓位  ·  自 {first} 起已存档 "
+                       "{q} 个季度  ·  来源为 SEC Form 13F"),
+    },
+}
+
+MANAGER_FOOTNOTES = {
+    "en": [
+        ["A 13F is a partial book, filed late.",
+         "It lists long US equity, ETF, ADR and option positions as of a quarter "
+         "end, up to 45 days afterwards. Shorts, cash, bonds, futures and foreign "
+         "listings never appear, and for a macro manager those can be most of the "
+         "risk. Read this as what was held, not as what is held."],
+        ["Option lines are excluded, not netted.",
+         "A put is a bearish position that the filing reports in the same table as "
+         "the shares. Including it as a holding would invert the reading, so rows "
+         "carrying a putCall flag are dropped at ingest rather than summed."],
+        ["Weight is of the reported book, not of the manager's capital.",
+         "It is this position over the 13F total. Since the filing omits whole "
+         "asset classes, the denominator is smaller than the fund, and every "
+         "weight here is correspondingly larger than its true share."],
+        ["A gap in the history is silence, not a sale.",
+         "A position below the reporting threshold, or held through a quarter the "
+         "filer amended, simply does not appear. The chart shows the quarters it "
+         "was reported in; it cannot show what happened between them."],
+        ["", "Source: SEC EDGAR Form 13F. Holdings data, not investment advice."],
+    ],
+    "zh": [
+        ["13F 是一份不完整、且滞后的账本。",
+         "它申报的是季度末时点的美股多头、ETF、ADR 和期权仓位，最晚在 45 天后披露。"
+         "空头、现金、债券、期货和境外挂牌永远不会出现，而对一位宏观管理人来说，"
+         "那些可能才是风险的大头。请把这里读作「当时持有什么」，而不是「现在持有什么」。"],
+        ["期权行是被剔除的，不是被轧差的。",
+         "看跌期权是一个看空仓位，却和股票记在同一张表里。把它当作持仓计入会让结论完全反过来，"
+         "所以带 putCall 标记的行在抓取阶段就被丢弃，而不是加总。"],
+        ["权重是相对申报账本的，不是相对管理人全部资金的。",
+         "它等于该仓位除以 13F 总额。由于申报本身就漏掉了整类资产，这个分母小于基金真实规模，"
+         "所以这里的每个权重都比它真实的占比要大。"],
+        ["历史里的空档意味着没有申报，不等于卖出。",
+         "低于申报门槛的仓位，或者跨越了被修正申报的季度，就是不会出现。"
+         "图表显示的是它被申报过的那些季度，无法说明季度之间发生了什么。"],
+        ["", "数据来源：SEC EDGAR Form 13F。仅为持仓数据，不构成投资建议。"],
     ],
 }

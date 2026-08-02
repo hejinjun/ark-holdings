@@ -1,0 +1,7 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+AMZN,NASDAQ,023135106,Amazon.com Inc.,190000,128419000.00,1,Duquesne Family Office,Duquesne Family Office=190000
+MSFT,NASDAQ,594918104,Microsoft Corp,1165000,64634000.00,1,Duquesne Family Office,Duquesne Family Office=1165000
+HDB,NYSE,40415F101,HDFC Bank Ltd.,491100,30252000.00,1,Duquesne Family Office,Duquesne Family Office=491100
+NOC,NYSE,666807102,Northrop Grumman Corp,135600,25603000.00,1,Duquesne Family Office,Duquesne Family Office=135600
+GOOGL,NASDAQ,02079K305,Alphabet Inc.,32800,25519000.00,1,Duquesne Family Office,Duquesne Family Office=32800
+CMG,NYSE,169656105,Chipotle Mex Grill Inc.,20200,9693000.00,1,Duquesne Family Office,Duquesne Family Office=20200

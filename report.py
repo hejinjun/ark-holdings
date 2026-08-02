@@ -30,6 +30,39 @@ HERE = Path(__file__).parent
 DATA = HERE / "data"
 TEMPLATE = HERE / "report_template.html"
 
+# ARK stays at the data root; an ingested filer lives in its own directory.
+# Rebinding one module-level name is enough because every read below goes
+# through it -- the seam that let a 13F reuse this pipeline at all.
+SOURCE = "ark"
+
+
+def use_source(name: str) -> None:
+    global DATA, SOURCE
+    SOURCE = name
+    DATA = HERE / "data" if name == "ark" else HERE / "data" / name
+    if not DATA.is_dir():
+        raise SystemExit(f"no data for source {name!r} at {DATA}")
+
+
+def positional(argv: list[str]) -> list[str]:
+    """Arguments that are not flags, and not a flag's value.
+
+    A bare `--source duquesne` otherwise leaves "duquesne" looking like a
+    positional date, which is exactly how it was first read."""
+    takes_value = {"--source", "--days", "--out"}
+    out, skip = [], False
+    for a in argv:
+        if skip:
+            skip = False
+            continue
+        if a in takes_value:
+            skip = True
+            continue
+        if a.startswith("--"):
+            continue
+        out.append(a)
+    return out
+
 # Revenue, margin, cash and runway in the detail panel. The figures come from
 # SEC XBRL and are quarterly, so they are older than the price on the same row.
 SHOW_FINANCIALS = True
@@ -325,7 +358,9 @@ def load_tradeable(date: str) -> dict:
 
 
 def main(argv: list[str]) -> int:
-    args = [a for a in argv[1:] if not a.startswith("--")]
+    if "--source" in argv:
+        use_source(argv[argv.index("--source") + 1])
+    args = positional(argv[1:])
     full = "--full" in argv
     kind = "baseline" if full else "tradeable"
     dates = sorted(p.name.split("_")[1].removesuffix(".csv")

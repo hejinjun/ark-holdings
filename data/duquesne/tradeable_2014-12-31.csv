@@ -1,0 +1,26 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+BIIB,NASDAQ,09062X103,Biogen Idec Inc,359400,121998000.00,1,Duquesne Family Office,Duquesne Family Office=359400
+ILMN,NASDAQ,452327109,Illumina Inc,410100,75696000.00,1,Duquesne Family Office,Duquesne Family Office=410100
+TGT,NYSE,87612E106,Target Corp,760600,57737000.00,1,Duquesne Family Office,Duquesne Family Office=760600
+HD,NYSE,437076102,Home Depot Inc,529100,55540000.00,1,Duquesne Family Office,Duquesne Family Office=529100
+HDB,NYSE,40415F101,HDFC Bank Ltd,1003600,50933000.00,1,Duquesne Family Office,Duquesne Family Office=1003600
+LOW,NYSE,548661107,Lowe&apos;s Companies Inc,669200,46041000.00,1,Duquesne Family Office,Duquesne Family Office=669200
+COST,NASDAQ,22160K105,Costco Wholesale Corp,285000,40399000.00,1,Duquesne Family Office,Duquesne Family Office=285000
+WDAY,NASDAQ,98138H101,Workday Inc,330679,26987000.00,1,Duquesne Family Office,Duquesne Family Office=330679
+BABA,NYSE,01609W102,Alibaba Group Hldg Ltd,253900,26390000.00,1,Duquesne Family Office,Duquesne Family Office=253900
+WSM,NYSE,969904101,Williams-Sonoma Inc,347600,26306000.00,1,Duquesne Family Office,Duquesne Family Office=347600
+MS,NYSE,617446448,Morgan Stanley,663700,25752000.00,1,Duquesne Family Office,Duquesne Family Office=663700
+GS,NYSE,38141G104,Goldman Sachs Grp Inc,132500,25682000.00,1,Duquesne Family Office,Duquesne Family Office=132500
+WFC,NYSE,949746101,Wells Fargo &amp; Co,453000,24833000.00,1,Duquesne Family Office,Duquesne Family Office=453000
+AAL,NASDAQ,02376R102,American Air Grp Inc,414600,22235000.00,1,Duquesne Family Office,Duquesne Family Office=414600
+DAL,NYSE,247361702,Delta Air Lines Inc,419900,20655000.00,1,Duquesne Family Office,Duquesne Family Office=419900
+AEO,NYSE,02553E106,Amer Eagle Outfitters Inc,1429200,19837000.00,1,Duquesne Family Office,Duquesne Family Office=1429200
+INFY,NYSE,456788108,Infosys Ltd,623700,19622000.00,1,Duquesne Family Office,Duquesne Family Office=623700
+CTSH,NASDAQ,192446102,Cognizant Tech Sol&apos;ns Corp,369600,19463000.00,1,Duquesne Family Office,Duquesne Family Office=369600
+MGNX,NASDAQ,556099109,Macrogenics Inc,472500,16571000.00,1,Duquesne Family Office,Duquesne Family Office=472500
+M,NYSE,55616P104,"Macy&apos;s, Inc",250200,16451000.00,1,Duquesne Family Office,Duquesne Family Office=250200
+KSS,NYSE,500255104,Kohl&apos;s Corp,229900,14033000.00,1,Duquesne Family Office,Duquesne Family Office=229900
+LUV,NYSE,844741108,Southwest Airlines Co,270000,11426000.00,1,Duquesne Family Office,Duquesne Family Office=270000
+NKTR,NASDAQ,640268108,Nektar Therapeutics,655000,10153000.00,1,Duquesne Family Office,Duquesne Family Office=655000
+CCI,NYSE,22822V101,Crown Castle Int&apos;l Corp,119000,9365000.00,1,Duquesne Family Office,Duquesne Family Office=119000
+YPF,NYSE,984245100,YPF S.A.,298900,7912000.00,1,Duquesne Family Office,Duquesne Family Office=298900

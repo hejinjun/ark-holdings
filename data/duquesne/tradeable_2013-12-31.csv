@@ -1,0 +1,24 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+DAL,NYSE,247361702,Delta Air Lines Inc.,3110000,85432000.00,1,Duquesne Family Office,Duquesne Family Office=3110000
+AMZN,NASDAQ,023135106,Amazon.com Inc.,157700,62889000.00,1,Duquesne Family Office,Duquesne Family Office=157700
+ILMN,NASDAQ,452327109,Illumina Inc.,506700,56036000.00,1,Duquesne Family Office,Duquesne Family Office=506700
+BMY,NYSE,110122108,Bristol-Myers Squibb Co,954200,50716000.00,1,Duquesne Family Office,Duquesne Family Office=954200
+TEVA,NYSE,881624209,Teva Pharm Ind&apos;s Ltd,1241000,49739000.00,1,Duquesne Family Office,Duquesne Family Office=1241000
+GILD,NASDAQ,375558103,Gilead Sciences Inc.,610700,45864000.00,1,Duquesne Family Office,Duquesne Family Office=610700
+WDAY,NASDAQ,98138H101,Workday Inc.,505500,42037000.00,1,Duquesne Family Office,Duquesne Family Office=505500
+HAL,NYSE,406216101,Halliburton Co,826700,41955000.00,1,Duquesne Family Office,Duquesne Family Office=826700
+SBAC,NASDAQ,78388J106,SBA Comms Corp,397400,35702000.00,1,Duquesne Family Office,Duquesne Family Office=397400
+VLO,NYSE,91913Y100,Valero Energy Corp,578900,29177000.00,1,Duquesne Family Office,Duquesne Family Office=578900
+MPC,NYSE,56585A102,Marathon Petroleum Corp,315900,28978000.00,1,Duquesne Family Office,Duquesne Family Office=315900
+AMGN,NASDAQ,031162100,Amgen Inc.,231000,26352000.00,1,Duquesne Family Office,Duquesne Family Office=231000
+BIIB,NASDAQ,09062X103,Biogen Idec Inc.,91500,25581000.00,1,Duquesne Family Office,Duquesne Family Office=91500
+EQT,NYSE,26884L109,EQT Corp,284900,25578000.00,1,Duquesne Family Office,Duquesne Family Office=284900
+JNJ,NYSE,478160104,Johnson &amp; Johnson,235000,21524000.00,1,Duquesne Family Office,Duquesne Family Office=235000
+AZN,NYSE,046353108,Astrazeneca PLC,360500,21403000.00,1,Duquesne Family Office,Duquesne Family Office=360500
+ADBE,NASDAQ,00724F101,Adobe Systems Inc,336800,20167000.00,1,Duquesne Family Office,Duquesne Family Office=336800
+WEN,NASDAQ,95058W100,The Wendy&apos;s Co,2000000,17440000.00,1,Duquesne Family Office,Duquesne Family Office=2000000
+BKR,NASDAQ,057224107,Baker Hughes Inc.,268000,14810000.00,1,Duquesne Family Office,Duquesne Family Office=268000
+BA,NYSE,097023105,Boeing Co,99200,13540000.00,1,Duquesne Family Office,Duquesne Family Office=99200
+LNG,NYSE,16411R208,Cheniere Energy Inc.,303200,13074000.00,1,Duquesne Family Office,Duquesne Family Office=303200
+WTW,NASDAQ,891894107,Towers Watson &amp; Co.,88300,11268000.00,1,Duquesne Family Office,Duquesne Family Office=88300
+JBLU,NASDAQ,477143101,JetBlue Airways Corp,1000000,8540000.00,1,Duquesne Family Office,Duquesne Family Office=1000000

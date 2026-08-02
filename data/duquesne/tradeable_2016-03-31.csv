@@ -1,0 +1,27 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+KO,NYSE,191216100,Coca-Cola Co,1388900,64431000.00,1,Duquesne Family Office,Duquesne Family Office=1388900
+PM,NYSE,718172109,Philip Morris Int&apos;l Inc.,554800,54431000.00,1,Duquesne Family Office,Duquesne Family Office=554800
+SO,NYSE,842587107,Southern Co,1017400,52630000.00,1,Duquesne Family Office,Duquesne Family Office=1017400
+DUK,NYSE,26441C204,Duke Energy Corp,649100,52369000.00,1,Duquesne Family Office,Duquesne Family Office=649100
+AMZN,NASDAQ,023135106,Amazon.com Inc.,77200,45829000.00,1,Duquesne Family Office,Duquesne Family Office=77200
+GOOGL,NASDAQ,02079K305,Alphabet Inc.,55700,42494000.00,1,Duquesne Family Office,Duquesne Family Office=55700
+PPL,NYSE,69351T106,PPL Corp,974700,37107000.00,1,Duquesne Family Office,Duquesne Family Office=974700
+PEP,NASDAQ,713448108,Pepsico Inc.,353300,36206000.00,1,Duquesne Family Office,Duquesne Family Office=353300
+EMR,NYSE,291011104,Emerson Electric Inc.,551000,29963000.00,1,Duquesne Family Office,Duquesne Family Office=551000
+MSFT,NASDAQ,594918104,Microsoft Corp,517100,28559000.00,1,Duquesne Family Office,Duquesne Family Office=517100
+CAT,NYSE,149123101,Caterpillar Inc.,330000,25258000.00,1,Duquesne Family Office,Duquesne Family Office=330000
+LUV,NYSE,844741108,Southwest Airlines Co.,493000,22086000.00,1,Duquesne Family Office,Duquesne Family Office=493000
+VZ,NYSE,92343V104,Verizon Comms Inc.,400000,21632000.00,1,Duquesne Family Office,Duquesne Family Office=400000
+ZTS,NYSE,98978V103,Zoetis Inc.,477900,21185000.00,1,Duquesne Family Office,Duquesne Family Office=477900
+HD,NYSE,437076102,Home Depot Inc.,150700,20108000.00,1,Duquesne Family Office,Duquesne Family Office=150700
+POST,NYSE,737446104,Post Holdings Inc.,291200,20026000.00,1,Duquesne Family Office,Duquesne Family Office=291200
+WDAY,NASDAQ,98138H101,Workday Inc.,259700,19955000.00,1,Duquesne Family Office,Duquesne Family Office=259700
+MCD,NYSE,580135101,McDonald&apos;s Corp,158200,19883000.00,1,Duquesne Family Office,Duquesne Family Office=158200
+AEM,NYSE,008474108,Agnico Eagle Mines Ltd,434900,15726000.00,1,Duquesne Family Office,Duquesne Family Office=434900
+ED,NYSE,209115104,Consolidated Edison Inc.,141900,10872000.00,1,Duquesne Family Office,Duquesne Family Office=141900
+WEC,NYSE,92939U106,WEC Energy Grp Inc.,178000,10692000.00,1,Duquesne Family Office,Duquesne Family Office=178000
+AEP,NASDAQ,025537101,Am Elect Pwr Co Inc.,160200,10637000.00,1,Duquesne Family Office,Duquesne Family Office=160200
+EL,NYSE,518439104,The Estee Lauder Co Inc.,111900,10553000.00,1,Duquesne Family Office,Duquesne Family Office=111900
+JD,NASDAQ,47215P106,JD.Com Inc.,356400,9445000.00,1,Duquesne Family Office,Duquesne Family Office=356400
+HDB,NYSE,40415F101,HDFC Bank Ltd.,125800,7753000.00,1,Duquesne Family Office,Duquesne Family Office=125800
+WMB,NYSE,969457100,Williams Co&apos;s Inc.,278400,4474000.00,1,Duquesne Family Office,Duquesne Family Office=278400

@@ -1,0 +1,26 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+ILMN,NASDAQ,452327109,Illumina Inc.,410100,73219000.00,1,Duquesne Family Office,Duquesne Family Office=410100
+TEVA,NYSE,881624209,Teva Pharm Ind&apos;s Ltd,1241000,65053000.00,1,Duquesne Family Office,Duquesne Family Office=1241000
+EOG,NYSE,26875P101,EOG Resources Inc.,288200,33679000.00,1,Duquesne Family Office,Duquesne Family Office=288200
+BIIB,NASDAQ,09062X103,Biogen Idec Inc.,103800,32729000.00,1,Duquesne Family Office,Duquesne Family Office=103800
+RRC,NYSE,75281A109,Range Res&apos;s Corp,363400,31598000.00,1,Duquesne Family Office,Duquesne Family Office=363400
+CCJ,NYSE,13321L108,Cameco Corp,1428200,28007000.00,1,Duquesne Family Office,Duquesne Family Office=1428200
+HAL,NYSE,406216101,Halliburton Co,368700,26181000.00,1,Duquesne Family Office,Duquesne Family Office=368700
+PBR,NYSE,71654V408,Petroleo Brasileiro SA,1717000,25120000.00,1,Duquesne Family Office,Duquesne Family Office=1717000
+PSX,NYSE,718546104,Phillips 66,303200,24386000.00,1,Duquesne Family Office,Duquesne Family Office=303200
+BIDU,NASDAQ,056752108,Baidu.com Inc.,126000,23538000.00,1,Duquesne Family Office,Duquesne Family Office=126000
+NXPI,NASDAQ,N6596X109,NXP Semiconductors NV,324400,21469000.00,1,Duquesne Family Office,Duquesne Family Office=324400
+WDAY,NASDAQ,98138H101,Workday Inc.,222679,20010000.00,1,Duquesne Family Office,Duquesne Family Office=222679
+EQT,NYSE,26884L109,EQT Corp,175900,18804000.00,1,Duquesne Family Office,Duquesne Family Office=175900
+DVN,NYSE,25179M103,Devon Energy Corp,207500,16476000.00,1,Duquesne Family Office,Duquesne Family Office=207500
+LEN,NYSE,526057104,Lennar Corp,370400,15549000.00,1,Duquesne Family Office,Duquesne Family Office=370400
+AZN,NYSE,046353108,Astrazeneca PLC,208900,15523000.00,1,Duquesne Family Office,Duquesne Family Office=208900
+FLR,NYSE,343412102,Fluor Corp,192800,14826000.00,1,Duquesne Family Office,Duquesne Family Office=192800
+DHI,NYSE,23331A109,D.R. Horton Inc.,494429,12153000.00,1,Duquesne Family Office,Duquesne Family Office=494429
+HCA,NYSE,40412C101,HCA Hldgs Inc.,194600,10972000.00,1,Duquesne Family Office,Duquesne Family Office=194600
+HUM,NYSE,444859102,Humana Inc.,83900,10716000.00,1,Duquesne Family Office,Duquesne Family Office=83900
+OXY,NYSE,674599105,Occidental Pete Corp,103400,10612000.00,1,Duquesne Family Office,Duquesne Family Office=103400
+AAL,NASDAQ,02376R102,American Air Group Inc.,240700,10340000.00,1,Duquesne Family Office,Duquesne Family Office=240700
+VLO,NYSE,91913Y100,Valero Energy Corporation,198500,9945000.00,1,Duquesne Family Office,Duquesne Family Office=198500
+EXPD,NYSE,302130109,Expeditors Int&apos;l of Wash Inc.,220000,9715000.00,1,Duquesne Family Office,Duquesne Family Office=220000
+MPC,NYSE,56585A102,Marathon Pete Corp,123400,9634000.00,1,Duquesne Family Office,Duquesne Family Office=123400

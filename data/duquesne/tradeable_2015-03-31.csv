@@ -1,0 +1,22 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+ILMN,NASDAQ,452327109,Illumina Inc,410100,76131000.00,1,Duquesne Family Office,Duquesne Family Office=410100
+BIIB,NASDAQ,09062X103,Biogen Inc,175000,73892000.00,1,Duquesne Family Office,Duquesne Family Office=175000
+LYB,NYSE,N53745100,LyondellBasell Ind&apos;s NV,716950,62948000.00,1,Duquesne Family Office,Duquesne Family Office=716950
+HDB,NYSE,40415F101,HDFC Bank Ltd,1003600,59102000.00,1,Duquesne Family Office,Duquesne Family Office=1003600
+EOG,NYSE,26875P101,EOG Res&apos;s Inc,561600,51493000.00,1,Duquesne Family Office,Duquesne Family Office=561600
+TEVA,NYSE,881624209,Teva Pharm Ind&apos;s Ltd,790500,49248000.00,1,Duquesne Family Office,Duquesne Family Office=790500
+CTSH,NASDAQ,192446102,Cognizant Tech Sol&apos;ns Corp,726900,45351000.00,1,Duquesne Family Office,Duquesne Family Office=726900
+WDAY,NASDAQ,98138H101,Workday Inc,330679,27913000.00,1,Duquesne Family Office,Duquesne Family Office=330679
+INFY,NYSE,456788108,Infosys Ltd,756500,26538000.00,1,Duquesne Family Office,Duquesne Family Office=756500
+AKAM,NASDAQ,00971T101,Akamai Tech Inc,355300,25242000.00,1,Duquesne Family Office,Duquesne Family Office=355300
+LNG,NYSE,16411R208,Cheniere Energy Inc,258700,20023000.00,1,Duquesne Family Office,Duquesne Family Office=258700
+BABA,NYSE,01609W102,Alibaba Grp Hldg Ltd,239500,19936000.00,1,Duquesne Family Office,Duquesne Family Office=239500
+QSR,NYSE,76131D103,Restaurant Brands Int&apos;l Inc,514000,19743000.00,1,Duquesne Family Office,Duquesne Family Office=514000
+YPF,NYSE,984245100,YPF S.A.,698300,19168000.00,1,Duquesne Family Office,Duquesne Family Office=698300
+BIDU,NASDAQ,056752108,Baidu.com Inc,86200,17964000.00,1,Duquesne Family Office,Duquesne Family Office=86200
+EXPE,NASDAQ,30212P303,Expedia Inc,160000,15061000.00,1,Duquesne Family Office,Duquesne Family Office=160000
+MGNX,NASDAQ,556099109,Macrogenics Inc,472500,14822000.00,1,Duquesne Family Office,Duquesne Family Office=472500
+NKTR,NASDAQ,640268108,Nektar Therapeutics,655000,7205000.00,1,Duquesne Family Office,Duquesne Family Office=655000
+BMA,NYSE,05961W105,Banco Macro SA,110100,6298000.00,1,Duquesne Family Office,Duquesne Family Office=110100
+TEO,NYSE,879273209,Telecom Argentina SA,248000,5632000.00,1,Duquesne Family Office,Duquesne Family Office=248000
+PAM,NYSE,697660207,Pampa Energia SA,214899,3797000.00,1,Duquesne Family Office,Duquesne Family Office=214899

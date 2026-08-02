@@ -1,0 +1,16 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+DAL,NYSE,247361702,Delta Air Lines Inc.,3110000,73365000.00,1,Duquesne Family Office,Duquesne Family Office=3110000
+AMZN,NASDAQ,023135106,Amazon.com Inc.,157700,49303000.00,1,Duquesne Family Office,Duquesne Family Office=157700
+ILMN,NASDAQ,452327109,Illumina Inc.,506700,40957000.00,1,Duquesne Family Office,Duquesne Family Office=506700
+WDAY,NASDAQ,98138H101,Workday Inc.,505500,40910000.00,1,Duquesne Family Office,Duquesne Family Office=505500
+GILD,NASDAQ,375558103,Gilead Sciences Inc.,610700,38395000.00,1,Duquesne Family Office,Duquesne Family Office=610700
+HAL,NYSE,406216101,Halliburton Co,633700,30513000.00,1,Duquesne Family Office,Duquesne Family Office=633700
+AMGN,NASDAQ,031162100,Amgen Inc.,231000,25855000.00,1,Duquesne Family Office,Duquesne Family Office=231000
+BIIB,NASDAQ,09062X103,Biogen Idec Inc.,91500,22030000.00,1,Duquesne Family Office,Duquesne Family Office=91500
+WEN,NASDAQ,95058W100,Wendy&apos;s Co,2000000,16960000.00,1,Duquesne Family Office,Duquesne Family Office=2000000
+EMB,NASDAQ,464288281,Ishares JPM USD Emg Bnd,136500,14879000.00,1,Duquesne Family Office,Duquesne Family Office=136500
+BA,NYSE,097023105,Boeing Co,99200,11656000.00,1,Duquesne Family Office,Duquesne Family Office=99200
+JNJ,NYSE,478160104,Johnson &amp; Johnson,129000,11183000.00,1,Duquesne Family Office,Duquesne Family Office=129000
+LNG,NYSE,16411R208,Cheniere Energy Inc.,303200,10351000.00,1,Duquesne Family Office,Duquesne Family Office=303200
+NOK,NYSE,654902204,Nokia Oyj,1000000,6510000.00,1,Duquesne Family Office,Duquesne Family Office=1000000
+HLF,NYSE,G4412G101,Herbalife Ltd.,79032,5514000.00,1,Duquesne Family Office,Duquesne Family Office=79032

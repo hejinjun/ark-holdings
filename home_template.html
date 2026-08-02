@@ -491,7 +491,7 @@ function paintManager() {
         {opened: m.opened, closed: m.closed, d: m.prevPeriod}))}</span>
     </div>` : '';
 
-  el.innerHTML = head(t('manager'), t('managerHint'), '', '')
+  el.innerHTML = head(t('manager'), t('managerHint'), 'manager.html', t('managerAll'))
     + `<div class="cardbody">
         <div class="headline">
           <span class="big">${money(m.total)}</span>

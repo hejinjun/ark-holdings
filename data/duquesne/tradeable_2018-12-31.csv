@@ -1,0 +1,26 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+MSFT,NASDAQ,594918104,Microsoft Corp,4618471,469098000.00,1,Duquesne Family Office,Duquesne Family Office=4618471
+AMZN,NASDAQ,023135106,Amazon Com Inc,98428,147836000.00,1,Duquesne Family Office,Duquesne Family Office=98428
+CRM,NYSE,79466L302,Salesforce Com Inc,1072585,146912000.00,1,Duquesne Family Office,Duquesne Family Office=1072585
+ABT,NYSE,002824100,Abbott Labs,1295700,93718000.00,1,Duquesne Family Office,Duquesne Family Office=1295700
+WDAY,NASDAQ,98138H101,Workday Inc,525400,83896000.00,1,Duquesne Family Office,Duquesne Family Office=525400
+ADBE,NASDAQ,00724F101,Adobe Inc,301015,68102000.00,1,Duquesne Family Office,Duquesne Family Office=301015
+GILD,NASDAQ,375558103,Gilead Sciences Inc,1023345,64010000.00,1,Duquesne Family Office,Duquesne Family Office=1023345
+ISRG,NASDAQ,46120E602,Intuitive Surgical Inc,110300,52825000.00,1,Duquesne Family Office,Duquesne Family Office=110300
+ILMN,NASDAQ,452327109,Illumina Inc,139500,41840000.00,1,Duquesne Family Office,Duquesne Family Office=139500
+PYPL,NASDAQ,70450Y103,Paypal Hldgs Inc,408535,34354000.00,1,Duquesne Family Office,Duquesne Family Office=408535
+MDT,NYSE,G5960L103,Medtronic Plc,372500,33883000.00,1,Duquesne Family Office,Duquesne Family Office=372500
+IBB,NASDAQ,464287556,Ishares Tr,350300,33779000.00,1,Duquesne Family Office,Duquesne Family Office=350300
+DAL,NYSE,247361702,Delta Air Lines Inc Del,626600,31267000.00,1,Duquesne Family Office,Duquesne Family Office=626600
+BABA,NYSE,01609W102,Alibaba Group Hldg Ltd,174400,23905000.00,1,Duquesne Family Office,Duquesne Family Office=174400
+ACIU,NASDAQ,H00263105,Ac Immune Sa,2491517,23545000.00,1,Duquesne Family Office,Duquesne Family Office=2491517
+MELI,NASDAQ,58733R102,Mercadolibre Inc,74016,21676000.00,1,Duquesne Family Office,Duquesne Family Office=74016
+NFLX,NASDAQ,64110L106,Netflix Inc,66010,17668000.00,1,Duquesne Family Office,Duquesne Family Office=66010
+AAL,NASDAQ,02376R102,American Airls Group Inc,524900,16855000.00,1,Duquesne Family Office,Duquesne Family Office=524900
+A,NYSE,00846U101,Agilent Technologies Inc,221300,14929000.00,1,Duquesne Family Office,Duquesne Family Office=221300
+NOW,NYSE,81762P102,Servicenow Inc,82200,14636000.00,1,Duquesne Family Office,Duquesne Family Office=82200
+GOOGL,NASDAQ,02079K305,Alphabet Inc,11299,11807000.00,1,Duquesne Family Office,Duquesne Family Office=11299
+OKTA,NASDAQ,679295105,Okta Inc,173900,11095000.00,1,Duquesne Family Office,Duquesne Family Office=173900
+KSS,NYSE,500255104,Kohls Corp,147500,9785000.00,1,Duquesne Family Office,Duquesne Family Office=147500
+ADSK,NASDAQ,052769106,Autodesk Inc,26690,3433000.00,1,Duquesne Family Office,Duquesne Family Office=26690
+ESTC,NYSE,N14506104,Elastic N V,10000,715000.00,1,Duquesne Family Office,Duquesne Family Office=10000

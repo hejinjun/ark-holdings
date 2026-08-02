@@ -1,0 +1,19 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+MSFT,NASDAQ,594918104,Microsoft Corp,3227800,276106000.00,1,Duquesne Family Office,Duquesne Family Office=3227800
+GOOGL,NASDAQ,02079K305,Alphabet Inc,257350,271092000.00,1,Duquesne Family Office,Duquesne Family Office=257350
+AMZN,NASDAQ,023135106,Amazon Com Inc,168003,196474000.00,1,Duquesne Family Office,Duquesne Family Office=168003
+CRM,NYSE,79466L302,Salesforce Com Inc,1714300,175253000.00,1,Duquesne Family Office,Duquesne Family Office=1714300
+NKTR,NASDAQ,640268108,Nektar Therapeutics,1834000,109526000.00,1,Duquesne Family Office,Duquesne Family Office=1834000
+WDAY,NASDAQ,98138H101,Workday Inc,832500,84699000.00,1,Duquesne Family Office,Duquesne Family Office=832500
+EOG,NYSE,26875P101,Eog Res Inc,524700,56620000.00,1,Duquesne Family Office,Duquesne Family Office=524700
+WFC,NYSE,949746101,Wells Fargo Co New,850000,51570000.00,1,Duquesne Family Office,Duquesne Family Office=850000
+BAC,NYSE,060505104,Bank Amer Corp,1717500,50701000.00,1,Duquesne Family Office,Duquesne Family Office=1717500
+JD,NASDAQ,47215P106,Jd Com Inc,1098200,45487000.00,1,Duquesne Family Office,Duquesne Family Office=1098200
+DVN,NYSE,25179M103,Devon Energy Corp New,1009800,41806000.00,1,Duquesne Family Office,Duquesne Family Office=1009800
+BIIB,NASDAQ,09062X103,Biogen Inc,109400,34852000.00,1,Duquesne Family Office,Duquesne Family Office=109400
+PYPL,NASDAQ,70450Y103,Paypal Hldgs Inc,465100,34241000.00,1,Duquesne Family Office,Duquesne Family Office=465100
+ACIU,NASDAQ,H00263105,Ac Immune Sa,2388700,30575000.00,1,Duquesne Family Office,Duquesne Family Office=2388700
+MPC,NYSE,56585A102,Marathon Pete Corp,321100,21186000.00,1,Duquesne Family Office,Duquesne Family Office=321100
+VALE,NYSE,91912E105,Vale S A,1666600,20383000.00,1,Duquesne Family Office,Duquesne Family Office=1666600
+HDB,NYSE,40415F101,Hdfc Bank Ltd,128200,13034000.00,1,Duquesne Family Office,Duquesne Family Office=128200
+LOMA,NYSE,54150E104,Loma Negra Corp,150000,3456000.00,1,Duquesne Family Office,Duquesne Family Office=150000

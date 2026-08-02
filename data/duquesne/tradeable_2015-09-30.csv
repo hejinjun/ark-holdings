@@ -1,0 +1,14 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+MSFT,NASDAQ,594918104,Microsoft Corp,1389000,61477000.00,1,Duquesne Family Office,Duquesne Family Office=1389000
+HDB,NYSE,40415F101,HDFC Bank Ltd,1003600,61310000.00,1,Duquesne Family Office,Duquesne Family Office=1003600
+WFC,NYSE,949746101,Wells Fargo &amp; Co,1188900,61050000.00,1,Duquesne Family Office,Duquesne Family Office=1188900
+AMZN,NASDAQ,023135106,Amazon.com Inc,97300,49807000.00,1,Duquesne Family Office,Duquesne Family Office=97300
+WDAY,NASDAQ,98138H101,Workday Inc,438379,30187000.00,1,Duquesne Family Office,Duquesne Family Office=438379
+JD,NASDAQ,47215P106,JD.Com Inc,1078400,28103000.00,1,Duquesne Family Office,Duquesne Family Office=1078400
+ILMN,NASDAQ,452327109,Illumina Inc,155800,27393000.00,1,Duquesne Family Office,Duquesne Family Office=155800
+UAA,NYSE,904311107,"Under Armour, Inc",259800,25143000.00,1,Duquesne Family Office,Duquesne Family Office=259800
+EXPE,NASDAQ,30212P303,Expedia Inc,173100,20370000.00,1,Duquesne Family Office,Duquesne Family Office=173100
+CCL,NYSE,143658300,Carnival Corp,388400,19303000.00,1,Duquesne Family Office,Duquesne Family Office=388400
+RCL,NYSE,V7780T103,Royal Carib&apos;n Cruises Ltd,213500,19021000.00,1,Duquesne Family Office,Duquesne Family Office=213500
+PYPL,NASDAQ,70450Y103,PayPal Holdings Inc,565200,17544000.00,1,Duquesne Family Office,Duquesne Family Office=565200
+EOG,NYSE,26875P101,EOG Resources Inc,138000,10046000.00,1,Duquesne Family Office,Duquesne Family Office=138000

@@ -1,0 +1,11 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+MSFT,NASDAQ,594918104,Microsoft Corp,1724200,70675000.00,1,Duquesne Family Office,Duquesne Family Office=1724200
+TEVA,NYSE,881624209,Teva Pharm Ind&apos;s Ltd,1241000,65574000.00,1,Duquesne Family Office,Duquesne Family Office=1241000
+ADBE,NASDAQ,00724F101,Adobe Systems Inc,976700,64208000.00,1,Duquesne Family Office,Duquesne Family Office=976700
+WDAY,NASDAQ,98138H101,Workday Inc.,437079,39962000.00,1,Duquesne Family Office,Duquesne Family Office=437079
+ILMN,NASDAQ,452327109,Illumina Inc.,253300,37656000.00,1,Duquesne Family Office,Duquesne Family Office=253300
+CCJ,NYSE,13321L108,Cameco Corp,1428200,32706000.00,1,Duquesne Family Office,Duquesne Family Office=1428200
+AZN,NYSE,046353108,Astrazeneca PLC,360500,23389000.00,1,Duquesne Family Office,Duquesne Family Office=360500
+EQT,NYSE,26884L109,EQT Corp,175900,17057000.00,1,Duquesne Family Office,Duquesne Family Office=175900
+NXPI,NASDAQ,N6596X109,NXP Semiconductors NV,179400,10551000.00,1,Duquesne Family Office,Duquesne Family Office=179400
+ECH,Cboe BZX,464286640,ISh MSCI Chile Cap Inv Mkt Idx Fd,67000,3052000.00,1,Duquesne Family Office,Duquesne Family Office=67000

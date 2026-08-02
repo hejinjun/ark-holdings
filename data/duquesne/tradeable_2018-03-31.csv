@@ -1,0 +1,17 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+GOOGL,NASDAQ,02079K305,Alphabet Inc,259150,268775000.00,1,Duquesne Family Office,Duquesne Family Office=259150
+AMZN,NASDAQ,023135106,Amazon Com Inc,170853,247282000.00,1,Duquesne Family Office,Duquesne Family Office=170853
+MSFT,NASDAQ,594918104,Microsoft Corp,2430200,221804000.00,1,Duquesne Family Office,Duquesne Family Office=2430200
+CRM,NYSE,79466L302,Salesforce Com Inc,1705300,198326000.00,1,Duquesne Family Office,Duquesne Family Office=1705300
+INTC,NASDAQ,458140100,Intel Corp,2462600,128252000.00,1,Duquesne Family Office,Duquesne Family Office=2462600
+NKTR,NASDAQ,640268108,Nektar Therapeutics,1192300,126694000.00,1,Duquesne Family Office,Duquesne Family Office=1192300
+BABA,NYSE,01609W102,Alibaba Group Hldg Ltd,657400,120659000.00,1,Duquesne Family Office,Duquesne Family Office=657400
+MU,NASDAQ,595112103,Micron Technology Inc,2187500,114056000.00,1,Duquesne Family Office,Duquesne Family Office=2187500
+WDAY,NASDAQ,98138H101,Workday Inc,569200,72351000.00,1,Duquesne Family Office,Duquesne Family Office=569200
+JD,NASDAQ,47215P106,Jd Com Inc,1783000,72194000.00,1,Duquesne Family Office,Duquesne Family Office=1783000
+NFLX,NASDAQ,64110L106,Netflix Inc,189700,56028000.00,1,Duquesne Family Office,Duquesne Family Office=189700
+ADBE,NASDAQ,00724F101,Adobe Sys Inc,122500,26470000.00,1,Duquesne Family Office,Duquesne Family Office=122500
+TAL,NYSE,874080104,Tal Ed Group,682000,25295000.00,1,Duquesne Family Office,Duquesne Family Office=682000
+ACIU,NASDAQ,H00263105,Ac Immune Sa,2388700,24699000.00,1,Duquesne Family Office,Duquesne Family Office=2388700
+QCOM,NASDAQ,747525103,Qualcomm Inc,411000,22774000.00,1,Duquesne Family Office,Duquesne Family Office=411000
+VIPS,NYSE,92763W103,Vipshop Hldgs Ltd,572800,9520000.00,1,Duquesne Family Office,Duquesne Family Office=572800

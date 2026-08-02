@@ -1,0 +1,22 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+ABBV,NYSE,00287Y109,Abbvie Inc,1221723,76504000.00,1,Duquesne Family Office,Duquesne Family Office=1221723
+BAC,NYSE,060505104,Bank Amer Corp,2562400,56629000.00,1,Duquesne Family Office,Duquesne Family Office=2562400
+HAL,NYSE,406216101,Halliburton Co,1041300,56324000.00,1,Duquesne Family Office,Duquesne Family Office=1041300
+C,NYSE,172967424,Citigroup Inc,927100,55098000.00,1,Duquesne Family Office,Duquesne Family Office=927100
+PNC,NYSE,693475105,Pnc Finl Svcs Group Inc,466000,54503000.00,1,Duquesne Family Office,Duquesne Family Office=466000
+WFC,NYSE,949746101,Wells Fargo &amp; Co New,960400,52928000.00,1,Duquesne Family Office,Duquesne Family Office=960400
+LYB,NYSE,N53745100,Lyondellbasell Industries N,568500,48766000.00,1,Duquesne Family Office,Duquesne Family Office=568500
+MRK,NYSE,58933Y105,Merck &amp; Co Inc,683800,40255000.00,1,Duquesne Family Office,Duquesne Family Office=683800
+EOG,NYSE,26875P101,Eog Res Inc,380800,38499000.00,1,Duquesne Family Office,Duquesne Family Office=380800
+FCX,NYSE,35671D857,Freeport-Mcmoran Inc,2882600,38021000.00,1,Duquesne Family Office,Duquesne Family Office=2882600
+AA,NYSE,013872106,Alcoa Corp,1200800,33718000.00,1,Duquesne Family Office,Duquesne Family Office=1200800
+JPM,NYSE,46625H100,Jpmorgan Chase &amp; Co,327500,28260000.00,1,Duquesne Family Office,Duquesne Family Office=327500
+NUE,NYSE,670346105,Nucor Corp,362000,21546000.00,1,Duquesne Family Office,Duquesne Family Office=362000
+ACIU,NASDAQ,H00263105,Ac Immune Sa,1579031,20496000.00,1,Duquesne Family Office,Duquesne Family Office=1579031
+BHP,NYSE,088606108,Bhp Billiton Ltd,325000,11629000.00,1,Duquesne Family Office,Duquesne Family Office=325000
+RIG,NYSE,H8817H100,Transocean Ltd,701700,10343000.00,1,Duquesne Family Office,Duquesne Family Office=701700
+WMB,NYSE,969457100,Williams Cos Inc Del,327300,10192000.00,1,Duquesne Family Office,Duquesne Family Office=327300
+DOV,NYSE,260003108,Dover Corp,135600,10161000.00,1,Duquesne Family Office,Duquesne Family Office=135600
+EMR,NYSE,291011104,Emerson Elec Co,175000,9756000.00,1,Duquesne Family Office,Duquesne Family Office=175000
+EQT,NYSE,26884L109,Eqt Corp,142200,9300000.00,1,Duquesne Family Office,Duquesne Family Office=142200
+RRC,NYSE,75281A109,Range Res Corp,270000,9277000.00,1,Duquesne Family Office,Duquesne Family Office=270000

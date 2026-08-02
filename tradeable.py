@@ -23,6 +23,42 @@ import listings
 
 DATA = Path(__file__).parent / "data"
 
+
+SOURCE = "ark"
+
+
+def use_source(name: str) -> None:
+    """ARK stays at the data root; an ingested filer lives in its own
+    directory. Every read goes through DATA, so rebinding it is the whole
+    change."""
+    global DATA, SOURCE
+    SOURCE = name
+    DATA = Path(__file__).parent / "data"
+    if name != "ark":
+        DATA = DATA / name
+    if not DATA.is_dir():
+        raise SystemExit(f"no data for source {name!r} at {DATA}")
+
+
+def positional(argv: list[str]) -> list[str]:
+    """Arguments that are not flags, and not a flag's value.
+
+    A bare `--source duquesne` otherwise leaves "duquesne" looking like a
+    positional date, which is exactly how it was first read."""
+    takes_value = {"--source", "--days", "--out"}
+    out, skip = [], False
+    for a in argv:
+        if skip:
+            skip = False
+            continue
+        if a in takes_value:
+            skip = True
+            continue
+        if a.startswith("--"):
+            continue
+        out.append(a)
+    return out
+
 # IZRL holds Israeli companies listed in Tel Aviv, which are not accessible
 # from a US brokerage account.
 EXCLUDED_FUNDS = {"IZRL"}
@@ -138,6 +174,11 @@ def report(date, rows, kept, dropped, merged):
 
 
 if __name__ == "__main__":
+    if "--source" in sys.argv:
+        use_source(sys.argv[sys.argv.index("--source") + 1])
+    args = positional(sys.argv[1:])
     dates = sorted(p.name.removeprefix("positions_").removesuffix(".csv")
                    for p in DATA.glob("positions_*.csv"))
-    raise SystemExit(main(sys.argv[1] if len(sys.argv) > 1 else dates[-1]))
+    if "--all" in sys.argv:
+        raise SystemExit(max(main(d) for d in dates) if dates else 1)
+    raise SystemExit(main(args[0] if args else dates[-1]))

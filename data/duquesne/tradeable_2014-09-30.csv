@@ -1,0 +1,21 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+ILMN,NASDAQ,452327109,Illumina Inc.,410100,67224000.00,1,Duquesne Family Office,Duquesne Family Office=410100
+BIIB,NASDAQ,09062X103,Biogen Idec Inc,103800,34338000.00,1,Duquesne Family Office,Duquesne Family Office=103800
+CCJ,NYSE,13321L108,Cameco Corp,1428200,25222000.00,1,Duquesne Family Office,Duquesne Family Office=1428200
+GILD,NASDAQ,375558103,Gilead Sciences Inc,217500,23153000.00,1,Duquesne Family Office,Duquesne Family Office=217500
+AMGN,NASDAQ,031162100,Amgen Inc,158900,22319000.00,1,Duquesne Family Office,Duquesne Family Office=158900
+HD,NYSE,437076102,Home Depot Inc,222400,20403000.00,1,Duquesne Family Office,Duquesne Family Office=222400
+COST,NASDAQ,22160K105,Costco Wholesale Corp,158100,19813000.00,1,Duquesne Family Office,Duquesne Family Office=158100
+KSS,NYSE,500255104,Kohl&apos;s Corp,323900,19768000.00,1,Duquesne Family Office,Duquesne Family Office=323900
+LOW,NYSE,548661107,Lowe&apos;s Co&apos;s Inc,370900,19628000.00,1,Duquesne Family Office,Duquesne Family Office=370900
+TGT,NYSE,87612E106,Target Corp,312300,19575000.00,1,Duquesne Family Office,Duquesne Family Office=312300
+MRK,NYSE,58933Y105,Merck &amp; Co,329600,19539000.00,1,Duquesne Family Office,Duquesne Family Office=329600
+WDAY,NASDAQ,98138H101,Workday Inc,222679,18371000.00,1,Duquesne Family Office,Duquesne Family Office=222679
+VRTX,NASDAQ,92532F100,Vertex Pharms Inc,146600,16465000.00,1,Duquesne Family Office,Duquesne Family Office=146600
+AEO,NYSE,02553E106,Am Eagle Outfitters Inc,1017000,14767000.00,1,Duquesne Family Office,Duquesne Family Office=1017000
+WSM,NYSE,969904101,Williams-Sonoma Inc,217500,14479000.00,1,Duquesne Family Office,Duquesne Family Office=217500
+M,NYSE,55616P104,"Macy&apos;s, Inc",246400,14336000.00,1,Duquesne Family Office,Duquesne Family Office=246400
+SCHW,NYSE,808513105,Charles Schwab Corp,485700,14275000.00,1,Duquesne Family Office,Duquesne Family Office=485700
+HDB,NYSE,40415F101,HDFC Bank Ltd,306000,14253000.00,1,Duquesne Family Office,Duquesne Family Office=306000
+YPF,NYSE,984245100,YPF S.A.,298900,11056000.00,1,Duquesne Family Office,Duquesne Family Office=298900
+BABA,NYSE,01609W102,Alibaba Group Hldng Ltd,10000,889000.00,1,Duquesne Family Office,Duquesne Family Office=10000

@@ -11,6 +11,7 @@ day, and means a template change reflows every historical date at once.
   site/reports/<date>.html   one page per date on file
   site/activity.html         the trade feed across all dates
   site/leaders.html          the market cap leaderboard, latest snapshot
+  site/manager.html          one 13F filer's book, with each position's history
   site/archive.html          links to all of them
 """
 
@@ -22,6 +23,7 @@ import activity
 import home
 import i18n
 import leaders
+import manager
 import report
 
 HERE = Path(__file__).parent
@@ -40,7 +42,7 @@ def archive_page(all_dates: list[str]) -> str:
     nav = "\n".join(
         f'    <a href="{k}.html"{" aria-current=\'page\'" if k == "archive" else ""}>'
         f'{i18n.NAV["en"][k]}</a>'
-        for k in ("index", "holdings", "activity", "leaders", "archive"))
+        for k in ("index", "holdings", "activity", "leaders", "manager", "archive"))
     items = "\n".join(
         f'    <li><a href="reports/{d}.html">{d}</a>'
         f'{" <em>latest</em>" if d == all_dates[-1] else ""}</li>'
@@ -117,6 +119,16 @@ def main(argv: list[str]) -> int:
         print(f"  leaders.html  ({board[-1]})")
     else:
         print("  leaders skipped: no leaders_*.csv snapshot yet")
+
+    # A 13F filer is optional: the site builds without one ingested.
+    import thirteenf
+    filers = thirteenf.managers()
+    if filers:
+        manager.main(["build_site", filers[0]])
+        shutil.copy(DATA / f"manager_{filers[0]}.html", out / "manager.html")
+        print(f"  manager.html  ({filers[0]})")
+    else:
+        print("  manager skipped: no 13F filer ingested")
 
     (out / "archive.html").write_text(archive_page(all_dates), encoding="utf-8")
 

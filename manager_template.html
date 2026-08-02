@@ -1,0 +1,476 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13F filings</title>
+
+<style>
+/*__STYLES__*/
+
+/* ---- manager book ---- */
+
+#book { font-size: 13px; min-width: 940px; }
+#book thead th { position: sticky; top: 0; z-index: 2; }
+#book th.sortable { cursor: pointer; user-select: none; }
+#book th.sortable:hover { color: var(--ink); }
+#book th.sortable:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+#book th .arrow { opacity: 0; margin-left: 3px; }
+#book th[data-dir] .arrow { opacity: 1; color: var(--accent); }
+#book td:first-child, #book th:first-child { padding-left: 18px; }
+#book td:last-child, #book th:last-child { padding-right: 18px; }
+
+.w-cell { position: relative; }
+/* Weight gets a track behind the number rather than its own column: the bar
+   is a magnitude the eye reads first, the number is the one it reads second. */
+.w-track {
+  position: absolute;
+  right: 12px;
+  bottom: 4px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--bar);
+}
+
+.spark { display: block; overflow: visible; }
+.spark .line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; }
+.spark .now { fill: var(--accent); }
+.spark .base { stroke: var(--rule-strong); stroke-width: 1; }
+
+.held-cell { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.since-cell { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); white-space: nowrap; }
+
+/* ---- expanded history ---- */
+
+.hist { padding: 4px 0 16px; display: flex; flex-direction: column; gap: 10px; }
+.hist-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+.hist-head b { color: var(--ink); font-weight: 600; }
+
+.chart { position: relative; }
+.chart svg { display: block; width: 100%; height: 132px; overflow: visible; }
+.chart .grid { stroke: var(--rule); stroke-width: 1; }
+.chart .zero { stroke: var(--rule-strong); stroke-width: 1; }
+/* The 2px gap between neighbouring quarters comes off the bar width, not from
+   a stroke: a stroke would also outline the top and read as a border. */
+.chart .bar { fill: var(--accent); }
+.chart .bar.on { fill: var(--pos1-bg); }
+.chart .hit { fill: transparent; cursor: pointer; }
+.chart .ylab, .chart .xlab {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  fill: var(--ink-3);
+}
+
+.tip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 6;
+  background: var(--surface);
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  padding: 7px 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-2);
+  white-space: nowrap;
+  box-shadow: 0 2px 8px #0002;
+}
+.tip b { color: var(--ink); font-weight: 600; }
+.tip .q { display: block; margin-bottom: 3px; color: var(--ink); font-weight: 600; }
+
+/* ---- exits ---- */
+
+.exitlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.exit {
+  background: var(--surface);
+  padding: 11px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.exit .who { display: flex; gap: 7px; align-items: baseline; min-width: 0; }
+.exit .tick { font-family: var(--mono); font-weight: 600; font-size: 13px; }
+.exit .co {
+  font-size: 12px;
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.exit .meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.mgrswitch { display: flex; flex-wrap: wrap; gap: 4px; }
+
+@media (max-width: 620px) {
+  .wrap { padding: 24px 14px 56px; gap: 22px; }
+}
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <nav class="sitenav" id="sitenav" aria-label="Sections"></nav>
+      <div class="langswitch" id="langswitch" role="group" aria-label="Language"></div>
+    </div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <p class="standfirst" id="standfirst"></p>
+    <div class="provenance" id="provenance"></div>
+  </header>
+
+  <section class="tiles" id="tiles"></section>
+
+  <section>
+    <div class="section-head">
+      <h2 id="h-book"></h2>
+      <span class="hint" id="hint-book"></span>
+    </div>
+
+    <div class="filterbar" style="margin:14px 0 10px">
+      <div class="filter-top">
+        <input class="search" id="search" type="search" aria-label="Search positions">
+        <button class="clear" type="button" id="clear" hidden></button>
+      </div>
+    </div>
+
+    <div class="status" id="status"></div>
+
+    <div class="holdings-wrap" style="margin-top:8px">
+      <table id="book">
+        <thead>
+          <tr>
+            <th scope="col" class="sortable" data-key="t" tabindex="0"><span class="hd" data-t="t"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable" data-key="n" tabindex="0"><span class="hd" data-t="n"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="w" tabindex="0"><span class="hd" data-t="w"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="v" tabindex="0"><span class="hd" data-t="v"></span><span class="arrow">▾</span></th>
+            <th scope="col" id="hd-hist"></th>
+            <th scope="col" class="sortable num" data-key="held" tabindex="0"><span class="hd" data-t="held"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable" data-key="since" tabindex="0"><span class="hd" data-t="since"></span><span class="arrow">▾</span></th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="empty" id="empty" hidden></div>
+    </div>
+  </section>
+
+  <section id="exits-section">
+    <div class="section-head">
+      <h2 id="h-exits"></h2>
+      <span class="hint" id="hint-exits"></span>
+    </div>
+    <div class="exitlist" id="exits" style="margin-top:12px"></div>
+  </section>
+
+  <footer id="footnotes"></footer>
+</div>
+
+<script>
+const DATA = /*__DATA__*/;
+
+const LANGS = DATA.langs.map(l => l.v);
+let lang = (() => {
+  try { const v = localStorage.getItem('ark-lang'); if (LANGS.includes(v)) return v; }
+  catch (e) {}
+  return LANGS[0];
+})();
+const page = () => DATA.i18n[lang];
+const t = k => page().ui[k];
+
+const HERE = 'manager';
+/*__NAV__*/
+
+const lbl = o => (lang === 'zh' && o.label_zh) ? o.label_zh : o.label;
+const esc = s => String(s).replace(/[&<>"]/g, c =>
+  ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+const fill = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k] ?? '');
+const usd = n => n.toLocaleString('en-US', {maximumFractionDigits: 0});
+function money(v) {
+  const a = Math.abs(v);
+  const [d, u] = a >= 1e9 ? [1e9, 'B'] : a >= 1e6 ? [1e6, 'M'] : a >= 1e3 ? [1e3, 'K'] : [1, ''];
+  return '$' + (a / d).toFixed(a / d >= 100 ? 0 : 1) + u;
+}
+
+const Q = DATA.quarters;
+const HEADS = {t: 'colTicker', n: 'colCompany', w: 'colWeight', v: 'colValue',
+               held: 'colHeld', since: 'colSince'};
+
+const state = {q: '', sort: 'w', dir: -1, open: new Set()};
+
+const visible = () => DATA.holdings.filter(h => !state.q ||
+  ((h.t || '') + ' ' + h.n).toLowerCase().includes(state.q));
+
+/* ---- sparkline: shape over time, one row's own scale ---- */
+
+function spark(h) {
+  const W = 104, H = 22, pad = 2;
+  const peak = Math.max(...h.h.map(p => p[1])) || 1;
+  const x = i => pad + (Q.length > 1 ? i / (Q.length - 1) : 0) * (W - 2 * pad);
+  const y = w => H - pad - (w / peak) * (H - 2 * pad);
+  // Gaps are quarters with no filing line, and they are not zero -- the
+  // segment is simply not drawn across them.
+  const runs = [];
+  let cur = [];
+  h.h.forEach(([i, w]) => {
+    if (cur.length && i !== cur[cur.length - 1][0] + 1) { runs.push(cur); cur = []; }
+    cur.push([i, w]);
+  });
+  if (cur.length) runs.push(cur);
+  const paths = runs.map(r =>
+    `<path class="line" d="${r.map(([i, w], k) =>
+      `${k ? 'L' : 'M'}${x(i).toFixed(1)},${y(w).toFixed(1)}`).join('')}"/>`).join('');
+  const last = h.h[h.h.length - 1];
+  return `<svg class="spark" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"
+    role="img" aria-label="${esc(fill(t('quartersHeld'), {n: h.held, d: h.first}))}">
+    <line class="base" x1="0" y1="${H - 1}" x2="${W}" y2="${H - 1}"/>
+    ${paths}
+    <circle class="now" cx="${x(last[0]).toFixed(1)}" cy="${y(last[1]).toFixed(1)}" r="2.5"/>
+  </svg>`;
+}
+
+/* ---- expanded history: one column per reported quarter ---- */
+
+function chart(h) {
+  const W = 900, H = 132, left = 34, right = 8, top = 10, bot = 22;
+  const peak = Math.max(...h.h.map(p => p[1])) || 1;
+  const step = (W - left - right) / Q.length;
+  const bw = Math.max(2, step - 2);           // 2px surface gap between marks
+  const y = w => top + (1 - w / peak) * (H - top - bot);
+  const bars = h.h.map(([i, w, v, s]) => {
+    const bx = left + i * step;
+    const by = y(w);
+    return `<rect class="bar" data-i="${i}" x="${bx.toFixed(1)}" y="${by.toFixed(1)}"
+      width="${bw.toFixed(1)}" height="${(H - bot - by).toFixed(1)}" rx="1.5"/>
+      <rect class="hit" data-i="${i}" data-w="${w}" data-v="${v}" data-s="${s}"
+      x="${bx.toFixed(1)}" y="${top}" width="${step.toFixed(1)}" height="${H - bot - top}"/>`;
+  }).join('');
+  const ticks = [0, peak / 2, peak].map(v =>
+    `<line class="grid" x1="${left}" y1="${y(v).toFixed(1)}" x2="${W - right}" y2="${y(v).toFixed(1)}"/>
+     <text class="ylab" x="${left - 6}" y="${(y(v) + 3).toFixed(1)}" text-anchor="end">${v.toFixed(1)}%</text>`
+  ).join('');
+  // Only the ends and the midpoint are labelled: fifty-two quarter labels
+  // would collide into a grey band and say nothing.
+  const marks = [0, Math.floor(Q.length / 2), Q.length - 1].map(i =>
+    `<text class="xlab" x="${(left + i * step + bw / 2).toFixed(1)}" y="${H - 6}"
+      text-anchor="middle">${Q[i]}</text>`).join('');
+  return `<div class="chart" data-c="${h.c}">
+    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+      ${ticks}${bars}
+      <line class="zero" x1="${left}" y1="${H - bot}" x2="${W - right}" y2="${H - bot}"/>
+      ${marks}
+    </svg>
+    <div class="tip" hidden></div>
+  </div>`;
+}
+
+const SITE_LABEL = {};
+(DATA.sites || []).forEach(x => { SITE_LABEL[x.key] = x; });
+const siteLinks = h => !h.lk ? '' :
+  `<div class="detail-links">${h.lk.map(l => {
+    const s = SITE_LABEL[l.k];
+    return s ? `<a href="${l.u}" target="_blank" rel="noopener noreferrer">${lbl(s)}</a>` : '';
+  }).join('')}</div>`;
+
+function detail(h) {
+  const peak = Math.max(...h.h.map(p => p[1]));
+  return `<tr class="detail"><td colspan="7"><div class="hist">
+    <div class="hist-head">
+      <span>${esc(t('historyOf'))} · <b>${esc(fill(t('peak'), {w: peak.toFixed(2)}))}</b></span>
+      <span>${esc(fill(t('quartersHeld'), {n: h.held, d: h.first}))}</span>
+    </div>
+    ${chart(h)}
+    <div class="detail-inner">
+      <span>${esc(t('colShares'))} <b>${usd(h.s)}</b></span>
+      <span>${esc(t('colValue'))} <b>${money(h.v)}</b></span>
+      <span>${esc(t('colWeight'))} <b>${h.w.toFixed(2)}%</b></span>
+    </div>
+    ${siteLinks(h)}
+  </div></td></tr>`;
+}
+
+function render() {
+  const rows = visible();
+  const dir = state.dir, key = state.sort;
+  rows.sort((a, b) => {
+    const x = a[key], y = b[key];
+    return (typeof x === 'string' ? x.localeCompare(y) : x - y) * dir;
+  });
+  const maxW = Math.max(...DATA.holdings.map(h => h.w), 1);
+
+  document.getElementById('rows').innerHTML = rows.map(h => {
+    const open = state.open.has(h.c);
+    return `<tr class="row-main${open ? ' open' : ''}" data-c="${h.c}"
+        tabindex="0" role="button" aria-expanded="${open}">
+      <td class="ticker-cell">${esc(h.t || '—')}</td>
+      <td class="name-cell"><span class="name">${esc(h.n)}</span>
+        ${h.t ? '' : `<span class="cusip">${esc(t('unidentified'))}</span>`}</td>
+      <td class="num w-cell">${h.w.toFixed(2)}%
+        <span class="w-track" style="width:${(h.w / maxW * 46).toFixed(1)}px"></span></td>
+      <td class="num">${money(h.v)}</td>
+      <td>${spark(h)}</td>
+      <td class="num held-cell">${h.held}</td>
+      <td class="since-cell">${h.since}</td>
+    </tr>${open ? detail(h) : ''}`;
+  }).join('');
+
+  const shown = rows.reduce((a, h) => a + h.v, 0);
+  document.getElementById('status').textContent = fill(t('status'), {
+    n: rows.length, t: DATA.holdings.length,
+    p: (shown / DATA.total * 100).toFixed(0)});
+  document.getElementById('empty').hidden = rows.length > 0;
+  document.querySelectorAll('#book th[data-key]').forEach(th => {
+    if (th.dataset.key === key) th.dataset.dir = dir > 0 ? 'up' : 'down';
+    else delete th.dataset.dir;
+  });
+}
+
+function paintStatic() {
+  const c = page();
+  paintNav();
+  document.getElementById('eyebrow').textContent = c.eyebrow;
+  document.getElementById('title').textContent = c.title;
+  document.getElementById('standfirst').textContent = c.standfirst;
+  document.getElementById('provenance').textContent = c.provenance;
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.title = c.title;
+
+  document.getElementById('tiles').innerHTML = c.tiles.map(([l, v, n]) => `
+    <div class="tile"><span class="tile-label">${l}</span>
+      <span class="tile-value">${v}</span><span class="tile-note">${n}</span></div>`).join('');
+  document.getElementById('footnotes').innerHTML = c.footnotes
+    .map(([b, x]) => `<div>${b ? `<b>${b}</b> ` : ''}${x}</div>`).join('');
+
+  document.getElementById('h-book').textContent = t('book');
+  document.getElementById('hint-book').textContent = t('bookHint');
+  document.getElementById('h-exits').textContent = t('exits');
+  document.getElementById('hint-exits').textContent =
+    fill(t('exitsHint'), {n: 8});
+  document.getElementById('hd-hist').textContent = t('colHistory');
+  document.getElementById('search').placeholder = t('search');
+  document.getElementById('clear').textContent = t('clear');
+  document.getElementById('empty').textContent = t('empty');
+  document.querySelectorAll('#book .hd').forEach(el => {
+    el.textContent = t(HEADS[el.dataset.t]);
+  });
+
+  const ex = document.getElementById('exits');
+  ex.innerHTML = DATA.exits.map(e => `
+    <div class="exit">
+      <span class="who"><span class="tick">${esc(e.t || '—')}</span>
+        <span class="co">${esc(e.n)}</span></span>
+      <span class="meta">${money(e.v)} · ${e.w.toFixed(2)}% · ${esc(fill(t('lastSeen'), {d: e.last}))}</span>
+    </div>`).join('');
+  document.getElementById('exits-section').hidden = DATA.exits.length === 0;
+}
+
+/* ---- events ---- */
+
+document.getElementById('search').addEventListener('input', ev => {
+  state.q = ev.target.value.trim().toLowerCase();
+  document.getElementById('clear').hidden = !state.q;
+  render();
+});
+document.getElementById('clear').addEventListener('click', () => {
+  state.q = '';
+  document.getElementById('search').value = '';
+  document.getElementById('clear').hidden = true;
+  render();
+});
+
+document.querySelectorAll('#book th[data-key]').forEach(th => {
+  const go = () => {
+    const k = th.dataset.key;
+    if (state.sort === k) state.dir = -state.dir;
+    else { state.sort = k; state.dir = (k === 't' || k === 'n' || k === 'since') ? 1 : -1; }
+    render();
+  };
+  th.addEventListener('click', go);
+  th.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+  });
+});
+
+function toggle(row) {
+  const c = row.dataset.c;
+  if (state.open.has(c)) state.open.delete(c); else state.open.add(c);
+  render();
+}
+const body = document.getElementById('rows');
+body.addEventListener('click', ev => {
+  const row = ev.target.closest('.row-main');
+  if (row && !ev.target.closest('a')) toggle(row);
+});
+body.addEventListener('keydown', ev => {
+  if (ev.key !== 'Enter' && ev.key !== ' ') return;
+  const row = ev.target.closest('.row-main');
+  if (row) { ev.preventDefault(); toggle(row); }
+});
+
+// Hover on the history chart. The hit rectangles span the full column height,
+// so the target is the quarter rather than the bar's own few pixels.
+body.addEventListener('mousemove', ev => {
+  const hit = ev.target.closest('.hit');
+  const wrap = ev.target.closest('.chart');
+  if (!wrap) return;
+  const tip = wrap.querySelector('.tip');
+  if (!hit) { tip.hidden = true; return; }
+  const i = +hit.dataset.i;
+  // The bar for a quarter precedes its hit rectangle, so the highlight cannot
+  // be a CSS sibling rule; it is set here instead.
+  wrap.querySelectorAll('.bar.on').forEach(b => b.classList.remove('on'));
+  const bar = wrap.querySelector(`.bar[data-i="${i}"]`);
+  if (bar) bar.classList.add('on');
+  tip.innerHTML = `<span class="q">${Q[i]}</span>
+    ${esc(t('tooltipWeight'))} <b>${(+hit.dataset.w).toFixed(2)}%</b><br>
+    ${esc(t('tooltipValue'))} <b>${money(+hit.dataset.v)}</b><br>
+    ${esc(t('tooltipShares'))} <b>${usd(+hit.dataset.s)}</b>`;
+  tip.hidden = false;
+  const box = wrap.getBoundingClientRect();
+  const x = ev.clientX - box.left;
+  tip.style.left = Math.min(Math.max(x + 12, 0), box.width - tip.offsetWidth - 4) + 'px';
+  tip.style.top = '4px';
+});
+body.addEventListener('mouseleave', () => {
+  document.querySelectorAll('.tip').forEach(x => { x.hidden = true; });
+  document.querySelectorAll('.bar.on').forEach(b => b.classList.remove('on'));
+}, true);
+
+const switcher = document.getElementById('langswitch');
+switcher.innerHTML = DATA.langs.map(l =>
+  `<button type="button" data-l="${l.v}" aria-pressed="false">${l.label}</button>`).join('');
+switcher.addEventListener('click', ev => {
+  const b = ev.target.closest('button');
+  if (!b || b.dataset.l === lang) return;
+  lang = b.dataset.l;
+  try { localStorage.setItem('ark-lang', lang); } catch (err) {}
+  switcher.querySelectorAll('button').forEach(x =>
+    x.setAttribute('aria-pressed', x.dataset.l === lang ? 'true' : 'false'));
+  paintStatic();
+  render();
+});
+switcher.querySelectorAll('button').forEach(x =>
+  x.setAttribute('aria-pressed', x.dataset.l === lang ? 'true' : 'false'));
+
+paintStatic();
+render();
+</script>

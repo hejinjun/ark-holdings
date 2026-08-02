@@ -1,0 +1,20 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+WFC,NYSE,949746101,Wells Fargo &amp; Co,1679400,94449000.00,1,Duquesne Family Office,Duquesne Family Office=1679400
+LYB,NYSE,N53745100,LyondellBasell Ind&apos;s NV,716950,74219000.00,1,Duquesne Family Office,Duquesne Family Office=716950
+HAL,NYSE,406216101,Halliburton Co,1547000,66629000.00,1,Duquesne Family Office,Duquesne Family Office=1547000
+FCX,NYSE,35671D857,Freeport-McMoRan Inc,3547000,66045000.00,1,Duquesne Family Office,Duquesne Family Office=3547000
+C,NYSE,172967424,Citigroup Inc,1175000,64907000.00,1,Duquesne Family Office,Duquesne Family Office=1175000
+MSFT,NASDAQ,594918104,Microsoft Corp,1398100,61726000.00,1,Duquesne Family Office,Duquesne Family Office=1398100
+HDB,NYSE,40415F101,HDFC Bank Ltd,1003600,60748000.00,1,Duquesne Family Office,Duquesne Family Office=1003600
+JPM,NYSE,46625H100,JP Morgan Chase &amp; Co,777300,52670000.00,1,Duquesne Family Office,Duquesne Family Office=777300
+ILMN,NASDAQ,452327109,Illumina Inc,206500,45091000.00,1,Duquesne Family Office,Duquesne Family Office=206500
+NEM,NYSE,651639106,Newmont Mining Corp,1279900,29898000.00,1,Duquesne Family Office,Duquesne Family Office=1279900
+EOG,NYSE,26875P101,EOG Res&apos;s Inc,310900,27219000.00,1,Duquesne Family Office,Duquesne Family Office=310900
+WDAY,NASDAQ,98138H101,Workday Inc,330679,25261000.00,1,Duquesne Family Office,Duquesne Family Office=330679
+AKAM,NASDAQ,00971T101,Akamai Tech Inc,355300,24807000.00,1,Duquesne Family Office,Duquesne Family Office=355300
+JD,NASDAQ,47215P106,JD.Com Inc,593000,20221000.00,1,Duquesne Family Office,Duquesne Family Office=593000
+EBAY,NASDAQ,278642103,EBay Inc,327000,19698000.00,1,Duquesne Family Office,Duquesne Family Office=327000
+PNC,NYSE,693475105,"PNC Fin&apos;l Services Group, Inc",204600,19570000.00,1,Duquesne Family Office,Duquesne Family Office=204600
+BABA,NYSE,01609W102,Alibaba Group Hldg Ltd,219100,18025000.00,1,Duquesne Family Office,Duquesne Family Office=219100
+EMN,NYSE,277432100,Eastman Chemical Co,186000,15219000.00,1,Duquesne Family Office,Duquesne Family Office=186000
+CTSH,NASDAQ,192446102,Cognizant Tech Sol&apos;s Corp,236800,14466000.00,1,Duquesne Family Office,Duquesne Family Office=236800

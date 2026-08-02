@@ -27,6 +27,16 @@ HERE = Path(__file__).parent
 DATA = HERE / "data"
 TEMPLATE = HERE / "activity_template.html"
 
+SOURCE = "ark"
+
+
+def use_source(name: str) -> None:
+    global DATA, SOURCE
+    SOURCE = name
+    DATA = HERE / "data" if name == "ark" else HERE / "data" / name
+    if not DATA.is_dir():
+        raise SystemExit(f"no data for source {name!r} at {DATA}")
+
 DEFAULT_DAYS = 30
 # Sweeping the money-market position is cash management, not a view on a
 # company, and it is large enough to sit at the top of every day if left in.
@@ -226,6 +236,8 @@ def page(lang: str, dates: list[str], events: list[dict], conviction: int) -> di
 
 
 def main(argv: list[str]) -> int:
+    if "--source" in argv:
+        use_source(argv[argv.index("--source") + 1])
     days = int(argv[argv.index("--days") + 1]) if "--days" in argv else DEFAULT_DAYS
     payload = build(days)
     out = DATA / "activity.html"

@@ -1,0 +1,12 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+DAL,NYSE,247361702,Delta Air Lines Inc.,72249,72249.00,1,Duquesne Family Office,Duquesne Family Office=72249
+PG,NYSE,742718109,Procter &amp; Gamble Co,43599,43599.00,1,Duquesne Family Office,Duquesne Family Office=43599
+CHTR,NASDAQ,16117M305,Charter Comm&apos;s Inc,33687,33687.00,1,Duquesne Family Office,Duquesne Family Office=33687
+WDAY,NASDAQ,98138H101,Workday Inc.,32397,32397.00,1,Duquesne Family Office,Duquesne Family Office=32397
+GILD,NASDAQ,375558103,Gilead Sciences Inc.,31311,31311.00,1,Duquesne Family Office,Duquesne Family Office=31311
+VZ,NYSE,92343V104,Verizon Comm&apos;s Inc.,23811,23811.00,1,Duquesne Family Office,Duquesne Family Office=23811
+BIIB,NASDAQ,09062X103,Biogen Idec Inc.,19691,19691.00,1,Duquesne Family Office,Duquesne Family Office=19691
+LYB,NYSE,N53745100,LyondellBasell Ind&apos;s NV,14445,14445.00,1,Duquesne Family Office,Duquesne Family Office=14445
+JNJ,NYSE,478160104,Johnson &amp; Johnson,11076,11076.00,1,Duquesne Family Office,Duquesne Family Office=11076
+BA,NYSE,097023105,Boeing Co,10162,10162.00,1,Duquesne Family Office,Duquesne Family Office=10162
+BSX,NYSE,101137107,Boston Scientific Corp,9270,9270.00,1,Duquesne Family Office,Duquesne Family Office=9270

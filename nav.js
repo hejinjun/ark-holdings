@@ -10,7 +10,7 @@
    href; it is read off the path instead. */
 
 const NAV_BASE = location.pathname.includes('/reports/') ? '../' : '';
-const NAV_PAGES = ['index', 'holdings', 'activity', 'leaders', 'archive'];
+const NAV_PAGES = ['index', 'holdings', 'activity', 'leaders', 'manager', 'archive'];
 
 function paintNav() {
   const el = document.getElementById('sitenav');

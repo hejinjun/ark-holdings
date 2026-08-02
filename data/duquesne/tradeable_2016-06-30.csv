@@ -1,0 +1,20 @@
+symbol,exchange,cusip,company,total_shares,total_market_value,n_funds,funds,by_fund_shares
+HAL,NYSE,406216101,Halliburton Co,2177600,98624000.00,1,Duquesne Family Office,Duquesne Family Office=2177600
+ABBV,NYSE,00287Y109,AbbVie Inc.,1324920,82026000.00,1,Duquesne Family Office,Duquesne Family Office=1324920
+FCX,NYSE,35671D857,Freeport-McMoRan Inc,3470700,38664000.00,1,Duquesne Family Office,Duquesne Family Office=3470700
+DE,NYSE,244199105,Deere &amp; Co,360500,29215000.00,1,Duquesne Family Office,Duquesne Family Office=360500
+AMZN,NASDAQ,023135106,Amazon.com Inc.,35400,25333000.00,1,Duquesne Family Office,Duquesne Family Office=35400
+POST,NYSE,737446104,Post Hldgs Inc.,291200,24079000.00,1,Duquesne Family Office,Duquesne Family Office=291200
+AEM,NYSE,008474108,Agnico Eagle Mines Ltd,434900,23267000.00,1,Duquesne Family Office,Duquesne Family Office=434900
+ZTS,NYSE,98978V103,Zoetis Inc.,477900,22681000.00,1,Duquesne Family Office,Duquesne Family Office=477900
+CF,NYSE,125269100,CF Ind&apos;s Hldgs Inc.,930800,22432000.00,1,Duquesne Family Office,Duquesne Family Office=930800
+HDB,NYSE,40415F101,HDFC Bank Ltd.,232000,15393000.00,1,Duquesne Family Office,Duquesne Family Office=232000
+ABT,NYSE,002824100,Abbott Labs,385400,15150000.00,1,Duquesne Family Office,Duquesne Family Office=385400
+NVDA,NASDAQ,67066G104,NVIDIA Corp.,320000,15043000.00,1,Duquesne Family Office,Duquesne Family Office=320000
+CRM,NYSE,79466L302,Salesforce.com Inc.,189000,15008000.00,1,Duquesne Family Office,Duquesne Family Office=189000
+ROK,NYSE,773903109,Rockwell Automation Inc.,130100,14938000.00,1,Duquesne Family Office,Duquesne Family Office=130100
+GD,NYSE,369550108,General Dynamics Corp,104900,14606000.00,1,Duquesne Family Office,Duquesne Family Office=104900
+NUE,NYSE,670346105,Nucor Corp,201000,9931000.00,1,Duquesne Family Office,Duquesne Family Office=201000
+A,NYSE,00846U101,Agilent Tech&apos;s Inc.,220300,9773000.00,1,Duquesne Family Office,Duquesne Family Office=220300
+EMN,NYSE,277432100,Eastman Chem Co,131100,8902000.00,1,Duquesne Family Office,Duquesne Family Office=131100
+WMB,NYSE,969457100,Williams Co&apos;s Inc.,278400,6022000.00,1,Duquesne Family Office,Duquesne Family Office=278400
