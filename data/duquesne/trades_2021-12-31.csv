@@ -28,7 +28,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,buy,RXRX,Recursion Pharmaceuticals In,75629V104,equity,259941,273650,259941,13709,5.27,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,BKNG,Booking Holdings Inc,09857L108,equity,42917,14778,42917,-28139,-65.57,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,SNAP,Snap Inc,83304A106,equity,1444155,235440,1444155,-1208715,-83.70,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,,Flex Ltd,Y2573F102,equity,2537199,240666,2537199,-2296533,-90.51,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,FLEX,Flex Ltd,Y2573F102,equity,2537199,240666,2537199,-2296533,-90.51,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,EXPE,Expedia Group Inc,30212P303,equity,154070,56565,154070,-97505,-63.29,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,PRCT,Procept Biorobotics Corp,74276L105,equity,1660435,1128041,1660435,-532394,-32.06,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,,Dish Network Corporation,25470M109,equity,570434,112400,570434,-458034,-80.30,1.000000

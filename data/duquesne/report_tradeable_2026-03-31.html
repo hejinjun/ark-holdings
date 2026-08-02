@@ -1,0 +1,1146 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARK ETF Holdings</title>
+
+<style>
+  :root {
+    color-scheme: light;
+    --ground:      #f4f6f8;
+    --surface:     #ffffff;
+    --surface-alt: #eef1f4;
+    --ink:         #151a1f;
+    --ink-2:       #5a646e;
+    --ink-3:       #8b959f;
+    --rule:        #dde2e7;
+    --rule-strong: #c4ccd4;
+    --accent:      #2a78d6;
+    --accent-soft: #dfebfa;
+    --violet:      #4a3aa7;
+    --orange:      #c04f22;
+    --aqua:        #157f5a;
+    --bar:         #b9d3f0;
+    /* Trade direction. Three redundant encodings, because at 10.5px hue alone
+       does not separate: fill vs tint for intensity, hue for direction, and an
+       arrow glyph that works with no colour at all. */
+    --pos-new-bg:  #0b6b46;  --pos-new-fg:  #ffffff;
+    --pos-buy-bg:  #d5eee2;  --pos-buy-fg:  #0a5c3c;
+    --pos-sell-bg: #fbe0d2;  --pos-sell-fg: #8c3813;
+    --pos-exit-bg: #9c3a18;  --pos-exit-fg: #ffffff;
+    --pos1-bg: #12508f;  --pos1-fg: #ffffff;
+    --pos2-bg: #2f6fb8;  --pos2-fg: #ffffff;
+    --pos3-bg: #b9d5f0;  --pos3-fg: #123a63;
+    --pos4-bg: #e7eef5;  --pos4-fg: #4a5560;
+
+    --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans:  ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono:  ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground:      #101418;
+      --surface:     #171c21;
+      --surface-alt: #1e242a;
+      --ink:         #e9edf1;
+      --ink-2:       #9aa5af;
+      --ink-3:       #6d7883;
+      --rule:        #262d34;
+      --rule-strong: #3a434c;
+      --accent:      #3987e5;
+      --accent-soft: #1b2c42;
+      --violet:      #9085e9;
+      --orange:      #e0763f;
+      --aqua:        #35b98a;
+      --bar:         #2c4d73;
+      --pos-new-bg:  #35b98a;  --pos-new-fg:  #06231a;
+      --pos-buy-bg:  #1b4234;  --pos-buy-fg:  #7fe0b6;
+      --pos-sell-bg: #4a2818;  --pos-sell-fg: #f0a077;
+      --pos-exit-bg: #e0763f;  --pos-exit-fg: #1c0d05;
+
+      --pos1-bg: #6aa9ea;  --pos1-fg: #0b1620;
+      --pos2-bg: #2f6fb8;  --pos2-fg: #ffffff;
+      --pos3-bg: #27435f;  --pos3-fg: #cfe0f2;
+      --pos4-bg: #232a31;  --pos4-fg: #8a949e;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground:      #101418;
+    --surface:     #171c21;
+    --surface-alt: #1e242a;
+    --ink:         #e9edf1;
+    --ink-2:       #9aa5af;
+    --ink-3:       #6d7883;
+    --rule:        #262d34;
+    --rule-strong: #3a434c;
+    --accent:      #3987e5;
+    --accent-soft: #1b2c42;
+    --violet:      #9085e9;
+    --orange:      #e0763f;
+    --aqua:        #35b98a;
+    --bar:         #2c4d73;
+    --pos1-bg: #6aa9ea;  --pos1-fg: #0b1620;
+    --pos2-bg: #2f6fb8;  --pos2-fg: #ffffff;
+    --pos3-bg: #27435f;  --pos3-fg: #cfe0f2;
+    --pos4-bg: #232a31;  --pos4-fg: #8a949e;
+    --pos-new-bg:  #35b98a;  --pos-new-fg:  #06231a;
+    --pos-buy-bg:  #1b4234;  --pos-buy-fg:  #7fe0b6;
+    --pos-sell-bg: #4a2818;  --pos-sell-fg: #f0a077;
+    --pos-exit-bg: #e0763f;  --pos-exit-fg: #1c0d05;
+  }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  /* ---- masthead ---- */
+
+  .masthead { display: flex; flex-direction: column; gap: 10px; }
+
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .langswitch { display: flex; gap: 0; }
+  .langswitch button {
+    font: inherit;
+    font-size: 12px;
+    font-family: var(--mono);
+    /* Two characters wide, and it must stay that way: on a narrow screen the
+       nav takes the row and "中文" would otherwise break across two lines. */
+    white-space: nowrap;
+    padding: 5px 11px;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    cursor: pointer;
+  }
+  .langswitch button:first-child { border-radius: 3px 0 0 3px; }
+  .langswitch button:last-child { border-radius: 0 3px 3px 0; border-left: none; }
+  .langswitch button[aria-pressed="true"] {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .langswitch button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  /* ---- site nav ---- */
+
+  /* Every page carries the same nav, so the current page is marked rather than
+     omitted -- a missing item reads as a broken link, not as "you are here". */
+  .sitenav { display: flex; flex-wrap: wrap; gap: 4px; }
+  .sitenav a {
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 5px 11px;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .sitenav a:hover { border-color: var(--accent); color: var(--ink); }
+  .sitenav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .sitenav a[aria-current="page"] {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ---- trade direction chip ---- */
+
+  /* Shared by the feed and the home page. Solid for opening and closing,
+     tinted for adding and trimming: the fill carries intensity, the hue
+     carries direction, and the arrow works with no colour at all. */
+  .tag-action {
+    justify-self: start;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .tag-action[data-k="new"]  { background: var(--pos-new-bg);  color: var(--pos-new-fg); }
+  .tag-action[data-k="buy"]  { background: var(--pos-buy-bg);  color: var(--pos-buy-fg); }
+  .tag-action[data-k="sell"] { background: var(--pos-sell-bg); color: var(--pos-sell-fg); }
+  .tag-action[data-k="exit"] { background: var(--pos-exit-bg); color: var(--pos-exit-fg); }
+  .tag-action .arrow { font-size: 9px; opacity: 0.85; }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .standfirst {
+    color: var(--ink-2);
+    max-width: 62ch;
+    margin: 0;
+    font-size: 14.5px;
+  }
+
+  .provenance {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    border-top: 1px solid var(--rule);
+    padding-top: 10px;
+    margin-top: 4px;
+  }
+
+  /* ---- summary tiles ---- */
+
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .tile {
+    background: var(--surface);
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .tile-label {
+    font-size: 10.5px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+
+  .tile-value {
+    font-family: var(--mono);
+    font-size: 21px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  .tile-note { font-size: 12px; color: var(--ink-2); }
+
+  /* ---- fund strip ---- */
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .hint { font-size: 12.5px; color: var(--ink-3); }
+
+  .scroller { overflow-x: auto; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+
+  thead th {
+    text-align: left;
+    font-size: 10.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--rule-strong);
+    white-space: nowrap;
+    background: var(--surface);
+  }
+
+  tbody td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: baseline;
+  }
+
+  .num {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .fundtable {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    max-width: 660px;
+  }
+  .fundtable td:first-child, .fundtable th:first-child { padding-left: 18px; }
+  .fundtable td:last-child, .fundtable th:last-child { padding-right: 18px; }
+  .fundtable tbody tr:last-child td { border-bottom: none; font-weight: 600; }
+  .fundtable tbody tr:last-child td { border-top: 1px solid var(--rule-strong); }
+  .ticker-cell { font-family: var(--mono); font-weight: 600; }
+
+  /* ---- controls ---- */
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .search {
+    flex: 1 1 220px;
+    min-width: 180px;
+    font: inherit;
+    font-size: 14px;
+    padding: 8px 12px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+  }
+  .search::placeholder { color: var(--ink-3); }
+  .search:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .chipset { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .filterbar {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .filter-top { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+  .filter-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid var(--rule);
+    padding-top: 12px;
+  }
+
+  .filter-row {
+    display: grid;
+    grid-template-columns: 116px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .filter-label {
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+    padding-top: 7px;
+  }
+
+  .chip .count {
+    color: var(--ink-3);
+    font-weight: 400;
+    margin-left: 5px;
+  }
+  .chip[aria-pressed="true"] .count { color: var(--ink-2); }
+  .chip[data-empty="1"] { opacity: 0.4; }
+
+  .clear {
+    font: inherit;
+    font-size: 12px;
+    padding: 6px 10px;
+    color: var(--ink-2);
+    background: transparent;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .clear:hover { border-color: var(--accent); color: var(--ink); }
+  .clear:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  @media (max-width: 720px) {
+    .filter-row { grid-template-columns: 1fr; gap: 4px; }
+    .filter-label { padding-top: 0; }
+  }
+
+  .chip {
+    font: inherit;
+    font-size: 12px;
+    font-family: var(--mono);
+    padding: 6px 10px;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--ink); }
+  .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .chip[aria-pressed="true"] {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ---- holdings table ---- */
+
+  /* A capped height makes the container the vertical scroller, which is what
+     the sticky header sticks to; without it `top: 0` has nothing to act on. */
+  .holdings-wrap {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: auto;
+    max-height: 74vh;
+  }
+
+  #holdings { font-size: 13px; min-width: 1190px; }
+  #holdings thead th { position: sticky; top: 0; z-index: 2; }
+  #holdings th.sortable { cursor: pointer; user-select: none; }
+  #holdings th.sortable:hover { color: var(--ink); }
+  #holdings th.sortable:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  #holdings th .arrow { opacity: 0; margin-left: 3px; }
+  #holdings th[data-dir] .arrow { opacity: 1; color: var(--accent); }
+  #holdings td:first-child, #holdings th:first-child { padding-left: 18px; }
+  #holdings td:last-child, #holdings th:last-child { padding-right: 18px; }
+
+  .row-main { cursor: pointer; }
+  .row-main:hover { background: var(--surface-alt); }
+  .row-main:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .row-main.open { background: var(--surface-alt); }
+
+  /* Enough columns now that the browser would rather wrap the name than
+     scroll; a floor keeps it on one or two lines and lets the wrapper scroll. */
+  .name-cell { min-width: 236px; max-width: 340px; }
+  .name { display: block; }
+  .cusip {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+  }
+
+  /* magnitude bar sits behind the value, anchored to the right edge */
+  .mv-cell { position: relative; }
+  .mv-inner {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  /* Order-of-magnitude badge on ARK's position. A single hue stepped
+     light-to-dark, because size is ordinal -- categorical colours would imply
+     these tiers are unrelated kinds rather than a scale. The tier is spelled
+     out on the badge so it never depends on colour alone. */
+  .mv-tier {
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    padding: 1px 5px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .mv-tier[data-t="p1"] { background: var(--pos1-bg); color: var(--pos1-fg); }
+  .mv-tier[data-t="p2"] { background: var(--pos2-bg); color: var(--pos2-fg); }
+  .mv-tier[data-t="p3"] { background: var(--pos3-bg); color: var(--pos3-fg); }
+  .mv-tier[data-t="p4"] { background: var(--pos4-bg); color: var(--pos4-fg); }
+
+  .mv-bar {
+    position: absolute;
+    right: 12px;
+    bottom: 3px;
+    height: 3px;
+    border-radius: 0 0 0 0;
+    background: var(--bar);
+  }
+  .mv-val { position: relative; }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.03em;
+    padding: 2px 6px;
+    border-radius: 2px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .tag[data-i="0"] { color: var(--ink-3); }
+  .tag[data-i="1"] { color: var(--violet); }
+  .tag[data-i="2"] { color: var(--orange); }
+  .tag[data-i="3"] { color: var(--aqua); }
+
+  .price-cell { font-family: var(--mono); font-variant-numeric: tabular-nums;
+                text-align: right; white-space: nowrap; }
+
+  /* 52-week range: a track spanning low..high with the last price marked. */
+  .range { display: flex; flex-direction: column; gap: 3px; min-width: 104px; }
+  .range-track {
+    position: relative;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--rule-strong);
+  }
+  .range-mark {
+    position: absolute;
+    top: -2px;
+    width: 3px;
+    height: 8px;
+    border-radius: 1px;
+    background: var(--accent);
+    transform: translateX(-1.5px);
+  }
+  .range-ends {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-3);
+    gap: 8px;
+  }
+
+  .funds-cell { font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); white-space: nowrap; }
+
+  .detail td { background: var(--surface-alt); border-bottom: 1px solid var(--rule-strong); }
+  .detail-desc {
+    margin: 0;
+    /* Fills the detail row instead of wrapping three times in a narrow column,
+       but stays under the table's min-width: an auto-layout table grows to fit
+       its widest cell, so an unbounded line here stretches the whole table and
+       pushes the last columns out of view. */
+    max-width: 1080px;
+    padding-right: 24px;
+    font-size: 13.5px;
+    /* Chinese needs the looser leading; it reads cramped at English spacing. */
+    line-height: 1.7;
+    color: var(--ink);
+    /* Stops a one-word last line -- "software." was orphaning on its own row. */
+    text-wrap: pretty;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+
+  .detail-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+  }
+
+  .detail-body {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 10px 0 12px;
+  }
+
+  .detail-links { display: flex; flex-wrap: wrap; gap: 6px; }
+  .detail-links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 8px;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .detail-links a:hover { border-color: var(--accent); color: var(--accent); }
+  .detail-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .detail-links a::after { content: " ↗"; opacity: 0.45; }
+
+  .fin-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-2);
+  }
+  .fin-row b { color: var(--ink); font-weight: 600; }
+  .fin-row .neg { color: var(--orange); }
+  .fin-row .warn { color: var(--ink-3); font-style: italic; }
+
+  .detail-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .detail-inner span { color: var(--ink-2); }
+  .detail-inner b { color: var(--ink); font-weight: 600; }
+
+  .empty { padding: 28px 18px; color: var(--ink-2); font-size: 14px; }
+
+  .status {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    font-size: 12.5px;
+    color: var(--ink-2);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  footer b { color: var(--ink); font-weight: 600; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <nav class="sitenav" id="sitenav" aria-label="Sections"></nav>
+      <div class="langswitch" id="langswitch" role="group" aria-label="Language"></div>
+    </div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <p class="standfirst" id="standfirst"></p>
+    <div class="provenance" id="provenance"></div>
+  </header>
+
+  <section class="tiles" id="tiles"></section>
+
+  <section>
+    <div class="section-head">
+      <h2 id="h-byfund"></h2>
+      <span class="hint" id="hint-byfund"></span>
+    </div>
+    <div class="scroller fundtable" style="margin-top:12px">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col" id="fh-fund"></th>
+            <th scope="col" class="num" id="fh-pos"></th>
+            <th scope="col" class="num" id="fh-mv"></th>
+            <th scope="col" class="num" id="fh-share"></th>
+          </tr>
+        </thead>
+        <tbody id="fund-rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 id="h-holdings"></h2>
+      <span class="hint" id="hint-holdings"></span>
+    </div>
+
+    <div class="filterbar" style="margin:14px 0 10px">
+      <div class="filter-top">
+        <input class="search" id="search" type="search" placeholder="Search ticker, company, or CUSIP" aria-label="Search holdings">
+        <button class="clear" type="button" id="clear" hidden></button>
+      </div>
+      <div class="filter-groups" id="filter-groups"></div>
+    </div>
+
+    <div class="status" id="status"></div>
+
+    <div class="holdings-wrap" style="margin-top:8px">
+      <table id="holdings">
+        <thead>
+          <tr>
+            <th scope="col" class="sortable" data-key="t" tabindex="0"><span class="hd" data-t="t"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable" data-key="n" tabindex="0"><span class="hd" data-t="n"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable" data-key="k" tabindex="0"><span id="dim-label"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="p" tabindex="0"><span class="hd" data-t="p"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable" data-key="rp" tabindex="0"><span class="hd" data-t="rp"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="oh" tabindex="0"><span class="hd" data-t="oh"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="ol" tabindex="0"><span class="hd" data-t="ol"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="s" tabindex="0"><span class="hd" data-t="s"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="v" tabindex="0"><span class="hd" data-t="v"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="nf" tabindex="0"><span class="hd" data-t="nf"></span><span class="arrow">▾</span></th>
+            <th scope="col" id="hd-heldby"></th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="empty" id="empty" hidden></div>
+    </div>
+  </section>
+
+  <footer id="footnotes"></footer>
+
+</div>
+
+<script>
+const DATA = {"asOf":"2026-03-31","langs":[{"v":"en","label":"EN"},{"v":"zh","label":"\u4e2d\u6587"}],"posBadge":{"en":{"p1":"100M+","p2":"10M+","p3":"1M+","p4":"<1M"},"zh":{"p1":"\u4ebf","p2":"\u5343\u4e07","p3":"\u767e\u4e07","p4":"<\u767e\u4e07"}},"sites":[{"key":"fin","label":"Financials","label_zh":"\u8d22\u62a5\u6570\u636e"},{"key":"sec","label":"SEC filings","label_zh":"SEC \u7533\u62a5"},{"key":"nasdaq","label":"Nasdaq","label_zh":"Nasdaq"},{"key":"quote","label":"Quote","label_zh":"\u884c\u60c5"}],"i18n":{"en":{"eyebrow":"Reported book","title":"What Duquesne Family Office reported holding","standfirst":"A 13F states the long US positions a manager held at a quarter end, filed up to 45 days later. Shorts, cash, bonds, futures and foreign lines never appear, so for a macro manager this is a corner of the book rather than the book. Positions are summed by CUSIP and matched to a US ticker where one can be identified.","provenance":"quarter ending 2026-03-31  \u00b7  61 identified positions  \u00b7  from the manager's own 13F-HR filing on SEC EDGAR","tiles":[["Tradeable market value","$2,724,653,000","US-listed equities only"],["Symbols","61","across 1 funds"],["Held by 2+ funds","0","0% of symbols"],["Near 52-week low","12","bottom quarter of range, of 61 quoted"]],"nav":{"index":"Today","holdings":"Holdings","activity":"Trades","leaders":"Top 300","manager":"13F","archive":"Archive"},"footnotes":[["Listing status is checked, not inferred.","Every symbol is matched against Nasdaq Trader's official directories, and the issuer names have to agree before a match counts \u2014 ticker equality alone puts Airbus on AAR Corp."],["Business descriptions are generated, not sourced from filings.","Each was written by a language model, web-checked for recent listings and renames, and says what the company sells rather than how it markets itself. Treat them as orientation, not diligence."],["Sector labels come from Nasdaq and are often wrong.","SpaceX is tagged Computer Software, GE Aerospace is tagged Consumer Electronics, X-energy is tagged Metal Fabrications. Use the sector filter to narrow, not to classify \u2014 the descriptions are the reliable read."],["Prices are a live quote, not ARK's mark.","Last price and the 52-week range come from Yahoo Finance and are newer than the holdings file, so market value and price will not reconcile exactly."],["","Source: ARK's own daily holdings files on assets.ark-funds.com. Holdings data, not investment advice."]],"ui":{"byFund":"By fund","byFundHint":"Market value is the sum of position values, which tracks fund NAV.","colFund":"Fund","colPositions":"Positions","colMarketValue":"Market value (USD)","colShare":"Share of complex","total":"Total","holdings":"Merged holdings","holdingsHint":"Click a row for the per-fund share split. Click a column head to sort.","search":"Search ticker, company, or CUSIP","clear":"Clear filters","colTicker":"Ticker","colSecurity":"Security","colPrice":"Price","colRange":"52-week range","colOffHigh":"Off high","colOffLow":"Off low","colShares":"Total shares","colFunds":"Funds","colHeldBy":"Held by","sharesByFund":"shares by fund:","finRevenue":"revenue","finMargin":"gross margin","finNetIncome":"net income","finCash":"cash","finRunway":"runway","finDilution":"shares y/y","finBasisChanged":"share basis changed","finQuarters":"q","finNone":"no filings yet","empty":"No security matches those filters.","status":"{n} of {t} securities  \u00b7  ${v}  \u00b7  {p}% of complex market value","feedLink":"Trade feed \u2192","leadersLink":"Top 300 \u2192"}},"zh":{"eyebrow":"\u7533\u62a5\u6301\u4ed3","title":"Duquesne Family Office \u7533\u62a5\u7684\u6301\u4ed3","standfirst":"13F \u53cd\u6620\u7684\u662f\u67d0\u4f4d\u7ecf\u7406\u5728\u5b63\u5ea6\u672b\u6301\u6709\u7684\u7f8e\u80a1\u591a\u5934\u4ed3\u4f4d\uff0c\u6700\u665a\u53ef\u5728 45 \u5929\u540e\u624d\u7533\u62a5\u3002\u7a7a\u5934\u3001\u73b0\u91d1\u3001\u503a\u5238\u3001\u671f\u8d27\u548c\u5883\u5916\u6302\u724c\u4e00\u6982\u4e0d\u51fa\u73b0\u2014\u2014\u5bf9\u5b8f\u89c2\u4ea4\u6613\u5458\u6765\u8bf4\uff0c\u8fd9\u53ea\u662f\u8d26\u672c\u7684\u4e00\u89d2\uff0c\u800c\u4e0d\u662f\u8d26\u672c\u672c\u8eab\u3002\u6301\u4ed3\u5df2\u6309 CUSIP \u6c47\u603b\uff0c\u5e76\u5728\u80fd\u8bc6\u522b\u51fa\u4ee3\u7801\u65f6\u5339\u914d\u5230\u7f8e\u80a1\u4ee3\u7801\u3002","provenance":"\u622a\u81f3 2026-03-31 \u5b63\u5ea6\u672b  \u00b7  61 \u53ea\u5df2\u8bc6\u522b\u6301\u4ed3  \u00b7  \u6765\u81ea\u8be5\u7ecf\u7406\u63d0\u4ea4\u7ed9 SEC EDGAR \u7684 13F-HR \u7533\u62a5","tiles":[["\u53ef\u4ea4\u6613\u5e02\u503c","$2,724,653,000","\u4ec5\u7f8e\u80a1\u4e0a\u5e02\u80a1\u7968"],["\u6807\u7684\u6570","61","\u5206\u5e03\u4e8e 1 \u53ea\u57fa\u91d1"],["2 \u53ea\u4ee5\u4e0a\u57fa\u91d1\u6301\u6709","0","\u5360\u5168\u90e8\u6807\u7684 0%"],["\u63a5\u8fd1 52 \u5468\u4f4e\u70b9","12","\u4f4d\u4e8e\u533a\u95f4\u4e0b\u56db\u5206\u4e4b\u4e00\uff0c\u5171 61 \u53ea\u6709\u62a5\u4ef7"]],"nav":{"index":"\u4eca\u65e5","holdings":"\u6301\u4ed3","activity":"\u4ea4\u6613","leaders":"\u5e02\u503c\u699c","manager":"\u7ba1\u7406\u4eba","archive":"\u5b58\u6863"},"footnotes":[["\u4e0a\u5e02\u72b6\u6001\u662f\u9010\u4e2a\u6838\u5bf9\u7684\uff0c\u4e0d\u662f\u63a8\u65ad\u7684\u3002","\u6bcf\u4e2a\u4ee3\u7801\u90fd\u4e0e Nasdaq Trader \u5b98\u65b9\u76ee\u5f55\u6bd4\u5bf9\uff0c\u4e14\u53d1\u884c\u4eba\u540d\u79f0\u5fc5\u987b\u5bf9\u5f97\u4e0a\u624d\u7b97\u5339\u914d\u2014\u2014\u53ea\u770b\u4ee3\u7801\u76f8\u540c\uff0c\u4f1a\u628a\u7a7a\u5ba2\u7b97\u6210 AAR Corp\u3002"],["\u516c\u53f8\u4ecb\u7ecd\u7531\u6a21\u578b\u751f\u6210\uff0c\u4e0d\u662f\u53d6\u81ea\u8d22\u62a5\u3002","\u6bcf\u6761\u90fd\u7ecf\u8fc7\u8054\u7f51\u6838\u5b9e\u8fd1\u671f\u4e0a\u5e02\u548c\u66f4\u540d\u60c5\u51b5\uff0c\u5199\u7684\u662f\u8fd9\u5bb6\u516c\u53f8\u5356\u4ec0\u4e48\uff0c\u800c\u4e0d\u662f\u5b83\u5982\u4f55\u5ba3\u4f20\u81ea\u5df1\u3002\u8bf7\u5f53\u4f5c\u5feb\u901f\u4e86\u89e3\uff0c\u800c\u975e\u5c3d\u804c\u8c03\u67e5\u3002"],["\u677f\u5757\u6807\u7b7e\u6765\u81ea Nasdaq\uff0c\u9519\u8bef\u4e0d\u5c11\u3002","SpaceX \u88ab\u6807\u6210\u300c\u8ba1\u7b97\u673a\u8f6f\u4ef6\u300d\uff0cGE \u822a\u7a7a\u53d1\u52a8\u673a\u88ab\u6807\u6210\u300c\u6d88\u8d39\u7535\u5b50\u300d\uff0cX-energy \u6838\u53cd\u5e94\u5806\u88ab\u6807\u6210\u300c\u91d1\u5c5e\u52a0\u5de5\u300d\u3002\u677f\u5757\u7b5b\u9009\u9002\u5408\u7c97\u7b5b\uff0c\u4e0d\u9002\u5408\u5f53\u5206\u7c7b\u4f9d\u636e\u2014\u2014\u4ee5\u516c\u53f8\u4ecb\u7ecd\u4e3a\u51c6\u3002"],["\u4ef7\u683c\u662f\u5b9e\u65f6\u62a5\u4ef7\uff0c\u4e0d\u662f ARK \u7684\u4f30\u503c\u3002","\u73b0\u4ef7\u548c 52 \u5468\u533a\u95f4\u6765\u81ea Yahoo Finance\uff0c\u6bd4\u6301\u4ed3\u6587\u4ef6\u65b0\uff0c\u6240\u4ee5\u5e02\u503c\u4e0e\u73b0\u4ef7\u4e0d\u4f1a\u7cbe\u786e\u5bf9\u5f97\u4e0a\u3002"],["","\u6570\u636e\u6765\u6e90\uff1aARK \u5b98\u65b9\u6bcf\u65e5\u6301\u4ed3\u6587\u4ef6\uff08assets.ark-funds.com\uff09\u3002\u4ec5\u4e3a\u6301\u4ed3\u6570\u636e\uff0c\u4e0d\u6784\u6210\u6295\u8d44\u5efa\u8bae\u3002"]],"ui":{"byFund":"\u5206\u57fa\u91d1","byFundHint":"\u5e02\u503c\u4e3a\u5404\u6301\u4ed3\u5e02\u503c\u4e4b\u548c\uff0c\u4e0e\u57fa\u91d1\u51c0\u503c\u540c\u6b65\u3002","colFund":"\u57fa\u91d1","colPositions":"\u6301\u4ed3\u6570","colMarketValue":"\u5e02\u503c\uff08\u7f8e\u5143\uff09","colShare":"\u5360\u6bd4","total":"\u5408\u8ba1","holdings":"\u5408\u5e76\u6301\u4ed3","holdingsHint":"\u70b9\u51fb\u67d0\u4e00\u884c\u67e5\u770b\u5206\u57fa\u91d1\u6301\u80a1\u62c6\u5206\uff0c\u70b9\u51fb\u5217\u5934\u6392\u5e8f\u3002","search":"\u641c\u7d22\u4ee3\u7801\u3001\u516c\u53f8\u540d\u6216 CUSIP","clear":"\u6e05\u9664\u7b5b\u9009","colTicker":"\u4ee3\u7801","colSecurity":"\u8bc1\u5238","colPrice":"\u73b0\u4ef7","colRange":"52 \u5468\u533a\u95f4","colOffHigh":"\u8ddd\u9ad8\u70b9","colOffLow":"\u8ddd\u4f4e\u70b9","colShares":"\u603b\u80a1\u6570","colFunds":"\u57fa\u91d1\u6570","colHeldBy":"\u6301\u6709\u57fa\u91d1","sharesByFund":"\u5206\u57fa\u91d1\u6301\u80a1\uff1a","finRevenue":"\u8425\u6536","finMargin":"\u6bdb\u5229\u7387","finNetIncome":"\u51c0\u5229","finCash":"\u73b0\u91d1","finRunway":"\u73b0\u91d1\u53ef\u6491","finDilution":"\u80a1\u672c\u540c\u6bd4","finBasisChanged":"\u80a1\u672c\u53e3\u5f84\u53d8\u66f4","finQuarters":"\u4e2a\u5b63\u5ea6","finNone":"\u6682\u65e0\u8d22\u62a5","empty":"\u6ca1\u6709\u7b26\u5408\u7b5b\u9009\u6761\u4ef6\u7684\u8bc1\u5238\u3002","status":"{n} / {t} \u53ea  \u00b7  ${v}  \u00b7  \u5360\u7ec4\u5408\u5e02\u503c {p}%","feedLink":"\u4ea4\u6613\u6d41 \u2192","leadersLink":"\u5e02\u503c\u699c \u2192"}}},"dimLabel":"Exchange","dimLabelZh":"\u4ea4\u6613\u6240","dims":[{"v":"NASDAQ","label":"NASDAQ","label_zh":"NASDAQ"},{"v":"NYSE","label":"NYSE","label_zh":"NYSE"}],"segFilters":[{"key":"cap","label":"Market cap","label_zh":"\u516c\u53f8\u5e02\u503c","options":[{"v":"mega","label":"Mega \u2265$200B","label_zh":"\u5de8\u76d8 \u2265$200B"},{"v":"large","label":"Large $10\u2013200B","label_zh":"\u5927\u76d8 $10\u2013200B"},{"v":"mid","label":"Mid $2\u201310B","label_zh":"\u4e2d\u76d8 $2\u201310B"},{"v":"small","label":"Small $300M\u20132B","label_zh":"\u5c0f\u76d8 $300M\u20132B"}]},{"key":"pos","label":"ARK position","label_zh":"ARK \u6301\u4ed3","options":[{"v":"p1","label":"\u2265$100M","label_zh":"\u22651\u4ebf"},{"v":"p2","label":"$10\u2013100M","label_zh":"1\u5343\u4e07\u20131\u4ebf"},{"v":"p3","label":"$1\u201310M","label_zh":"100\u4e07\u20131\u5343\u4e07"}]},{"key":"px","label":"Share price","label_zh":"\u80a1\u4ef7","options":[{"v":"x6","label":"\u2265$300","label_zh":"\u2265$300"},{"v":"x5","label":"$100\u2013300","label_zh":"$100\u2013300"},{"v":"x4","label":"$50\u2013100","label_zh":"$50\u2013100"},{"v":"x3","label":"$20\u201350","label_zh":"$20\u201350"},{"v":"x2","label":"$5\u201320","label_zh":"$5\u201320"}]},{"key":"oh","label":"Off 52w high","label_zh":"\u8ddd 52 \u5468\u9ad8\u70b9","options":[{"v":"d1","label":"<10%","label_zh":"<10%"},{"v":"d2","label":"10\u201330%","label_zh":"10\u201330%"},{"v":"d3","label":"30\u201350%","label_zh":"30\u201350%"},{"v":"d4","label":"50\u201370%","label_zh":"50\u201370%"},{"v":"d5","label":"\u226570%","label_zh":"\u226570%"}]},{"key":"ol","label":"Off 52w low","label_zh":"\u8ddd 52 \u5468\u4f4e\u70b9","options":[{"v":"r1","label":"<10%","label_zh":"<10%"},{"v":"r2","label":"10\u201350%","label_zh":"10\u201350%"},{"v":"r3","label":"50\u2013100%","label_zh":"50\u2013100%"},{"v":"r4","label":"100\u2013200%","label_zh":"100\u2013200%"},{"v":"r5","label":"\u2265200%","label_zh":"\u2265200%"}]},{"key":"rng","label":"Range position","label_zh":"\u533a\u95f4\u4f4d\u7f6e","options":[{"v":"top","label":"Top >75%","label_zh":"\u9876\u90e8 >75%"},{"v":"mid","label":"Middle 25\u201375%","label_zh":"\u4e2d\u90e8 25\u201375%"},{"v":"bot","label":"Bottom <25%","label_zh":"\u5e95\u90e8 <25%"}]},{"key":"amp","label":"52w amplitude","label_zh":"52 \u5468\u632f\u5e45","options":[{"v":"a1","label":"<50%","label_zh":"<50%"},{"v":"a2","label":"50\u2013100%","label_zh":"50\u2013100%"},{"v":"a3","label":"100\u2013200%","label_zh":"100\u2013200%"},{"v":"a4","label":"\u2265200%","label_zh":"\u2265200%"}]},{"key":"sec","label":"Sector","label_zh":"\u677f\u5757","options":[{"v":"Basic Materials","label":"Basic Materials","label_zh":"\u57fa\u7840\u6750\u6599"},{"v":"Consumer Discretionary","label":"Consumer Discretionary","label_zh":"\u975e\u5fc5\u9700\u6d88\u8d39"},{"v":"Consumer Staples","label":"Consumer Staples","label_zh":"\u5fc5\u9700\u6d88\u8d39"},{"v":"Energy","label":"Energy","label_zh":"\u80fd\u6e90"},{"v":"Finance","label":"Finance","label_zh":"\u91d1\u878d"},{"v":"Health Care","label":"Health Care","label_zh":"\u533b\u7597\u4fdd\u5065"},{"v":"Industrials","label":"Industrials","label_zh":"\u5de5\u4e1a"},{"v":"Technology","label":"Technology","label_zh":"\u79d1\u6280"},{"v":"Telecommunications","label":"Telecommunications","label_zh":"\u7535\u4fe1"}]}],"securities":[{"c":"632307104","t":"NTRA","n":"Natera Inc","k":"NASDAQ","s":3063606.0,"v":612691000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":3063606.0},"p":267.76,"lo":133.01,"hi":288.04,"rp":86.92,"oh":-7.04,"ol":101.31,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/ntra/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1604821&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/ntra/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/NTRA"}],"cap":38347350684.0,"sec":"Health Care","ind":"Medical Specialities","sg":{"cap":"large","pos":"p1","px":"x5","oh":"d1","ol":"r4","rng":"top","amp":"a3","nf":"f1"}},{"c":"457669307","t":"INSM","n":"Insmed Inc","k":"NASDAQ","s":1154090.0,"v":188717000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":1154090.0},"p":98.6,"lo":90.39,"hi":212.75,"rp":6.71,"oh":-53.65,"ol":9.08,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/insm/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1104506&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/insm/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/INSM"}],"cap":21371791669.0,"sec":"Health Care","ind":"Biotechnology: Pharmaceutical Preparations","sg":{"cap":"large","pos":"p1","px":"x4","oh":"d4","ol":"r1","rng":"bot","amp":"a3","nf":"f1"}},{"c":"874039100","t":"TSM","n":"Taiwan Semiconductor Manufac","k":"NYSE","s":495280.0,"v":167380000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":495280.0},"p":404.25,"lo":223.7,"hi":479.0,"rp":70.72,"oh":-15.61,"ol":80.71,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/tsm/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1046179&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/tsm/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/TSM"}],"cap":2096644607442.0,"sec":"Technology","ind":"Semiconductors","sg":{"cap":"mega","pos":"p1","px":"x6","oh":"d2","ol":"r3","rng":"mid","amp":"a3","nf":"f1"}},{"c":"984245100","t":"YPF","n":"Ypf Sociedad Anonima","k":"NYSE","s":3235962.0,"v":149566000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":3235962.0},"p":52.54,"lo":22.82,"hi":57.49,"rp":85.72,"oh":-8.61,"ol":130.24,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/ypf/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=904851&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/ypf/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/YPF"}],"cap":20664654144.0,"sec":"Energy","ind":"Integrated oil Companies","sg":{"cap":"large","pos":"p1","px":"x4","oh":"d1","ol":"r4","rng":"top","amp":"a3","nf":"f1"}},{"c":"G0896C103","t":"TBBB","n":"Bbb Foods Inc","k":"NYSE","s":3109202.0,"v":109972000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":3109202.0},"p":41.33,"lo":23.81,"hi":43.81,"rp":87.6,"oh":-5.66,"ol":73.58,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/tbbb/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1978954&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/tbbb/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/TBBB"}],"cap":4871035968.0,"sec":"Consumer Staples","ind":"Food Chains","sg":{"cap":"mid","pos":"p1","px":"x3","oh":"d1","ol":"r3","rng":"top","amp":"a2","nf":"f1"}},{"c":"013872106","t":"AA","n":"Alcoa Corp","k":"NYSE","s":1493390.0,"v":99057000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":1493390.0},"p":45.26,"lo":28.5,"hi":84.38,"rp":29.99,"oh":-46.36,"ol":58.81,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/aa/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1675149&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/aa/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/AA"}],"cap":11943655743.0,"sec":"Industrials","ind":"Aluminum","sg":{"cap":"large","pos":"p2","px":"x3","oh":"d3","ol":"r3","rng":"mid","amp":"a3","nf":"f1"}},{"c":"N62509109","t":"NAMS","n":"Newamsterdam Pharma Company","k":"NASDAQ","s":3070146.0,"v":98275000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":3070146.0},"p":27.79,"lo":21.234,"hi":42.205,"rp":31.26,"oh":-34.15,"ol":30.88,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/nams/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1936258&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/nams/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/NAMS"}],"cap":3248761576.0,"sec":"Health Care","ind":"Biotechnology: Pharmaceutical Preparations","sg":{"cap":"mid","pos":"p2","px":"x3","oh":"d3","ol":"r2","rng":"mid","amp":"a2","nf":"f1"}},{"c":"81141R100","t":"SE","n":"Sea Ltd","k":"NYSE","s":1099905.0,"v":91083000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":1099905.0},"p":106.74,"lo":77.05,"hi":199.3,"rp":24.29,"oh":-46.44,"ol":38.53,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/se/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1703399&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/se/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/SE"}],"cap":65376597878.0,"sec":"Consumer Discretionary","ind":"Other Consumer Services","sg":{"cap":"large","pos":"p2","px":"x5","oh":"d3","ol":"r2","rng":"bot","amp":"a3","nf":"f1"}},{"c":"861012102","t":"STM","n":"Stmicroelectronics N V","k":"NYSE","s":2612880.0,"v":90275000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":2612880.0},"p":52.39,"lo":21.11,"hi":81.42,"rp":51.87,"oh":-35.65,"ol":148.18,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/stm/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=932787&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/stm/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/STM"}],"cap":46760443395.0,"sec":"Technology","ind":"Semiconductors","sg":{"cap":"large","pos":"p2","px":"x4","oh":"d3","ol":"r4","rng":"mid","amp":"a4","nf":"f1"}},{"c":"980745103","t":"WWD","n":"Woodward Inc","k":"NASDAQ","s":211355.0,"v":75648000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":211355.0},"p":360.75,"lo":233.31,"hi":450.92,"rp":58.56,"oh":-20.0,"ol":54.62,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/wwd/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=108312&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/wwd/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/WWD"}],"cap":21494517106.0,"sec":"Energy","ind":"Industrial Machinery/Components","sg":{"cap":"large","pos":"p2","px":"x6","oh":"d2","ol":"r3","rng":"mid","amp":"a2","nf":"f1"}},{"c":"881624209","t":"TEVA","n":"Teva Pharmaceutical Inds Ltd","k":"NYSE","s":2377285.0,"v":71604000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":2377285.0},"p":35.01,"lo":15.46,"hi":37.35,"rp":89.31,"oh":-6.27,"ol":126.46,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/teva/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=818686&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/teva/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/TEVA"}],"cap":40797015901.0,"sec":"Health Care","ind":"Biotechnology: Pharmaceutical Preparations","sg":{"cap":"large","pos":"p2","px":"x3","oh":"d1","ol":"r4","rng":"top","amp":"a3","nf":"f1"}},{"c":"77543R102","t":"ROKU","n":"Roku Inc","k":"NASDAQ","s":750190.0,"v":70983000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":750190.0},"p":145.01,"lo":78.53,"hi":148.88,"rp":94.5,"oh":-2.6,"ol":84.66,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/roku/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1428439&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/roku/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/ROKU"}],"cap":21401095661.0,"sec":"Telecommunications","ind":"Cable & Other Pay Television Services","sg":{"cap":"large","pos":"p2","px":"x5","oh":"d1","ol":"r3","rng":"top","amp":"a2","nf":"f1"}},{"c":"11135F101","t":"AVGO","n":"Broadcom Inc","k":"NASDAQ","s":195955.0,"v":60650000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":195955.0},"p":389.28,"lo":281.87,"hi":495.0,"rp":50.4,"oh":-21.36,"ol":38.11,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/avgo/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1730168&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/avgo/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/AVGO"}],"cap":1852030819477.0,"sec":"Technology","ind":"Semiconductors","sg":{"cap":"mega","pos":"p2","px":"x6","oh":"d2","ol":"r2","rng":"mid","amp":"a2","nf":"f1"}},{"c":"22266T109","t":"CPNG","n":"Coupang Inc","k":"NYSE","s":2667485.0,"v":50362000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":2667485.0},"p":16.35,"lo":14.92,"hi":34.075,"rp":7.47,"oh":-52.02,"ol":9.58,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/cpng/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1834584&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/cpng/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/CPNG"}],"cap":29349299686.0,"sec":"Consumer Discretionary","ind":"Catalog/Specialty Distribution","sg":{"cap":"large","pos":"p2","px":"x2","oh":"d4","ol":"r1","rng":"bot","amp":"a3","nf":"f1"}},{"c":"68404L201","t":"OPCH","n":"Option Care Health Inc","k":"NASDAQ","s":1868550.0,"v":50301000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":1868550.0},"p":23.03,"lo":18.01,"hi":36.8,"rp":26.72,"oh":-37.42,"ol":27.87,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/opch/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1014739&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/opch/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/OPCH"}],"cap":3449554146.0,"sec":"Health Care","ind":"Medical/Nursing Services","sg":{"cap":"mid","pos":"p2","px":"x3","oh":"d3","ol":"r2","rng":"mid","amp":"a3","nf":"f1"}},{"c":"G25508105","t":"CRH","n":"Crh Plc","k":"NYSE","s":377555.0,"v":39689000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":377555.0},"p":95.01,"lo":94.115,"hi":131.55,"rp":2.39,"oh":-27.78,"ol":0.95,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/crh/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=849395&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/crh/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/CRH"}],"cap":63593939434.0,"sec":"Industrials","ind":"Building Materials","sg":{"cap":"large","pos":"p2","px":"x4","oh":"d2","ol":"r1","rng":"bot","amp":"a1","nf":"f1"}},{"c":"349381103","t":"FIGR","n":"Figure Technology Solutio","k":"NASDAQ","s":1150415.0,"v":39057000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":1150415.0},"p":24.91,"lo":24.28,"hi":78.0,"rp":1.17,"oh":-68.06,"ol":2.59,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/figr/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=2064124&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/figr/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/FIGR"}],"cap":5493048478.0,"sec":"Finance","ind":"Finance: Consumer Services","sg":{"cap":"mid","pos":"p2","px":"x3","oh":"d4","ol":"r1","rng":"bot","amp":"a4","nf":"f1"}},{"c":"142152107","t":"CAI","n":"Caris Life Sciences Inc","k":"NASDAQ","s":1894450.0,"v":33873000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":1894450.0},"p":15.67,"lo":14.19,"hi":42.5,"rp":5.23,"oh":-63.13,"ol":10.43,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/cai/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=2019410&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/cai/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/CAI"}],"cap":4429606491.0,"sec":"Health Care","ind":"Medical Specialities","sg":{"cap":"mid","pos":"p2","px":"x2","oh":"d4","ol":"r2","rng":"bot","amp":"a3","nf":"f1"}},{"c":"76131D103","t":"QSR","n":"Restaurant Brands Intl Inc","k":"NYSE","s":454435.0,"v":33583000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":454435.0},"p":74.02,"lo":61.33,"hi":81.96,"rp":61.51,"oh":-9.69,"ol":20.69,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/qsr/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1618756&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/qsr/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/QSR"}],"cap":33778056894.0,"sec":"Consumer Discretionary","ind":"Restaurants","sg":{"cap":"large","pos":"p2","px":"x4","oh":"d1","ol":"r2","rng":"mid","amp":"a1","nf":"f1"}},{"c":"76155X100","t":"RVMD","n":"Revolution Medicines Inc","k":"NASDAQ","s":315860.0,"v":30717000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":315860.0},"p":187.53,"lo":34.0,"hi":194.56,"rp":95.62,"oh":-3.61,"ol":451.56,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/rvmd/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1628171&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/rvmd/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/RVMD"}],"cap":39868214519.0,"sec":"Health Care","ind":"Biotechnology: Biological Products (No Diagnostic Substances)","sg":{"cap":"large","pos":"p2","px":"x5","oh":"d1","ol":"r5","rng":"top","amp":"a4","nf":"f1"}},{"c":"518415104","t":"LSCC","n":"Lattice Semiconductor Corp","k":"NASDAQ","s":323135.0,"v":29974000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":323135.0},"p":124.27,"lo":48.34,"hi":157.01,"rp":69.87,"oh":-20.85,"ol":157.07,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/lscc/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=855658&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/lscc/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/LSCC"}],"cap":17025966389.0,"sec":"Technology","ind":"Semiconductors","sg":{"cap":"large","pos":"p2","px":"x5","oh":"d2","ol":"r4","rng":"mid","amp":"a4","nf":"f1"}},{"c":"80004C200","t":"SNDK","n":"Sandisk Corp","k":"NASDAQ","s":38155.0,"v":24241000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":38155.0},"p":1214.83,"lo":40.53,"hi":2354.39,"rp":50.75,"oh":-48.4,"ol":2897.36,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/sndk/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=2023554&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/sndk/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/SNDK"}],"cap":179903880711.0,"sec":"Technology","ind":"Electronic Components","sg":{"cap":"large","pos":"p2","px":"x6","oh":"d3","ol":"r5","rng":"mid","amp":"a4","nf":"f1"}},{"c":"910047109","t":"UAL","n":"United Airls Hldgs Inc","k":"NASDAQ","s":262495.0,"v":24168000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":262495.0},"p":121.33,"lo":84.64,"hi":138.77,"rp":67.78,"oh":-12.57,"ol":43.35,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/ual/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=100517&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/ual/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/UAL"}],"cap":39381749057.0,"sec":"Consumer Discretionary","ind":"Air Freight/Delivery Services","sg":{"cap":"large","pos":"p2","px":"x5","oh":"d2","ol":"r2","rng":"mid","amp":"a2","nf":"f1"}},{"c":"444859102","t":"HUM","n":"Humana Inc","k":"NYSE","s":137505.0,"v":23842000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":137505.0},"p":363.86,"lo":163.11,"hi":428.88,"rp":75.54,"oh":-15.16,"ol":123.08,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/hum/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=49071&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/hum/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/HUM"}],"cap":43692420869.0,"sec":"Health Care","ind":"Medical Specialities","sg":{"cap":"large","pos":"p2","px":"x6","oh":"d2","ol":"r4","rng":"top","amp":"a3","nf":"f1"}},{"c":"90138F102","t":"TWLO","n":"Twilio Inc","k":"NYSE","s":181760.0,"v":22869000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":181760.0},"p":197.35,"lo":91.84,"hi":238.48,"rp":71.95,"oh":-17.25,"ol":114.88,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/twlo/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1447669&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/twlo/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/TWLO"}],"cap":29952571271.0,"sec":"Technology","ind":"Computer Software: Prepackaged Software","sg":{"cap":"large","pos":"p2","px":"x5","oh":"d2","ol":"r4","rng":"mid","amp":"a3","nf":"f1"}},{"c":"466313103","t":"JBL","n":"Jabil Inc","k":"NYSE","s":82200.0,"v":21835000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":82200.0},"p":315.05,"lo":189.6,"hi":428.93,"rp":52.42,"oh":-26.55,"ol":66.17,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/jbl/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=898293&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/jbl/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/JBL"}],"cap":33013172389.0,"sec":"Technology","ind":"Electrical Products","sg":{"cap":"large","pos":"p2","px":"x6","oh":"d2","ol":"r3","rng":"mid","amp":"a3","nf":"f1"}},{"c":"84265V105","t":"SCCO","n":"Southern Copper Corp","k":"NYSE","s":121843.0,"v":20964000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":121843.0},"p":182.71,"lo":88.684,"hi":221.673,"rp":70.7,"oh":-17.58,"ol":106.02,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/scco/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1001838&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/scco/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/SCCO"}],"cap":152440161331.0,"sec":"Basic Materials","ind":"Metal Mining","sg":{"cap":"large","pos":"p2","px":"x5","oh":"d2","ol":"r4","rng":"mid","amp":"a3","nf":"f1"}},{"c":"G54950103","t":"LIN","n":"Linde Plc","k":"NASDAQ","s":41200.0,"v":20425000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":41200.0},"p":478.38,"lo":387.78,"hi":548.2,"rp":56.48,"oh":-12.74,"ol":23.36,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/lin/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1707925&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/lin/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/LIN"}],"cap":221298367467.0,"sec":"Basic Materials","ind":"Major Chemicals","sg":{"cap":"mega","pos":"p2","px":"x6","oh":"d2","ol":"r2","rng":"mid","amp":"a1","nf":"f1"}},{"c":"G7997R103","t":"STX","n":"Seagate Technology Hldngs Pl","k":"NASDAQ","s":50700.0,"v":19862000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":50700.0},"p":856.13,"lo":144.75,"hi":1145.0,"rp":71.12,"oh":-25.23,"ol":491.45,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/stx/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1137789&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/stx/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/STX"}],"cap":194341510000.0,"sec":"Technology","ind":"Electronic Components","sg":{"cap":"large","pos":"p2","px":"x6","oh":"d2","ol":"r5","rng":"mid","amp":"a4","nf":"f1"}},{"c":"185899101","t":"CLF","n":"Cleveland-Cliffs Inc New","k":"NYSE","s":2313455.0,"v":19549000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":2313455.0},"p":11.52,"lo":7.73,"hi":16.7,"rp":42.25,"oh":-31.02,"ol":49.03,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/clf/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=764065&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/clf/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/CLF"}],"cap":6572621341.0,"sec":"Basic Materials","ind":"Metal Mining","sg":{"cap":"mid","pos":"p2","px":"x2","oh":"d3","ol":"r2","rng":"mid","amp":"a3","nf":"f1"}},{"c":"67080N101","t":"NUVB","n":"Nuvation Bio Inc","k":"NYSE","s":4539800.0,"v":19476000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":4539800.0},"p":6.33,"lo":2.18,"hi":9.75,"rp":54.82,"oh":-35.08,"ol":190.37,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/nuvb/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1811063&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/nuvb/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/NUVB"}],"cap":2204118476.0,"sec":"Health Care","ind":"Biotechnology: Pharmaceutical Preparations","sg":{"cap":"mid","pos":"p2","px":"x2","oh":"d3","ol":"r4","rng":"mid","amp":"a4","nf":"f1"}},{"c":"093712107","t":"BE","n":"Bloom Energy Corp","k":"NYSE","s":136320.0,"v":18470000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":136320.0},"p":205.81,"lo":35.0,"hi":351.28,"rp":54.01,"oh":-41.41,"ol":488.03,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/be/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1664703&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/be/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/BE"}],"cap":60616673080.0,"sec":"Energy","ind":"Industrial Machinery/Components","sg":{"cap":"large","pos":"p2","px":"x5","oh":"d3","ol":"r5","rng":"mid","amp":"a4","nf":"f1"}},{"c":"458140100","t":"INTC","n":"Intel Corp","k":"NASDAQ","s":411400.0,"v":18155000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":411400.0},"p":90.2,"lo":19.35,"hi":142.35,"rp":57.6,"oh":-36.64,"ol":366.15,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/intc/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=50863&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/intc/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/INTC"}],"cap":454968800000.0,"sec":"Technology","ind":"Semiconductors","sg":{"cap":"mega","pos":"p2","px":"x4","oh":"d3","ol":"r5","rng":"mid","amp":"a4","nf":"f1"}},{"c":"07782B104","t":"BLTE","n":"Belite Bio Inc Sponsored","k":"NASDAQ","s":106100.0,"v":16917000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":106100.0},"p":158.61,"lo":60.0,"hi":200.0,"rp":70.44,"oh":-20.69,"ol":164.35,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/blte/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1889109&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/blte/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/BLTE"}],"cap":6239711056.0,"sec":"Health Care","ind":"Biotechnology: Pharmaceutical Preparations","sg":{"cap":"mid","pos":"p2","px":"x5","oh":"d2","ol":"r4","rng":"mid","amp":"a4","nf":"f1"}},{"c":"74366E102","t":"PTGX","n":"Protagonist Therapeutics Inc","k":"NASDAQ","s":159700.0,"v":16832000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":159700.0},"p":136.64,"lo":50.485,"hi":143.29,"rp":92.83,"oh":-4.64,"ol":170.65,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/ptgx/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1377121&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/ptgx/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/PTGX"}],"cap":8787506007.0,"sec":"Health Care","ind":"Biotechnology: Pharmaceutical Preparations","sg":{"cap":"mid","pos":"p2","px":"x5","oh":"d1","ol":"r4","rng":"top","amp":"a3","nf":"f1"}},{"c":"91332U101","t":"U","n":"Unity Software Inc","k":"NYSE","s":738785.0,"v":16209000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":738785.0},"p":31.71,"lo":16.78,"hi":52.15,"rp":42.21,"oh":-39.19,"ol":88.97,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/u/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1810806&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/u/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/U"}],"cap":13842524755.0,"sec":"Technology","ind":"Computer Software: Prepackaged Software","sg":{"cap":"large","pos":"p2","px":"x3","oh":"d3","ol":"r3","rng":"mid","amp":"a4","nf":"f1"}},{"c":"042068205","t":"ARM","n":"Arm Holdings Plc","k":"NASDAQ","s":106700.0,"v":16142000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":106700.0},"p":239.69,"lo":100.02,"hi":452.7,"rp":39.6,"oh":-47.05,"ol":139.64,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/arm/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1973239&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/arm/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/ARM"}],"cap":255043403352.0,"sec":"Technology","ind":"Semiconductors","sg":{"cap":"mega","pos":"p2","px":"x5","oh":"d3","ol":"r4","rng":"mid","amp":"a4","nf":"f1"}},{"c":"68062P106","t":"OLMA","n":"Olema Pharmaceuticals Inc","k":"NASDAQ","s":986827.0,"v":14714000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":986827.0},"p":11.45,"lo":4.47,"hi":36.259,"rp":21.96,"oh":-68.42,"ol":156.15,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/olma/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1750284&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/olma/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/OLMA"}],"cap":1000128543.0,"sec":"Health Care","ind":"Biotechnology: Pharmaceutical Preparations","sg":{"cap":"small","pos":"p2","px":"x2","oh":"d4","ol":"r4","rng":"bot","amp":"a4","nf":"f1"}},{"c":"74743L100","t":"Q","n":"Qnity Electronics Inc","k":"NYSE","s":125655.0,"v":14498000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":125655.0},"p":131.18,"lo":70.5,"hi":177.28,"rp":56.83,"oh":-26.0,"ol":86.07,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/q/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=2058873&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/q/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/Q"}],"cap":27461117174.0,"sec":"Technology","ind":"Semiconductors","sg":{"cap":"large","pos":"p2","px":"x5","oh":"d2","ol":"r3","rng":"mid","amp":"a3","nf":"f1"}},{"c":"000899104","t":"ADMA","n":"Adma Biologics Inc","k":"NASDAQ","s":1545610.0,"v":13926000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":1545610.0},"p":8.46,"lo":7.21,"hi":20.458,"rp":9.44,"oh":-58.65,"ol":17.34,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/adma/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1368514&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/adma/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/ADMA"}],"cap":1965463434.0,"sec":"Health Care","ind":"Biotechnology: Biological Products (No Diagnostic Substances)","sg":{"cap":"small","pos":"p2","px":"x2","oh":"d4","ol":"r2","rng":"bot","amp":"a3","nf":"f1"}},{"c":"98420N105","t":"XENE","n":"Xenon Pharmaceuticals Inc","k":"NASDAQ","s":238600.0,"v":13875000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":238600.0},"p":62.67,"lo":30.65,"hi":72.66,"rp":76.22,"oh":-13.75,"ol":104.47,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/xene/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1582313&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/xene/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/XENE"}],"cap":6058030019.0,"sec":"Health Care","ind":"Biotechnology: Pharmaceutical Preparations","sg":{"cap":"mid","pos":"p2","px":"x4","oh":"d2","ol":"r4","rng":"top","amp":"a3","nf":"f1"}},{"c":"N4732M103","t":"JBS","n":"Jbs N.V.","k":"NYSE","s":655900.0,"v":11780000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":655900.0},"p":14.02,"lo":11.49,"hi":18.65,"rp":35.34,"oh":-24.83,"ol":22.02,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/jbs/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1791942&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/jbs/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/JBS"}],"cap":15013693619.0,"sec":"Consumer Staples","ind":"Meat/Poultry/Fish","sg":{"cap":"large","pos":"p2","px":"x2","oh":"d2","ol":"r2","rng":"mid","amp":"a2","nf":"f1"}},{"c":"234264109","t":"DAKT","n":"Daktronics Inc","k":"NASDAQ","s":562637.0,"v":11000000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":562637.0},"p":19.77,"lo":15.59,"hi":28.27,"rp":32.97,"oh":-30.07,"ol":26.81,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/dakt/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=915779&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/dakt/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/DAKT"}],"cap":955006180.0,"sec":"Consumer Discretionary","ind":"Miscellaneous manufacturing industries","sg":{"cap":"small","pos":"p2","px":"x2","oh":"d3","ol":"r2","rng":"mid","amp":"a2","nf":"f1"}},{"c":"18915M107","t":"NET","n":"Cloudflare Inc","k":"NYSE","s":52535.0,"v":10840000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":52535.0},"p":278.98,"lo":158.83,"hi":293.8,"rp":89.02,"oh":-5.04,"ol":75.65,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/net/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1477333&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/net/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/NET"}],"cap":98610021678.0,"sec":"Technology","ind":"Computer Software: Prepackaged Software","sg":{"cap":"large","pos":"p2","px":"x5","oh":"d1","ol":"r3","rng":"top","amp":"a2","nf":"f1"}},{"c":"N53745100","t":"LYB","n":"Lyondellbasell Industries Nv","k":"NYSE","s":131435.0,"v":10588000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":131435.0},"p":62.08,"lo":41.58,"hi":83.94,"rp":48.39,"oh":-26.04,"ol":49.3,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/lyb/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1489393&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/lyb/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/LYB"}],"cap":20038478708.0,"sec":"Industrials","ind":"Major Chemicals","sg":{"cap":"large","pos":"p2","px":"x4","oh":"d2","ol":"r2","rng":"mid","amp":"a3","nf":"f1"}},{"c":"92837L109","t":"VIST","n":"Vista Energy S.A.B. De C.V.","k":"NYSE","s":134700.0,"v":10166000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":134700.0},"p":70.45,"lo":31.63,"hi":81.44,"rp":77.94,"oh":-13.49,"ol":122.73,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/vist/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1762506&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/vist/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/VIST"}],"cap":7842310971.0,"sec":"Energy","ind":"Oil & Gas Production","sg":{"cap":"mid","pos":"p2","px":"x4","oh":"d2","ol":"r4","rng":"top","amp":"a3","nf":"f1"}},{"c":"90184D100","t":"TWST","n":"Twist Bioscience Corp","k":"NASDAQ","s":206000.0,"v":9789000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":206000.0},"p":91.55,"lo":23.3,"hi":105.47,"rp":83.06,"oh":-13.2,"ol":292.92,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/twst/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1581280&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/twst/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/TWST"}],"cap":5700938797.0,"sec":"Health Care","ind":"Biotechnology: Biological Products (No Diagnostic Substances)","sg":{"cap":"mid","pos":"p3","px":"x4","oh":"d2","ol":"r5","rng":"top","amp":"a4","nf":"f1"}},{"c":"19247G107","t":"COHR","n":"Coherent Corp","k":"NYSE","s":40400.0,"v":9624000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":40400.0},"p":262.89,"lo":84.35,"hi":440.0,"rp":50.2,"oh":-40.25,"ol":211.67,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/cohr/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=820318&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/cohr/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/COHR"}],"cap":51431621098.0,"sec":"Technology","ind":"Electronic Components","sg":{"cap":"large","pos":"p3","px":"x5","oh":"d3","ol":"r5","rng":"mid","amp":"a4","nf":"f1"}},{"c":"023135106","t":"AMZN","n":"Amazon Com Inc","k":"NASDAQ","s":45800.0,"v":9539000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":45800.0},"p":271.58,"lo":196.0,"hi":278.56,"rp":91.55,"oh":-2.51,"ol":38.56,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/amzn/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1018724&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/amzn/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/AMZN"}],"cap":2921415780629.0,"sec":"Consumer Discretionary","ind":"Catalog/Specialty Distribution","sg":{"cap":"mega","pos":"p3","px":"x5","oh":"d1","ol":"r2","rng":"top","amp":"a1","nf":"f1"}},{"c":"15101Q207","t":"CLS","n":"Celestica Inc","k":"NYSE","s":33275.0,"v":9373000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":33275.0},"p":331.44,"lo":173.23,"hi":474.03,"rp":52.6,"oh":-30.08,"ol":91.33,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/cls/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1030894&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/cls/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/CLS"}],"cap":38106686584.0,"sec":"Technology","ind":"Electrical Products","sg":{"cap":"large","pos":"p3","px":"x6","oh":"d3","ol":"r3","rng":"mid","amp":"a3","nf":"f1"}},{"c":"86384P109","t":"STUB","n":"Stubhub Hldgs Inc","k":"NYSE","s":1367177.0,"v":8531000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":1367177.0},"p":8.44,"lo":5.74,"hi":27.89,"rp":12.19,"oh":-69.74,"ol":47.04,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/stub/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1337634&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/stub/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/STUB"}],"cap":3168690820.0,"sec":"Consumer Discretionary","ind":"Services-Misc. Amusement & Recreation","sg":{"cap":"mid","pos":"p3","px":"x2","oh":"d4","ol":"r2","rng":"bot","amp":"a4","nf":"f1"}},{"c":"23306J309","t":"DBVT","n":"Dbv Technologies S A Sponsored","k":"NASDAQ","s":383363.0,"v":8008000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":383363.0},"p":13.5,"lo":8.665,"hi":26.185,"rp":27.6,"oh":-48.44,"ol":55.8,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/dbvt/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1613780&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/dbvt/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/DBVT"}],"cap":799366037.0,"sec":"Health Care","ind":"Biotechnology: Biological Products (No Diagnostic Substances)","sg":{"cap":"small","pos":"p3","px":"x2","oh":"d3","ol":"r3","rng":"mid","amp":"a4","nf":"f1"}},{"c":"595112103","t":"MU","n":"Micron Technology Inc","k":"NASDAQ","s":23400.0,"v":7905000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":23400.0},"p":823.03,"lo":105.46,"hi":1255.0,"rp":62.42,"oh":-34.42,"ol":680.42,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/mu/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=723125&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/mu/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/MU"}],"cap":929524445068.0,"sec":"Technology","ind":"Semiconductors","sg":{"cap":"mega","pos":"p3","px":"x6","oh":"d3","ol":"r5","rng":"mid","amp":"a4","nf":"f1"}},{"c":"278768106","t":"ECHO","n":"Echostar Corp","k":"NASDAQ","s":60765.0,"v":7114000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":60765.0},"p":84.09,"lo":26.06,"hi":147.25,"rp":47.88,"oh":-42.89,"ol":222.68,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/echo/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1415404&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/echo/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/ECHO"}],"cap":24370416206.0,"sec":"Consumer Discretionary","ind":"Telecommunications Equipment","sg":{"cap":"large","pos":"p3","px":"x4","oh":"d3","ol":"r5","rng":"mid","amp":"a4","nf":"f1"}},{"c":"020398707","t":"ALM","n":"Almonty Inds Inc","k":"NASDAQ","s":469880.0,"v":6804000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":469880.0},"p":11.06,"lo":3.883,"hi":24.41,"rp":34.96,"oh":-54.69,"ol":184.83,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/alm/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1670061&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/alm/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/ALM"}],"cap":3186485584.0,"sec":"Basic Materials","ind":"Other Metals and Minerals","sg":{"cap":"mid","pos":"p3","px":"x2","oh":"d4","ol":"r4","rng":"mid","amp":"a4","nf":"f1"}},{"c":"74623V103","t":"PCT","n":"Purecycle Technologies Inc","k":"NASDAQ","s":963189.0,"v":4999000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":963189.0},"p":6.37,"lo":4.93,"hi":15.49,"rp":13.64,"oh":-58.88,"ol":29.21,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/pct/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1830033&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/pct/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/PCT"}],"cap":1278570794.0,"sec":"Industrials","ind":"Major Chemicals","sg":{"cap":"small","pos":"p3","px":"x2","oh":"d4","ol":"r2","rng":"bot","amp":"a4","nf":"f1"}},{"c":"55024U109","t":"LITE","n":"Lumentum Hldgs Inc","k":"NASDAQ","s":6963.0,"v":4893000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":6963.0},"p":713.94,"lo":106.16,"hi":1085.68,"rp":62.05,"oh":-34.24,"ol":572.51,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/lite/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1633978&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/lite/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/LITE"}],"cap":55544532000.0,"sec":"Telecommunications","ind":"Telecommunications Equipment","sg":{"cap":"large","pos":"p3","px":"x6","oh":"d3","ol":"r5","rng":"mid","amp":"a4","nf":"f1"}},{"c":"58733R102","t":"MELI","n":"Mercadolibre  Inc","k":"NASDAQ","s":2766.0,"v":4782000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":2766.0},"p":1877.95,"lo":1495.0,"hi":2548.5,"rp":36.35,"oh":-26.31,"ol":25.62,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/meli/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1099590&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/meli/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/MELI"}],"cap":95206772937.0,"sec":"Consumer Discretionary","ind":"Business Services","sg":{"cap":"large","pos":"p3","px":"x6","oh":"d2","ol":"r2","rng":"mid","amp":"a2","nf":"f1"}},{"c":"83443Q103","t":"SOLS","n":"Solstice Advanced Matls Inc","k":"NASDAQ","s":62525.0,"v":4762000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":62525.0},"p":60.17,"lo":40.43,"hi":90.8,"rp":39.19,"oh":-33.73,"ol":48.83,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/sols/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=2064953&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/sols/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/SOLS"}],"cap":9555253106.0,"sec":"Industrials","ind":"Aerospace","sg":{"cap":"mid","pos":"p3","px":"x4","oh":"d3","ol":"r2","rng":"mid","amp":"a3","nf":"f1"}},{"c":"960413102","t":"WLK","n":"Westlake Corporation","k":"NYSE","s":21194.0,"v":2476000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":21194.0},"p":70.5,"lo":56.33,"hi":124.23,"rp":20.87,"oh":-43.25,"ol":25.16,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/wlk/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1262823&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/wlk/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/WLK"}],"cap":9032667552.0,"sec":"Industrials","ind":"Major Chemicals","sg":{"cap":"mid","pos":"p3","px":"x4","oh":"d3","ol":"r2","rng":"bot","amp":"a3","nf":"f1"}},{"c":"Y95308105","t":"WVE","n":"Wave Life Sciences Ltd","k":"NASDAQ","s":173000.0,"v":1254000.0,"f":["Duquesne Family Office"],"bf":{"Duquesne Family Office":173000.0},"p":5.51,"lo":5.02,"hi":21.73,"rp":2.93,"oh":-74.64,"ol":9.76,"lk":[{"k":"fin","u":"https://stockanalysis.com/stocks/wve/financials/"},{"k":"sec","u":"https://www.sec.gov/edgar/browse/?CIK=1631574&owner=exclude"},{"k":"nasdaq","u":"https://www.nasdaq.com/market-activity/stocks/wve/financials"},{"k":"quote","u":"https://finance.yahoo.com/quote/WVE"}],"cap":1060136133.0,"sec":"Health Care","ind":"Biotechnology: Pharmaceutical Preparations","sg":{"cap":"small","pos":"p3","px":"x2","oh":"d5","ol":"r1","rng":"bot","amp":"a4","nf":"f1"}}],"funds":[{"f":"Duquesne Family Office","n":61,"v":2724653000.0}]};
+
+const usd = n => n.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+/* Both languages ship in the payload, so switching is a re-render, not a fetch.
+   The choice is remembered so a reopened file comes back in the same language. */
+const LANGS = DATA.langs.map(l => l.v);
+let lang = (() => {
+  try { const v = localStorage.getItem('ark-lang'); if (LANGS.includes(v)) return v; }
+  catch (e) {}
+  return LANGS[0];
+})();
+const page = () => DATA.i18n[lang];
+const t = k => page().ui[k];
+
+const HERE = 'holdings';
+/* The shared site nav, inlined into every page by shell.py.
+
+   Labels come from page().nav so they follow the language switch, and each
+   template declares its own `HERE` so the current page can be marked rather
+   than dropped -- a missing entry reads as a broken link, not as "you are
+   here".
+
+   The newest report is served both as holdings.html and as its dated copy
+   under reports/, from the same bytes, so the depth cannot be baked into the
+   href; it is read off the path instead. */
+
+const NAV_BASE = location.pathname.includes('/reports/') ? '../' : '';
+const NAV_PAGES = ['index', 'holdings', 'activity', 'leaders', 'manager', 'archive'];
+
+function paintNav() {
+  const el = document.getElementById('sitenav');
+  if (!el) return;
+  const labels = page().nav || {};
+  el.innerHTML = NAV_PAGES.map(k =>
+    `<a href="${NAV_BASE}${k}.html"${k === HERE ? ' aria-current="page"' : ''}>` +
+    `${labels[k] || k}</a>`).join('');
+}
+
+const lbl = o => (lang === 'zh' && o.label_zh) ? o.label_zh : o.label;
+
+const desc = s => (lang === 'zh' && s.dz) ? s.dz : (s.d || '');
+
+/* Abbreviate to the unit a reader actually holds in their head: 94.8B, not
+   94,827,000,000. The reporting currency is shown when it is not USD --
+   Spotify files in EUR, TSMC in TWD, so the raw magnitudes are not comparable. */
+function money(v, cur) {
+  const sign = v < 0 ? '-' : '';
+  const a = Math.abs(v);
+  const unit = a >= 1e9 ? [1e9, 'B'] : a >= 1e6 ? [1e6, 'M'] : a >= 1e3 ? [1e3, 'K'] : [1, ''];
+  const sym = (!cur || cur === 'USD') ? '$' : '';
+  const suffix = (!cur || cur === 'USD') ? '' : ' ' + cur;
+  return sign + sym + (a / unit[0]).toFixed(a / unit[0] >= 100 ? 0 : 1) + unit[1] + suffix;
+}
+const pct = v => (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+
+const SITE_LABEL = {};
+(DATA.sites || []).forEach(x => { SITE_LABEL[x.key] = x; });
+
+function siteLinks(s) {
+  if (!s.lk || !s.lk.length) return '';
+  const a = s.lk.map(l => {
+    const site = SITE_LABEL[l.k];
+    if (!site) return '';
+    // rel=noopener because these open in a new tab; noreferrer keeps the
+    // holdings page out of the destination's referrer logs.
+    return `<a href="${l.u}" target="_blank" rel="noopener noreferrer">${lbl(site)}</a>`;
+  }).join('');
+  return `<div class="detail-links">${a}</div>`;
+}
+
+function fin(s) {
+  const f = s.fin;
+  if (!f) return '';
+  const cur = f.currency;
+  const bits = [];
+  if (f.revenue_annual !== undefined) {
+    const yoy = f.revenue_yoy_pct !== undefined
+      ? ` <span class="${f.revenue_yoy_pct < 0 ? 'neg' : ''}">${pct(f.revenue_yoy_pct)}</span>` : '';
+    bits.push(`${t('finRevenue')} <b>${money(f.revenue_annual, cur)}</b>${yoy}`);
+  }
+  if (f.gross_margin_pct !== undefined)
+    bits.push(`${t('finMargin')} <b>${f.gross_margin_pct.toFixed(1)}%</b>`);
+  if (f.net_income_annual !== undefined)
+    bits.push(`${t('finNetIncome')} <b class="${f.net_income_annual < 0 ? 'neg' : ''}">${money(f.net_income_annual, cur)}</b>`);
+  if (f.cash !== undefined)
+    bits.push(`${t('finCash')} <b>${money(f.cash, cur)}</b>`);
+  if (f.runway_quarters !== undefined)
+    bits.push(`${t('finRunway')} <b>${f.runway_quarters}${t('finQuarters')}</b>`);
+  if (f.share_growth_pct !== undefined)
+    bits.push(`${t('finDilution')} <b class="${f.share_growth_pct > 5 ? 'neg' : ''}">${pct(f.share_growth_pct)}</b>`);
+  else if (f.share_basis_changed)
+    bits.push(`<span class="warn">${t('finBasisChanged')}</span>`);
+  if (!bits.length) return '';
+  const asOf = f.revenue_annual_end ? `  ·  ${f.revenue_annual_end}` : '';
+  return `<div class="fin-row">${bits.join('')}<span class="warn">${asOf}</span></div>`;
+}
+const tier = s => {
+  const key = s.sg && s.sg.pos;
+  const table = DATA.posBadge && (DATA.posBadge[lang] || DATA.posBadge.en);
+  return (key && table) ? (table[key] || '') : '';
+};
+const sectorLabel = v => {
+  const g = (DATA.segFilters || []).find(x => x.key === 'sec');
+  const o = g && g.options.find(x => x.v === v);
+  return o ? lbl(o) : v;
+};
+
+const HEADS = {t: 'colTicker', n: 'colSecurity', p: 'colPrice', rp: 'colRange',
+               oh: 'colOffHigh', ol: 'colOffLow', s: 'colShares', v: 'colMarketValue',
+               nf: 'colFunds'};
+
+function paintStatic() {
+  const c = page();
+  paintNav();
+  document.getElementById('eyebrow').textContent = c.eyebrow;
+  document.getElementById('title').textContent = c.title;
+  document.getElementById('standfirst').textContent = c.standfirst;
+  document.getElementById('provenance').textContent = c.provenance;
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+  document.getElementById('tiles').innerHTML = c.tiles.map(([l, v, n]) => `
+    <div class="tile">
+      <span class="tile-label">${l}</span>
+      <span class="tile-value">${v}</span>
+      <span class="tile-note">${n}</span>
+    </div>`).join('');
+
+  document.getElementById('footnotes').innerHTML = c.footnotes
+    .map(([b, x]) => `<div>${b ? `<b>${b}</b> ` : ''}${x}</div>`).join('');
+
+  document.getElementById('h-byfund').textContent = t('byFund');
+  document.getElementById('hint-byfund').textContent = t('byFundHint');
+  document.getElementById('h-holdings').textContent = t('holdings');
+  document.getElementById('hint-holdings').textContent = t('holdingsHint');
+  document.getElementById('fh-fund').textContent = t('colFund');
+  document.getElementById('fh-pos').textContent = t('colPositions');
+  document.getElementById('fh-mv').textContent = t('colMarketValue');
+  document.getElementById('fh-share').textContent = t('colShare');
+  document.getElementById('hd-heldby').textContent = t('colHeldBy');
+
+  document.getElementById('fund-rows').innerHTML = DATA.funds.map(f => `
+    <tr>
+      <td class="ticker-cell">${f.f}</td>
+      <td class="num">${f.n}</td>
+      <td class="num">${usd(f.v)}</td>
+      <td class="num">${(100 * f.v / total).toFixed(2)}%</td>
+    </tr>`).join('') + `
+    <tr>
+      <td class="ticker-cell">${t('total')}</td>
+      <td class="num">${positions}</td>
+      <td class="num">${usd(total)}</td>
+      <td class="num">100.00%</td>
+    </tr>`;
+  document.getElementById('empty').textContent = t('empty');
+  document.getElementById('clear').textContent = t('clear');
+  document.getElementById('search').placeholder = t('search');
+  document.querySelectorAll('#holdings .hd').forEach(el => {
+    el.textContent = t(HEADS[el.dataset.t]);
+  });
+  document.querySelectorAll('#filter-groups .filter-label').forEach(el => {
+    const g = GROUPS.find(x => x.key === el.id.slice(4));
+    if (g) el.textContent = lbl(g);
+  });
+  document.querySelectorAll('#filter-groups .chip').forEach(btn => {
+    const key = btn.closest('[data-group]').dataset.group;
+    const g = GROUPS.find(x => x.key === key);
+    const o = g && g.options.find(x => String(x.v) === btn.dataset.v);
+    if (o) btn.childNodes[0].nodeValue = lbl(o);
+  });
+}
+
+const switcher = document.getElementById('langswitch');
+switcher.innerHTML = DATA.langs.map(l =>
+  `<button type="button" data-l="${l.v}" aria-pressed="false">${l.label}</button>`).join('');
+switcher.hidden = DATA.langs.length < 2;
+switcher.addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b || b.dataset.l === lang) return;
+  lang = b.dataset.l;
+  try { localStorage.setItem('ark-lang', lang); } catch (err) {}
+  paintStatic();
+  render();
+});
+
+/* ---------- masthead + tiles ---------- */
+
+const total = DATA.funds.reduce((a, f) => a + f.v, 0);
+const positions = DATA.funds.reduce((a, f) => a + f.n, 0);
+
+const DIM_INDEX = {};
+DATA.dims.forEach((d, i) => { DIM_INDEX[d.v] = i; });
+const dimLabel = v => (DATA.dims.find(d => d.v === v) || {label: v}).label;
+
+
+/* ---------- fund table ---------- */
+
+
+/* ---------- filters ---------- */
+
+/* Every group is one row of chips. Within a group the selections are ORed;
+   across groups they are ANDed -- so "Mega cap" + "Health Care" means both,
+   while "Mega" + "Large" means either. */
+const GROUPS = [
+  {key: 'fund', label: 'Fund', label_zh: '基金',
+   options: DATA.funds.map(f => ({v: f.f, label: f.f, label_zh: f.f}))},
+  {key: 'exch', label: DATA.dimLabel, label_zh: DATA.dimLabelZh, options: DATA.dims},
+  ...(DATA.segFilters || []),
+];
+
+const state = {q: '', sel: {}, key: 'v', dir: -1, open: new Set()};
+GROUPS.forEach(g => { state.sel[g.key] = new Set(); });
+
+/* What a row's value is for a given group. */
+function valueOf(s, key) {
+  if (key === 'fund') return s.f;          // array: matches if any fund selected
+  if (key === 'exch') return s.k;
+  if (key === 'sec') return s.sec || '';
+  return (s.sg || {})[key];
+}
+
+function matchesGroup(s, g) {
+  const chosen = state.sel[g.key];
+  if (!chosen.size) return true;
+  const v = valueOf(s, g.key);
+  return Array.isArray(v) ? v.some(x => chosen.has(x)) : chosen.has(v);
+}
+
+function matchesSearch(s) {
+  if (!state.q) return true;
+  return (s.t + ' ' + s.n + ' ' + s.c).toLowerCase().includes(state.q);
+}
+
+function visible() {
+  return DATA.securities.filter(s => matchesSearch(s) && GROUPS.every(g => matchesGroup(s, g)));
+}
+
+/* Facet count: how many rows a chip would leave, ignoring its own group. */
+function countFor(g, v) {
+  return DATA.securities.filter(s => {
+    if (!matchesSearch(s)) return false;
+    for (const other of GROUPS) if (other.key !== g.key && !matchesGroup(s, other)) return false;
+    const val = valueOf(s, g.key);
+    return Array.isArray(val) ? val.includes(v) : val === v;
+  }).length;
+}
+
+const groupsEl = document.getElementById('filter-groups');
+groupsEl.innerHTML = GROUPS.map(g => `
+  <div class="filter-row">
+    <div class="filter-label" id="lbl-${g.key}">${g.label}</div>
+    <div class="chipset" role="group" aria-labelledby="lbl-${g.key}" data-group="${g.key}">
+      ${g.options.map(o => `<button class="chip" type="button" data-v="${o.v}"
+        aria-pressed="false">${o.label}<span class="count"></span></button>`).join('')}
+    </div>
+  </div>`).join('');
+
+groupsEl.addEventListener('click', e => {
+  const btn = e.target.closest('.chip');
+  if (!btn) return;
+  const key = btn.closest('[data-group]').dataset.group;
+  const v = btn.dataset.v;
+  const bucket = state.sel[key];
+  if (bucket.has(v)) bucket.delete(v); else bucket.add(v);
+  render();
+});
+
+const clearBtn = document.getElementById('clear');
+clearBtn.addEventListener('click', () => {
+  GROUPS.forEach(g => state.sel[g.key].clear());
+  state.q = '';
+  document.getElementById('search').value = '';
+  render();
+});
+
+document.getElementById('search').addEventListener('input', e => {
+  state.q = e.target.value.trim().toLowerCase();
+  render();
+});
+
+function paintChips() {
+  let active = 0;
+  GROUPS.forEach(g => {
+    active += state.sel[g.key].size;
+    const wrap = groupsEl.querySelector(`[data-group="${g.key}"]`);
+    g.options.forEach(o => {
+      const btn = wrap.querySelector(`[data-v="${CSS.escape(o.v)}"]`);
+      const on = state.sel[g.key].has(o.v);
+      const n = countFor(g, o.v);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.dataset.empty = (!on && n === 0) ? '1' : '0';
+      btn.querySelector('.count').textContent = n;
+    });
+  });
+  clearBtn.hidden = active === 0 && !state.q;
+}
+
+/* ---------- sorting ---------- */
+
+document.querySelectorAll('#holdings th.sortable').forEach(th => {
+  const activate = () => {
+    const key = th.dataset.key;
+    if (state.key === key) state.dir *= -1;
+    else { state.key = key; state.dir = (key === 't' || key === 'n' || key === 'k') ? 1 : -1; }
+    render();
+  };
+  th.addEventListener('click', activate);
+  th.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+  });
+});
+
+/* ---------- render ---------- */
+
+function render() {
+  paintChips();
+  const rows = visible();
+  const key = state.key;
+  rows.sort((a, b) => {
+    const va = key === 'nf' ? a.f.length : a[key];
+    const vb = key === 'nf' ? b.f.length : b[key];
+    if (typeof va === 'string') return state.dir * va.localeCompare(vb);
+    return state.dir * (va - vb);
+  });
+
+  document.querySelectorAll('#holdings th.sortable').forEach(th => {
+    if (th.dataset.key === key) {
+      th.dataset.dir = state.dir > 0 ? 'asc' : 'desc';
+      th.querySelector('.arrow').textContent = state.dir > 0 ? '▴' : '▾';
+      th.setAttribute('aria-sort', state.dir > 0 ? 'ascending' : 'descending');
+    } else {
+      delete th.dataset.dir;
+      th.removeAttribute('aria-sort');
+    }
+  });
+
+  const shown = rows.reduce((a, s) => a + s.v, 0);
+  document.getElementById('status').textContent = t('status')
+    .replace('{n}', rows.length)
+    .replace('{t}', DATA.securities.length)
+    .replace('{v}', usd(shown))
+    .replace('{p}', (100 * shown / total).toFixed(1));
+
+  const max = rows.length ? Math.max(...rows.map(s => s.v)) : 1;
+
+  document.getElementById('rows').innerHTML = rows.map(s => {
+    const open = state.open.has(s.c);
+    const w = Math.max(2, Math.round(110 * s.v / max));
+    const split = DATA.funds
+      .filter(f => s.bf[f.f] !== undefined)
+      .map(f => `<span>${f.f} <b>${usd(s.bf[f.f])}</b></span>`)
+      .join('');
+    return `
+      <tr class="row-main${open ? ' open' : ''}" data-c="${s.c}" tabindex="0"
+          aria-expanded="${open}">
+        <td class="ticker-cell">${s.t || '—'}</td>
+        <td class="name-cell"><span class="name">${s.n}</span><span class="cusip">${s.c}</span></td>
+        <td><span class="tag" data-i="${DIM_INDEX[s.k] ?? 0}">${dimLabel(s.k)}</span></td>
+        ${s.p === undefined ? '<td class="price-cell">—</td><td>—</td><td class="num">—</td><td class="num">—</td>' : `
+        <td class="price-cell">${s.p.toFixed(2)}</td>
+        <td>
+          <div class="range">
+            <div class="range-track"><div class="range-mark" style="left:${s.rp.toFixed(1)}%"></div></div>
+            <div class="range-ends"><span>${s.lo.toFixed(2)}</span><span>${s.hi.toFixed(2)}</span></div>
+          </div>
+        </td>
+        <td class="num">${s.oh.toFixed(1)}%</td>
+        <td class="num">+${s.ol.toFixed(1)}%</td>`}
+        <td class="num">${usd(s.s)}</td>
+        <td class="num mv-cell">
+          <div class="mv-inner">
+            ${tier(s) ? `<span class="mv-tier" data-t="${s.sg.pos}">${tier(s)}</span>` : ''}
+            <span class="mv-val">${usd(s.v)}</span>
+          </div>
+          <span class="mv-bar" style="width:${w}px"></span>
+        </td>
+        <td class="num">${s.f.length}</td>
+        <td class="funds-cell">${s.f.join(' ')}</td>
+      </tr>
+      ${open ? `<tr class="detail"><td colspan="11"><div class="detail-body">
+        ${desc(s) ? `<p class="detail-desc">${desc(s)}</p>` : ''}
+        ${s.sec ? `<div class="detail-meta">${sectorLabel(s.sec)}${s.ind ? '  ·  ' + s.ind : ''}</div>` : ''}
+        ${fin(s)}
+        ${siteLinks(s)}
+        <div class="detail-inner"><span>${t('sharesByFund')}</span>${split}</div>
+      </div></td></tr>` : ''}`;
+  }).join('');
+
+  document.getElementById('empty').hidden = rows.length > 0;
+}
+
+document.getElementById('rows').addEventListener('click', e => {
+  const tr = e.target.closest('.row-main');
+  if (!tr) return;
+  const c = tr.dataset.c;
+  if (state.open.has(c)) state.open.delete(c); else state.open.add(c);
+  render();
+});
+
+document.getElementById('rows').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const tr = e.target.closest('.row-main');
+  if (!tr) return;
+  e.preventDefault();
+  const c = tr.dataset.c;
+  if (state.open.has(c)) state.open.delete(c); else state.open.add(c);
+  render();
+});
+
+paintStatic();
+render();
+</script>

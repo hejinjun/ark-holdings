@@ -38,7 +38,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2025-03-31,Duquesne Family Office,878742204,TECK,Teck Resources Ltd,equity,431545,15721000.00,0.5272
 2025-03-31,Duquesne Family Office,10806X102,BBIO,Bridgebio Pharma Inc,equity,438050,15143000.00,0.5078
 2025-03-31,Duquesne Family Office,247361702,DAL,Delta Air Lines Inc Del,equity,345135,15048000.00,0.5046
-2025-03-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,348900,11542000.00,0.3870
+2025-03-31,Duquesne Family Office,Y2573F102,FLEX,Flex Ltd,equity,348900,11542000.00,0.3870
 2025-03-31,Duquesne Family Office,165167735,EXE,Expand Energy Corporation,equity,97700,10876000.00,0.3647
 2025-03-31,Duquesne Family Office,03831W108,APP,Applovin Corp,equity,40200,10652000.00,0.3572
 2025-03-31,Duquesne Family Office,03674X106,AR,Antero Resources Corp,equity,258400,10450000.00,0.3504

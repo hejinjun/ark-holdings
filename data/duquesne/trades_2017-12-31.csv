@@ -9,7 +9,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2017-12-31,2017-12-31,2018-03-31,Duquesne Family Office,new,VIPS,Vipshop Hldgs Ltd,92763W103,equity,0,572800,0,572800,,1.000000
 2017-12-31,2017-12-31,2018-03-31,Duquesne Family Office,new,STL,Sterling Bancorp Del,85917A100,equity,0,401600,0,401600,,1.000000
 2017-12-31,2017-12-31,2018-03-31,Duquesne Family Office,new,,Intra Cellular Therapies Inc,46116X101,equity,0,296986,0,296986,,1.000000
-2017-12-31,2017-12-31,2018-03-31,Duquesne Family Office,new,,Pagseguro Digital Ltd Com,G68707101,equity,0,35000,0,35000,,1.000000
+2017-12-31,2017-12-31,2018-03-31,Duquesne Family Office,new,PAGS,Pagseguro Digital Ltd Com,G68707101,equity,0,35000,0,35000,,1.000000
 2017-12-31,2017-12-31,2018-03-31,Duquesne Family Office,buy,JD,Jd Com Inc,47215P106,equity,1098200,1783000,1098200,684800,62.36,1.000000
 2017-12-31,2017-12-31,2018-03-31,Duquesne Family Office,buy,AMZN,Amazon Com Inc,023135106,equity,168003,170853,168003,2850,1.70,1.000000
 2017-12-31,2017-12-31,2018-03-31,Duquesne Family Office,buy,GOOGL,Alphabet Inc,02079K305,equity,257350,259150,257350,1800,0.70,1.000000

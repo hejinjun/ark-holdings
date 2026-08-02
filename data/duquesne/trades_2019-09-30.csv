@@ -21,7 +21,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2019-09-30,2019-09-30,2019-12-31,Duquesne Family Office,new,NKTR,Nektar Therapeutics,640268108,equity,0,310579,0,310579,,1.000000
 2019-09-30,2019-09-30,2019-12-31,Duquesne Family Office,new,MU,Micron Technology Inc,595112103,equity,0,93009,0,93009,,1.000000
 2019-09-30,2019-09-30,2019-12-31,Duquesne Family Office,new,NXPI,Nxp Semiconductors N V,N6596X109,equity,0,35614,0,35614,,1.000000
-2019-09-30,2019-09-30,2019-12-31,Duquesne Family Office,new,,Flex Ltd,Y2573F102,equity,0,335235,0,335235,,1.000000
+2019-09-30,2019-09-30,2019-12-31,Duquesne Family Office,new,FLEX,Flex Ltd,Y2573F102,equity,0,335235,0,335235,,1.000000
 2019-09-30,2019-09-30,2019-12-31,Duquesne Family Office,new,JD,Jd Com Inc,47215P106,equity,0,108106,0,108106,,1.000000
 2019-09-30,2019-09-30,2019-12-31,Duquesne Family Office,new,XP,Xp Inc,G98239109,equity,0,50000,0,50000,,1.000000
 2019-09-30,2019-09-30,2019-12-31,Duquesne Family Office,new,DDOG,Datadog Inc,23804L103,equity,0,25810,0,25810,,1.000000

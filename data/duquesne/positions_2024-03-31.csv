@@ -10,7 +10,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2024-03-31,Duquesne Family Office,980745103,WWD,Woodward Inc,equity,954230,147066000.00,3.9496
 2024-03-31,Duquesne Family Office,G7997R103,STX,Seagate Technology Hldngs Pl,equity,1438983,133897000.00,3.5959
 2024-03-31,Duquesne Family Office,040413106,ANET,Arista Networks Inc,equity,428252,124185000.00,3.3351
-2024-03-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,3863155,110525000.00,2.9683
+2024-03-31,Duquesne Family Office,Y2573F102,FLEX,Flex Ltd,equity,3863155,110525000.00,2.9683
 2024-03-31,Duquesne Family Office,98980F104,GTM,Zoominfo Technologies Inc,equity,5881906,94287000.00,2.5322
 2024-03-31,Duquesne Family Office,65249B109,NWSA,News Corp New,equity,3312025,86709000.00,2.3287
 2024-03-31,Duquesne Family Office,254709108,,Discover Finl Svcs,equity,645205,84580000.00,2.2715

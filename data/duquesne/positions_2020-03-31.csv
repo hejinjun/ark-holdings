@@ -34,7 +34,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2020-03-31,Duquesne Family Office,517834107,LVS,Las Vegas Sands Corp,equity,176168,7482000.00,0.3041
 2020-03-31,Duquesne Family Office,65343E108,NXTC,Nextcure Inc,equity,141459,5244000.00,0.2131
 2020-03-31,Duquesne Family Office,03272L108,,Anaplan Inc,equity,170763,5167000.00,0.2100
-2020-03-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,458790,3842000.00,0.1561
+2020-03-31,Duquesne Family Office,Y2573F102,FLEX,Flex Ltd,equity,458790,3842000.00,0.1561
 2020-03-31,Duquesne Family Office,90138F102,TWLO,Twilio Inc,equity,26558,2377000.00,0.0966
 2020-03-31,Duquesne Family Office,31188V100,FSLY,Fastly Inc,equity,116036,2202000.00,0.0895
 2020-03-31,Duquesne Family Office,88034P109,TME,Tencent Music Entmt Group,equity,213775,2151000.00,0.0874

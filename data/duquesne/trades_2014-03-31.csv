@@ -43,7 +43,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,MSFT,Microsoft Corp,594918104,equity,1724200,0,1724200,-1724200,-100.00,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,ADBE,Adobe Systems Inc,00724F101,equity,976700,0,976700,-976700,-100.00,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,,Monsanto Co,61166W101,equity,177500,0,177500,-177500,-100.00,1.000000
-2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,,Sensata Technologies Hldng NV,N7902X106,equity,248100,0,248100,-248100,-100.00,1.000000
+2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,ST,Sensata Technologies Hldng NV,N7902X106,equity,248100,0,248100,-248100,-100.00,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,EWA,ISh MSCI Australia Idx Fd,464286103,equity,397000,0,397000,-397000,-100.00,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,ECH,ISh MSCI Chile Cap Inv Mkt Idx Fd,464286640,equity,67000,0,67000,-67000,-100.00,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,EPHE,ISh MSCI Phillipines Inv Mkt Idx Fd,46429B408,equity,87300,0,87300,-87300,-100.00,1.000000

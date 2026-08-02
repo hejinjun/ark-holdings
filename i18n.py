@@ -807,3 +807,68 @@ MANAGER_FOOTNOTES = {
         ["", "数据来源：SEC EDGAR Form 13F。仅为持仓数据，不构成投资建议。"],
     ],
 }
+
+
+# ---- copy that differs by source ----
+#
+# The ARK pages describe a daily-transparent ETF: creations and redemptions,
+# sessions, a book filtered down to what a brokerage account can buy. None of
+# that is true of a 13F filer, whose book arrives once a quarter, 45 days late,
+# and already contains only US-reportable long positions. Rather than writing
+# around both cases in one sentence, each source states its own terms.
+
+FILER_PAGE = {
+    "en": {
+        "eyebrow": "Reported book",
+        "title": "What {manager} reported holding",
+        "standfirst": (
+            "A 13F states the long US positions a manager held at a quarter end, "
+            "filed up to 45 days later. Shorts, cash, bonds, futures and foreign "
+            "lines never appear, so for a macro manager this is a corner of the "
+            "book rather than the book. Positions are summed by CUSIP and matched "
+            "to a US ticker where one can be identified."
+        ),
+        "provenance": ("quarter ending {date}  ·  {n} identified positions  ·  "
+                       "from the manager's own 13F-HR filing on SEC EDGAR"),
+    },
+    "zh": {
+        "eyebrow": "申报持仓",
+        "title": "{manager} 申报的持仓",
+        "standfirst": (
+            "13F 反映的是某位经理在季度末持有的美股多头仓位，最晚可在 45 天后才申报。"
+            "空头、现金、债券、期货和境外挂牌一概不出现——对宏观交易员来说，"
+            "这只是账本的一角，而不是账本本身。持仓已按 CUSIP 汇总，"
+            "并在能识别出代码时匹配到美股代码。"
+        ),
+        "provenance": ("截至 {date} 季度末  ·  {n} 只已识别持仓  ·  "
+                       "来自该经理提交给 SEC EDGAR 的 13F-HR 申报"),
+    },
+}
+
+FILER_ACTIVITY_PAGE = {
+    "en": {
+        "eyebrow": "Quarterly changes",
+        "title": "What {manager} changed",
+        "standfirst": (
+            "Differences between consecutive quarterly filings. No fund-flow "
+            "correction is applied: a 13F filer has no creation or redemption "
+            "mechanism, so a book-wide move is a decision, not plumbing. Each "
+            "quarter is a single observation 45 days stale — this reads a "
+            "manager's direction, not a trade to follow."
+        ),
+        "provenance": ("{first} to {last}  ·  {days} quarters  ·  {n} changes  ·  "
+                       "derived from consecutive 13F-HR filings"),
+    },
+    "zh": {
+        "eyebrow": "季度调仓",
+        "title": "{manager} 动了什么",
+        "standfirst": (
+            "相邻两个季度申报之间的差分。这里不做资金流剥离——13F 申报人没有"
+            "申购赎回机制，全账本的同向变动本身就是决策，不是机制。"
+            "每个季度只有一个观测点、且滞后 45 天，所以它读的是这位经理的方向，"
+            "不是可以跟的单。"
+        ),
+        "provenance": ("{first} 至 {last}  ·  {days} 个季度  ·  {n} 笔变动  ·  "
+                       "由相邻 13F-HR 申报差分推导"),
+    },
+}

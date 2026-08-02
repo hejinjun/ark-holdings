@@ -23,7 +23,7 @@ import activity
 import home
 import i18n
 import leaders
-import manager
+import manager as manager_page
 import report
 
 HERE = Path(__file__).parent
@@ -82,6 +82,40 @@ def archive_page(all_dates: list[str]) -> str:
 """
 
 
+def filers() -> list[str]:
+    """Sources with an ingested book of their own, ARK excepted."""
+    try:
+        import thirteenf
+        return [m for m in thirteenf.managers() if m != "ark"]
+    except Exception:
+        return []
+
+
+def build_filer(manager: str, out: Path) -> None:
+    """Holdings and changes for one filer. Failures are reported and skipped:
+    a half-ingested manager should not cost the rest of the site."""
+    out.mkdir(parents=True, exist_ok=True)
+    try:
+        report.use_source(manager)
+        dates = report.tradeable_dates()
+        if not dates:
+            print(f"  {manager}/ skipped: no tradeable_*.csv")
+            return
+        report.main(["build_site", "--source", manager, dates[-1]])
+        shutil.copy(DATA / manager / f"report_tradeable_{dates[-1]}.html",
+                    out / "holdings.html")
+        print(f"  {manager}/holdings.html  ({dates[-1]})")
+
+        activity.main(["build_site", "--source", manager])
+        shutil.copy(DATA / manager / "activity.html", out / "activity.html")
+        print(f"  {manager}/activity.html")
+    except SystemExit as exc:
+        print(f"  {manager}/ skipped: {exc}")
+    finally:
+        report.use_source("ark")
+        activity.use_source("ark")
+
+
 def main(argv: list[str]) -> int:
     out = Path(argv[argv.index("--out") + 1]) if "--out" in argv else HERE / "site"
     all_dates = dates()
@@ -120,13 +154,13 @@ def main(argv: list[str]) -> int:
     else:
         print("  leaders skipped: no leaders_*.csv snapshot yet")
 
-    # A 13F filer is optional: the site builds without one ingested.
-    import thirteenf
-    filers = thirteenf.managers()
-    if filers:
-        manager.main(["build_site", filers[0]])
-        shutil.copy(DATA / f"manager_{filers[0]}.html", out / "manager.html")
-        print(f"  manager.html  ({filers[0]})")
+    # A 13F filer is optional: the site builds without one ingested. The nav
+    # entry points at the first, which is also the one the home page cards.
+    ingested = filers()
+    if ingested:
+        manager_page.main(["build_site", ingested[0]])
+        shutil.copy(DATA / f"manager_{ingested[0]}.html", out / "manager.html")
+        print(f"  manager.html  ({ingested[0]})")
     else:
         print("  manager skipped: no 13F filer ingested")
 
@@ -136,6 +170,11 @@ def main(argv: list[str]) -> int:
     home.main(["build_site"])
     shutil.copy(DATA / "home.html", out / "index.html")
     print("  index.html  (daily brief)")
+
+    # Each ingested filer gets the same two pages under its own directory.
+    # ARK keeps the site root because its URLs are the ones already in use.
+    for manager in filers():
+        build_filer(manager, out / manager)
 
     # Pages would otherwise run the output through Jekyll, which drops
     # directories beginning with an underscore and rewrites nothing we want.

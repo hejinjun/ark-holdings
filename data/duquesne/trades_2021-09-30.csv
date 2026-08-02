@@ -18,7 +18,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,buy,CPNG,Coupang Inc,22266T109,equity,15506097,17763525,15506097,2257428,14.56,1.000000
 2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,buy,PRCT,Procept Biorobotics Corp,74276L105,equity,600000,1660435,600000,1060435,176.74,1.000000
 2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,buy,,Smartsheet Inc,83200N103,equity,64709,390011,64709,325302,502.72,1.000000
-2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,buy,,Flex Ltd,Y2573F102,equity,1533910,2537199,1533910,1003289,65.41,1.000000
+2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,buy,FLEX,Flex Ltd,Y2573F102,equity,1533910,2537199,1533910,1003289,65.41,1.000000
 2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,buy,KBR,Kbr Inc,48242W106,equity,865596,1036426,865596,170830,19.74,1.000000
 2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,buy,MSFT,Microsoft Corp,594918104,equity,777689,800490,777689,22801,2.93,1.000000
 2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,buy,OPCH,Option Care Health Inc,68404L201,equity,1032987,1190938,1032987,157951,15.29,1.000000
@@ -45,7 +45,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,exit,,Liberty Media Corp Del,531229854,equity,485800,0,485800,-485800,-100.00,1.000000
 2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,exit,FTCHQ,Farfetch Ltd,30744W107,equity,629470,0,629470,-629470,-100.00,1.000000
 2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,exit,NKTR,Nektar Therapeutics,640268108,equity,1000000,0,1000000,-1000000,-100.00,1.000000
-2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,exit,,Stoneco Ltd,G85158106,equity,382100,0,382100,-382100,-100.00,1.000000
+2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,exit,STNE,Stoneco Ltd,G85158106,equity,382100,0,382100,-382100,-100.00,1.000000
 2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,exit,,Confluent Inc,20717M103,equity,140300,0,140300,-140300,-100.00,1.000000
 2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,exit,OMF,Onemain Hldgs Inc,68268W103,equity,83750,0,83750,-83750,-100.00,1.000000
 2021-09-30,2021-09-30,2021-12-31,Duquesne Family Office,exit,BBBY,Overstock Com Inc Del,690370101,equity,49650,0,49650,-49650,-100.00,1.000000

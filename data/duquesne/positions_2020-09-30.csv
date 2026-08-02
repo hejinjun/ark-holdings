@@ -51,7 +51,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2020-09-30,Duquesne Family Office,46625H100,JPM,Jpmorgan Chase &amp; Co,equity,98165,9450000.00,0.2771
 2020-09-30,Duquesne Family Office,878742204,TECK,Teck Resources Ltd,equity,661200,9204000.00,0.2698
 2020-09-30,Duquesne Family Office,07725L102,ONC,Beigene Ltd,equity,31025,8887000.00,0.2606
-2020-09-30,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,711240,7923000.00,0.2323
+2020-09-30,Duquesne Family Office,Y2573F102,FLEX,Flex Ltd,equity,711240,7923000.00,0.2323
 2020-09-30,Duquesne Family Office,517834107,LVS,Las Vegas Sands Corp,equity,77901,3635000.00,0.1066
 2020-09-30,Duquesne Family Office,23331A109,DHI,D R Horton Inc,equity,46470,3515000.00,0.1031
 2020-09-30,Duquesne Family Office,G04553106,,Arco Platform Ltd Com,equity,84675,3458000.00,0.1014

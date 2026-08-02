@@ -28,7 +28,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2021-06-30,Duquesne Family Office,912008109,USFD,Us Foods Hldg Corp,equity,890415,34156000.00,0.9806
 2021-06-30,Duquesne Family Office,149123101,CAT,Caterpillar Inc,equity,156400,34037000.00,0.9772
 2021-06-30,Duquesne Family Office,37045V100,GM,General Mtrs Co,equity,566125,33498000.00,0.9617
-2021-06-30,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,1712760,30607000.00,0.8787
+2021-06-30,Duquesne Family Office,Y2573F102,FLEX,Flex Ltd,equity,1712760,30607000.00,0.8787
 2021-06-30,Duquesne Family Office,22266L106,,Coupa Software Inc,equity,107988,28305000.00,0.8126
 2021-06-30,Duquesne Family Office,682189105,ON,On Semiconductor Corp,equity,706366,27040000.00,0.7763
 2021-06-30,Duquesne Family Office,12008R107,BLDR,Builders Firstsource Inc,equity,566856,24182000.00,0.6942

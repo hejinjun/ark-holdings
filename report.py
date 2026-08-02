@@ -71,14 +71,26 @@ CLASS_LABEL = {"equity": "equity", "private": "private",
                "bitcoin_holdco": "bitcoin", "cash": "cash"}
 
 
+def manager_label() -> str:
+    """The filer's own name, taken from thirteenf's registry when it knows it."""
+    try:
+        import thirteenf
+        return thirteenf.MANAGERS.get(SOURCE, {}).get("label", SOURCE)
+    except Exception:
+        return SOURCE
+
+
 def fund_tally(date: str, skip: set[str]) -> list[dict]:
-    tally = {f: {"n": 0, "v": 0.0} for f in ETFS if f not in skip}
+    # Fund names come from the file, not from the ARK registry: a 13F filer
+    # reports under one name of its own and would otherwise KeyError here.
+    tally: dict[str, dict] = {}
     with (DATA / f"positions_{date}.csv").open(encoding="utf-8") as fh:
         for r in csv.DictReader(fh):
             if r["fund"] in skip:
                 continue
-            tally[r["fund"]]["n"] += 1
-            tally[r["fund"]]["v"] += float(r["market_value"])
+            t = tally.setdefault(r["fund"], {"n": 0, "v": 0.0})
+            t["n"] += 1
+            t["v"] += float(r["market_value"])
     return sorted(({"f": f, **t} for f, t in tally.items()), key=lambda x: -x["v"])
 
 
@@ -93,14 +105,14 @@ def tradeable_funds(date: str, keep: set[str]) -> list[dict]:
     Fund totals must describe the filtered universe, not the whole fund, so
     they are recounted from the positions that survived rather than reused.
     """
-    mv = {f: 0.0 for f in ETFS if f not in EXCLUDED_FUNDS}
-    n = {f: 0 for f in mv}
+    mv: dict[str, float] = {}
+    n: dict[str, int] = {}
     with (DATA / f"positions_{date}.csv").open(encoding="utf-8") as fh:
         for r in csv.DictReader(fh):
             if r["fund"] in EXCLUDED_FUNDS or r["cusip"] not in keep:
                 continue
-            n[r["fund"]] += 1
-            mv[r["fund"]] += float(r["market_value"])
+            n[r["fund"]] = n.get(r["fund"], 0) + 1
+            mv[r["fund"]] = mv.get(r["fund"], 0.0) + float(r["market_value"])
     return sorted(({"f": f, "n": n[f], "v": mv[f]} for f in mv), key=lambda x: -x["v"])
 
 
@@ -330,12 +342,17 @@ def load_tradeable(date: str) -> dict:
         else:
             tiles.append(["On Nasdaq", f"{nasdaq / total * 100:.1f}%",
                           f"{sum(1 for s in securities if s['k'] == 'NASDAQ')} of {n}"])
+        # A 13F filer's book is not a daily ETF book, and the ARK copy would
+        # describe it wrongly on every count -- see i18n.FILER_PAGE.
+        f = i18n.FILER_PAGE[lang] if SOURCE != "ark" else None
         return {
-            "eyebrow": c["eyebrow"],
-            "title": c["title"],
-            "standfirst": c["standfirst"],
-            "provenance": c["provenance"].format(date=date, funds=len(funds),
-                                                 excl=excl, n=n),
+            "eyebrow": (f or c)["eyebrow"],
+            "title": (f["title"].format(manager=manager_label())
+                      if f else c["title"]),
+            "standfirst": (f or c)["standfirst"],
+            "provenance": (f["provenance"].format(date=date, n=n) if f
+                           else c["provenance"].format(date=date, funds=len(funds),
+                                                       excl=excl, n=n)),
             "tiles": tiles,
             "nav": i18n.NAV[lang],
             "footnotes": i18n.FOOTNOTES[lang],

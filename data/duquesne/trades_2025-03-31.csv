@@ -67,7 +67,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2025-03-31,2025-03-31,2025-06-30,Duquesne Family Office,exit,BN,Brookfield Corp,11271J107,equity,315925,0,315925,-315925,-100.00,1.000000
 2025-03-31,2025-03-31,2025-06-30,Duquesne Family Office,exit,TECK,Teck Resources Ltd,878742204,equity,431545,0,431545,-431545,-100.00,1.000000
 2025-03-31,2025-03-31,2025-06-30,Duquesne Family Office,exit,BBIO,Bridgebio Pharma Inc,10806X102,equity,438050,0,438050,-438050,-100.00,1.000000
-2025-03-31,2025-03-31,2025-06-30,Duquesne Family Office,exit,,Flex Ltd,Y2573F102,equity,348900,0,348900,-348900,-100.00,1.000000
+2025-03-31,2025-03-31,2025-06-30,Duquesne Family Office,exit,FLEX,Flex Ltd,Y2573F102,equity,348900,0,348900,-348900,-100.00,1.000000
 2025-03-31,2025-03-31,2025-06-30,Duquesne Family Office,exit,EXE,Expand Energy Corporation,165167735,equity,97700,0,97700,-97700,-100.00,1.000000
 2025-03-31,2025-03-31,2025-06-30,Duquesne Family Office,exit,AR,Antero Resources Corp,03674X106,equity,258400,0,258400,-258400,-100.00,1.000000
 2025-03-31,2025-03-31,2025-06-30,Duquesne Family Office,exit,PI,Impinj Inc,453204109,equity,108475,0,108475,-108475,-100.00,1.000000

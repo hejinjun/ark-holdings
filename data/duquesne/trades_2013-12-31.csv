@@ -4,7 +4,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2013-12-31,2013-12-31,2014-03-31,Duquesne Family Office,new,CCJ,Cameco Corp,13321L108,equity,0,1428200,0,1428200,,1.000000
 2013-12-31,2013-12-31,2014-03-31,Duquesne Family Office,new,,Monsanto Co,61166W101,equity,0,177500,0,177500,,1.000000
 2013-12-31,2013-12-31,2014-03-31,Duquesne Family Office,new,,SanDisk Corp,80004C101,equity,0,130800,0,130800,,1.000000
-2013-12-31,2013-12-31,2014-03-31,Duquesne Family Office,new,,Sensata Technologies Hldng NV,N7902X106,equity,0,248100,0,248100,,1.000000
+2013-12-31,2013-12-31,2014-03-31,Duquesne Family Office,new,ST,Sensata Technologies Hldng NV,N7902X106,equity,0,248100,0,248100,,1.000000
 2013-12-31,2013-12-31,2014-03-31,Duquesne Family Office,new,NXPI,NXP Semiconductors NV,N6596X109,equity,0,179400,0,179400,,1.000000
 2013-12-31,2013-12-31,2014-03-31,Duquesne Family Office,new,EWA,ISh MSCI Australia Idx Fd,464286103,equity,0,397000,0,397000,,1.000000
 2013-12-31,2013-12-31,2014-03-31,Duquesne Family Office,new,XLB,Mat&apos;ls Select Sctr SPDR Tst,81369Y100,equity,0,209000,0,209000,,1.000000

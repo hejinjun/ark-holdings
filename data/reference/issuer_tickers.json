@@ -213,6 +213,10 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "03940R107": {
+  "via": "override",
+  "why": "Arch Resources, a coal miner. The match was Arch Capital Group, an insurer."
+ },
  "04010E109": {
   "name": "ARGAN INC",
   "ticker": "AGX",
@@ -741,6 +745,10 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "22266L106": {
+  "via": "override",
+  "why": "Coupa Software. The match was Coupang."
+ },
  "22266T109": {
   "name": "COUPANG INC",
   "ticker": "CPNG",
@@ -807,6 +815,10 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "24279D105": {
+  "via": "override",
+  "why": "Decarbonization Plus Acquisition II. The match was The Acquirers Fund, an ETF."
+ },
  "244199105": {
   "name": "DEERE & CO",
   "ticker": "DE",
@@ -837,6 +849,10 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "254709108": {
+  "via": "override",
+  "why": "Discover Financial Services. The match was an iShares financial-services ETF."
+ },
  "256163106": {
   "name": "DOCUSIGN INC",
   "ticker": "DOCU",
@@ -854,6 +870,10 @@
   "ticker": "DOV",
   "type": "Common Stock",
   "via": "figi"
+ },
+ "260543103": {
+  "via": "override",
+  "why": "Dow Chemical Co, which merged into DowDuPont and was split out again as Dow Inc under a new CUSIP. This one is the pre-merger security."
  },
  "26142R104": {
   "name": "DraftKings Inc. - Class A Common Stock",
@@ -1367,6 +1387,10 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "485170302": {
+  "via": "override",
+  "why": "Kansas City Southern. The match was City Holding Company."
+ },
  "48666K109": {
   "name": "KB HOME",
   "ticker": "KBH",
@@ -1384,6 +1408,10 @@
   "ticker": "KMI",
   "type": "Common Stock",
   "via": "figi"
+ },
+ "49803L109": {
+  "via": "override",
+  "why": "Kite Pharma. The match was Kite Realty Group Trust."
  },
  "500255104": {
   "name": "KOHLS CORP",
@@ -1561,6 +1589,10 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "582839106": {
+  "via": "override",
+  "why": "Mead Johnson Nutrition. The match was Johnson & Johnson."
+ },
  "58733R102": {
   "name": "MERCADOLIBRE INC",
   "ticker": "MELI",
@@ -1720,6 +1752,10 @@
   "ticker": "NOK",
   "type": "ADR",
   "via": "figi"
+ },
+ "655044105": {
+  "via": "override",
+  "why": "Noble Energy. The match was Noble Corporation, a driller."
  },
  "666807102": {
   "name": "NORTHROP GRUMMAN CORP",
@@ -1931,6 +1967,10 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "723787107": {
+  "via": "override",
+  "why": "Pioneer Natural Resources. The match was Pioneer Acquisition I Corp, a blank-cheque company."
+ },
  "737446104": {
   "name": "POST HOLDINGS INC",
   "ticker": "POST",
@@ -2045,6 +2085,10 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "762760106": {
+  "via": "override",
+  "why": "Rice Energy. The match was Rice Acquisition Corp 3."
+ },
  "771049103": {
   "name": "ROBLOX CORP -CLASS A",
   "ticker": "RBLX",
@@ -2120,6 +2164,10 @@
   "ticker": "DIA",
   "type": "ETP",
   "via": "figi"
+ },
+ "78781P105": {
+  "via": "override",
+  "why": "SailPoint Technologies Holdings, taken private in 2022. The SailPoint listed again in 2025 is a different security under a different CUSIP."
  },
  "79466L302": {
   "name": "SALESFORCE INC",
@@ -2361,6 +2409,10 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "867975104": {
+  "via": "override",
+  "why": "Sunrise Communications AG. The match was Sunrise Realty Trust."
+ },
  "87165B103": {
   "name": "SYNCHRONY FINANCIAL",
   "ticker": "SYF",
@@ -2521,6 +2573,10 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "90130A101": {
+  "via": "override",
+  "why": "Twenty-First Century Fox, most of which went to Disney. The remainder became Fox Corporation, whose A and B lines scored identically here -- the tie is the evidence that this cannot be settled by name."
+ },
  "90138F102": {
   "name": "TWILIO INC - A",
   "ticker": "TWLO",
@@ -2538,6 +2594,10 @@
   "ticker": "USB",
   "type": "Common Stock",
   "via": "figi"
+ },
+ "90341W108": {
+  "via": "override",
+  "why": "US Airways Group. The match was AiRWA Inc."
  },
  "90353T100": {
   "name": "UBER TECHNOLOGIES INC",
@@ -2749,6 +2809,10 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "966244105": {
+  "via": "override",
+  "why": "WhiteWave Foods. The match was B&G Foods."
+ },
  "969457100": {
   "name": "WILLIAMS COS INC",
   "ticker": "WMB",
@@ -2869,6 +2933,10 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "G04553106": {
+  "via": "override",
+  "why": "Arco Platform. The match was Arcosa."
+ },
  "G06242104": {
   "name": "Atlassian Corporation  - Class A Common Stock",
   "runner_up": 3.07,
@@ -2916,6 +2984,10 @@
   "type": "NYSE",
   "via": "name"
  },
+ "G47567105": {
+  "via": "override",
+  "why": "IHS Markit Ltd. The match was IHS Holding Limited, the tower operator, which is a different company and is itself correctly resolved under G4701H109."
+ },
  "G47791101": {
   "via": "override",
   "why": "Ingersoll-Rand plc became Trane Technologies in 2020. The IR ticker went to Gardner Denver, which took the Ingersoll Rand name -- a different issuer."
@@ -2943,6 +3015,14 @@
   "ticker": "MDT",
   "type": "NYSE",
   "via": "name"
+ },
+ "G61188101": {
+  "via": "override",
+  "why": "Liberty Global. Two CUSIPs in this book both propose LBTYA, so at least one is a different share class or the pre-redomicile line. Per-class evidence is needed; one ticker for both would be wrong for one of them."
+ },
+ "G61188127": {
+  "via": "override",
+  "why": "Liberty Global, the second of the two. See above."
  },
  "G6359F103": {
   "name": "Nabors Industries Ltd.",
@@ -2976,6 +3056,13 @@
   "type": "NYSE",
   "via": "name"
  },
+ "G68707101": {
+  "name": "PagSeguro Digital Ltd. Class A Common Shares",
+  "ticker": "PAGS",
+  "type": "NYSE",
+  "via": "override",
+  "why": "PagSeguro Digital Ltd, Cayman CINS, NYSE: PAGS. Held back by the filing's 'COM' for Common."
+ },
  "G7997R103": {
   "name": "Seagate Technology Holdings PLC - Ordinary Shares (Ireland)",
   "runner_up": 4.29,
@@ -2983,6 +3070,13 @@
   "ticker": "STX",
   "type": "NASDAQ",
   "via": "name"
+ },
+ "G85158106": {
+  "name": "StoneCo Ltd. - Class A Common Share",
+  "ticker": "STNE",
+  "type": "NASDAQ",
+  "via": "override",
+  "why": "StoneCo Ltd, Cayman CINS, Nasdaq: STNE. Same."
  },
  "G98239109": {
   "name": "XP Inc. - Class A Common Stock",
@@ -3014,6 +3108,10 @@
   "type": "NYSE",
   "via": "override",
   "why": "Transocean Ltd, Swiss CINS, NYSE: RIG"
+ },
+ "L5140P101": {
+  "via": "override",
+  "why": "Intelsat S.A. The match was Intel Corporation."
  },
  "L8681T102": {
   "name": "Spotify Technology S.A. Ordinary Shares",
@@ -3087,6 +3185,13 @@
   "type": "NASDAQ",
   "via": "name"
  },
+ "N7902X106": {
+  "name": "Sensata Technologies Holding plc Ordinary Shares",
+  "ticker": "ST",
+  "type": "NYSE",
+  "via": "override",
+  "why": "Sensata Technologies, Dutch CINS filed as NV where the listing reads plc, NYSE: ST."
+ },
  "N82405106": {
   "name": "Stellantis N.V. Common Shares",
   "runner_up": 0.0,
@@ -3110,6 +3215,13 @@
   "ticker": "AVGO",
   "type": "NASDAQ",
   "via": "name"
+ },
+ "Y2573F102": {
+  "name": "Flex Ltd. - Ordinary Shares",
+  "ticker": "FLEX",
+  "type": "NASDAQ",
+  "via": "override",
+  "why": "Flex Ltd, Singapore CINS, Nasdaq: FLEX. A one-word issuer name, which scores low however right it is."
  },
  "Y95308105": {
   "name": "Wave Life Sciences Ltd. - Ordinary Shares",

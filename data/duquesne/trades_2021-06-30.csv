@@ -4,7 +4,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,new,ZM,Zoom Video Communications In,98980L101,equity,0,117690,0,117690,,1.000000
 2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,new,PRCT,Procept Biorobotics Corp,74276L105,equity,0,600000,0,600000,,1.000000
 2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,new,OSCR,Oscar Health Inc,687793109,equity,0,994289,0,994289,,1.000000
-2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,new,,Stoneco Ltd,G85158106,equity,0,382100,0,382100,,1.000000
+2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,new,STNE,Stoneco Ltd,G85158106,equity,0,382100,0,382100,,1.000000
 2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,new,ABCL,Abcellera Biologics Inc,00288U106,equity,0,659750,0,659750,,1.000000
 2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,new,FSLY,Fastly Inc,31188V100,equity,0,257695,0,257695,,1.000000
 2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,new,LAD,Lithia Mtrs Inc,536797103,equity,0,29081,0,29081,,1.000000
@@ -39,7 +39,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,sell,ABNB,Airbnb Inc,009066101,equity,561831,501351,561831,-60480,-10.76,1.000000
 2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,sell,CF,Cf Inds Hldgs Inc,125269100,equity,193900,47000,193900,-146900,-75.76,1.000000
 2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,sell,PANW,Palo Alto Networks Inc,697435105,equity,411015,399036,411015,-11979,-2.91,1.000000
-2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,sell,,Flex Ltd,Y2573F102,equity,1712760,1533910,1712760,-178850,-10.44,1.000000
+2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,sell,FLEX,Flex Ltd,Y2573F102,equity,1712760,1533910,1712760,-178850,-10.44,1.000000
 2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,sell,S,Sentinelone Inc,81730H109,equity,100000,60000,100000,-40000,-40.00,1.000000
 2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,exit,NFLX,Netflix Inc,64110L106,equity,172215,0,172215,-172215,-100.00,1.000000
 2021-06-30,2021-06-30,2021-09-30,Duquesne Family Office,exit,CMI,Cummins Inc,231021106,equity,324725,0,324725,-324725,-100.00,1.000000

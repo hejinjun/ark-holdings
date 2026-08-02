@@ -47,7 +47,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2024-12-31,Duquesne Family Office,697435105,PANW,Palo Alto Networks Inc,equity,87424,15908000.00,0.4475
 2024-12-31,Duquesne Family Office,88160R101,TSLA,Tesla Inc,equity,37675,15215000.00,0.4280
 2024-12-31,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc,equity,76680,14516000.00,0.4084
-2024-12-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,348900,13394000.00,0.3768
+2024-12-31,Duquesne Family Office,Y2573F102,FLEX,Flex Ltd,equity,348900,13394000.00,0.3768
 2024-12-31,Duquesne Family Office,320517105,FHN,First Horizon Corporation,equity,619700,12481000.00,0.3511
 2024-12-31,Duquesne Family Office,949746101,WFC,Wells Fargo Co New,equity,157100,11035000.00,0.3104
 2024-12-31,Duquesne Family Office,31946M103,FCNCA,First Ctzns Bancshares Inc N,equity,5183,10952000.00,0.3081

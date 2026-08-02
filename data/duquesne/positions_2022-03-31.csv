@@ -37,7 +37,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2022-03-31,Duquesne Family Office,464286400,EWZ,Ishares Inc,equity,144565,5466000.00,0.2498
 2022-03-31,Duquesne Family Office,86771W105,RUN,Sunrun Inc,equity,178450,5420000.00,0.2477
 2022-03-31,Duquesne Family Office,110448107,BTI,British Amern Tob Plc,equity,120950,5099000.00,0.2330
-2022-03-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,240666,4464000.00,0.2040
+2022-03-31,Duquesne Family Office,Y2573F102,FLEX,Flex Ltd,equity,240666,4464000.00,0.2040
 2022-03-31,Duquesne Family Office,25470M109,,Dish Network Corporation,equity,112400,3557000.00,0.1625
 2022-03-31,Duquesne Family Office,20464U100,COMP,Compass Inc,equity,399100,3137000.00,0.1433
 2022-03-31,Duquesne Family Office,12510Q100,CCC,Ccc Intelligent Solutions Hl,equity,281879,3112000.00,0.1422

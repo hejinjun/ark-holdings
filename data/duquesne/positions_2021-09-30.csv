@@ -22,7 +22,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2021-09-30,Duquesne Family Office,707569109,PENN,Penn Natl Gaming Inc,equity,417200,30230000.00,0.9842
 2021-09-30,Duquesne Family Office,22266L106,,Coupa Software Inc,equity,137634,30167000.00,0.9821
 2021-09-30,Duquesne Family Office,81141R100,SE,Sea Ltd,equity,87874,28008000.00,0.9119
-2021-09-30,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,1533910,27120000.00,0.8829
+2021-09-30,Duquesne Family Office,Y2573F102,FLEX,Flex Ltd,equity,1533910,27120000.00,0.8829
 2021-09-30,Duquesne Family Office,878742204,TECK,Teck Resources Ltd,equity,1044452,26017000.00,0.8470
 2021-09-30,Duquesne Family Office,68404L201,OPCH,Option Care Health Inc,equity,1032987,25060000.00,0.8159
 2021-09-30,Duquesne Family Office,531229854,,Liberty Media Corp Del,equity,485800,24975000.00,0.8131
@@ -31,7 +31,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2021-09-30,Duquesne Family Office,74276L105,PRCT,Procept Biorobotics Corp,equity,600000,22890000.00,0.7452
 2021-09-30,Duquesne Family Office,640268108,NKTR,Nektar Therapeutics,equity,1000000,17960000.00,0.5847
 2021-09-30,Duquesne Family Office,687793109,OSCR,Oscar Health Inc,equity,994289,17291000.00,0.5629
-2021-09-30,Duquesne Family Office,G85158106,,Stoneco Ltd,equity,382100,13267000.00,0.4319
+2021-09-30,Duquesne Family Office,G85158106,STNE,Stoneco Ltd,equity,382100,13267000.00,0.4319
 2021-09-30,Duquesne Family Office,00288U106,ABCL,Abcellera Biologics Inc,equity,659750,13221000.00,0.4304
 2021-09-30,Duquesne Family Office,31188V100,FSLY,Fastly Inc,equity,257695,10421000.00,0.3393
 2021-09-30,Duquesne Family Office,536797103,LAD,Lithia Mtrs Inc,equity,29081,9220000.00,0.3002

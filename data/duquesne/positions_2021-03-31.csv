@@ -23,7 +23,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2021-03-31,Duquesne Family Office,369604103,,General Electric Co,equity,4375778,57454000.00,1.4796
 2021-03-31,Duquesne Family Office,146869102,CVNA,Carvana Co,equity,213867,56119000.00,1.4452
 2021-03-31,Duquesne Family Office,30303M102,META,Facebook Inc,equity,185414,54610000.00,1.4063
-2021-03-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,2801260,51291000.00,1.3209
+2021-03-31,Duquesne Family Office,Y2573F102,FLEX,Flex Ltd,equity,2801260,51291000.00,1.3209
 2021-03-31,Duquesne Family Office,90353T100,UBER,Uber Technologies Inc,equity,871675,47515000.00,1.2236
 2021-03-31,Duquesne Family Office,874039100,TSM,Taiwan Semiconductor Mfg Ltd,equity,391475,46304000.00,1.1924
 2021-03-31,Duquesne Family Office,G5494J103,LIN,Linde Plc,equity,159185,44594000.00,1.1484

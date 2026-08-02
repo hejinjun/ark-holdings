@@ -17,7 +17,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2024-06-30,Duquesne Family Office,35671D857,FCX,Freeport-Mcmoran Inc,equity,1153135,56042000.00,1.9876
 2024-06-30,Duquesne Family Office,68404L201,OPCH,Option Care Health Inc,equity,1871818,51849000.00,1.8389
 2024-06-30,Duquesne Family Office,36828A101,GEV,Ge Vernova Inc,equity,297068,50950000.00,1.8070
-2024-06-30,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,1449155,42736000.00,1.5157
+2024-06-30,Duquesne Family Office,Y2573F102,FLEX,Flex Ltd,equity,1449155,42736000.00,1.5157
 2024-06-30,Duquesne Family Office,85205L107,,Springworks Therapeutics Inc,equity,1021367,38475000.00,1.3645
 2024-06-30,Duquesne Family Office,234264109,DAKT,Daktronics Inc,equity,2493605,34786000.00,1.2337
 2024-06-30,Duquesne Family Office,697435105,PANW,Palo Alto Networks Inc,equity,88968,30161000.00,1.0697

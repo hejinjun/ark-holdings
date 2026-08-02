@@ -19,7 +19,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2023-12-31,Duquesne Family Office,980745103,WWD,Woodward Inc,equity,404635,55083000.00,1.7715
 2023-12-31,Duquesne Family Office,68404L201,OPCH,Option Care Health Inc,equity,1456215,49060000.00,1.5778
 2023-12-31,Duquesne Family Office,88023U101,SGI,Tempur Sealy Intl Inc,equity,749100,38182000.00,1.2279
-2023-12-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,1134400,34554000.00,1.1113
+2023-12-31,Duquesne Family Office,Y2573F102,FLEX,Flex Ltd,equity,1134400,34554000.00,1.1113
 2023-12-31,Duquesne Family Office,067901108,ABX,Barrick Gold Corp,equity,1758300,31808000.00,1.0230
 2023-12-31,Duquesne Family Office,099502106,BAH,Booz Allen Hamilton Hldg Cor,equity,235800,30161000.00,0.9700
 2023-12-31,Duquesne Family Office,87256C101,TKO,Tko Group Holdings Inc,equity,326735,26655000.00,0.8572

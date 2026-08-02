@@ -26,7 +26,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2020-12-31,Duquesne Family Office,30212P303,EXPE,Expedia Group Inc,equity,270299,35788000.00,0.9683
 2020-12-31,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc,equity,19024,33342000.00,0.9021
 2020-12-31,Duquesne Family Office,032654105,ADI,Analog Devices Inc,equity,213328,31515000.00,0.8527
-2020-12-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,1733430,31167000.00,0.8433
+2020-12-31,Duquesne Family Office,Y2573F102,FLEX,Flex Ltd,equity,1733430,31167000.00,0.8433
 2020-12-31,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,119082,28533000.00,0.7720
 2020-12-31,Duquesne Family Office,83200N103,,Smartsheet Inc,equity,402361,27880000.00,0.7543
 2020-12-31,Duquesne Family Office,92189F676,SMH,Vaneck Vectors Etf Tr,equity,123900,27062000.00,0.7322

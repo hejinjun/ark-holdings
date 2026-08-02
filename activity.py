@@ -211,13 +211,24 @@ def build(days: int) -> dict:
     }
 
 
+def manager_label() -> str:
+    try:
+        import thirteenf
+        return thirteenf.MANAGERS.get(SOURCE, {}).get("label", SOURCE)
+    except Exception:
+        return SOURCE
+
+
 def page(lang: str, dates: list[str], events: list[dict], conviction: int) -> dict:
     c = i18n.ACTIVITY_PAGE[lang]
+    # Quarterly filings are not sessions, and no flow correction was applied to
+    # them, so the ARK wording would misdescribe both -- see i18n.
+    f = i18n.FILER_ACTIVITY_PAGE[lang] if SOURCE != "ark" else None
     return {
-        "eyebrow": c["eyebrow"],
-        "title": c["title"],
-        "standfirst": c["standfirst"],
-        "provenance": c["provenance"].format(
+        "eyebrow": (f or c)["eyebrow"],
+        "title": f["title"].format(manager=manager_label()) if f else c["title"],
+        "standfirst": (f or c)["standfirst"],
+        "provenance": (f or c)["provenance"].format(
             first=dates[0], last=dates[-1], days=len(dates), n=len(events)),
         "tiles": [
             [c["tileSessions"], str(len(dates)), c["tileSessionsNote"].format(first=dates[0])],

@@ -48,7 +48,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,MAA,Mid-Amer Apt Cmntys Inc,59522J103,equity,644190,238720,644190,-405470,-62.94,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,COHR,Coherent Corp,19247G107,equity,3589540,2978530,3589540,-611010,-17.02,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,GTM,Zoominfo Technologies Inc,98980F104,equity,5881906,2140726,5881906,-3741180,-63.60,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,,Flex Ltd,Y2573F102,equity,1449155,348900,1449155,-1100255,-75.92,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,FLEX,Flex Ltd,Y2573F102,equity,1449155,348900,1449155,-1100255,-75.92,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,CPT,Camden Ppty Tr,133131102,equity,577915,290915,577915,-287000,-49.66,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,PLTR,Palantir Technologies Inc,69608A108,equity,769965,41710,769965,-728255,-94.58,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,TECK,Teck Resources Ltd,878742204,equity,1453410,1017085,1453410,-436325,-30.02,1.000000

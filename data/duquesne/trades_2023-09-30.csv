@@ -2,7 +2,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,ANET,Arista Networks Inc,040413106,equity,0,234185,0,234185,,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,WWD,Woodward Inc,980745103,equity,0,404635,0,404635,,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,SGI,Tempur Sealy Intl Inc,88023U101,equity,0,749100,0,749100,,1.000000
-2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,,Flex Ltd,Y2573F102,equity,0,1134400,0,1134400,,1.000000
+2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,FLEX,Flex Ltd,Y2573F102,equity,0,1134400,0,1134400,,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,ABX,Barrick Gold Corp,067901108,equity,0,1758300,0,1758300,,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,BAH,Booz Allen Hamilton Hldg Cor,099502106,equity,0,235800,0,235800,,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,MRVL,Marvell Technology Inc,573874104,equity,0,363585,0,363585,,1.000000

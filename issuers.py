@@ -110,14 +110,71 @@ OVERRIDES: dict[str, tuple[str | None, str]] = {
     "G25508105": ("CRH", "CRH plc, Irish CINS, NYSE: CRH"),
     "H8817H100": ("RIG", "Transocean Ltd, Swiss CINS, NYSE: RIG"),
 
-    # Refusals. Both scored high and both are the wrong company: the name that
-    # matches belongs to the other side of a corporate action.
+    # Foreign CINSs whose filed name carries a suffix no listing uses, so the
+    # coverage rule read the leftover word as an unexplained one. Each was
+    # checked against the Nasdaq directory by hand.
+    "G68707101": ("PAGS", "PagSeguro Digital Ltd, Cayman CINS, NYSE: PAGS. "
+                          "Held back by the filing's 'COM' for Common."),
+    "N7902X106": ("ST", "Sensata Technologies, Dutch CINS filed as NV where "
+                        "the listing reads plc, NYSE: ST."),
+    "Y2573F102": ("FLEX", "Flex Ltd, Singapore CINS, Nasdaq: FLEX. A one-word "
+                          "issuer name, which scores low however right it is."),
+    "G85158106": ("STNE", "StoneCo Ltd, Cayman CINS, Nasdaq: STNE. Same."),
+
+    # Refusals. Every one is a delisted issuer whose name half-matches a
+    # living company, and the listing the matcher proposed says so itself --
+    # no acquisition history needed to see it. Recorded rather than left
+    # unanswered so the same question is not asked on every run.
     "013817101": (None, "Alcoa Inc renamed to Arconic in 2016. The Alcoa "
                         "Corporation now trading as AA is the spun-off half "
                         "and carries CUSIP 013872106, not this one."),
     "G47791101": (None, "Ingersoll-Rand plc became Trane Technologies in "
                         "2020. The IR ticker went to Gardner Denver, which "
                         "took the Ingersoll Rand name -- a different issuer."),
+    "L5140P101": (None, "Intelsat S.A. The match was Intel Corporation."),
+    "22266L106": (None, "Coupa Software. The match was Coupang."),
+    "49803L109": (None, "Kite Pharma. The match was Kite Realty Group Trust."),
+    "582839106": (None, "Mead Johnson Nutrition. The match was Johnson & Johnson."),
+    "655044105": (None, "Noble Energy. The match was Noble Corporation, a driller."),
+    "485170302": (None, "Kansas City Southern. The match was City Holding Company."),
+    "254709108": (None, "Discover Financial Services. The match was an iShares "
+                        "financial-services ETF."),
+    "03940R107": (None, "Arch Resources, a coal miner. The match was Arch "
+                        "Capital Group, an insurer."),
+    "723787107": (None, "Pioneer Natural Resources. The match was Pioneer "
+                        "Acquisition I Corp, a blank-cheque company."),
+    "762760106": (None, "Rice Energy. The match was Rice Acquisition Corp 3."),
+    "90341W108": (None, "US Airways Group. The match was AiRWA Inc."),
+    "966244105": (None, "WhiteWave Foods. The match was B&G Foods."),
+    "G04553106": (None, "Arco Platform. The match was Arcosa."),
+    "867975104": (None, "Sunrise Communications AG. The match was Sunrise "
+                        "Realty Trust."),
+    "24279D105": (None, "Decarbonization Plus Acquisition II. The match was "
+                        "The Acquirers Fund, an ETF."),
+    "G47567105": (None, "IHS Markit Ltd. The match was IHS Holding Limited, "
+                        "the tower operator, which is a different company and "
+                        "is itself correctly resolved under G4701H109."),
+
+    # The judgement calls, decided the same way as Alcoa: a CUSIP identifies a
+    # security, and a corporate action gives the survivor a new one. Mapping
+    # the old CUSIP to the new ticker asserts a continuity the identifier
+    # itself denies, and the position would then be priced and linked as a
+    # company the filer never reported holding.
+    "260543103": (None, "Dow Chemical Co, which merged into DowDuPont and was "
+                        "split out again as Dow Inc under a new CUSIP. This "
+                        "one is the pre-merger security."),
+    "78781P105": (None, "SailPoint Technologies Holdings, taken private in "
+                        "2022. The SailPoint listed again in 2025 is a "
+                        "different security under a different CUSIP."),
+    "90130A101": (None, "Twenty-First Century Fox, most of which went to "
+                        "Disney. The remainder became Fox Corporation, whose "
+                        "A and B lines scored identically here -- the tie is "
+                        "the evidence that this cannot be settled by name."),
+    "G61188101": (None, "Liberty Global. Two CUSIPs in this book both propose "
+                        "LBTYA, so at least one is a different share class or "
+                        "the pre-redomicile line. Per-class evidence is needed; "
+                        "one ticker for both would be wrong for one of them."),
+    "G61188127": (None, "Liberty Global, the second of the two. See above."),
 }
 
 

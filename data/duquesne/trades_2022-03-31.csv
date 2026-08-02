@@ -41,4 +41,4 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2022-03-31,2022-03-31,2022-06-30,Duquesne Family Office,exit,EWZ,Ishares Inc,464286400,equity,144565,0,144565,-144565,-100.00,1.000000
 2022-03-31,2022-03-31,2022-06-30,Duquesne Family Office,exit,RUN,Sunrun Inc,86771W105,equity,178450,0,178450,-178450,-100.00,1.000000
 2022-03-31,2022-03-31,2022-06-30,Duquesne Family Office,exit,BTI,British Amern Tob Plc,110448107,equity,120950,0,120950,-120950,-100.00,1.000000
-2022-03-31,2022-03-31,2022-06-30,Duquesne Family Office,exit,,Flex Ltd,Y2573F102,equity,240666,0,240666,-240666,-100.00,1.000000
+2022-03-31,2022-03-31,2022-06-30,Duquesne Family Office,exit,FLEX,Flex Ltd,Y2573F102,equity,240666,0,240666,-240666,-100.00,1.000000

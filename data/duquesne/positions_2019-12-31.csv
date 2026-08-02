@@ -48,7 +48,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2019-12-31,Duquesne Family Office,640268108,NKTR,Nektar Therapeutics,equity,310579,6704000.00,0.2058
 2019-12-31,Duquesne Family Office,595112103,MU,Micron Technology Inc,equity,93009,5002000.00,0.1536
 2019-12-31,Duquesne Family Office,N6596X109,NXPI,Nxp Semiconductors N V,equity,35614,4532000.00,0.1391
-2019-12-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,335235,4231000.00,0.1299
+2019-12-31,Duquesne Family Office,Y2573F102,FLEX,Flex Ltd,equity,335235,4231000.00,0.1299
 2019-12-31,Duquesne Family Office,98980L101,ZM,Zoom Video Communications In,equity,61700,4198000.00,0.1289
 2019-12-31,Duquesne Family Office,22788C105,CRWD,Crowdstrike Hldgs Inc,equity,79940,3987000.00,0.1224
 2019-12-31,Duquesne Family Office,47215P106,JD,Jd Com Inc,equity,108106,3809000.00,0.1169

@@ -32,7 +32,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2021-03-31,2021-03-31,2021-06-30,Duquesne Family Office,sell,TMUS,T-Mobile Us Inc,872590104,equity,1588140,1289235,1588140,-298905,-18.82,1.000000
 2021-03-31,2021-03-31,2021-06-30,Duquesne Family Office,sell,BLDR,Builders Firstsource Inc,12008R107,equity,1315579,566856,1315579,-748723,-56.91,1.000000
 2021-03-31,2021-03-31,2021-06-30,Duquesne Family Office,sell,FCX,Freeport-Mcmoran Inc,35671D857,equity,6124379,5469100,6124379,-655279,-10.70,1.000000
-2021-03-31,2021-03-31,2021-06-30,Duquesne Family Office,sell,,Flex Ltd,Y2573F102,equity,2801260,1712760,2801260,-1088500,-38.86,1.000000
+2021-03-31,2021-03-31,2021-06-30,Duquesne Family Office,sell,FLEX,Flex Ltd,Y2573F102,equity,2801260,1712760,2801260,-1088500,-38.86,1.000000
 2021-03-31,2021-03-31,2021-06-30,Duquesne Family Office,sell,TECK,Teck Resources Ltd,878742204,equity,4551060,3731790,4551060,-819270,-18.00,1.000000
 2021-03-31,2021-03-31,2021-06-30,Duquesne Family Office,sell,,Reata Pharmaceuticals Inc,75615P103,equity,749897,637344,749897,-112553,-15.01,1.000000
 2021-03-31,2021-03-31,2021-06-30,Duquesne Family Office,sell,SNOW,Snowflake Inc,833445109,equity,84745,49110,84745,-35635,-42.05,1.000000

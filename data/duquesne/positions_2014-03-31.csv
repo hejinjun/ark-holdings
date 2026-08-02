@@ -13,7 +13,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2014-03-31,Duquesne Family Office,26884L109,EQT,EQT Corp,equity,175900,17057000.00,1.9247
 2014-03-31,Duquesne Family Office,81369Y209,XLV,Hlth Care Select Sctr SPDR,equity,193300,11306000.00,1.2757
 2014-03-31,Duquesne Family Office,80004C101,,SanDisk Corp,equity,130800,10620000.00,1.1983
-2014-03-31,Duquesne Family Office,N7902X106,,Sensata Technologies Hldng NV,equity,248100,10579000.00,1.1937
+2014-03-31,Duquesne Family Office,N7902X106,ST,Sensata Technologies Hldng NV,equity,248100,10579000.00,1.1937
 2014-03-31,Duquesne Family Office,N6596X109,NXPI,NXP Semiconductors NV,equity,179400,10551000.00,1.1906
 2014-03-31,Duquesne Family Office,464286103,EWA,ISh MSCI Australia Idx Fd,equity,397000,10270000.00,1.1588
 2014-03-31,Duquesne Family Office,81369Y605,XLF,Fin&apos;l Select Sector SPDR Fnd,equity,447600,9999000.00,1.1283

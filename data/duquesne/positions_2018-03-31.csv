@@ -20,4 +20,4 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2018-03-31,Duquesne Family Office,92763W103,VIPS,Vipshop Hldgs Ltd,equity,572800,9520000.00,0.5260
 2018-03-31,Duquesne Family Office,85917A100,STL,Sterling Bancorp Del,equity,401600,9056000.00,0.5004
 2018-03-31,Duquesne Family Office,46116X101,,Intra Cellular Therapies Inc,equity,296986,6252000.00,0.3454
-2018-03-31,Duquesne Family Office,G68707101,,Pagseguro Digital Ltd Com,equity,35000,1341000.00,0.0741
+2018-03-31,Duquesne Family Office,G68707101,PAGS,Pagseguro Digital Ltd Com,equity,35000,1341000.00,0.0741
