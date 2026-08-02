@@ -1,6 +1,7 @@
 """Ingest a manager's 13F filings as position snapshots.
 
-  python3 thirteenf.py duquesne          # uses the registry below
+  python3 thirteenf.py duquesne          # only what is not already on disk
+  python3 thirteenf.py duquesne --refetch  # every period again
   python3 thirteenf.py --cik 1536411 --name duquesne
 
 Writes data/<manager>/positions_<report-date>.csv in exactly the schema the
@@ -199,7 +200,40 @@ def summary(manager: str | None = None, limit: int = 5) -> dict | None:
     return out
 
 
+def ledger(name: str, known: list[dict]) -> dict[str, str]:
+    """period -> filing date already ingested, so an amendment is detectable.
+
+    On the first run there is no ledger but there may be data, written before
+    this bookkeeping existed. Seeding it from the filing dates EDGAR reports
+    for the periods already on disk costs no downloads and treats them as
+    current -- an empty stamp would instead compare as older than every filing
+    and refetch all fifty-two.
+    """
+    path = DATA / name / "filings.json"
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8"))
+    latest: dict[str, str] = {}
+    for f in known:
+        if f["filed"] > latest.get(f["period"], ""):
+            latest[f["period"]] = f["filed"]
+    return {p: latest.get(p, "") for p in periods_on_disk(name)}
+
+
+def periods_on_disk(name: str) -> list[str]:
+    d = DATA / name
+    if not d.is_dir():
+        return []
+    return sorted(p.name.removeprefix("positions_").removesuffix(".csv")
+                  for p in d.glob("positions_*.csv"))
+
+
+def save_ledger(name: str, stamps: dict[str, str]) -> None:
+    (DATA / name / "filings.json").write_text(
+        json.dumps(stamps, indent=1, sort_keys=True), encoding="utf-8")
+
+
 def main(argv: list[str]) -> int:
+    refetch = "--refetch" in argv
     args = [a for a in argv[1:] if not a.startswith("--")]
     if "--cik" in argv:
         cik = int(argv[argv.index("--cik") + 1])
@@ -215,17 +249,33 @@ def main(argv: list[str]) -> int:
     tmp.mkdir(parents=True, exist_ok=True)
 
     all_filings = filings(cik, tmp)
-    print(f"{label}  CIK {cik}  {len(all_filings)} filings\n")
+
+    # Only fetch what is missing. A period already written stays written unless
+    # the filer amended it, which shows up as a later filing date for the same
+    # period. Without this the ingest pulls fifty-two info tables on every run,
+    # which is fine once by hand and not fine on a schedule.
+    stamps = ledger(name, all_filings)
+    fresh = [f for f in all_filings
+             if refetch or stamps.get(f["period"], "") < f["filed"]]
+    print(f"{label}  CIK {cik}  {len(all_filings)} filings, "
+          f"{len(fresh)} to fetch\n")
+    if not fresh:
+        print("nothing new")
+        return 0
 
     periods: dict[str, dict] = {}
-    for f in all_filings:
+    for f in fresh:
         # A period can be amended; the latest filing of it wins.
         if f["period"] in periods and periods[f["period"]]["filed"] >= f["filed"]:
             continue
         xml = info_table(cik, f["acc"], tmp)
         time.sleep(0.35)
         if not xml:
-            print(f"  {f['period']}  no info table")
+            # Filings before roughly 2013 predate the XML information table.
+            # Stamping the attempt keeps the ingest from retrying them on
+            # every run for as long as the filer exists.
+            stamps[f["period"]] = f["filed"]
+            print(f"  {f['period']}  no info table (pre-XML filing)")
             continue
         agg = parse(xml, f["period"])
         periods[f["period"]] = {"filed": f["filed"], "agg": agg}
@@ -234,7 +284,11 @@ def main(argv: list[str]) -> int:
 
     live = {p: v for p, v in periods.items() if v["agg"]}
     if not live:
-        raise SystemExit("every filing was empty -- nothing to write")
+        # Empty filings and pre-XML ones are both legitimate outcomes; record
+        # what was attempted so the next run does not repeat it.
+        save_ledger(name, stamps)
+        print("\nnothing new to write")
+        return 0
 
     pairs = sorted({(c, a["company"])
                     for v in live.values() for c, a in v["agg"].items()})
@@ -245,7 +299,9 @@ def main(argv: list[str]) -> int:
 
     for period in sorted(live):
         p = write(name, label, period, live[period]["agg"], tickers)
+        stamps[period] = live[period]["filed"]
         print(f"  wrote {p.relative_to(HERE)}")
+    save_ledger(name, stamps)
     print(f"\n{len(live)} period(s) -> data/{name}/")
     return 0
 

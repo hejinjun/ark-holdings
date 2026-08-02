@@ -58,6 +58,21 @@ jobs:
         continue-on-error: true
         run: python3 fundamentals.py
 
+      # 13F filers report quarterly and file up to 45 days late, so most days
+      # this finds nothing and costs one request per manager. Running it daily
+      # rather than weekly means a new filing shows up the day after it lands
+      # instead of up to a week later; the ingest is incremental, so the cost
+      # of the quiet days is the check itself.
+      - name: 13F filers
+        continue-on-error: true
+        run: |
+          for m in duquesne; do
+            python3 thirteenf.py "$m" || continue
+            python3 tradeable.py --source "$m" --all || true
+            python3 quotes.py --source "$m" || true
+            python3 diff.py --source "$m" --all || true
+          done
+
       # The screener overwrites in place exactly like ARK's files do, so this
       # snapshot is the only record of what the ranking looked like today.
       # It must run after fundamentals.py, which is what refreshes the cache.
@@ -76,7 +91,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/raw data/*.csv data/leaders_meta.json \
-                  data/reference/nasdaq_screener.json
+                  data/reference/nasdaq_screener.json \
+                  data/duquesne data/reference/cusip_tickers.json
           if git diff --cached --quiet; then
             echo "no change -- ARK did not publish a new file"
           else
