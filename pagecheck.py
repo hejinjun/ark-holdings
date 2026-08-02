@@ -117,24 +117,46 @@ def check(paths: list[Path]) -> list[tuple[Path, dict]]:
     return out
 
 
-def report(results: list[tuple[Path, dict]]) -> int:
+def report(results: list[tuple[Path, dict]], root: Path) -> int:
+    # Named by path, not by filename: a manager's page is also activity.html,
+    # one directory down, and two lines reading "activity.html ok" would say
+    # nothing about which one.
     bad = 0
+    width = max((len(str(p.relative_to(root))) for p, _ in results), default=18)
     for path, res in results:
+        name = str(path.relative_to(root))
         if res["ok"]:
             top = "  ".join(f"{k}:{n:,}" for k, n in res["painted"][:3])
-            print(f"  {path.name:<18} ok    {res['total']:>8,} chars   {top}")
+            print(f"  {name:<{width}}  ok    {res['total']:>8,} chars   {top}")
         else:
             bad += 1
-            print(f"  {path.name:<18} FAIL  {res['err']}")
+            print(f"  {name:<{width}}  FAIL  {res['err']}")
     return bad
+
+
+# archive.html is plain server-rendered HTML with no script to run. The dated
+# copies under reports/ are the same bytes as holdings.html, one per archived
+# day, so checking all of them would be 33 runs of one render path -- the copy
+# served as holdings.html stands for them.
+SKIP = {"archive.html"}
+SKIP_DIRS = {"reports"}
+
+
+def pages_in(root: Path) -> list[Path]:
+    """Every page with a script, at any depth. Per-manager pages live in their
+    own subdirectory, and a check that only looked at the top level would have
+    said nothing about them."""
+    return sorted(p for p in root.rglob("*.html")
+                  if p.name not in SKIP
+                  and not (set(p.relative_to(root).parts[:-1]) & SKIP_DIRS))
 
 
 def main(argv: list[str]) -> int:
     root = Path(argv[1]) if len(argv) > 1 else HERE / "site"
-    pages = sorted(p for p in root.glob("*.html") if p.name != "archive.html")
+    pages = pages_in(root)
     if not pages:
         raise SystemExit(f"no pages in {root} -- run build_site.py first")
-    bad = report(check(pages))
+    bad = report(check(pages), root)
     if bad:
         print(f"\n{bad} page(s) do not render. They will serve HTTP 200 and show nothing.")
     return 1 if bad else 0
