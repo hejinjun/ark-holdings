@@ -33,6 +33,20 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent / "data"
 DATA = ROOT   # rebound by --source; ARK lives at the root for historical reasons
+SOURCE = "ark"
+
+# Which sources create and redeem units. This is the question the flow
+# correction below answers, and it has to be asked of the source rather than
+# computed, because the arithmetic cannot tell the two cases apart.
+#
+# An ETF's authorised participant moves every position proportionally, so the
+# median ratio is mechanical and dividing it out is what isolates the manager's
+# decision. A 13F filer has no such mechanism: there the median ratio IS a
+# decision -- the manager scaling the whole book -- and dividing it out inverts
+# the reading. Duquesne cut ~10% across the board in Q2 2025; with the
+# correction applied, positions left untouched were reported as 10% buys and
+# the genuine trims disappeared entirely.
+CREATES_UNITS = {"ark"}
 
 # Residual noise after dividing out the flow: rounding in ARK's own numbers
 # leaves ratios a hair off 1.0, so a position must move more than this fraction
@@ -67,6 +81,10 @@ def flow_factor(prev: dict, curr: dict, fund: str) -> tuple[float, int]:
     The median is the right estimator here, not the mean: on any given day a
     handful of positions were genuinely traded, and those are the outliers the
     median is designed to ignore.
+
+    Pinned to 1.0 for a source that cannot create or redeem -- see
+    CREATES_UNITS. The basis count is still returned, so the report shows how
+    many positions the number would have rested on.
     """
     ratios = []
     for key, before in prev.items():
@@ -75,7 +93,7 @@ def flow_factor(prev: dict, curr: dict, fund: str) -> tuple[float, int]:
         if before["shares"] < MIN_SHARES:
             continue
         ratios.append(curr[key]["shares"] / before["shares"])
-    if len(ratios) < 5:
+    if SOURCE not in CREATES_UNITS or len(ratios) < 5:
         return 1.0, len(ratios)
     return statistics.median(ratios), len(ratios)
 
@@ -115,9 +133,21 @@ def compare(prev_date: str, curr_date: str) -> tuple[list[dict], dict]:
                        "active_shares": active, "active_pct": pct, "flow_factor": k})
 
     order = {"new": 0, "buy": 1, "sell": 2, "exit": 3}
-    trades.sort(key=lambda t: (order[t["action"]], -abs(t["active_shares"] * (
-        t["market_value"] / t["shares"] if t["shares"] else 0))))
+    trades.sort(key=lambda t: (order[t["action"]], -move_value(t), t["fund"], t["cusip"]))
     return trades, factors
+
+
+def move_value(t: dict) -> float:
+    """Rough dollar size of the move, for ordering only.
+
+    Priced off whichever share count is non-zero: an exit reports zero shares
+    held, so pricing off `shares` gives every exit a weight of zero, they all
+    tie, and their order falls to set iteration -- which differs between runs
+    and rewrites the file on every rebuild. Fund and CUSIP break the remaining
+    ties so the output is reproducible.
+    """
+    base = t["shares"] or t["prev_shares"]
+    return abs(t["active_shares"] * (t["market_value"] / base if base else 0.0))
 
 
 def write(trade_date: str, from_date: str, to_date: str, trades: list[dict]) -> Path:
@@ -147,8 +177,11 @@ def report(prev_date, curr_date, trades, factors):
         k, n = factors[fund]
         ft = [t for t in trades if t["fund"] == fund]
         c = {a: sum(1 for t in ft if t["action"] == a) for a in ("new", "buy", "sell", "exit")}
-        flow = f"{(k - 1) * 100:+.2f}%"
+        flow = f"{(k - 1) * 100:+.2f}%" if SOURCE in CREATES_UNITS else "n/a"
         print(f"{fund:<7}{flow:>10}{n:>7}   {c['new']:>4}{c['buy']:>5}{c['sell']:>6}{c['exit']:>6}")
+    if SOURCE not in CREATES_UNITS:
+        print(f"  flow n/a: {SOURCE} does not create or redeem units, so every "
+              f"share change is a decision")
 
     if not trades:
         print("\nno active trades")
@@ -165,9 +198,10 @@ def report(prev_date, curr_date, trades, factors):
 
 
 def main(argv: list[str]) -> int:
-    global DATA
+    global DATA, SOURCE
     if "--source" in argv:
-        DATA = ROOT / argv[argv.index("--source") + 1]
+        SOURCE = argv[argv.index("--source") + 1]
+        DATA = ROOT if SOURCE == "ark" else ROOT / SOURCE
         if not DATA.is_dir():
             raise SystemExit(f"no such source: {DATA}")
     dates = snapshots()
