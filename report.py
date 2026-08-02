@@ -29,6 +29,7 @@ HERE = Path(__file__).parent
 DATA = HERE / "data"
 TEMPLATE = HERE / "report_template.html"
 PLACEHOLDER = "/*__DATA__*/"
+STYLES = "/*__STYLES__*/"
 
 # Financials are extracted and cached but not shown yet -- flip to True to
 # render the per-company line in the detail panel.
@@ -283,6 +284,9 @@ def main(argv: list[str]) -> int:
     html = TEMPLATE.read_text(encoding="utf-8")
     if PLACEHOLDER not in html:
         raise SystemExit(f"{TEMPLATE.name} has no {PLACEHOLDER} marker")
+    # Both pages share one stylesheet, inlined at build time so each stays a
+    # single self-contained file.
+    html = html.replace(STYLES, (HERE / "styles.css").read_text(encoding="utf-8"))
 
     out = DATA / f"report_{'full' if full else 'tradeable'}_{date}.html"
     out.write_text(html.replace(PLACEHOLDER, json.dumps(payload, separators=(",", ":"))),

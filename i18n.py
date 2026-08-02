@@ -68,6 +68,7 @@ UI = {
         "empty": "No security matches those filters.",
         # {n} shown, {t} total, {v} market value, {p} percent
         "status": "{n} of {t} securities  ·  ${v}  ·  {p}% of complex market value",
+        "feedLink": "Trade feed \u2192",
     },
     "zh": {
         "byFund": "分基金",
@@ -102,6 +103,7 @@ UI = {
         "finNone": "暂无财报",
         "empty": "没有符合筛选条件的证券。",
         "status": "{n} / {t} 只  ·  ${v}  ·  占组合市值 {p}%",
+        "feedLink": "交易流 \u2192",
     },
 }
 
@@ -189,6 +191,119 @@ FOOTNOTES = {
          "被标成「金属加工」。板块筛选适合粗筛，不适合当分类依据——以公司介绍为准。"],
         ["价格是实时报价，不是 ARK 的估值。",
          "现价和 52 周区间来自 Yahoo Finance，比持仓文件新，所以市值与现价不会精确对得上。"],
+        ["", "数据来源：ARK 官方每日持仓文件（assets.ark-funds.com）。"
+             "仅为持仓数据，不构成投资建议。"],
+    ],
+}
+
+
+# ---- activity feed ----
+
+ACTIVITY = {
+    "en": {
+        "new": "opened", "buy": "added", "sell": "trimmed", "exit": "closed",
+        "search": "Search ticker or company",
+        "clear": "Clear filters",
+        "filterAction": "Action",
+        "filterFund": "Fund",
+        "filterConviction": "Agreement",
+        "convictionAny": "any",
+        "convictionMulti": "2+ funds",
+        "convictionHigh": "3+ funds",
+        "colDate": "Date", "colAction": "Action", "colTicker": "Ticker",
+        "colCompany": "Company", "colShares": "Shares", "colValue": "Value",
+        "colFunds": "Funds",
+        "status": "{n} of {t} moves  ·  {d} session(s)",
+        "empty": "No move matches those filters.",
+        "holdings": "Holdings \u2192",
+        "fundsWord": "funds",
+    },
+    "zh": {
+        "new": "建仓", "buy": "加仓", "sell": "减仓", "exit": "清仓",
+        "search": "搜索代码或公司名",
+        "clear": "清除筛选",
+        "filterAction": "动作",
+        "filterFund": "基金",
+        "filterConviction": "一致性",
+        "convictionAny": "不限",
+        "convictionMulti": "2 只以上",
+        "convictionHigh": "3 只以上",
+        "colDate": "日期", "colAction": "动作", "colTicker": "代码",
+        "colCompany": "公司", "colShares": "股数", "colValue": "金额",
+        "colFunds": "基金",
+        "status": "{n} / {t} 笔  ·  {d} 个交易日",
+        "empty": "没有符合筛选条件的操作。",
+        "holdings": "持仓明细 \u2192",
+        "fundsWord": "只基金",
+    },
+}
+
+ACTIVITY_PAGE = {
+    "en": {
+        "eyebrow": "Trade feed",
+        "title": "What ARK actually did",
+        "standfirst": (
+            "ARK publishes what it holds, never what it traded. These moves are "
+            "differenced out of consecutive daily snapshots, with creations and "
+            "redemptions divided back out first \u2014 otherwise a day of outflows reads "
+            "as the firm selling its entire book. Rows are merged across funds: the "
+            "number of funds moving the same way on the same day is the signal."
+        ),
+        "tileSessions": "Sessions", "tileSessionsNote": "since {first}",
+        "tileMoves": "Moves", "tileMovesNote": "merged across funds",
+        "tileConviction": "In agreement", "tileConvictionNote": "{n}+ funds, same day, same way",
+        "tileOpened": "Opened / closed", "tileOpenedNote": "new and exited positions",
+        "provenance": ("{first} to {last}  \u00b7  {days} sessions  \u00b7  {n} moves  \u00b7  "
+                       "derived from ARK's daily holdings files"),
+    },
+    "zh": {
+        "eyebrow": "交易流",
+        "title": "ARK 实际做了什么",
+        "standfirst": (
+            "ARK 只公布持仓，从不公布交易。这些操作是从相邻两日快照中差分推导出来的，"
+            "并且先把申购赎回的等比缩放除掉了\u2014\u2014否则资金流出的日子会被读成"
+            "\u300c把整个组合都卖了\u300d。同一天同方向的操作已跨基金合并："
+            "有几只基金同时动手，才是真正的信号。"
+        ),
+        "tileSessions": "交易日", "tileSessionsNote": "自 {first} 起",
+        "tileMoves": "操作数", "tileMovesNote": "已跨基金合并",
+        "tileConviction": "一致操作", "tileConvictionNote": "{n} 只以上基金同日同向",
+        "tileOpened": "建仓 / 清仓", "tileOpenedNote": "新开与清空的持仓",
+        "provenance": ("{first} 至 {last}  \u00b7  {days} 个交易日  \u00b7  {n} 笔操作  \u00b7  "
+                       "由 ARK 每日持仓文件差分推导"),
+    },
+}
+
+ACTIVITY_FOOTNOTES = {
+    "en": [
+        ["Share counts are differenced, never market value.",
+         "Market value moves with price every day whether or not anyone traded."],
+        ["Creations and redemptions are divided out first.",
+         "Each fund's counts are scaled by the day's flow factor \u2014 the median share "
+         "ratio across positions held on both days \u2014 so only active decisions remain. "
+         "A position must move more than 0.5% of itself to be counted."],
+        ["Dates are trade dates, not file dates.",
+         "ARK's file for a day states the portfolio at that day's open, so a change "
+         "between two files is the previous session's trading."],
+        ["Derived, not published.",
+         "Checked against an independent reconstruction over 29 sessions: 81% of "
+         "tickers in common, 221 of 222 directions agreeing. Small moves below the "
+         "threshold are deliberately dropped."],
+        ["", "Source: ARK's own daily holdings files on assets.ark-funds.com. "
+             "Holdings data, not investment advice."],
+    ],
+    "zh": [
+        ["差分的是股数，不是市值。",
+         "市值每天都随价格变动，跟有没有交易无关。"],
+        ["先除掉申购赎回的影响。",
+         "每只基金的股数先除以当日流动因子\u2014\u2014两日共同持仓股数比值的中位数"
+         "\u2014\u2014剩下的才是主动决策。单个持仓变动需超过自身 0.5% 才计入。"],
+        ["日期是交易日，不是文件日期。",
+         "ARK 某日的文件反映的是该日开盘时的组合，所以两份文件之间的变化，"
+         "是前一个交易日做的交易。"],
+        ["这是推导结果，不是官方发布。",
+         "与独立重建的数据对比 29 个交易日：代码交集 81%，方向一致 221/222。"
+         "低于阈值的小额变动被有意剔除。"],
         ["", "数据来源：ARK 官方每日持仓文件（assets.ark-funds.com）。"
              "仅为持仓数据，不构成投资建议。"],
     ],

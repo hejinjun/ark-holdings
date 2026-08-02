@@ -123,13 +123,14 @@ def write(trade_date: str, from_date: str, to_date: str, trades: list[dict]) -> 
     with path.open("w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
         w.writerow(["trade_date", "from_snapshot", "to_snapshot", "fund", "action",
-                    "ticker", "company", "cusip", "prev_shares", "shares",
-                    "expected_shares", "active_shares", "active_pct", "flow_factor"])
+                    "ticker", "company", "cusip", "asset_class", "prev_shares",
+                    "shares", "expected_shares", "active_shares", "active_pct",
+                    "flow_factor"])
         for t in trades:
             w.writerow([
                 trade_date, from_date, to_date,
                 t["fund"], t["action"], t["ticker"], t["company"], t["cusip"],
-                f"{t['prev_shares']:.0f}", f"{t['shares']:.0f}",
+                t["asset_class"], f"{t['prev_shares']:.0f}", f"{t['shares']:.0f}",
                 f"{t['expected_shares']:.0f}", f"{t['active_shares']:.0f}",
                 "" if t["active_pct"] is None else f"{t['active_pct']:.2f}",
                 f"{t['flow_factor']:.6f}",

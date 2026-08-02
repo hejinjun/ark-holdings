@@ -8,6 +8,7 @@ day, and means a template change reflows every historical date at once.
 
   site/index.html            the latest date
   site/reports/<date>.html   one page per date on file
+  site/activity.html         the trade feed across all dates
   site/archive.html          links to all of them
 """
 
@@ -16,6 +17,7 @@ import shutil
 import sys
 from pathlib import Path
 
+import activity
 import report
 
 HERE = Path(__file__).parent
@@ -76,6 +78,14 @@ def main(argv: list[str]) -> int:
         print(f"  {d}  {src.stat().st_size:>9,} bytes")
 
     shutil.copy(out / "reports" / f"{all_dates[-1]}.html", out / "index.html")
+
+    # The trade feed spans every date at once, so it is built once, not per day.
+    try:
+        activity.main(["build_site"])
+        shutil.copy(DATA / "activity.html", out / "activity.html")
+        print("  activity.html")
+    except SystemExit as exc:
+        print(f"  activity skipped: {exc}")
     (out / "archive.html").write_text(archive_page(all_dates), encoding="utf-8")
 
     # Pages would otherwise run the output through Jekyll, which drops

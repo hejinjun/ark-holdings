@@ -1,0 +1,385 @@
+<title>ARK trade feed</title>
+
+<style>
+/*__STYLES__*/
+
+/* ---- activity feed ---- */
+
+.daygroup { display: flex; flex-direction: column; }
+
+.dayhead {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 9px 18px;
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--rule-strong);
+  border-top: 1px solid var(--rule-strong);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.dayhead .date { font-weight: 600; color: var(--ink); }
+.dayhead .tally { color: var(--ink-3); font-size: 11px; }
+
+.move {
+  display: grid;
+  grid-template-columns: 74px 82px minmax(200px, 1fr) 120px 118px 150px;
+  gap: 14px;
+  align-items: baseline;
+  padding: 9px 18px;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+}
+.move:hover { background: var(--surface-alt); }
+.move:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* Agreement is the point of the page, so it gets the one strong mark on it. */
+.move.agree { box-shadow: inset 3px 0 0 var(--accent); }
+
+.tag-action {
+  justify-self: start;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  padding: 2px 7px;
+  border-radius: 2px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+.tag-action[data-k="new"]  { color: var(--pos-new); }
+.tag-action[data-k="buy"]  { color: var(--pos-buy); }
+.tag-action[data-k="sell"] { color: var(--pos-sell); }
+.tag-action[data-k="exit"] { color: var(--pos-exit); }
+
+.move .tick { font-family: var(--mono); font-weight: 600; font-size: 13px; }
+.move .co { font-size: 13px; color: var(--ink-2); }
+.move .num {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+.move .fundlist {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.move .fundcount { color: var(--accent); font-weight: 600; }
+
+.movedetail {
+  padding: 2px 18px 14px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--surface-alt);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feedwrap {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: auto;
+  max-height: 74vh;
+}
+.feedhead {
+  display: grid;
+  grid-template-columns: 74px 82px minmax(200px, 1fr) 120px 118px 150px;
+  gap: 14px;
+  padding: 9px 18px;
+  border-bottom: 1px solid var(--rule-strong);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  font-size: 10.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+.feedhead .r { text-align: right; }
+
+@media (max-width: 760px) {
+  .move, .feedhead { grid-template-columns: 1fr 1fr; gap: 4px 12px; }
+  .feedhead { display: none; }
+}
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <div class="eyebrow" id="eyebrow"></div>
+      <div style="display:flex; gap:10px; align-items:center">
+        <a class="clear" id="tolist" href="index.html" style="text-decoration:none"></a>
+        <div class="langswitch" id="langswitch" role="group" aria-label="Language"></div>
+      </div>
+    </div>
+    <h1 id="title"></h1>
+    <p class="standfirst" id="standfirst"></p>
+    <div class="provenance" id="provenance"></div>
+  </header>
+
+  <section class="tiles" id="tiles"></section>
+
+  <section>
+    <div class="filterbar">
+      <div class="filter-top">
+        <input class="search" id="search" type="search" aria-label="Search moves">
+        <button class="clear" type="button" id="clear" hidden></button>
+      </div>
+      <div class="filter-groups" id="filter-groups"></div>
+    </div>
+
+    <div class="status" id="status" style="margin:10px 0 8px"></div>
+
+    <div class="feedwrap">
+      <div class="feedhead" id="feedhead"></div>
+      <div id="feed"></div>
+      <div class="empty" id="empty" hidden></div>
+    </div>
+  </section>
+
+  <footer id="footnotes"></footer>
+</div>
+
+<script>
+const DATA = /*__DATA__*/;
+
+const LANGS = DATA.langs.map(l => l.v);
+let lang = (() => {
+  try { const v = localStorage.getItem('ark-lang'); if (LANGS.includes(v)) return v; }
+  catch (e) {}
+  return LANGS[0];
+})();
+const page = () => DATA.i18n[lang];
+const t = k => page().ui[k];
+const lbl = o => (lang === 'zh' && o.label_zh) ? o.label_zh : o.label;
+const desc = e => (lang === 'zh' && e.dz) ? e.dz : (e.ds || '');
+
+const usd = n => n.toLocaleString('en-US', {maximumFractionDigits: 0});
+function money(v) {
+  const a = Math.abs(v);
+  const [div, suf] = a >= 1e9 ? [1e9, 'B'] : a >= 1e6 ? [1e6, 'M'] : a >= 1e3 ? [1e3, 'K'] : [1, ''];
+  return '$' + (a / div).toFixed(a / div >= 100 ? 0 : 1) + suf;
+}
+
+const GROUPS = [
+  {key: 'kind', label: 'Action', label_zh: '动作', options: DATA.kinds},
+  {key: 'fund', label: 'Fund', label_zh: '基金', options: DATA.funds},
+  {key: 'agree', label: 'Agreement', label_zh: '一致性', options: [
+    {v: '2', label: '2+ funds', label_zh: '2 只以上'},
+    {v: '3', label: '3+ funds', label_zh: '3 只以上'},
+  ]},
+];
+
+const state = {q: '', sel: {}, open: new Set()};
+GROUPS.forEach(g => { state.sel[g.key] = new Set(); });
+
+function matchesGroup(e, g) {
+  const chosen = state.sel[g.key];
+  if (!chosen.size) return true;
+  if (g.key === 'kind') return chosen.has(e.k);
+  if (g.key === 'fund') return e.f.some(f => chosen.has(f));
+  // Agreement is a floor, not a set: picking 2+ and 3+ means the looser one.
+  const floor = Math.min(...[...chosen].map(Number));
+  return e.f.length >= floor;
+}
+const matchesSearch = e =>
+  !state.q || ((e.t || '') + ' ' + e.n).toLowerCase().includes(state.q);
+
+const visible = () =>
+  DATA.events.filter(e => matchesSearch(e) && GROUPS.every(g => matchesGroup(e, g)));
+
+function countFor(g, v) {
+  return DATA.events.filter(e => {
+    if (!matchesSearch(e)) return false;
+    for (const o of GROUPS) if (o.key !== g.key && !matchesGroup(e, o)) return false;
+    if (g.key === 'kind') return e.k === v;
+    if (g.key === 'fund') return e.f.includes(v);
+    return e.f.length >= Number(v);
+  }).length;
+}
+
+const groupsEl = document.getElementById('filter-groups');
+groupsEl.innerHTML = GROUPS.map(g => `
+  <div class="filter-row">
+    <div class="filter-label" id="lbl-${g.key}">${lbl(g)}</div>
+    <div class="chipset" role="group" aria-labelledby="lbl-${g.key}" data-group="${g.key}">
+      ${g.options.map(o => `<button class="chip" type="button" data-v="${o.v}"
+        aria-pressed="false">${lbl(o)}<span class="count"></span></button>`).join('')}
+    </div>
+  </div>`).join('');
+
+groupsEl.addEventListener('click', ev => {
+  const btn = ev.target.closest('.chip');
+  if (!btn) return;
+  const key = btn.closest('[data-group]').dataset.group;
+  const bucket = state.sel[key];
+  const v = btn.dataset.v;
+  if (bucket.has(v)) bucket.delete(v); else bucket.add(v);
+  render();
+});
+
+const clearBtn = document.getElementById('clear');
+clearBtn.addEventListener('click', () => {
+  GROUPS.forEach(g => state.sel[g.key].clear());
+  state.q = '';
+  document.getElementById('search').value = '';
+  render();
+});
+document.getElementById('search').addEventListener('input', ev => {
+  state.q = ev.target.value.trim().toLowerCase();
+  render();
+});
+
+const switcher = document.getElementById('langswitch');
+switcher.innerHTML = DATA.langs.map(l =>
+  `<button type="button" data-l="${l.v}" aria-pressed="false">${l.label}</button>`).join('');
+switcher.addEventListener('click', ev => {
+  const b = ev.target.closest('button');
+  if (!b || b.dataset.l === lang) return;
+  lang = b.dataset.l;
+  try { localStorage.setItem('ark-lang', lang); } catch (err) {}
+  paintStatic();
+  render();
+});
+
+function paintStatic() {
+  const c = page();
+  document.getElementById('eyebrow').textContent = c.eyebrow;
+  document.getElementById('title').textContent = c.title;
+  document.getElementById('standfirst').textContent = c.standfirst;
+  document.getElementById('provenance').textContent = c.provenance;
+  document.getElementById('tolist').textContent = t('holdings');
+  document.getElementById('clear').textContent = t('clear');
+  document.getElementById('empty').textContent = t('empty');
+  document.getElementById('search').placeholder = t('search');
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+  document.getElementById('tiles').innerHTML = c.tiles.map(([l, v, n]) => `
+    <div class="tile">
+      <span class="tile-label">${l}</span>
+      <span class="tile-value">${v}</span>
+      <span class="tile-note">${n}</span>
+    </div>`).join('');
+  document.getElementById('footnotes').innerHTML = c.footnotes
+    .map(([b, x]) => `<div>${b ? `<b>${b}</b> ` : ''}${x}</div>`).join('');
+
+  document.getElementById('feedhead').innerHTML = `
+    <span>${t('colDate')}</span><span>${t('colAction')}</span>
+    <span>${t('colCompany')}</span><span class="r">${t('colShares')}</span>
+    <span class="r">${t('colValue')}</span><span>${t('colFunds')}</span>`;
+
+  document.querySelectorAll('#filter-groups .filter-label').forEach(el => {
+    const g = GROUPS.find(x => x.key === el.id.slice(4));
+    if (g) el.textContent = lbl(g);
+  });
+  document.querySelectorAll('#filter-groups .chip').forEach(btn => {
+    const g = GROUPS.find(x => x.key === btn.closest('[data-group]').dataset.group);
+    const o = g && g.options.find(x => String(x.v) === btn.dataset.v);
+    if (o) btn.childNodes[0].nodeValue = lbl(o);
+  });
+}
+
+function paintChips() {
+  let active = 0;
+  GROUPS.forEach(g => {
+    active += state.sel[g.key].size;
+    const wrap = groupsEl.querySelector(`[data-group="${g.key}"]`);
+    g.options.forEach(o => {
+      const btn = wrap.querySelector(`[data-v="${CSS.escape(o.v)}"]`);
+      const n = countFor(g, o.v);
+      btn.setAttribute('aria-pressed', state.sel[g.key].has(o.v) ? 'true' : 'false');
+      btn.dataset.empty = (!state.sel[g.key].has(o.v) && n === 0) ? '1' : '0';
+      btn.querySelector('.count').textContent = n;
+    });
+  });
+  clearBtn.hidden = active === 0 && !state.q;
+}
+
+const SITE_LABEL = {};
+(DATA.sites || []).forEach(x => { SITE_LABEL[x.key] = x; });
+const siteLinks = e => !e.lk ? '' :
+  `<div class="detail-links">${e.lk.map(l => {
+    const s = SITE_LABEL[l.k];
+    return s ? `<a href="${l.u}" target="_blank" rel="noopener noreferrer">${lbl(s)}</a>` : '';
+  }).join('')}</div>`;
+
+const KIND_LABEL = k => t(k);
+
+function render() {
+  paintChips();
+  const rows = visible();
+  const days = new Set(rows.map(e => e.d));
+
+  document.getElementById('status').textContent = t('status')
+    .replace('{n}', rows.length).replace('{t}', DATA.events.length)
+    .replace('{d}', days.size);
+
+  const byDay = new Map();
+  rows.forEach(e => {
+    if (!byDay.has(e.d)) byDay.set(e.d, []);
+    byDay.get(e.d).push(e);
+  });
+
+  const html = [...byDay.entries()].map(([day, list]) => {
+    const tally = ['new', 'buy', 'sell', 'exit']
+      .map(k => [k, list.filter(e => e.k === k).length])
+      .filter(([, n]) => n)
+      .map(([k, n]) => `${KIND_LABEL(k)} ${n}`).join('  ·  ');
+    const moves = list.map(e => {
+      const open = state.open.has(e.d + e.c + e.k);
+      const many = e.f.length >= DATA.conviction;
+      return `
+      <div class="move${many ? ' agree' : ''}" data-id="${e.d + e.c + e.k}"
+           tabindex="0" role="button" aria-expanded="${open}">
+        <span class="num" style="text-align:left">${e.d.slice(5)}</span>
+        <span class="tag-action" data-k="${e.k}">${KIND_LABEL(e.k)}</span>
+        <span><span class="tick">${e.t || '—'}</span> <span class="co">${e.n}</span></span>
+        <span class="num">${usd(Math.abs(e.s))}</span>
+        <span class="num">${e.v ? money(e.v) : '—'}</span>
+        <span class="fundlist"><span class="fundcount">${e.f.length}</span> ${e.f.join(' ')}</span>
+      </div>
+      ${open ? `<div class="movedetail">
+        ${desc(e) ? `<p class="detail-desc">${desc(e)}</p>` : ''}
+        ${siteLinks(e)}
+      </div>` : ''}`;
+    }).join('');
+    return `<div class="daygroup">
+      <div class="dayhead"><span class="date">${day}</span>
+        <span class="tally">${tally}</span></div>
+      ${moves}
+    </div>`;
+  }).join('');
+
+  document.getElementById('feed').innerHTML = html;
+  document.getElementById('empty').hidden = rows.length > 0;
+}
+
+document.getElementById('feed').addEventListener('click', ev => {
+  const row = ev.target.closest('.move');
+  if (!row || ev.target.closest('a')) return;
+  const id = row.dataset.id;
+  if (state.open.has(id)) state.open.delete(id); else state.open.add(id);
+  render();
+});
+document.getElementById('feed').addEventListener('keydown', ev => {
+  if (ev.key !== 'Enter' && ev.key !== ' ') return;
+  const row = ev.target.closest('.move');
+  if (!row) return;
+  ev.preventDefault();
+  const id = row.dataset.id;
+  if (state.open.has(id)) state.open.delete(id); else state.open.add(id);
+  render();
+});
+
+paintStatic();
+render();
+</script>
