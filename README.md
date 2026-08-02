@@ -104,6 +104,13 @@ differs for a third reason, a real one: Nasdaq counts the preferred class and
 Xueqiu does not. `python3 xueqiu.py` prints every disagreement above 10% and
 corrects nothing — there is no source here entitled to overrule the other.
 
+**A second source that never forgets a ticker.** Xueqiu's ranking still lists
+RDS.A, ANTM, BK, STO, MMC and MTU beside SHEL, ELV, BNY, EQNR, MRSH and MUFG —
+the renamed lines that replaced them — so six companies appear twice in its top
+300 and twelve real ones are pushed out of it. Its ratios are joined by symbol
+and used; its membership is not. Nasdaq Trader's directory decides what is
+listed, which is the same rule `listings.py` applies to the ARK book.
+
 **Security-type words matched too widely.** The screener's name field is a
 company name followed by a security type followed, sometimes, by a sentence
 describing what the security represents — and that sentence is full of the same

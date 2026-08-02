@@ -406,11 +406,9 @@ LEADERS_PAGE = {
         "title": "The 300 largest companies on the US market",
         "standfirst": (
             "Every operating company whose shares trade on a US exchange, ranked by "
-            "market capitalisation, cut at 300. Where a company is incorporated does not "
-            "decide membership — TSMC, ASML and Novo Nordisk are all buyable from a US "
-            "brokerage account and all rank here — but it is a filter, so the domestic "
-            "list stays one chip away. Nasdaq's screener has no memory, so each day's "
-            "ranking is archived here; the movement column is what that archive buys."
+            "market capitalisation, cut at 300. Where it is incorporated is a filter, "
+            "not a gate — TSMC ranks sixth. Nasdaq's screener keeps no history, so each "
+            "day's ranking is archived here; that is what the movement column is made of."
         ),
         "tileCap": "Leaderboard market cap",
         "tileCapNote": "{p}% of all {n} US-listed companies",
@@ -430,10 +428,9 @@ LEADERS_PAGE = {
         "title": "美股市值最大的 300 家公司",
         "standfirst": (
             "在美国交易所挂牌交易的经营性公司，按市值排序取前 300 名。"
-            "注册地不决定是否入榜——台积电、ASML、诺和诺德都能用美股账户买到，"
-            "也都排在榜上——注册地只是一个筛选维度，想只看美国公司点一下就行。"
+            "注册地是筛选维度，不是门槛——台积电排第六。"
             "Nasdaq 的筛选器不保留历史，所以每天的排名都在这里存档，"
-            "「变化」这一列就是存档换来的东西。"
+            "「变化」这一列就是这么来的。"
         ),
         "tileCap": "榜单总市值",
         "tileCapNote": "占全部 {n} 家美股上市公司的 {p}%",
@@ -452,78 +449,44 @@ LEADERS_PAGE = {
 
 LEADERS_FOOTNOTES = {
     "en": [
-        ["This ranks the US market, not US companies.",
-         "Membership is decided by where the shares trade, not by where the issuer is "
-         "incorporated: TSMC ranks sixth and SK hynix thirteenth, and ASML, Alibaba, "
-         "Shell, Arm, Sony, PDD and the Canadian banks all rank. Domicile is a filter "
-         "instead — one chip narrows the board to US-incorporated issuers, which is a "
-         "different and smaller list. Most foreign issuers trade here as ADRs, which "
-         "the ranking counts as the company they represent."],
-        ["Dual-class lines are collapsed by hand, not by rule.",
-         "Nasdaq reports Alphabet's whole market cap against both GOOG and GOOGL, and "
-         "Berkshire's against both BRK.A and BRK.B — summing them would invent a "
-         "company and shift every rank below it. Fox and News Corp are the other kind, "
-         "each class carrying its own cap, and are left alone. The build fails if a new "
-         "pair appears rather than counting it twice."],
-        ["Market cap moves with the price, so the ranking is a daily snapshot.",
-         "Neighbouring ranks are usually within a few percent of each other, which means "
-         "the exact ordering in the middle of the list is noise. Read the tiers, not the "
-         "individual positions."],
+        ["Market cap moves with the price, so this is one day's ranking.",
+         "Neighbouring ranks are usually within a few percent of each other, which "
+         "means the exact ordering through the middle of the list is noise. Read the "
+         "tiers, not the positions."],
+        ["An ADR's market cap is the number least worth trusting.",
+         "Both sources here quote the same last sale, so where they disagree they "
+         "disagree about share count — and a foreign listing's share count has an ADR "
+         "ratio in it. Ferrari and Toyota look high. Disagreements above 10% are "
+         "flagged in the build rather than corrected, because neither source is "
+         "entitled to overrule the other."],
         ["Sector labels come from Nasdaq and are often wrong.",
          "SpaceX is tagged Computer Software, GE Aerospace is tagged Consumer "
          "Electronics. Useful for narrowing the list, not for classifying it."],
-        ["Companies with no reported market cap are absent, not zero.",
-         "Around 330 listings — almost all 2025-26 SPACs — return a blank cap "
-         "from the screener. None are anywhere near the threshold."],
-        ["Two sources, cross-checked, neither overwritten.",
-         "The ranking and market caps come from Nasdaq; year-to-date, trailing P/E "
-         "and dividend yield from Xueqiu's US screener. Both price the same security "
-         "at the same last sale, so a disagreement about market cap is a disagreement "
-         "about share count — which is what an ADR ratio makes hard. Ferrari is 33% "
-         "high here, Toyota 21%; Petrobras differs because Nasdaq counts the preferred "
-         "class and Xueqiu does not. Flagged, never silently corrected."],
-        ["Membership is not taken from the second source.",
-         "Xueqiu's ranking still lists RDS.A, ANTM, BK, STO, MMC and MTU beside the "
-         "renamed lines that replaced them, so six companies appear twice in its top "
-         "300 and twelve real ones are pushed out. Nasdaq Trader's symbol directory "
-         "decides what is listed."],
         ["A blank P/E or yield is a fact, not a gap.",
          "No trailing P/E means the company lost money over the last twelve months; "
          "no yield means it pays no dividend."],
-        ["", "Sources: Nasdaq's stock screener and Xueqiu, archived daily. "
+        ["Business descriptions are generated, not sourced from filings.",
+         "Each says what the company sells and to whom rather than how it markets "
+         "itself. Treat them as orientation, not diligence."],
+        ["", "Ranking and market caps from Nasdaq's stock screener; year-to-date, "
+             "P/E and yield from Xueqiu. Archived daily. "
              "Market data, not investment advice."],
     ],
     "zh": [
-        ["这份榜单排的是美股市场，不是美国公司。",
-         "决定是否入榜的是股票在哪里交易，而不是公司在哪里注册：台积电排第六、SK 海力士第十三，"
-         "ASML、阿里巴巴、壳牌、Arm、索尼、拼多多和加拿大的几家银行也都在榜上。注册地改成了筛选维度——点一下就能把榜单收窄成「在美国注册的公司」，那是另一份更短的名单。"
-         "多数外国公司以 ADR 形式在美股交易，榜单把 ADR 计为它所代表的那家公司。"],
-        ["双重股权是逐个手工归并的，不是靠规则。",
-         "Nasdaq 把 Alphabet 的整家公司市值同时挂在 GOOG 和 GOOGL 两条线上，"
-         "Berkshire 的 BRK.A 和 BRK.B 也一样——两条相加会凭空造出一家公司，"
-         "并把它下面所有排名整体挪一位。Fox 和 News Corp 属于另一种，每个类别各报各的，"
-         "不作归并。如果出现新的配对，构建会直接失败，而不是默默重复计算。"],
-        ["市值随股价波动，所以排名只是当日快照。",
-         "相邻名次之间通常只差百分之几，也就是说榜单中段的具体顺序是噪音。"
-         "看档位，不要看单个名次。"],
+        ["市值随股价波动，所以这只是某一天的排名。",
+         "相邻名次之间通常只差百分之几，也就是说榜单中段的具体顺序是噪音。看档位，不要看名次。"],
+        ["ADR 的市值是这张表上最不该轻信的数字。",
+         "这里两个数据源对同一只股票的现价完全一致，所以它们在市值上的分歧本质是股数分歧"
+         "——而外国公司的股数里含着一个 ADR 折算比例。法拉利和丰田看着偏高。"
+         "分歧超过 10% 的会在构建时标出来，但不做修正，因为没有哪一方有资格推翻另一方。"],
         ["板块标签来自 Nasdaq，错误不少。",
          "SpaceX 被标成「计算机软件」，GE 航空发动机被标成「消费电子」。"
          "适合用来缩小范围，不适合当分类依据。"],
-        ["没有市值数据的公司是缺失，不是零。",
-         "约 330 只标的——几乎全是 2025-26 年的 SPAC 壳——"
-         "在数据源里市值为空，没有一只接近入榜门槛。"],
-        ["两个数据源交叉校验，互不覆盖。",
-         "排名和市值来自 Nasdaq，年初至今、市盈率和股息率来自雪球美股筛选器。"
-         "两边对同一只股票的现价完全一致，所以市值上的分歧本质是股数分歧"
-         "——而股数正是 ADR 折算比例最容易搞错的地方。法拉利这里高了 33%，丰田高了 21%；"
-         "巴西石油的差异是口径不同，Nasdaq 计入了优先股而雪球没有。只标注，不做静默修正。"],
-        ["成分名单不采用第二个数据源。",
-         "雪球的榜单里仍然挂着 RDS.A、ANTM、BK、STO、MMC、MTU 这些已被改名代码取代的旧代码，"
-         "导致六家公司在它的前 300 里出现两次，挤掉十二家真实公司。"
-         "以 Nasdaq Trader 官方代码目录为准。"],
         ["市盈率或股息率为空是事实，不是缺数据。",
          "没有市盈率意味着这家公司过去十二个月是亏损的；没有股息率意味着它不分红。"],
-        ["", "数据来源：Nasdaq 股票筛选器与雪球，每日存档。"
+        ["公司介绍由模型生成，不是取自财报。",
+         "写的是这家公司卖什么、卖给谁，而不是它如何宣传自己。请当作快速了解，而非尽职调查。"],
+        ["", "排名和市值来自 Nasdaq 股票筛选器，年初至今、市盈率、股息率来自雪球，每日存档。"
              "仅为市场数据，不构成投资建议。"],
     ],
 }
