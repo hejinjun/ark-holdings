@@ -120,6 +120,46 @@
 
 .mgrswitch { display: flex; flex-wrap: wrap; gap: 4px; }
 
+/* ---- who is filing ---- */
+
+/* The prose and the facts are one panel, not a card grid: there is exactly one
+   filer per page, and splitting a single subject into tiles would imply the
+   page holds several. */
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 0 28px;
+  margin-top: 12px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--surface);
+  padding: 18px 20px;
+}
+.about-prose p { margin: 0 0 10px; font-size: 13.5px; line-height: 1.62; color: var(--ink-2); max-width: 68ch; }
+.about-prose p:last-child { margin-bottom: 0; }
+/* The masthead already carries the firm; this line carries the person, who is
+   the part of a 13F that the filing itself never names. */
+.about-prose p.about-who { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 12px; }
+.about-facts { margin: 0; display: flex; flex-direction: column; gap: 9px; }
+.about-facts > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  border-left: 2px solid var(--rule-strong);
+  padding-left: 10px;
+}
+.about-facts dt {
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.about-facts dd { margin: 0; font-size: 12.5px; color: var(--ink); }
+
+@media (max-width: 760px) {
+  .about { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+}
+
 @media (max-width: 620px) {
   .wrap { padding: 24px 14px 56px; gap: 22px; }
 }
@@ -139,6 +179,14 @@
   </header>
 
   <section class="tiles" id="tiles"></section>
+
+  <section id="about-section" hidden>
+    <div class="section-head">
+      <h2 id="h-about"></h2>
+      <span class="hint" id="hint-about"></span>
+    </div>
+    <div class="about" id="about"></div>
+  </section>
 
   <section>
     <div class="section-head">
@@ -201,6 +249,9 @@ const HERE = 'manager';
 /*__NAV__*/
 
 const lbl = o => (lang === 'zh' && o.label_zh) ? o.label_zh : o.label;
+// A description is written per language, not translated at render time, so a
+// missing Chinese one falls back to the English rather than to nothing.
+const desc = h => (lang === 'zh' && h.dz) ? h.dz : (h.d || '');
 const esc = s => String(s).replace(/[&<>"]/g, c =>
   ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
 const fill = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k] ?? '');
@@ -294,6 +345,7 @@ const siteLinks = h => !h.lk ? '' :
 function detail(h) {
   const peak = Math.max(...h.h.map(p => p[1]));
   return `<tr class="detail"><td colspan="7"><div class="hist">
+    ${desc(h) ? `<p class="detail-desc">${esc(desc(h))}</p>` : ''}
     <div class="hist-head">
       <span>${esc(t('historyOf'))} · <b>${esc(fill(t('peak'), {w: peak.toFixed(2)}))}</b></span>
       <span>${esc(fill(t('quartersHeld'), {n: h.held, d: h.first}))}</span>
@@ -359,6 +411,20 @@ function paintStatic() {
       <span class="tile-value">${v}</span><span class="tile-note">${n}</span></div>`).join('');
   document.getElementById('footnotes').innerHTML = c.footnotes
     .map(([b, x]) => `<div>${b ? `<b>${b}</b> ` : ''}${x}</div>`).join('');
+
+  const who = c.about;
+  document.getElementById('about-section').hidden = !who;
+  if (who) {
+    document.getElementById('h-about').textContent = t('about');
+    document.getElementById('hint-about').textContent = t('aboutHint');
+    document.getElementById('about').innerHTML = `
+      <div class="about-prose">
+        <p class="about-who">${esc(who.person)}</p>
+        ${who.paras.map(p => `<p>${esc(p)}</p>`).join('')}
+      </div>
+      <dl class="about-facts">${who.facts.map(([k, v]) =>
+        `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>`;
+  }
 
   document.getElementById('h-book').textContent = t('book');
   document.getElementById('hint-book').textContent = t('bookHint');

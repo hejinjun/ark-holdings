@@ -1,0 +1,317 @@
+[
+ {
+  "symbol": "INSM",
+  "name": "Insmed Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 6.4251
+ },
+ {
+  "symbol": "YPF",
+  "name": "Ypf Sociedad Anonima",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 5.0922
+ },
+ {
+  "symbol": "EWZ",
+  "name": "Ishares Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 4.4912
+ },
+ {
+  "symbol": "TBBB",
+  "name": "Bbb Foods Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 3.7441
+ },
+ {
+  "symbol": "AA",
+  "name": "Alcoa Corp",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 3.3725
+ },
+ {
+  "symbol": "NAMS",
+  "name": "Newamsterdam Pharma Company",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 3.3459
+ },
+ {
+  "symbol": "STM",
+  "name": "Stmicroelectronics N V",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 3.0735
+ },
+ {
+  "symbol": "WWD",
+  "name": "Woodward Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 2.5755
+ },
+ {
+  "symbol": "TEVA",
+  "name": "Teva Pharmaceutical Inds Ltd",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 2.4379
+ },
+ {
+  "symbol": "CPNG",
+  "name": "Coupang Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 1.7146
+ },
+ {
+  "symbol": "OPCH",
+  "name": "Option Care Health Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 1.7126
+ },
+ {
+  "symbol": "FIGR",
+  "name": "Figure Technology Solutio",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 1.3297
+ },
+ {
+  "symbol": "ARGT",
+  "name": "Global X Fds",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 1.2308
+ },
+ {
+  "symbol": "CAI",
+  "name": "Caris Life Sciences Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 1.1533
+ },
+ {
+  "symbol": "QSR",
+  "name": "Restaurant Brands Intl Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 1.1434
+ },
+ {
+  "symbol": "RVMD",
+  "name": "Revolution Medicines Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 1.0458
+ },
+ {
+  "symbol": "LSCC",
+  "name": "Lattice Semiconductor Corp",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 1.0205
+ },
+ {
+  "symbol": "UAL",
+  "name": "United Airls Hldgs Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.8228
+ },
+ {
+  "symbol": "HUM",
+  "name": "Humana Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.8117
+ },
+ {
+  "symbol": "WAB",
+  "name": "Wabtec",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.8074
+ },
+ {
+  "symbol": "TWLO",
+  "name": "Twilio Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.7786
+ },
+ {
+  "symbol": "GSG",
+  "name": "Ishares S&amp;P Gsci Commodity-",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.706
+ },
+ {
+  "symbol": "CLF",
+  "name": "Cleveland-Cliffs Inc New",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.6656
+ },
+ {
+  "symbol": "NUVB",
+  "name": "Nuvation Bio Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.6631
+ },
+ {
+  "symbol": "BLTE",
+  "name": "Belite Bio Inc Sponsored",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.576
+ },
+ {
+  "symbol": "PTGX",
+  "name": "Protagonist Therapeutics Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.5731
+ },
+ {
+  "symbol": "U",
+  "name": "Unity Software Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.5519
+ },
+ {
+  "symbol": "OLMA",
+  "name": "Olema Pharmaceuticals Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.501
+ },
+ {
+  "symbol": "Q",
+  "name": "Qnity Electronics Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.4936
+ },
+ {
+  "symbol": "ADMA",
+  "name": "Adma Biologics Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.4741
+ },
+ {
+  "symbol": "XENE",
+  "name": "Xenon Pharmaceuticals Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.4724
+ },
+ {
+  "symbol": "JBS",
+  "name": "Jbs N.V.",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.4011
+ },
+ {
+  "symbol": "DAKT",
+  "name": "Daktronics Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.3745
+ },
+ {
+  "symbol": "LYB",
+  "name": "Lyondellbasell Industries Nv",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.3605
+ },
+ {
+  "symbol": "VIST",
+  "name": "Vista Energy S.A.B. De C.V.",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.3461
+ },
+ {
+  "symbol": "COHR",
+  "name": "Coherent Corp",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.3277
+ },
+ {
+  "symbol": "CLS",
+  "name": "Celestica Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.3191
+ },
+ {
+  "symbol": "STUB",
+  "name": "Stubhub Hldgs Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.2904
+ },
+ {
+  "symbol": "DBVT",
+  "name": "Dbv Technologies S A Sponsored",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.2726
+ },
+ {
+  "symbol": "ECHO",
+  "name": "Echostar Corp",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.2422
+ },
+ {
+  "symbol": "ALM",
+  "name": "Almonty Inds Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.2317
+ },
+ {
+  "symbol": "PCT",
+  "name": "Purecycle Technologies Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.1702
+ },
+ {
+  "symbol": "SOLS",
+  "name": "Solstice Advanced Matls Inc",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.1621
+ },
+ {
+  "symbol": "WLK",
+  "name": "Westlake Corporation",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.0843
+ },
+ {
+  "symbol": "WVE",
+  "name": "Wave Life Sciences Ltd",
+  "source": "13F duquesne",
+  "period": "2026-03-31",
+  "weight": 0.0427
+ }
+]

@@ -15,9 +15,16 @@ What a 13F is not, restated because the page would otherwise imply it: long US
 equity, ETF and ADR positions only, reported as of a quarter end and filed up
 to 45 days later. Shorts, cash, bonds, futures and foreign listings never
 appear. For a macro manager that can be most of the book.
+
+Two things on the page are prose rather than filing data, and both are here
+because the table alone is unreadable without them: who the filer is
+(i18n.MANAGER_ABOUT, keyed by filer) and what each holding's business actually
+is (data/descriptions*.json, shared with the ARK pages and keyed by ticker).
+A footnote says so, and a holding with no description simply shows none.
 """
 
 import csv
+import json
 import sys
 import webbrowser
 from pathlib import Path
@@ -42,6 +49,18 @@ def load(manager: str, period: str) -> dict[str, dict]:
         return {r["cusip"]: r for r in csv.DictReader(fh)}
 
 
+def _descriptions(name: str) -> dict[str, str]:
+    """Ticker -> business description, shared with the ARK pages.
+
+    Written for this site rather than lifted from a filing, and keyed by
+    ticker, so a holding whose CUSIP never resolved has none by construction.
+    """
+    path = DATA / name
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def runs(present: list[bool]) -> int:
     """Where the current unbroken run of quarters held began."""
     i = len(present) - 1
@@ -62,6 +81,9 @@ def build(manager: str) -> dict:
         cik_of = lambda t: financials.cik_for(t, ciks)
     except Exception:
         cik_of = lambda t: None
+
+    desc = _descriptions("descriptions.json")
+    desc_zh = _descriptions("descriptions_zh.json")
 
     total = sum(float(r["market_value"]) for r in now.values())
 
@@ -84,6 +106,8 @@ def build(manager: str) -> dict:
             "since": quarters[runs(present)],
             "held": len(history),
             "h": history,
+            **({"d": desc[ticker]} if ticker in desc else {}),
+            **({"dz": desc_zh[ticker]} if ticker in desc_zh else {}),
             **({"lk": links.for_symbol(ticker, cik_of(ticker))} if ticker else {}),
         })
 
@@ -105,6 +129,18 @@ def build(manager: str) -> dict:
     opened = sum(1 for h in holdings if h["since"] == quarters[-1])
     lasting = [h for h in holdings if h["held"] >= 8]
 
+    # Who filed this, in the reader's language. Unknown filers -- anything
+    # ingested with --cik -- simply have no profile, and the section is dropped
+    # rather than filled with the directory name.
+    profile = i18n.MANAGER_ABOUT.get(manager, {})
+    cik = thirteenf.MANAGERS.get(manager, {}).get("cik")
+
+    def about(lang: str) -> dict | None:
+        if lang not in profile:
+            return None
+        p = profile[lang]
+        return {**p, "facts": p["facts"] + ([["CIK", str(cik)]] if cik else [])}
+
     def page(lang: str) -> dict:
         c = i18n.MANAGER_PAGE[lang]
         return {
@@ -121,6 +157,7 @@ def build(manager: str) -> dict:
                 [c["tileTop10"], f"{top10 / total * 100:.0f}%", c["tileTop10Note"]],
                 [c["tileLasting"], str(len(lasting)), c["tileLastingNote"]],
             ],
+            "about": about(lang),
             "footnotes": i18n.MANAGER_FOOTNOTES[lang],
             "nav": i18n.NAV[lang],
             "ui": i18n.MANAGER[lang],

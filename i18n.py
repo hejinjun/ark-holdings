@@ -696,6 +696,8 @@ MANAGER = {
         "tooltipWeight": "Weight",
         "tooltipValue": "Value",
         "tooltipShares": "Shares",
+        "about": "Who is filing",
+        "aboutHint": "Background on the filer, written here — not taken from the filing.",
     },
     "zh": {
         "book": "当前持仓",
@@ -724,6 +726,8 @@ MANAGER = {
         "tooltipWeight": "权重",
         "tooltipValue": "市值",
         "tooltipShares": "股数",
+        "about": "谁在申报",
+        "aboutHint": "关于这位管理人的背景，由本站写就，并非来自申报文件。",
     },
 }
 
@@ -769,6 +773,171 @@ MANAGER_PAGE = {
     },
 }
 
+
+# ---- who the filer is ----
+#
+# A 13F carries a name, a CIK and a table, and nothing about the person behind
+# them. But the same table means different things depending on who filed it: a
+# position turned over inside one quarter is a data smell in an index fund and
+# ordinary practice in a macro book, and a family office with no outside money
+# owes nobody the consistency an allocator would demand. That context is not in
+# the filing, so it is written here, keyed by filer, and labelled as such on the
+# page. Dates are attached to anything that can go stale.
+
+MANAGER_ABOUT = {
+    "duquesne": {
+        "en": {
+            "person": "Stanley Druckenmiller",
+            "paras": [
+                "Duquesne Family Office is what is left of Duquesne Capital "
+                "Management, which Druckenmiller ran from 1981 until he handed "
+                "outside capital back in 2010 — around 30% a year over three "
+                "decades, with no losing year. Before and during that he ran the "
+                "Quantum Fund for George Soros from 1988 to 2000, where the 1992 "
+                "short of sterling was placed on his book and at his sizing.",
+                "The training is macro: the view is formed in currencies, rates "
+                "and commodities, and only its equity expression reaches a 13F. "
+                "That expression is concentrated, tilted toward whatever theme he "
+                "believes has years left in it, and turned over without ceremony "
+                "when the thesis changes. A name that appears and disappears in "
+                "adjacent filings is normal here rather than a data error.",
+                "It manages his own money. There is no mandate, no benchmark and "
+                "no redemption to fear, so nothing in this book is a compromise "
+                "with anybody — which is what makes it worth reading, and also "
+                "what makes it impossible to copy on a schedule.",
+            ],
+            "facts": [
+                ["Principal", "Stanley Druckenmiller"],
+                ["Firm", "Family office, New York"],
+                ["Predecessor", "Duquesne Capital Management, 1981–2010"],
+                ["Outside capital", "None since 2010"],
+                ["Style", "Top-down macro, concentrated equity expression"],
+            ],
+        },
+        "zh": {
+            "person": "Stanley Druckenmiller（斯坦利·德鲁肯米勒）",
+            "paras": [
+                "Duquesne Family Office 是 Duquesne Capital Management 留下的部分。"
+                "后者由德鲁肯米勒从 1981 年一直管理到 2010 年，那一年他把外部资金全部退还——"
+                "三十年间年化约 30%，没有一年亏损。在此期间，他还于 1988 至 2000 年"
+                "为索罗斯管理量子基金，1992 年做空英镑那一笔正是记在他的账上、由他定的仓位。",
+                "他的底子是宏观：观点在汇率、利率和商品上形成，而 13F 能看到的只是这套观点的"
+                "股票表达。这种表达高度集中，偏向他认为还能走好几年的主题，一旦逻辑变了就"
+                "毫不留恋地换掉。所以在相邻两次申报里一个名字出现又消失，在这里是常态，"
+                "不是数据出错。",
+                "他管的是自己的钱。没有委托授权，没有业绩基准，也不必担心赎回，"
+                "所以这个账本里的任何一笔都不是与谁妥协的结果——这正是它值得读的原因，"
+                "同时也意味着你没办法按时间表去抄它。",
+            ],
+            "facts": [
+                ["管理人", "Stanley Druckenmiller"],
+                ["机构类型", "家族办公室，纽约"],
+                ["前身", "Duquesne Capital Management，1981–2010"],
+                ["外部资金", "2010 年起不再接受"],
+                ["风格", "自上而下的宏观，集中的股票表达"],
+            ],
+        },
+    },
+    "keysquare": {
+        "en": {
+            "person": "Scott Bessent",
+            "paras": [
+                "Key Square Capital Management launched in 2015 with roughly "
+                "$4.5bn, $2bn of it seeded by George Soros and returned in 2017. "
+                "Bessent had been chief investment officer of Soros Fund "
+                "Management from 2011 to 2015, and before that ran its London "
+                "book in the 1990s alongside the sterling trade.",
+                "The firm is global macro, so the same caveat applies harder here "
+                "than anywhere: currencies, rates and sovereign debt are where the "
+                "risk sits, and none of it is reportable. What a 13F shows is the "
+                "listed-equity residue of a macro view, sometimes only a few names "
+                "wide.",
+                "Bessent left to become US Treasury Secretary in January 2025 and "
+                "divested his interest in the firm. Filings after that date are "
+                "not his book, whatever the name on them says.",
+            ],
+            "facts": [
+                ["Founder", "Scott Bessent"],
+                ["Firm", "Global macro, launched 2015"],
+                ["Seed", "$2bn from George Soros, returned 2017"],
+                ["Note", "Founder departed January 2025"],
+                ["Style", "Macro; equities are a fraction of the risk"],
+            ],
+        },
+        "zh": {
+            "person": "Scott Bessent（斯科特·贝森特）",
+            "paras": [
+                "Key Square Capital Management 成立于 2015 年，起步规模约 45 亿美元，"
+                "其中 20 亿由索罗斯出资，2017 年已归还。贝森特此前在 2011 至 2015 年"
+                "担任索罗斯基金管理公司的首席投资官，更早则在 1990 年代主管其伦敦账本，"
+                "参与了做空英镑那一役。",
+                "这是一家全球宏观机构，所以那条老提醒在这里更要紧：风险真正所在的汇率、"
+                "利率和主权债，全都不需要申报。13F 能看到的，只是一个宏观观点在上市股票上"
+                "留下的残影，有时只有寥寥数个名字。",
+                "贝森特于 2025 年 1 月出任美国财政部长并已剥离其在该机构的权益。"
+                "此后的申报无论署名如何，都不再是他本人的账本。",
+            ],
+            "facts": [
+                ["创始人", "Scott Bessent"],
+                ["机构类型", "全球宏观，2015 年成立"],
+                ["种子资金", "索罗斯 20 亿美元，2017 年归还"],
+                ["提示", "创始人已于 2025 年 1 月离任"],
+                ["风格", "宏观为主，股票只占风险的一小部分"],
+            ],
+        },
+    },
+    "berkshire": {
+        "en": {
+            "person": "Warren Buffett",
+            "paras": [
+                "Berkshire Hathaway is an operating company that happens to file a "
+                "13F. The equities here are funded largely by insurance float — "
+                "premiums held before claims are paid — which is why the book can "
+                "sit in a position for decades without anyone asking about the "
+                "quarter.",
+                "Buffett has run capital allocation since 1965; Todd Combs and Ted "
+                "Weschler have each managed a portion of the portfolio since the "
+                "early 2010s, and the smaller new positions are usually theirs "
+                "rather than his. Greg Abel became chief executive at the start of "
+                "2026, with Buffett staying on as chairman.",
+                "The other half of Berkshire — the railroad, the utilities, the "
+                "insurers, the wholly owned businesses — appears nowhere in this "
+                "table. What is here is the listed minority stakes only, and even "
+                "those can be held back from a filing under a confidential "
+                "treatment request while a position is being built.",
+            ],
+            "facts": [
+                ["Chairman", "Warren Buffett, since 1965"],
+                ["Chief executive", "Greg Abel, from 2026"],
+                ["Firm", "Operating company, Omaha"],
+                ["Funded by", "Insurance float and retained earnings"],
+                ["Style", "Concentrated, long-held, rarely traded"],
+            ],
+        },
+        "zh": {
+            "person": "Warren Buffett（沃伦·巴菲特）",
+            "paras": [
+                "伯克希尔·哈撒韦本质上是一家实业公司，只是恰好也要申报 13F。"
+                "这里的股票仓位很大程度上由保险浮存金支撑——那是已收取但尚未赔付的保费——"
+                "这也是为什么这个账本可以在一个仓位上待几十年，而没有人来问这个季度怎么样。",
+                "巴菲特自 1965 年起负责资本配置；Todd Combs 和 Ted Weschler 自 2010 年代初"
+                "各自管理组合的一部分，那些规模较小的新建仓位通常出自他们，而不是他。"
+                "Greg Abel 已于 2026 年初出任首席执行官，巴菲特继续担任董事长。",
+                "伯克希尔的另一半——铁路、公用事业、保险公司和全资经营的生意——"
+                "在这张表里完全不会出现。这里只有上市公司的少数股权，"
+                "而且在建仓期间，其中一部分还可能因保密申请而暂时不予披露。",
+            ],
+            "facts": [
+                ["董事长", "Warren Buffett，1965 年起"],
+                ["首席执行官", "Greg Abel，2026 年起"],
+                ["机构类型", "实业控股公司，奥马哈"],
+                ["资金来源", "保险浮存金与留存收益"],
+                ["风格", "集中、长持、极少换手"],
+            ],
+        },
+    },
+}
+
 MANAGER_FOOTNOTES = {
     "en": [
         ["A 13F is a partial book, filed late.",
@@ -788,6 +957,12 @@ MANAGER_FOOTNOTES = {
          "A position below the reporting threshold, or held through a quarter the "
          "filer amended, simply does not appear. The chart shows the quarters it "
          "was reported in; it cannot show what happened between them."],
+        ["The prose is not part of the filing.",
+         "The filer background and the business descriptions were written for this "
+         "site, not taken from EDGAR. Each description says what the company sells "
+         "rather than how it markets itself, and covers the names the archive has "
+         "reached — a position with no description is uncovered, not unimportant. "
+         "Treat both as orientation, not diligence."],
         ["", "Source: SEC EDGAR Form 13F. Holdings data, not investment advice."],
     ],
     "zh": [
@@ -804,6 +979,11 @@ MANAGER_FOOTNOTES = {
         ["历史里的空档意味着没有申报，不等于卖出。",
          "低于申报门槛的仓位，或者跨越了被修正申报的季度，就是不会出现。"
          "图表显示的是它被申报过的那些季度，无法说明季度之间发生了什么。"],
+        ["文字部分不属于申报内容。",
+         "管理人背景和公司业务介绍都是本站所写，并非来自 EDGAR。每条介绍说的是这家公司"
+         "卖什么，而不是它如何自我宣传；覆盖范围以存档已经写到的名字为准——"
+         "某个仓位没有介绍，只说明还没写到，不代表它不重要。两者都只用于快速定位，"
+         "不能替代尽调。"],
         ["", "数据来源：SEC EDGAR Form 13F。仅为持仓数据，不构成投资建议。"],
     ],
 }

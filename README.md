@@ -180,9 +180,12 @@ its own day rather than against today. `data/leaders_quotes_<date>.csv` is the
 `data/leaders_xueqiu_<date>.csv` is the same kind of archive as the ranking
 itself: point-in-time ratios behind an endpoint with no history.
 
-Company descriptions in `data/descriptions*.json` cover 321 symbols — the ARK
-book and the leaderboard — and were written by a language model, not taken from
-filings. `data/descriptions/` keeps the per-batch inputs and outputs behind them.
+Company descriptions in `data/descriptions*.json` cover 446 symbols — the ARK
+book, the leaderboard and the 13F book — and were written by a language model,
+not taken from filings. `data/descriptions/` keeps the per-batch inputs and
+outputs behind them. Filer background on the manager page is the same kind of
+writing, and lives in `i18n.MANAGER_ABOUT` keyed by filer rather than in a data
+file: there are three of them, and they change on the scale of years.
 
 SEC company facts are cached under `data/reference/companyfacts/` and excluded
 from git — they are large and rebuildable.
