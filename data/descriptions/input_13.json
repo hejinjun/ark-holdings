@@ -1,0 +1,191 @@
+[
+ {
+  "symbol": "MDLZ",
+  "name": "Mondelez International Inc.",
+  "sector": "Consumer Staples",
+  "industry": "Packaged Foods",
+  "country": "United States"
+ },
+ {
+  "symbol": "SU",
+  "name": "Suncor Energy  Inc.",
+  "sector": "Energy",
+  "industry": "Integrated oil Companies",
+  "country": "Canada"
+ },
+ {
+  "symbol": "NGG",
+  "name": "National Grid Transco PLC National Grid PLC",
+  "sector": "Utilities",
+  "industry": "Natural Gas Distribution",
+  "country": "United Kingdom"
+ },
+ {
+  "symbol": "CP",
+  "name": "Canadian Pacific Kansas City Limited",
+  "sector": "Industrials",
+  "industry": "Railroads",
+  "country": "Canada"
+ },
+ {
+  "symbol": "BAM",
+  "name": "Brookfield Asset Management Inc Class A Limited Voting",
+  "sector": "Consumer Discretionary",
+  "industry": "Other Consumer Services",
+  "country": ""
+ },
+ {
+  "symbol": "EOG",
+  "name": "EOG Resources Inc.",
+  "sector": "Energy",
+  "industry": "Oil & Gas Production",
+  "country": "United States"
+ },
+ {
+  "symbol": "ASX",
+  "name": "ASE Technology Holding Co. Ltd.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "Taiwan"
+ },
+ {
+  "symbol": "ECL",
+  "name": "Ecolab Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "Package Goods/Cosmetics",
+  "country": "United States"
+ },
+ {
+  "symbol": "TRV",
+  "name": "The Travelers Companies Inc.",
+  "sector": "Finance",
+  "industry": "Property-Casualty Insurers",
+  "country": "United States"
+ },
+ {
+  "symbol": "GM",
+  "name": "General Motors Company",
+  "sector": "Industrials",
+  "industry": "Auto Manufacturing",
+  "country": "United States"
+ },
+ {
+  "symbol": "NWG",
+  "name": "NatWest Group plc",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "United Kingdom"
+ },
+ {
+  "symbol": "NOC",
+  "name": "Northrop Grumman Corporation",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components",
+  "country": "United States"
+ },
+ {
+  "symbol": "HON",
+  "name": "Honeywell International Inc.",
+  "sector": "Industrials",
+  "industry": "Aerospace",
+  "country": "United States"
+ },
+ {
+  "symbol": "CNI",
+  "name": "Canadian National Railway Company",
+  "sector": "Industrials",
+  "industry": "Railroads",
+  "country": "Canada"
+ },
+ {
+  "symbol": "AON",
+  "name": "Aon plc",
+  "sector": "Finance",
+  "industry": "Specialty Insurers",
+  "country": "United States"
+ },
+ {
+  "symbol": "AMX",
+  "name": "America Movil S.A.B. de C.V.",
+  "sector": "Telecommunications",
+  "industry": "Telecommunications Equipment",
+  "country": "Mexico"
+ },
+ {
+  "symbol": "NSC",
+  "name": "Norfolk Southern Corporation",
+  "sector": "Industrials",
+  "industry": "Railroads",
+  "country": "United States"
+ },
+ {
+  "symbol": "SPG",
+  "name": "Simon Property Group Inc.",
+  "sector": "Real Estate",
+  "industry": "Real Estate Investment Trusts",
+  "country": "United States"
+ },
+ {
+  "symbol": "MFC",
+  "name": "Manulife Financial Corporation",
+  "sector": "Finance",
+  "industry": "Life Insurance",
+  "country": "Canada"
+ },
+ {
+  "symbol": "ORLY",
+  "name": "O'Reilly Automotive Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "Auto & Home Supply Stores",
+  "country": "United States"
+ },
+ {
+  "symbol": "CI",
+  "name": "The Cigna Group",
+  "sector": "Health Care",
+  "industry": "Medical Specialities",
+  "country": "United States"
+ },
+ {
+  "symbol": "AEM",
+  "name": "Agnico Eagle Mines Limited",
+  "sector": "Basic Materials",
+  "industry": "Precious Metals",
+  "country": "Canada"
+ },
+ {
+  "symbol": "SLB",
+  "name": "SLB Limited",
+  "sector": "Energy",
+  "industry": "Oilfield Services/Equipment",
+  "country": "France"
+ },
+ {
+  "symbol": "CL",
+  "name": "Colgate-Palmolive Company",
+  "sector": "Consumer Discretionary",
+  "industry": "Package Goods/Cosmetics",
+  "country": "United States"
+ },
+ {
+  "symbol": "FDX",
+  "name": "FedEx Corporation",
+  "sector": "Consumer Discretionary",
+  "industry": "Air Freight/Delivery Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "APO",
+  "name": "Apollo Global Management Inc.",
+  "sector": "Finance",
+  "industry": "Investment Managers",
+  "country": "United States"
+ },
+ {
+  "symbol": "MSI",
+  "name": "Motorola Solutions Inc.",
+  "sector": "Technology",
+  "industry": "Radio And Television Broadcasting And Communications Equipment",
+  "country": "United States"
+ }
+]

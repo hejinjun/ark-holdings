@@ -65,6 +65,12 @@ jobs:
         continue-on-error: true
         run: python3 leaders.py
 
+      # Ratios Nasdaq does not publish, plus the market cap cross-check. Needs
+      # the snapshot to exist, so it follows leaders.py.
+      - name: Ratios and cross-check
+        continue-on-error: true
+        run: python3 xueqiu.py
+
       - name: Commit the day's data
         run: |
           git config user.name "github-actions[bot]"

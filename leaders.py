@@ -26,13 +26,14 @@ import fundamentals
 import i18n
 import links
 import segments
+import xueqiu
 import shell
 
 HERE = Path(__file__).parent
 DATA = HERE / "data"
 TEMPLATE = HERE / "leaders_template.html"
 
-SIZE = 200
+SIZE = 300
 
 # The screener's spelling of the domestic country, used to split the ranking
 # into domestic and foreign rather than to exclude anything.
@@ -51,11 +52,39 @@ US = "United States"
 # name ("Bank Nova Scotia Halifax Pfd 3 Ordinary Shares") where the security is
 # in fact the common. Nor "Trust" or "Series A", which Digital Realty Trust and
 # Warner Bros. Discovery carry legitimately.
-# ZONES is scoped case-sensitive with (?-i:...) so it matches the security type
-# in caps and not a company that happens to have "zones" in its name.
+# Markers that disqualify a row wherever they appear in the name, because no
+# ordinary share is described with them. ZONES is scoped case-sensitive with
+# (?-i:...) so it matches the security type in caps, not a company with "zones"
+# in its name.
+#
+# `depositary shares` is deliberately absent. It looks like a security type and
+# is not: most large foreign companies trade here as ADRs, so matching it drops
+# Alibaba, Shell, Sony, BHP, PDD, GSK and SK hynix — twelve companies above the
+# entry threshold. The preferred-stock depositary lines it was meant to catch
+# all say "Preferred" too, which is what catches them.
 NOT_A_COMPANY = re.compile(
-    r"warrant|\bunits?\b|\bright[s]?\b|preferred|depositary shares|%\s|"
-    r"\bnotes?\b|debenture|\bbond|\bfund\b|(?-i:\bZONES\b)", re.I)
+    r"warrant|preferred|%\s|\bnotes?\b|debenture|\bbond|\bfund\b|(?-i:\bZONES\b)", re.I)
+
+# Markers that disqualify a row only when they are the security type. A SPAC's
+# units and rights lines end its name -- "Aeon Acquisition I Corp. Units" -- but
+# the same words turn up mid-sentence in the clause an ADR uses to describe
+# what it represents: "each representing one unit", "the right to receive ten
+# Class A Ordinary Shares". Matching those anywhere would drop Banco Santander
+# Brasil, América Móvil, Coca-Cola FEMSA and RLX for describing themselves.
+SECURITY_TYPE = re.compile(r"\bunits?\b|\bright[s]?\b", re.I)
+
+# Where that descriptive clause begins. Not "(" -- Nasdaq files a leading
+# article as "Southern Company (The)", whose Corporate Units line must still be
+# caught.
+CLAUSE = re.compile(r"\beach\b|\brepresenting\b|\brepstg\b", re.I)
+
+
+def is_company(name: str) -> bool:
+    """Is this row a share in an operating company rather than some other
+    instrument written against one?"""
+    if NOT_A_COMPANY.search(name):
+        return False
+    return not SECURITY_TYPE.search(CLAUSE.split(name, maxsplit=1)[0])
 
 # Where a company has two listed classes, Nasdaq sometimes reports the whole
 # company's market cap against BOTH lines -- Alphabet's C shares and A shares
@@ -91,6 +120,17 @@ SECURITY_SUFFIX = re.compile(
     r"(?:stock|shares?)"
     r"(?:\s*\([^)]*\)|\s+REIT)?\s*$", re.I)
 
+# How a foreign issuer's line ends once the descriptive clause is off: "SK hynix
+# Inc. American Depositary Shares", "ASML Holding N.V. New York Registry
+# Shares", "Sanofi ADS". Stripped before SECURITY_SUFFIX, which would otherwise
+# take only the word "Shares" and leave "American Depositary" as the name.
+ADR_SUFFIX = re.compile(
+    r"\s*(?:(?:un)?sponsored\s+)?"
+    r"(?:american\s+depositary(?:\s+(?:shares?|receipts?))?"
+    r"|new\s+york\s+registry(?:\s+shares?)?"
+    r"|ad[rs]s?)"
+    r"\s*(?:\([^)]*\))?\s*$", re.I)
+
 
 def _root(name: str) -> str:
     """The issuer name with the words that do not identify it removed."""
@@ -105,7 +145,14 @@ TRAILING_NOTE = re.compile(r"\s*\((?:new|reit|holding company)\)\s*$", re.I)
 
 
 def _clean(name: str) -> str:
-    trimmed = SECURITY_SUFFIX.sub("", name).strip()
+    # The descriptive clause goes first -- "each representing eight Ordinary
+    # shares" is a sentence about the security, not part of the issuer's name.
+    trimmed = CLAUSE.split(name, maxsplit=1)[0].strip(" (")
+    # ADR wording first, so "American Depositary Shares" is taken whole rather
+    # than SECURITY_SUFFIX eating "Shares" and leaving "American Depositary".
+    for _ in range(2):
+        trimmed = ADR_SUFFIX.sub("", trimmed).strip()
+        trimmed = SECURITY_SUFFIX.sub("", trimmed).strip()
     trimmed = TRAILING_NOTE.sub("", trimmed).strip()
     if TRAILING_THE.search(trimmed):
         trimmed = "The " + TRAILING_THE.sub("", trimmed).strip()
@@ -142,7 +189,7 @@ def universe() -> list[dict]:
         sym = (r.get("symbol") or "").strip()
         name = (r.get("name") or "").strip()
         cap = _money(r.get("marketCap"))
-        if not sym or NOT_A_COMPANY.search(name) or cap <= 0:
+        if not sym or not is_company(name) or cap <= 0:
             continue
         rows.append({
             "symbol": _symbol(sym),
@@ -415,6 +462,9 @@ def build(date: str, prev_date: str | None) -> dict:
     # Optional, like quotes are on the holdings page: the ranking renders on a
     # day Yahoo refused, just without the 52-week columns.
     quoted = read_quotes(date)
+    # Year-to-date, P/E and dividend yield, which the Nasdaq screener does not
+    # carry. Optional in the same way quotes are.
+    metrics = xueqiu.load(date)
 
     def _load(name):
         p = DATA / name
@@ -449,6 +499,10 @@ def build(date: str, prev_date: str | None) -> dict:
             # against, so taking one from each would put the marker in the
             # wrong place on the bar.
             **quoted.get(sym, {}),
+            # cap2 is the second opinion on market cap, kept for the footnote's
+            # sake and never substituted for ours -- see xueqiu.py on why
+            # neither source can be trusted to be right about an ADR.
+            **{k: v for k, v in metrics.get(sym, {}).items() if k != "cap2"},
         }
         if was is not None:
             c["pr"] = was
@@ -521,6 +575,7 @@ def build(date: str, prev_date: str | None) -> dict:
         "prevDate": prev_date,
         "size": SIZE,
         "langs": [{"v": k, "label": lb} for k, lb in i18n.LANGS],
+        "capBadge": i18n.CAP_BADGE,
         "sites": links.SITES,
         "i18n": {k: page(k, date, prev_date, companies, total, market,
                          n_universe, ark, gone) for k, _ in i18n.LANGS},

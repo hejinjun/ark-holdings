@@ -7,7 +7,7 @@
 
 /* ---- leaderboard ---- */
 
-#board { font-size: 13px; min-width: 1310px; }
+#board { font-size: 13px; min-width: 1410px; }
 #board thead th { position: sticky; top: 0; z-index: 2; }
 #board th.sortable { cursor: pointer; user-select: none; }
 #board th.sortable:hover { color: var(--ink); }
@@ -43,7 +43,18 @@
 .move-cell[data-m="flat"] { color: var(--ink-3); }
 .move-cell[data-m="in"]   { color: var(--accent); font-weight: 600; }
 
+/* Same shape as the holdings page's position badge, three magnitudes deep. */
+.mv-tier[data-t="t"] { background: var(--pos1-bg); color: var(--pos1-fg); }
+.mv-tier[data-t="h"] { background: var(--pos3-bg); color: var(--pos3-fg); }
+.mv-tier[data-t="b"] { background: var(--pos4-bg); color: var(--pos4-fg); }
+
 .cap-cell { position: relative; }
+.cap-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 6px;
+}
 .cap-val {
   position: relative;
   font-family: var(--mono);
@@ -59,6 +70,9 @@
 }
 
 .chg-cell { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+/* A missing P/E means the company lost money and a missing yield means it pays
+   nothing. Both are facts, so the em dash is left plain rather than coloured. */
+.ratio-cell { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--ink-2); }
 .chg-cell[data-d="up"]   { color: var(--aqua); }
 .chg-cell[data-d="down"] { color: var(--orange); }
 
@@ -78,6 +92,17 @@
 /* Domicile shows only where it is not the default, the same way the holdings
    page prints a CUSIP under the name: present when it matters, silent when
    it does not. */
+/* Narrower than the holdings page's, which carries a CUSIP under the name and
+   needs the room. Here the name is the only thing in the cell, and 200 rows of
+   it read better short: long names truncate with an ellipsis and the full text
+   stays available on hover and in the detail panel. */
+#board .name-cell { min-width: 0; max-width: 210px; }
+#board .name {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .cty { display: block; font-size: 11px; color: var(--ink-3); }
 .alt-sym { color: var(--ink-3); font-weight: 400; }
 
@@ -142,12 +167,15 @@
             <th scope="col" class="sortable" data-key="n" tabindex="0"><span class="hd" data-t="n"></span><span class="arrow">▾</span></th>
             <th scope="col" class="sortable" data-key="sec" tabindex="0"><span class="hd" data-t="sec"></span><span class="arrow">▾</span></th>
             <th scope="col" class="sortable num" data-key="cap" tabindex="0"><span class="hd" data-t="cap"></span><span class="arrow">▾</span></th>
-            <th scope="col" class="sortable num" data-key="w" tabindex="0"><span class="hd" data-t="w"></span><span class="arrow">▾</span></th>
             <th scope="col" class="sortable num" data-key="p" tabindex="0"><span class="hd" data-t="p"></span><span class="arrow">▾</span></th>
             <th scope="col" class="sortable num" data-key="ch" tabindex="0"><span class="hd" data-t="ch"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="ytd" tabindex="0"><span class="hd" data-t="ytd"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="pe" tabindex="0"><span class="hd" data-t="pe"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="dy" tabindex="0"><span class="hd" data-t="dy"></span><span class="arrow">▾</span></th>
             <th scope="col" class="sortable" data-key="rp" tabindex="0"><span class="hd" data-t="rp"></span><span class="arrow">▾</span></th>
             <th scope="col" class="sortable num" data-key="oh" tabindex="0"><span class="hd" data-t="oh"></span><span class="arrow">▾</span></th>
             <th scope="col" class="sortable num" data-key="ol" tabindex="0"><span class="hd" data-t="ol"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="w" tabindex="0"><span class="hd" data-t="w"></span><span class="arrow">▾</span></th>
             <th scope="col" id="hd-ark"></th>
           </tr>
         </thead>
@@ -191,18 +219,36 @@ const desc = c => (lang === 'zh' && c.dz) ? c.dz : (c.d || '');
 
 const usd = n => n.toLocaleString('en-US', {maximumFractionDigits: 0});
 
-/* Trillions once a company is worth one, billions otherwise: the unit a reader
-   holds in their head, not 4,361,834,000,000. */
+/* The unit a reader holds in their head, not 4,361,834,000,000 -- and the unit
+   their language actually uses. English counts in trillions and billions;
+   Chinese counts in 万亿 (10^12) and 亿 (10^8), which are different cuts, not a
+   translation of the same words. $80.5B is 805亿, and reading "B" as a unit is
+   something only the English column asks of you. */
 function cap(v) {
+  if (lang === 'zh') {
+    return v >= 1e12 ? (v / 1e12).toFixed(2) + '万亿'
+                     : Math.round(v / 1e8).toLocaleString('en-US') + '亿';
+  }
   return v >= 1e12 ? '$' + (v / 1e12).toFixed(2) + 'T'
                    : '$' + (v / 1e9).toFixed(v / 1e9 >= 100 ? 0 : 1) + 'B';
 }
+/* The magnitude, taken from the number itself rather than from the filter
+   bucket: the badge names the unit, the chips cut the range for filtering, and
+   those want different granularity. */
+const capTier = v => {
+  const table = DATA.capBadge && (DATA.capBadge[lang] || DATA.capBadge.en);
+  if (!table) return '';
+  return table[v >= 1e12 ? 't' : v >= 1e11 ? 'h' : 'b'] || '';
+};
+const capKey = v => v >= 1e12 ? 't' : v >= 1e11 ? 'h' : 'b';
 function money(v) {
   const a = Math.abs(v);
   const [d, u] = a >= 1e9 ? [1e9, 'B'] : a >= 1e6 ? [1e6, 'M'] : a >= 1e3 ? [1e3, 'K'] : [1, ''];
   return (v < 0 ? '-' : '') + '$' + (a / d).toFixed(a / d >= 100 ? 0 : 1) + u;
 }
 const pct = v => (v > 0 ? '+' : '') + v.toFixed(2) + '%';
+/* Year-to-date runs to three digits, so one decimal keeps the column narrow. */
+const pct1 = v => (v > 0 ? '+' : '') + v.toFixed(1) + '%';
 
 const SITE_LABEL = {};
 (DATA.sites || []).forEach(x => { SITE_LABEL[x.key] = x; });
@@ -236,7 +282,8 @@ function moveCell(c) {
 
 const HEADS = {r: 'colRank', t: 'colTicker', n: 'colCompany', sec: 'colSector',
                rp: 'colRange', oh: 'colOffHigh', ol: 'colOffLow',
-               cap: 'colCap', w: 'colWeight', p: 'colPrice', ch: 'colChange'};
+               cap: 'colCap', p: 'colPrice', ch: 'colChange',
+               ytd: 'colYtd', pe: 'colPe', dy: 'colDy', w: 'colWeight'};
 
 /* ---- filters ---- */
 
@@ -452,15 +499,20 @@ function render() {
         <td class="rank-cell">${c.r}</td>
         ${moveCell(c)}
         <td class="ticker-cell">${c.t}${c.alt ? ` <span class="alt-sym">${c.alt}</span>` : ''}</td>
-        <td class="name-cell"><span class="name">${c.n}</span>${c.cty && c.cty !== 'United States' ? `<span class="cty">${c.cty}</span>` : ''}</td>
+        <td class="name-cell"><span class="name" title="${c.n}">${c.n}</span>${c.cty && c.cty !== 'United States' ? `<span class="cty">${c.cty}</span>` : ''}</td>
         <td class="sector-cell">${c.sec ? sectorLabel(c.sec) : '—'}</td>
         <td class="num cap-cell">
-          <span class="cap-val">${cap(c.cap)}</span>
+          <div class="cap-inner">
+            ${capTier(c.cap) ? `<span class="mv-tier" data-t="${capKey(c.cap)}">${capTier(c.cap)}</span>` : ''}
+            <span class="cap-val">${cap(c.cap)}</span>
+          </div>
           <span class="cap-bar" style="width:${w}px"></span>
         </td>
-        <td class="num">${c.w.toFixed(2)}%</td>
         <td class="num price-cell">${c.p ? c.p.toFixed(2) : '—'}</td>
         <td class="num chg-cell" data-d="${c.ch > 0 ? 'up' : c.ch < 0 ? 'down' : ''}">${pct(c.ch)}</td>
+        <td class="num chg-cell" data-d="${c.ytd > 0 ? 'up' : c.ytd < 0 ? 'down' : ''}">${c.ytd === undefined ? '—' : pct1(c.ytd)}</td>
+        <td class="num ratio-cell">${c.pe === undefined ? '—' : c.pe.toFixed(1)}</td>
+        <td class="num ratio-cell">${c.dy === undefined ? '—' : c.dy.toFixed(2) + '%'}</td>
         ${c.rp === undefined
           ? '<td>—</td><td class="num">—</td><td class="num">—</td>'
           : `<td>
@@ -471,9 +523,10 @@ function render() {
         </td>
         <td class="num">${c.oh.toFixed(1)}%</td>
         <td class="num">+${c.ol.toFixed(1)}%</td>`}
+        <td class="num ratio-cell">${c.w.toFixed(2)}%</td>
         <td>${c.ark !== undefined ? `<span class="ark-badge">${t('arkHeld')}</span>` : ''}</td>
       </tr>
-      ${open ? `<tr class="detail"><td colspan="13"><div class="detail-body">
+      ${open ? `<tr class="detail"><td colspan="16"><div class="detail-body">
         ${desc(c) ? `<p class="detail-desc">${desc(c)}</p>` : ''}
         <div class="detail-meta">${[
           c.sec ? sectorLabel(c.sec) + (c.ind ? '  ·  ' + c.ind : '') : '',

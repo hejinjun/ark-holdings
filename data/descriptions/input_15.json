@@ -1,0 +1,184 @@
+[
+ {
+  "symbol": "MET",
+  "name": "MetLife Inc.",
+  "sector": "Finance",
+  "industry": "Life Insurance",
+  "country": "United States"
+ },
+ {
+  "symbol": "B",
+  "name": "Barrick Mining Corporation",
+  "sector": "Basic Materials",
+  "industry": "Precious Metals",
+  "country": "Canada"
+ },
+ {
+  "symbol": "FIX",
+  "name": "Comfort Systems USA Inc.",
+  "sector": "Industrials",
+  "industry": "Engineering & Construction",
+  "country": "United States"
+ },
+ {
+  "symbol": "D",
+  "name": "Dominion Energy Inc.",
+  "sector": "Utilities",
+  "industry": "Electric Utilities: Central",
+  "country": "United States"
+ },
+ {
+  "symbol": "BE",
+  "name": "Bloom Energy Corporation",
+  "sector": "Energy",
+  "industry": "Industrial Machinery/Components",
+  "country": "United States"
+ },
+ {
+  "symbol": "COR",
+  "name": "Cencora Inc.",
+  "sector": "Health Care",
+  "industry": "Other Pharmaceuticals",
+  "country": "United States"
+ },
+ {
+  "symbol": "BKR",
+  "name": "Baker Hughes Company",
+  "sector": "Consumer Discretionary",
+  "industry": "Oil and Gas Field Machinery",
+  "country": "United States"
+ },
+ {
+  "symbol": "O",
+  "name": "Realty Income Corporation",
+  "sector": "Real Estate",
+  "industry": "Real Estate Investment Trusts",
+  "country": "United States"
+ },
+ {
+  "symbol": "TEL",
+  "name": "TE Connectivity plc",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "country": "Ireland"
+ },
+ {
+  "symbol": "NUE",
+  "name": "Nucor Corporation",
+  "sector": "Industrials",
+  "industry": "Steel/Iron Ore",
+  "country": "United States"
+ },
+ {
+  "symbol": "TRGP",
+  "name": "Targa Resources Inc.",
+  "sector": "Utilities",
+  "industry": "Natural Gas Distribution",
+  "country": "United States"
+ },
+ {
+  "symbol": "SRE",
+  "name": "DBA Sempra",
+  "sector": "Utilities",
+  "industry": "Natural Gas Distribution",
+  "country": "United States"
+ },
+ {
+  "symbol": "NXPI",
+  "name": "NXP Semiconductors N.V.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "Netherlands"
+ },
+ {
+  "symbol": "DAL",
+  "name": "Delta Air Lines Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "Air Freight/Delivery Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "F",
+  "name": "Ford Motor Company",
+  "sector": "Industrials",
+  "industry": "Auto Manufacturing",
+  "country": "United States"
+ },
+ {
+  "symbol": "OKE",
+  "name": "ONEOK Inc.",
+  "sector": "Utilities",
+  "industry": "Oil & Gas Production",
+  "country": "United States"
+ },
+ {
+  "symbol": "FANG",
+  "name": "Diamondback Energy Inc.",
+  "sector": "Energy",
+  "industry": "Oil & Gas Production",
+  "country": "United States"
+ },
+ {
+  "symbol": "PSA",
+  "name": "Public Storage",
+  "sector": "Real Estate",
+  "industry": "Real Estate Investment Trusts",
+  "country": "United States"
+ },
+ {
+  "symbol": "OXY",
+  "name": "Occidental Petroleum Corporation",
+  "sector": "Energy",
+  "industry": "Oil & Gas Production",
+  "country": "United States"
+ },
+ {
+  "symbol": "CVE",
+  "name": "Cenovus Energy Inc",
+  "sector": "Energy",
+  "industry": "Oil & Gas Production",
+  "country": "Canada"
+ },
+ {
+  "symbol": "LITE",
+  "name": "Lumentum Holdings Inc.",
+  "sector": "Telecommunications",
+  "industry": "Telecommunications Equipment",
+  "country": "United States"
+ },
+ {
+  "symbol": "LNG",
+  "name": "Cheniere Energy Inc.",
+  "sector": "Utilities",
+  "industry": "Oil/Gas Transmission",
+  "country": "United States"
+ },
+ {
+  "symbol": "FAST",
+  "name": "Fastenal Company",
+  "sector": "Consumer Discretionary",
+  "industry": "RETAIL: Building Materials",
+  "country": "United States"
+ },
+ {
+  "symbol": "KEYS",
+  "name": "Keysight Technologies Inc.",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components",
+  "country": "United States"
+ },
+ {
+  "symbol": "CAH",
+  "name": "Cardinal Health Inc.",
+  "sector": "Health Care",
+  "industry": "Other Pharmaceuticals",
+  "country": "United States"
+ },
+ {
+  "symbol": "ROK",
+  "name": "Rockwell Automation Inc.",
+  "sector": "Industrials",
+  "industry": "Industrial Machinery/Components",
+  "country": "United States"
+ }
+]

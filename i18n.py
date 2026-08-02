@@ -19,6 +19,19 @@ POSITION_BADGE = {
     "zh": {"p1": "亿", "p2": "千万", "p3": "百万", "p4": "<百万"},
 }
 
+# The magnitude of a company's market cap, in the units the reader's language
+# counts in. Three levels, because that is how many the units themselves give
+# you: 万亿, 千亿, 亿.
+#
+# Deliberately NOT keyed to the filter buckets in segments.py, unlike
+# POSITION_BADGE. Those cut the range five ways to make the chips useful for
+# filtering; this answers "what size of number am I looking at", which the
+# units already answer and finer cuts only muddy.
+CAP_BADGE = {
+    "en": {"t": "1T+", "h": "100B+", "b": "<100B"},
+    "zh": {"t": "万亿", "h": "千亿", "b": "亿"},
+}
+
 SECTORS = {
     "Technology": "科技",
     "Industrials": "工业",
@@ -69,7 +82,7 @@ UI = {
         # {n} shown, {t} total, {v} market value, {p} percent
         "status": "{n} of {t} securities  ·  ${v}  ·  {p}% of complex market value",
         "feedLink": "Trade feed \u2192",
-        "leadersLink": "Top 200 \u2192",
+        "leadersLink": "Top 300 \u2192",
     },
     "zh": {
         "byFund": "分基金",
@@ -218,7 +231,7 @@ ACTIVITY = {
         "status": "{n} of {t} moves  ·  {d} session(s)",
         "empty": "No move matches those filters.",
         "holdings": "Holdings \u2192",
-        "leaders": "Top 200 \u2192",
+        "leaders": "Top 300 \u2192",
         "fundsWord": "funds",
     },
     "zh": {
@@ -329,6 +342,9 @@ LEADERS = {
         "colSector": "Sector",
         "colCap": "Market cap",
         "colWeight": "Weight",
+        "colYtd": "YTD",
+        "colPe": "P/E",
+        "colDy": "Yield",
         "colPrice": "Price",
         "colChange": "Change",
         "colRange": "52-week range",
@@ -360,6 +376,9 @@ LEADERS = {
         "colSector": "板块",
         "colCap": "市值",
         "colWeight": "权重",
+        "colYtd": "年初至今",
+        "colPe": "市盈率",
+        "colDy": "股息率",
         "colPrice": "现价",
         "colChange": "涨跌",
         "colRange": "52 周区间",
@@ -384,10 +403,10 @@ LEADERS = {
 LEADERS_PAGE = {
     "en": {
         "eyebrow": "Market cap leaderboard",
-        "title": "The 200 largest companies on the US market",
+        "title": "The 300 largest companies on the US market",
         "standfirst": (
             "Every operating company whose shares trade on a US exchange, ranked by "
-            "market capitalisation, cut at 200. Where a company is incorporated does not "
+            "market capitalisation, cut at 300. Where a company is incorporated does not "
             "decide membership — TSMC, ASML and Novo Nordisk are all buyable from a US "
             "brokerage account and all rank here — but it is a filter, so the domestic "
             "list stays one chip away. Nasdaq's screener has no memory, so each day's "
@@ -396,9 +415,9 @@ LEADERS_PAGE = {
         "tileCap": "Leaderboard market cap",
         "tileCapNote": "{p}% of all {n} US-listed companies",
         "tileCutoff": "Entry threshold",
-        "tileCutoffNote": "#200 is {t}",
+        "tileCutoffNote": "#300 is {t}",
         "tileTop10": "Top 10 share",
-        "tileTop10Note": "of the 200's combined value",
+        "tileTop10Note": "of the 300's combined value",
         "tileTurnover": "In / out",
         "tileTurnoverNote": "since {d}",
         "tileArk": "Held by ARK",
@@ -408,9 +427,9 @@ LEADERS_PAGE = {
     },
     "zh": {
         "eyebrow": "市值榜",
-        "title": "美股市值最大的 200 家公司",
+        "title": "美股市值最大的 300 家公司",
         "standfirst": (
-            "在美国交易所挂牌交易的经营性公司，按市值排序取前 200 名。"
+            "在美国交易所挂牌交易的经营性公司，按市值排序取前 300 名。"
             "注册地不决定是否入榜——台积电、ASML、诺和诺德都能用美股账户买到，"
             "也都排在榜上——注册地只是一个筛选维度，想只看美国公司点一下就行。"
             "Nasdaq 的筛选器不保留历史，所以每天的排名都在这里存档，"
@@ -419,7 +438,7 @@ LEADERS_PAGE = {
         "tileCap": "榜单总市值",
         "tileCapNote": "占全部 {n} 家美股上市公司的 {p}%",
         "tileCutoff": "入榜门槛",
-        "tileCutoffNote": "第 200 名是 {t}",
+        "tileCutoffNote": "第 300 名是 {t}",
         "tileTop10": "前十占比",
         "tileTop10Note": "占榜单总市值",
         "tileTurnover": "进榜 / 出榜",
@@ -435,9 +454,11 @@ LEADERS_FOOTNOTES = {
     "en": [
         ["This ranks the US market, not US companies.",
          "Membership is decided by where the shares trade, not by where the issuer is "
-         "incorporated: TSMC ranks sixth, and ASML, Novo Nordisk, Toyota, Shell and the "
-         "Canadian banks all rank. Domicile is a filter instead — one chip narrows the "
-         "board to US-incorporated issuers, which is a different and smaller list."],
+         "incorporated: TSMC ranks sixth and SK hynix thirteenth, and ASML, Alibaba, "
+         "Shell, Arm, Sony, PDD and the Canadian banks all rank. Domicile is a filter "
+         "instead — one chip narrows the board to US-incorporated issuers, which is a "
+         "different and smaller list. Most foreign issuers trade here as ADRs, which "
+         "the ranking counts as the company they represent."],
         ["Dual-class lines are collapsed by hand, not by rule.",
          "Nasdaq reports Alphabet's whole market cap against both GOOG and GOOGL, and "
          "Berkshire's against both BRK.A and BRK.B — summing them would invent a "
@@ -452,16 +473,31 @@ LEADERS_FOOTNOTES = {
          "SpaceX is tagged Computer Software, GE Aerospace is tagged Consumer "
          "Electronics. Useful for narrowing the list, not for classifying it."],
         ["Companies with no reported market cap are absent, not zero.",
-         "Around 320 listings — almost all 2025-26 SPACs — return a blank cap "
+         "Around 330 listings — almost all 2025-26 SPACs — return a blank cap "
          "from the screener. None are anywhere near the threshold."],
-        ["", "Source: Nasdaq's stock screener, archived daily. "
+        ["Two sources, cross-checked, neither overwritten.",
+         "The ranking and market caps come from Nasdaq; year-to-date, trailing P/E "
+         "and dividend yield from Xueqiu's US screener. Both price the same security "
+         "at the same last sale, so a disagreement about market cap is a disagreement "
+         "about share count — which is what an ADR ratio makes hard. Ferrari is 33% "
+         "high here, Toyota 21%; Petrobras differs because Nasdaq counts the preferred "
+         "class and Xueqiu does not. Flagged, never silently corrected."],
+        ["Membership is not taken from the second source.",
+         "Xueqiu's ranking still lists RDS.A, ANTM, BK, STO, MMC and MTU beside the "
+         "renamed lines that replaced them, so six companies appear twice in its top "
+         "300 and twelve real ones are pushed out. Nasdaq Trader's symbol directory "
+         "decides what is listed."],
+        ["A blank P/E or yield is a fact, not a gap.",
+         "No trailing P/E means the company lost money over the last twelve months; "
+         "no yield means it pays no dividend."],
+        ["", "Sources: Nasdaq's stock screener and Xueqiu, archived daily. "
              "Market data, not investment advice."],
     ],
     "zh": [
         ["这份榜单排的是美股市场，不是美国公司。",
-         "决定是否入榜的是股票在哪里交易，而不是公司在哪里注册：台积电排第六，"
-         "ASML、诺和诺德、丰田、壳牌和加拿大的几家银行也都在榜上。注册地改成了筛选维度"
-         "——点一下就能把榜单收窄成「在美国注册的公司」，那是另一份更短的名单。"],
+         "决定是否入榜的是股票在哪里交易，而不是公司在哪里注册：台积电排第六、SK 海力士第十三，"
+         "ASML、阿里巴巴、壳牌、Arm、索尼、拼多多和加拿大的几家银行也都在榜上。注册地改成了筛选维度——点一下就能把榜单收窄成「在美国注册的公司」，那是另一份更短的名单。"
+         "多数外国公司以 ADR 形式在美股交易，榜单把 ADR 计为它所代表的那家公司。"],
         ["双重股权是逐个手工归并的，不是靠规则。",
          "Nasdaq 把 Alphabet 的整家公司市值同时挂在 GOOG 和 GOOGL 两条线上，"
          "Berkshire 的 BRK.A 和 BRK.B 也一样——两条相加会凭空造出一家公司，"
@@ -474,9 +510,20 @@ LEADERS_FOOTNOTES = {
          "SpaceX 被标成「计算机软件」，GE 航空发动机被标成「消费电子」。"
          "适合用来缩小范围，不适合当分类依据。"],
         ["没有市值数据的公司是缺失，不是零。",
-         "约 320 只标的——几乎全是 2025-26 年的 SPAC 壳——"
+         "约 330 只标的——几乎全是 2025-26 年的 SPAC 壳——"
          "在数据源里市值为空，没有一只接近入榜门槛。"],
-        ["", "数据来源：Nasdaq 股票筛选器，每日存档。"
+        ["两个数据源交叉校验，互不覆盖。",
+         "排名和市值来自 Nasdaq，年初至今、市盈率和股息率来自雪球美股筛选器。"
+         "两边对同一只股票的现价完全一致，所以市值上的分歧本质是股数分歧"
+         "——而股数正是 ADR 折算比例最容易搞错的地方。法拉利这里高了 33%，丰田高了 21%；"
+         "巴西石油的差异是口径不同，Nasdaq 计入了优先股而雪球没有。只标注，不做静默修正。"],
+        ["成分名单不采用第二个数据源。",
+         "雪球的榜单里仍然挂着 RDS.A、ANTM、BK、STO、MMC、MTU 这些已被改名代码取代的旧代码，"
+         "导致六家公司在它的前 300 里出现两次，挤掉十二家真实公司。"
+         "以 Nasdaq Trader 官方代码目录为准。"],
+        ["市盈率或股息率为空是事实，不是缺数据。",
+         "没有市盈率意味着这家公司过去十二个月是亏损的；没有股息率意味着它不分红。"],
+        ["", "数据来源：Nasdaq 股票筛选器与雪球，每日存档。"
              "仅为市场数据，不构成投资建议。"],
     ],
 }
@@ -489,7 +536,7 @@ LEADERS_FOOTNOTES = {
 NAV = {
     "en": {
         "index": "Today", "holdings": "Holdings", "activity": "Trades",
-        "leaders": "Top 200", "archive": "Archive",
+        "leaders": "Top 300", "archive": "Archive",
     },
     "zh": {
         "index": "今日", "holdings": "持仓", "activity": "交易",

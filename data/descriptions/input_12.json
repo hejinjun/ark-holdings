@@ -1,0 +1,79 @@
+[
+ {
+  "symbol": "SKHY",
+  "name": "SK hynix Inc.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "South Korea"
+ },
+ {
+  "symbol": "SHEL",
+  "name": "Shell PLC",
+  "sector": "Energy",
+  "industry": "Oil & Gas Production",
+  "country": "Netherlands"
+ },
+ {
+  "symbol": "ARM",
+  "name": "Arm Holdings plc",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "United Kingdom"
+ },
+ {
+  "symbol": "BHP",
+  "name": "BHP Group Limited",
+  "sector": "Energy",
+  "industry": "Coal Mining",
+  "country": "Australia"
+ },
+ {
+  "symbol": "SMFG",
+  "name": "Sumitomo Mitsui Financial Group Inc",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "Japan"
+ },
+ {
+  "symbol": "UL",
+  "name": "Unilever PLC",
+  "sector": "Consumer Discretionary",
+  "industry": "Package Goods/Cosmetics",
+  "country": "United Kingdom"
+ },
+ {
+  "symbol": "SONY",
+  "name": "Sony Group Corporation",
+  "sector": "Consumer Staples",
+  "industry": "Consumer Electronics/Appliances",
+  "country": "Japan"
+ },
+ {
+  "symbol": "PDD",
+  "name": "PDD Holdings Inc.",
+  "sector": "Technology",
+  "industry": "EDP Services",
+  "country": "China"
+ },
+ {
+  "symbol": "GSK",
+  "name": "GSK plc",
+  "sector": "Health Care",
+  "industry": "Biotechnology: Pharmaceutical Preparations",
+  "country": "United Kingdom"
+ },
+ {
+  "symbol": "LYG",
+  "name": "Lloyds Banking Group Plc",
+  "sector": "Finance",
+  "industry": "Commercial Banks",
+  "country": "United Kingdom"
+ },
+ {
+  "symbol": "NTES",
+  "name": "NetEase Inc.",
+  "sector": "Technology",
+  "industry": "Computer Software: Prepackaged Software",
+  "country": "China"
+ }
+]

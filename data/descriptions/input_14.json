@@ -1,0 +1,191 @@
+[
+ {
+  "symbol": "HLT",
+  "name": "Hilton Worldwide Holdings Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "Hotels/Resorts",
+  "country": "United States"
+ },
+ {
+  "symbol": "KMI",
+  "name": "Kinder Morgan Inc.",
+  "sector": "Utilities",
+  "industry": "Natural Gas Distribution",
+  "country": "United States"
+ },
+ {
+  "symbol": "DLR",
+  "name": "Digital Realty Trust Inc.",
+  "sector": "Real Estate",
+  "industry": "Real Estate Investment Trusts",
+  "country": "United States"
+ },
+ {
+  "symbol": "TRP",
+  "name": "TC Energy Corporation",
+  "sector": "Utilities",
+  "industry": "Natural Gas Distribution",
+  "country": "Canada"
+ },
+ {
+  "symbol": "TDG",
+  "name": "Transdigm Group Incorporated",
+  "sector": "Industrials",
+  "industry": "Military/Government/Technical",
+  "country": "United States"
+ },
+ {
+  "symbol": "MPWR",
+  "name": "Monolithic Power Systems Inc.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "country": "United States"
+ },
+ {
+  "symbol": "PCAR",
+  "name": "PACCAR Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "Motor Vehicles",
+  "country": "United States"
+ },
+ {
+  "symbol": "AEP",
+  "name": "American Electric Power Company Inc.",
+  "sector": "Utilities",
+  "industry": "Electric Utilities: Central",
+  "country": "United States"
+ },
+ {
+  "symbol": "BSX",
+  "name": "Boston Scientific Corporation",
+  "sector": "Health Care",
+  "industry": "Medical/Dental Instruments",
+  "country": "United States"
+ },
+ {
+  "symbol": "DB",
+  "name": "Deutsche Bank AG",
+  "sector": "Finance",
+  "industry": "Major Banks",
+  "country": "Germany"
+ },
+ {
+  "symbol": "CVNA",
+  "name": "Carvana Co.",
+  "sector": "Consumer Discretionary",
+  "industry": "Retail-Auto Dealers and Gas Stations",
+  "country": "United States"
+ },
+ {
+  "symbol": "ALL",
+  "name": "The Allstate Corporation",
+  "sector": "Finance",
+  "industry": "Property-Casualty Insurers",
+  "country": "United States"
+ },
+ {
+  "symbol": "URI",
+  "name": "United Rentals Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "Diversified Commercial Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "WBD",
+  "name": "Warner Bros. Discovery Inc. Series A",
+  "sector": "Consumer Discretionary",
+  "industry": "Services-Misc. Amusement & Recreation",
+  "country": "United States"
+ },
+ {
+  "symbol": "APD",
+  "name": "Air Products and Chemicals Inc.",
+  "sector": "Basic Materials",
+  "industry": "Major Chemicals",
+  "country": "United States"
+ },
+ {
+  "symbol": "TGT",
+  "name": "Target Corporation",
+  "sector": "Consumer Discretionary",
+  "industry": "Department/Specialty Retail Stores",
+  "country": "United States"
+ },
+ {
+  "symbol": "GWW",
+  "name": "W.W. Grainger Inc.",
+  "sector": "Industrials",
+  "industry": "Office Equipment/Supplies/Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "AFL",
+  "name": "AFLAC Incorporated",
+  "sector": "Finance",
+  "industry": "Accident &Health Insurance",
+  "country": "United States"
+ },
+ {
+  "symbol": "RSG",
+  "name": "Republic Services Inc.",
+  "sector": "Utilities",
+  "industry": "Environmental Services",
+  "country": "United States"
+ },
+ {
+  "symbol": "RELX",
+  "name": "RELX PLC PLC",
+  "sector": "Consumer Discretionary",
+  "industry": "Business Services",
+  "country": "United Kingdom"
+ },
+ {
+  "symbol": "TFC",
+  "name": "Truist Financial Corporation",
+  "sector": "Finance",
+  "industry": "Major Banks",
+  "country": "United States"
+ },
+ {
+  "symbol": "VALE",
+  "name": "VALE S.A.",
+  "sector": "Basic Materials",
+  "industry": "Metal Mining",
+  "country": "Brazil"
+ },
+ {
+  "symbol": "AJG",
+  "name": "Arthur J. Gallagher & Co.",
+  "sector": "Finance",
+  "industry": "Specialty Insurers",
+  "country": "United States"
+ },
+ {
+  "symbol": "CRH",
+  "name": "CRH PLC",
+  "sector": "Industrials",
+  "industry": "Building Materials",
+  "country": "Ireland"
+ },
+ {
+  "symbol": "HPE",
+  "name": "Hewlett Packard Enterprise Company",
+  "sector": "Technology",
+  "industry": "Retail: Computer Software & Peripheral Equipment",
+  "country": "United States"
+ },
+ {
+  "symbol": "IMO",
+  "name": "Imperial Oil Limited",
+  "sector": "Energy",
+  "industry": "Integrated oil Companies",
+  "country": "Canada"
+ },
+ {
+  "symbol": "NKE",
+  "name": "Nike Inc.",
+  "sector": "Consumer Discretionary",
+  "industry": "Shoe Manufacturing",
+  "country": "United States"
+ }
+]
