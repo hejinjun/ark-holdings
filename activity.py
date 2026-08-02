@@ -81,19 +81,32 @@ def merge(rows: list[dict]) -> list[dict]:
     return out
 
 
-def price_map(dates: list[str]) -> dict[tuple[str, str], float]:
-    """Implied price per (date, cusip), from that day's own position file."""
+def price_map() -> dict[str, dict[str, float]]:
+    """Implied price per snapshot date, keyed by CUSIP."""
     prices = {}
-    for d in dates:
-        p = DATA / f"positions_{d}.csv"
-        if not p.exists():
-            continue
+    for p in sorted(DATA.glob("positions_*.csv")):
+        d = p.name.removeprefix("positions_").removesuffix(".csv")
+        day = {}
         with p.open(encoding="utf-8") as fh:
             for r in csv.DictReader(fh):
                 sh = float(r["shares"])
                 if sh:
-                    prices[(d, r["cusip"])] = float(r["market_value"]) / sh
+                    day[r["cusip"]] = float(r["market_value"]) / sh
+        prices[d] = day
     return prices
+
+
+def price_for(prices: dict, cusip: str, trade_date: str) -> float:
+    """A newly opened position is absent from the snapshot named by its own
+    trade date -- it first appears in the next one -- so fall forward."""
+    days = sorted(prices)
+    for d in days:
+        if d >= trade_date and prices[d].get(cusip):
+            return prices[d][cusip]
+    for d in reversed(days):
+        if prices[d].get(cusip):
+            return prices[d][cusip]
+    return 0.0
 
 
 def build(days: int) -> dict:
@@ -103,10 +116,9 @@ def build(days: int) -> dict:
     merged = merge(rows)
 
     dates = sorted({g["date"] for g in merged})
-    prices = price_map(dates)
+    prices = price_map()
     for g in merged:
-        px = prices.get((g["date"], g["cusip"]), 0.0)
-        g["value"] = abs(g["shares"]) * px
+        g["value"] = abs(g["shares"]) * price_for(prices, g["cusip"], g["date"])
 
     descriptions = json.loads((DATA / "descriptions.json").read_text(encoding="utf-8")) \
         if (DATA / "descriptions.json").exists() else {}

@@ -14,12 +14,13 @@
     --orange:      #c04f22;
     --aqua:        #157f5a;
     --bar:         #b9d3f0;
-    /* Trade direction: two poles, depth for intensity -- opening a position
-       reads heavier than adding to one, closing heavier than trimming. */
-    --pos-new:  #0b6b46;
-    --pos-buy:  #1f7a56;
-    --pos-sell: #a8481f;
-    --pos-exit: #7e2f13;
+    /* Trade direction. Three redundant encodings, because at 10.5px hue alone
+       does not separate: fill vs tint for intensity, hue for direction, and an
+       arrow glyph that works with no colour at all. */
+    --pos-new-bg:  #0b6b46;  --pos-new-fg:  #ffffff;
+    --pos-buy-bg:  #d5eee2;  --pos-buy-fg:  #0a5c3c;
+    --pos-sell-bg: #fbe0d2;  --pos-sell-fg: #8c3813;
+    --pos-exit-bg: #9c3a18;  --pos-exit-fg: #ffffff;
     --pos1-bg: #12508f;  --pos1-fg: #ffffff;
     --pos2-bg: #2f6fb8;  --pos2-fg: #ffffff;
     --pos3-bg: #b9d5f0;  --pos3-fg: #123a63;
@@ -47,10 +48,10 @@
       --orange:      #e0763f;
       --aqua:        #35b98a;
       --bar:         #2c4d73;
-    --pos-new:  #5cd0a0;
-    --pos-buy:  #35b98a;
-    --pos-sell: #e0763f;
-    --pos-exit: #f0906a;
+      --pos-new-bg:  #35b98a;  --pos-new-fg:  #06231a;
+      --pos-buy-bg:  #1b4234;  --pos-buy-fg:  #7fe0b6;
+      --pos-sell-bg: #4a2818;  --pos-sell-fg: #f0a077;
+      --pos-exit-bg: #e0763f;  --pos-exit-fg: #1c0d05;
 
       --pos1-bg: #6aa9ea;  --pos1-fg: #0b1620;
       --pos2-bg: #2f6fb8;  --pos2-fg: #ffffff;
@@ -75,14 +76,14 @@
     --orange:      #e0763f;
     --aqua:        #35b98a;
     --bar:         #2c4d73;
-    --pos-new:  #5cd0a0;
-    --pos-buy:  #35b98a;
-    --pos-sell: #e0763f;
-    --pos-exit: #f0906a;
     --pos1-bg: #6aa9ea;  --pos1-fg: #0b1620;
     --pos2-bg: #2f6fb8;  --pos2-fg: #ffffff;
     --pos3-bg: #27435f;  --pos3-fg: #cfe0f2;
     --pos4-bg: #232a31;  --pos4-fg: #8a949e;
+    --pos-new-bg:  #35b98a;  --pos-new-fg:  #06231a;
+    --pos-buy-bg:  #1b4234;  --pos-buy-fg:  #7fe0b6;
+    --pos-sell-bg: #4a2818;  --pos-sell-fg: #f0a077;
+    --pos-exit-bg: #e0763f;  --pos-exit-fg: #1c0d05;
   }
 
   body {

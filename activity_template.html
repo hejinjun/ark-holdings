@@ -1,3 +1,5 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ARK trade feed</title>
 
 <style>
@@ -42,17 +44,25 @@
 
 .tag-action {
   justify-self: start;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
   font-family: var(--mono);
   font-size: 10.5px;
-  padding: 2px 7px;
+  font-weight: 600;
+  padding: 3px 8px;
   border-radius: 2px;
-  border: 1px solid currentColor;
   white-space: nowrap;
 }
-.tag-action[data-k="new"]  { color: var(--pos-new); }
-.tag-action[data-k="buy"]  { color: var(--pos-buy); }
-.tag-action[data-k="sell"] { color: var(--pos-sell); }
-.tag-action[data-k="exit"] { color: var(--pos-exit); }
+/* Solid for opening and closing, tinted for adding and trimming: the fill
+   carries intensity, the hue carries direction. */
+.tag-action[data-k="new"]  { background: var(--pos-new-bg);  color: var(--pos-new-fg); }
+.tag-action[data-k="buy"]  { background: var(--pos-buy-bg);  color: var(--pos-buy-fg); }
+.tag-action[data-k="sell"] { background: var(--pos-sell-bg); color: var(--pos-sell-fg); }
+.tag-action[data-k="exit"] { background: var(--pos-exit-bg); color: var(--pos-exit-fg); }
+
+/* The arrow is the encoding that survives with no colour at all. */
+.tag-action .arrow { font-size: 9px; opacity: 0.85; }
 
 .move .tick { font-family: var(--mono); font-weight: 600; font-size: 13px; }
 .move .co { font-size: 13px; color: var(--ink-2); }
@@ -313,6 +323,7 @@ const siteLinks = e => !e.lk ? '' :
   }).join('')}</div>`;
 
 const KIND_LABEL = k => t(k);
+const ARROW = {new: '\u25b2', buy: '\u25b2', sell: '\u25bc', exit: '\u25bc'};
 
 function render() {
   paintChips();
@@ -341,7 +352,8 @@ function render() {
       <div class="move${many ? ' agree' : ''}" data-id="${e.d + e.c + e.k}"
            tabindex="0" role="button" aria-expanded="${open}">
         <span class="num" style="text-align:left">${e.d.slice(5)}</span>
-        <span class="tag-action" data-k="${e.k}">${KIND_LABEL(e.k)}</span>
+        <span class="tag-action" data-k="${e.k}"><span class="arrow"
+          >${ARROW[e.k]}</span>${KIND_LABEL(e.k)}</span>
         <span><span class="tick">${e.t || '—'}</span> <span class="co">${e.n}</span></span>
         <span class="num">${usd(Math.abs(e.s))}</span>
         <span class="num">${e.v ? money(e.v) : '—'}</span>
