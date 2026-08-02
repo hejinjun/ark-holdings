@@ -79,17 +79,19 @@
    and the other cards share the row underneath. */
 .card-wide { grid-column: 1 / -1; }
 
+/* Title and link on one row, the hint on its own underneath: in a card three
+   across, a hint sharing the row pushes the link onto a second line and the
+   three headers stop lining up. */
 .cardhead {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3px 16px;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 10px 16px;
-  flex-wrap: wrap;
   padding: 14px 18px 12px;
   border-bottom: 1px solid var(--rule);
 }
 .cardhead h2 { font-size: 17px; }
-.cardhead .hint { flex: 1 1 200px; }
+.cardhead .hint { grid-column: 1 / -1; }
 .cardhead a {
   font-family: var(--mono);
   font-size: 11.5px;
@@ -264,7 +266,14 @@
 
 /* ---- roadmap ---- */
 
-.nextlist { display: flex; flex-direction: column; gap: 11px; }
+/* The roadmap is the one card that is not a reading of today's data, so it
+   spans the last row rather than being left standing alone in a column. */
+#card-next { grid-column: 1 / -1; }
+.nextlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 11px 22px;
+}
 .nextitem { display: flex; flex-direction: column; gap: 2px; }
 .nextitem b { font-size: 13px; font-weight: 600; }
 .nextitem span { font-size: 12.5px; color: var(--ink-2); line-height: 1.55; }
@@ -301,6 +310,7 @@
     <section class="card card-wide" id="card-moves"></section>
     <section class="card" id="card-book"></section>
     <section class="card" id="card-leaders"></section>
+    <section class="card" id="card-manager"></section>
     <section class="card" id="card-next"></section>
   </div>
 
@@ -329,29 +339,20 @@ function money(v) {
   return (v < 0 ? '-$' : '$') + (a / div).toFixed(a / div >= 100 ? 0 : 1) + suf;
 }
 
-/* ---- nav ---- */
-
-// A report served from reports/<date>.html is the same file as holdings.html,
-// so the nav cannot hardcode a depth; it reads the one it is being served at.
-const BASE = location.pathname.includes('/reports/') ? '../' : '';
-const NAV = ['index', 'holdings', 'activity', 'leaders', 'archive'];
 const HERE = 'index';
-
-function paintNav() {
-  const n = page().nav;
-  document.getElementById('sitenav').innerHTML = NAV.map(k =>
-    `<a href="${BASE}${k}.html"${k === HERE ? ' aria-current="page"' : ''}>${esc(n[k])}</a>`
-  ).join('');
-}
+/*__NAV__*/
 
 /* ---- freshness ---- */
 
 function paintSources() {
   const names = page().sources;
   document.getElementById('sources').innerHTML = DATA.sources.map(s => {
+    // sessionBehind / sessionsBehind / dayBehind / daysBehind
+    const key = (s.unit === 'sessions' ? 'session' : 'day')
+      + (s.behind === 1 ? 'Behind' : 'sBehind');
     const age = s.status === 'missing' ? t('never')
       : s.behind === 0 ? t('ok')
-      : fill(t(s.unit === 'sessions' ? 'sessionsBehind' : 'daysBehind'), {n: s.behind});
+      : fill(t(key), {n: s.behind});
     return `<div class="src" data-s="${s.status}">
       <span class="dot"></span>
       <span class="slabel">${esc(names[s.k] || s.k)}</span>
@@ -363,11 +364,13 @@ function paintSources() {
 
 /* ---- cards ---- */
 
+// Link before hint: the header is a grid, and the hint spans both columns, so
+// anything after it lands on a row of its own.
 const head = (title, hint, href, linkText) => `
   <div class="cardhead">
     <h2>${esc(title)}</h2>
+    ${href ? `<a href="${NAV_BASE}${href}">${esc(linkText)}</a>` : ''}
     ${hint ? `<span class="hint">${esc(hint)}</span>` : ''}
-    ${href ? `<a href="${BASE}${href}">${esc(linkText)}</a>` : ''}
   </div>`;
 
 const ARROW = {new: '▲', buy: '▲', sell: '▼', exit: '▼'};
@@ -382,7 +385,7 @@ function paintMoves() {
   }
   const rows = m.items.map(e => {
     const agree = e.f.length >= m.conviction;
-    return `<a class="move-row${agree ? ' agree' : ''}" href="${BASE}activity.html">
+    return `<a class="move-row${agree ? ' agree' : ''}" href="${NAV_BASE}activity.html">
       <span class="tag-action" data-k="${e.k}"><span class="arrow">${ARROW[e.k]}</span>${esc(t(e.k))}</span>
       <span class="who"><span class="tick">${esc(e.t || '—')}</span>
         <span class="co">${esc(e.n)}</span></span>
@@ -470,6 +473,37 @@ function paintLeaders() {
     + `<div class="cardfoot">${esc(fill(t('leadersCutoff'), {v: (l.cutoff / 1e9).toFixed(0)}))}  ·  ${l.date}</div>`;
 }
 
+function paintManager() {
+  const m = DATA.manager;
+  const el = document.getElementById('card-manager');
+  if (!m) { el.hidden = true; return; }
+
+  const rows = m.top.map(c => `
+    <div class="rankrow">
+      <span class="rk">${c.w.toFixed(1)}%</span>
+      <span class="rname"><span class="tick">${esc(c.t || '—')}</span>
+        <span class="co">${esc(c.n)}</span></span>
+      <span class="rcap">${money(c.v)}</span>
+    </div>`).join('');
+
+  const churn = m.prevPeriod ? `<div class="turnover">
+      <span class="pill">${esc(fill(t('managerChurn'),
+        {opened: m.opened, closed: m.closed, d: m.prevPeriod}))}</span>
+    </div>` : '';
+
+  el.innerHTML = head(t('manager'), t('managerHint'), '', '')
+    + `<div class="cardbody">
+        <div class="headline">
+          <span class="big">${money(m.total)}</span>
+          <span class="sub">${esc(m.label)}</span>
+        </div>
+        <span class="hint">${esc(fill(t('managerBook'), {n: m.n, q: m.quarters}))}</span>
+        ${churn}
+        <div class="ranklist">${rows}</div>
+      </div>`
+    + `<div class="cardfoot">${esc(fill(t('managerLag'), {d: m.period}))}</div>`;
+}
+
 function paintNext() {
   document.getElementById('card-next').innerHTML =
     head(t('next'), t('nextHint'), '', '')
@@ -512,6 +546,7 @@ function render() {
   paintMoves();
   paintBook();
   paintLeaders();
+  paintManager();
   paintNext();
 }
 

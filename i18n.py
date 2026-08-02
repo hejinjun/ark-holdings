@@ -506,10 +506,12 @@ SOURCES = {
     "en": {
         "holdings": "ARK holdings", "trades": "Trades", "quotes": "Quotes",
         "leaders": "Market cap", "financials": "Financials", "venture": "ARKVX",
+        "thirteenf": "13F filings",
     },
     "zh": {
         "holdings": "ARK 持仓", "trades": "交易", "quotes": "报价",
         "leaders": "市值榜", "financials": "财报", "venture": "ARKVX 创投",
+        "thirteenf": "13F 申报",
     },
 }
 
@@ -541,6 +543,11 @@ HOME = {
         "leadersFirst": "First snapshot on file — movement starts with the next one.",
         "leadersIn": "in", "leadersOut": "out", "leadersHeld": "{n} held by ARK",
         "leadersCutoff": "entry at ${v}B",
+        "manager": "A manager's book",
+        "managerHint": "Filed quarterly, up to 45 days after the quarter ends.",
+        "managerBook": "{n} positions · {q} quarters on file",
+        "managerChurn": "{opened} opened · {closed} closed vs {d}",
+        "managerLag": "as of {d} — a quarter end, not today",
         "next": "Not wired up yet",
         "nextHint": "Collected or planned, but not yet on a page.",
         "empty": "Nothing on file yet.",
@@ -573,6 +580,11 @@ HOME = {
         "leadersFirst": "这是第一份快照——排名变化从下一份开始有。",
         "leadersIn": "进榜", "leadersOut": "出榜", "leadersHeld": "{n} 家被 ARK 持有",
         "leadersCutoff": "入榜门槛 ${v}B",
+        "manager": "管理人持仓",
+        "managerHint": "13F 按季度申报，最晚在季度结束后 45 天披露。",
+        "managerBook": "{n} 个仓位 · 已存档 {q} 个季度",
+        "managerChurn": "相比 {d}：建仓 {opened} · 清仓 {closed}",
+        "managerLag": "数据截至 {d}——是季度末，不是今天",
         "next": "尚未接入",
         "nextHint": "已经在采集或已列入计划，但还没有对应页面。",
         "empty": "还没有数据。",
@@ -635,19 +647,19 @@ HOME_FOOTNOTES = {
 # not shown" is a judgement about the site, not a fact about the code.
 HOME_NEXT = {
     "en": [
-        ["13F managers", "thirteenf.py ingests a filer's quarterly positions into the "
-                         "same schema as ARK's. No comparison page yet."],
-        ["Company financials", "Revenue, margin, cash and runway are pulled from SEC "
-                               "XBRL and cached. The detail panel that shows them is "
-                               "switched off."],
+        ["A page per manager", "The book above is one card. Thirteen years of "
+                               "quarterly filings can say when a position was opened "
+                               "and how it was sized; nothing displays that yet."],
+        ["More filers", "The registry knows Key Square and Berkshire. Neither has "
+                        "been ingested, so nothing here compares two managers."],
         ["Watchlist", "Nothing here follows what you own or want to own. That is the "
                       "next thing worth having."],
     ],
     "zh": [
-        ["13F 管理人", "thirteenf.py 已能把某位管理人的季度持仓抓成与 ARK 相同的表结构，"
-                       "但还没有对比页面。"],
-        ["公司财务", "营收、毛利率、现金和续航月数已从 SEC XBRL 抓取并缓存，"
-                     "展示它们的详情面板还没有打开。"],
+        ["管理人独立页面", "上面那张卡片只是一个快照。13 年的季度申报能说清一个仓位"
+                           "什么时候建的、加到多大、什么时候清的，目前没有任何一页展示这些。"],
+        ["更多管理人", "注册表里还有 Key Square 和 Berkshire，都还没抓过，"
+                       "所以现在无法做两个管理人之间的对比。"],
         ["关注列表", "目前没有任何一页跟踪你自己持有或想持有的标的。这是下一个值得做的东西。"],
     ],
 }

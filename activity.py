@@ -21,6 +21,7 @@ from pathlib import Path
 import i18n
 import links
 import report
+import shell
 
 HERE = Path(__file__).parent
 DATA = HERE / "data"
@@ -218,6 +219,7 @@ def page(lang: str, dates: list[str], events: list[dict], conviction: int) -> di
              f'{sum(1 for e in events if e["k"] == "exit")}',
              c["tileOpenedNote"]],
         ],
+        "nav": i18n.NAV[lang],
         "footnotes": i18n.ACTIVITY_FOOTNOTES[lang],
         "ui": i18n.ACTIVITY[lang],
     }
@@ -226,11 +228,8 @@ def page(lang: str, dates: list[str], events: list[dict], conviction: int) -> di
 def main(argv: list[str]) -> int:
     days = int(argv[argv.index("--days") + 1]) if "--days" in argv else DEFAULT_DAYS
     payload = build(days)
-    html = TEMPLATE.read_text(encoding="utf-8")
-    html = html.replace("/*__STYLES__*/", (HERE / "styles.css").read_text(encoding="utf-8"))
-    html = html.replace("/*__DATA__*/", json.dumps(payload, separators=(",", ":")))
     out = DATA / "activity.html"
-    out.write_text(html, encoding="utf-8")
+    out.write_text(shell.render(TEMPLATE, payload), encoding="utf-8")
     print(f"{out}  ({out.stat().st_size:,} bytes, {len(payload['events'])} moves "
           f"over {payload['days']} sessions)")
     if "--open" in argv:

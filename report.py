@@ -22,18 +22,17 @@ import fundamentals
 import i18n
 import links
 import segments
+import shell
 from funds import ETFS
 from tradeable import EXCLUDED_FUNDS
 
 HERE = Path(__file__).parent
 DATA = HERE / "data"
 TEMPLATE = HERE / "report_template.html"
-PLACEHOLDER = "/*__DATA__*/"
-STYLES = "/*__STYLES__*/"
 
-# Financials are extracted and cached but not shown yet -- flip to True to
-# render the per-company line in the detail panel.
-SHOW_FINANCIALS = False
+# Revenue, margin, cash and runway in the detail panel. The figures come from
+# SEC XBRL and are quarterly, so they are older than the price on the same row.
+SHOW_FINANCIALS = True
 
 CLASS_LABEL = {"equity": "equity", "private": "private",
                "bitcoin_holdco": "bitcoin", "cash": "cash"}
@@ -160,6 +159,7 @@ def load_full(date: str) -> dict:
                 ["Non-equity", f"{(total - equity) / total * 100:.2f}%",
                  "private, bitcoin holdco, cash"],
             ],
+            "nav": i18n.NAV["en"],
             "footnotes": [
                 ["Merge key is CUSIP, not ticker.",
                  "Tickers change and are blank on ARK's non-listed rows; CUSIP is present "
@@ -304,6 +304,7 @@ def load_tradeable(date: str) -> dict:
             "provenance": c["provenance"].format(date=date, funds=len(funds),
                                                  excl=excl, n=n),
             "tiles": tiles,
+            "nav": i18n.NAV[lang],
             "footnotes": i18n.FOOTNOTES[lang],
             "ui": i18n.UI[lang],
         }
@@ -334,16 +335,8 @@ def main(argv: list[str]) -> int:
         raise SystemExit(f"no {kind} CSVs found -- run fetch.py, baseline.py, tradeable.py")
 
     payload = load_full(date) if full else load_tradeable(date)
-    html = TEMPLATE.read_text(encoding="utf-8")
-    if PLACEHOLDER not in html:
-        raise SystemExit(f"{TEMPLATE.name} has no {PLACEHOLDER} marker")
-    # Both pages share one stylesheet, inlined at build time so each stays a
-    # single self-contained file.
-    html = html.replace(STYLES, (HERE / "styles.css").read_text(encoding="utf-8"))
-
     out = DATA / f"report_{'full' if full else 'tradeable'}_{date}.html"
-    out.write_text(html.replace(PLACEHOLDER, json.dumps(payload, separators=(",", ":"))),
-                   encoding="utf-8")
+    out.write_text(shell.render(TEMPLATE, payload), encoding="utf-8")
     print(f"{out}  ({out.stat().st_size:,} bytes, {len(payload['securities'])} rows)")
     if "--open" in argv:
         webbrowser.open(out.resolve().as_uri())

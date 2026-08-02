@@ -14,7 +14,6 @@ is a new summary plus a card, and the merging rules stay in one place instead
 of drifting into a second implementation here.
 """
 
-import json
 import sys
 import webbrowser
 from datetime import date as _date
@@ -24,6 +23,8 @@ import activity
 import i18n
 import leaders
 import report
+import shell
+import thirteenf
 
 HERE = Path(__file__).parent
 DATA = HERE / "data"
@@ -39,13 +40,18 @@ SOURCES = [
     # the data, not a delay, hence the extra session of tolerance.
     {"key": "trades", "glob": "trades_*.csv", "unit": "sessions", "late": 3, "stale": 5},
     {"key": "quotes", "glob": "quotes_*.csv", "unit": "sessions", "late": 2, "stale": 4},
-    {"key": "leaders", "glob": "leaders_*.csv", "unit": "sessions", "late": 2, "stale": 4},
+    {"key": "leaders", "glob": "leaders_[0-9]*.csv", "unit": "sessions", "late": 2, "stale": 4},
     # Filings arrive quarterly; anything inside a quarter plus the filing
     # window is simply the newest that exists.
     {"key": "financials", "glob": "financials_*.json", "unit": "days", "late": 100, "stale": 200},
     # ARKVX publishes monthly and holds no share counts, so it is archived for
     # completeness rather than consumed.
     {"key": "venture", "glob": "raw/*/ARKVX.csv", "unit": "days", "late": 45, "stale": 90},
+    # A 13F reports a quarter end and is filed up to 45 days later, so a book
+    # is current until the next quarter's filing window closes. The glob spans
+    # every manager directory, so a new filer appears here without being named.
+    {"key": "thirteenf", "glob": "*/positions_*.csv", "unit": "days",
+     "late": 135, "stale": 225},
 ]
 
 
@@ -125,6 +131,7 @@ def build() -> dict:
         "book": book,
         "moves": activity.summary(),
         "leaders": leaders.summary(),
+        "manager": thirteenf.summary(),
         "i18n": {k: page(k, sources, len(report.tradeable_dates()))
                  for k, _ in i18n.LANGS},
     }
@@ -132,11 +139,8 @@ def build() -> dict:
 
 def main(argv: list[str]) -> int:
     payload = build()
-    html = TEMPLATE.read_text(encoding="utf-8")
-    html = html.replace("/*__STYLES__*/", (HERE / "styles.css").read_text(encoding="utf-8"))
-    html = html.replace("/*__DATA__*/", json.dumps(payload, separators=(",", ":")))
     out = DATA / "home.html"
-    out.write_text(html, encoding="utf-8")
+    out.write_text(shell.render(TEMPLATE, payload), encoding="utf-8")
     late = [s["k"] for s in payload["sources"] if s["status"] != "ok"]
     print(f"{out}  ({out.stat().st_size:,} bytes)  "
           + (f"stale: {', '.join(late)}" if late else "all sources current"))

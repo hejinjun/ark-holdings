@@ -121,6 +121,9 @@
     font: inherit;
     font-size: 12px;
     font-family: var(--mono);
+    /* Two characters wide, and it must stay that way: on a narrow screen the
+       nav takes the row and "中文" would otherwise break across two lines. */
+    white-space: nowrap;
     padding: 5px 11px;
     color: var(--ink-2);
     background: var(--surface);

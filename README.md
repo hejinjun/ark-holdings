@@ -60,10 +60,22 @@ sources the correction applies to.
 
 **A filing names holdings by CUSIP, not ticker.** `issuers.py` closes that gap:
 OpenFIGI first, then a scored name match against every US listing, then a
-hand-checked override table. It accepts only above a bar calibrated to sit
-above the observed error band and prints everything below it for review, so
+hand-checked override table. What decides a name match is coverage — whether
+the listing explains every distinctive word of the filed name — because a raw
+score cannot tell Linde plc matching Linde from Luckin Coffee matching Coffee
+Holding. Anything below the bar is printed for review rather than guessed, so
 adding a manager is: run the ingest, run `python3 issuers.py <manager>`, check
 the proposals, paste the confirmed ones into `OVERRIDES`.
+
+An override may resolve to `None`, meaning the filing names a company that maps
+to no current listing. That is the one case scoring cannot reach: after a
+rename or a spinoff the names still agree perfectly while the ticker has moved
+to a different company. Alcoa Inc and Ingersoll-Rand plc are both in there.
+
+`python3 test_issuers.py` freezes the hand-verification the thresholds were set
+from — 38 names that must resolve, 18 that must not. Run it after touching any
+bound in `issuers.py`; the matcher fails silently and plausibly, so a loosened
+threshold looks like more coverage rather than more errors.
 
 ## Things that will break, and how you'll know
 
