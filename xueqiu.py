@@ -96,6 +96,13 @@ def _num(v):
     return float(v) if isinstance(v, (int, float)) else None
 
 
+def _blank(v):
+    """The CSV cell for one field: the number, or empty when the feed had none.
+    Zero is a number."""
+    n = _num(v)
+    return "" if n is None else n
+
+
 def write(date: str, depth: int = DEPTH) -> Path:
     rows = fetch(depth)
     path = DATA / f"leaders_xueqiu_{date}.csv"
@@ -106,13 +113,17 @@ def write(date: str, depth: int = DEPTH) -> Path:
             sym = (r.get("symbol") or "").strip()
             if not sym:
                 continue
+            # `or ""` would be wrong here: it turns a real zero into a blank,
+            # and zero and absent are different facts. A company flat on the
+            # year has a year-to-date of 0.00%, not a missing one. The archive
+            # records what the source said; what to show is decided in load().
             w.writerow({
                 "symbol": sym,
-                "market_capital": _num(r.get("market_capital")) or "",
-                "pe_ttm": _num(r.get("pe_ttm")) or "",
-                "dividend_yield": _num(r.get("dividend_yield")) or "",
-                "ytd_pct": _num(r.get("current_year_percent")) or "",
-                "price": _num(r.get("current")) or "",
+                "market_capital": _blank(r.get("market_capital")),
+                "pe_ttm": _blank(r.get("pe_ttm")),
+                "dividend_yield": _blank(r.get("dividend_yield")),
+                "ytd_pct": _blank(r.get("current_year_percent")),
+                "price": _blank(r.get("current")),
             })
     return path
 
@@ -125,15 +136,20 @@ def load(date: str) -> dict[str, dict]:
     out = {}
     for r in csv.DictReader(path.open(encoding="utf-8")):
         e = {}
-        if r["ytd_pct"]:
+        # Year-to-date is shown whatever it is: flat on the year is a result.
+        if r["ytd_pct"] != "":
             e["ytd"] = float(r["ytd_pct"])
-        # A loss-making company has no meaningful trailing P/E and the feed
-        # returns a negative one; blank is the honest rendering.
-        if r["pe_ttm"] and float(r["pe_ttm"]) > 0:
+        # P/E and yield are shown only when positive, which is the same as
+        # saying a loss and a non-payer are rendered as no figure rather than
+        # as a number. In practice the feed blanks both rather than returning a
+        # zero or a negative -- checked across 600 symbols, no negative P/E and
+        # no zero yield -- so this is the guard for the day that changes, not a
+        # description of what arrives today.
+        if r["pe_ttm"] != "" and float(r["pe_ttm"]) > 0:
             e["pe"] = float(r["pe_ttm"])
-        if r["dividend_yield"]:
+        if r["dividend_yield"] != "" and float(r["dividend_yield"]) > 0:
             e["dy"] = float(r["dividend_yield"])
-        if r["market_capital"]:
+        if r["market_capital"] != "" and float(r["market_capital"]) > 0:
             e["cap2"] = float(r["market_capital"])
         if e:
             out[r["symbol"]] = e
