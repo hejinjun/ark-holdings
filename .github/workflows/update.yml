@@ -89,6 +89,13 @@ jobs:
       - name: Build site
         run: python3 build_site.py --out site
 
+      # A page renders itself from a payload inlined at build time, so it can be
+      # complete, valid and blank: one undefined function and the script dies
+      # before the first row. That shipped through four deploys once. This runs
+      # each page and fails the job rather than publishing a page that throws.
+      - name: Check the pages render
+        run: python3 pagecheck.py site
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
