@@ -92,27 +92,24 @@ def filers() -> list[str]:
 
 
 def build_filer(manager: str, out: Path) -> None:
-    """Holdings and changes for one filer. Failures are reported and skipped:
-    a half-ingested manager should not cost the rest of the site."""
+    """The quarter-by-quarter change feed for one filer.
+
+    Deliberately not a holdings page: manager.py already renders the book, and
+    renders it the right way round for a 13F -- one filer down fifty-two
+    quarters, each row carrying its own history. A snapshot of a single quarter
+    is the reading a quarterly filing supports least, so this page answers the
+    other question instead: what changed, quarter by quarter.
+
+    Failures are reported and skipped -- a half-ingested manager should not
+    cost the rest of the site."""
     out.mkdir(parents=True, exist_ok=True)
     try:
-        report.use_source(manager)
-        dates = report.tradeable_dates()
-        if not dates:
-            print(f"  {manager}/ skipped: no tradeable_*.csv")
-            return
-        report.main(["build_site", "--source", manager, dates[-1]])
-        shutil.copy(DATA / manager / f"report_tradeable_{dates[-1]}.html",
-                    out / "holdings.html")
-        print(f"  {manager}/holdings.html  ({dates[-1]})")
-
         activity.main(["build_site", "--source", manager])
         shutil.copy(DATA / manager / "activity.html", out / "activity.html")
         print(f"  {manager}/activity.html")
     except SystemExit as exc:
         print(f"  {manager}/ skipped: {exc}")
     finally:
-        report.use_source("ark")
         activity.use_source("ark")
 
 
@@ -171,9 +168,10 @@ def main(argv: list[str]) -> int:
     shutil.copy(DATA / "home.html", out / "index.html")
     print("  index.html  (daily brief)")
 
-    # Each ingested filer gets the same two pages under its own directory.
-    # ARK keeps the site root because its URLs are the ones already in use.
-    for manager in filers():
+    # Each ingested filer gets its change feed under its own directory; its
+    # book is the manager page above. ARK keeps the site root because its URLs
+    # are the ones already in use.
+    for manager in ingested:
         build_filer(manager, out / manager)
 
     # Pages would otherwise run the output through Jekyll, which drops

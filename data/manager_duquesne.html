@@ -436,12 +436,26 @@
 
   /* A capped height makes the container the vertical scroller, which is what
      the sticky header sticks to; without it `top: 0` has nothing to act on. */
+  /* The height cap is what makes the sticky header work: `overflow: auto` is
+     needed for the horizontal scroll of a wide table, and that same property
+     makes this the scroll container the header sticks inside. Remove the cap
+     and the header sticks to the top of an unbounded box, which is off screen
+     -- so row 250 of the leaderboard would have no column names. 85vh rather
+     than the old 74vh because the masthead has scrolled away by the time the
+     table is in use, so the reserved space was being wasted. */
   .holdings-wrap {
     background: var(--surface);
     border: 1px solid var(--rule);
     border-radius: 3px;
     overflow: auto;
-    max-height: 74vh;
+    max-height: 85vh;
+  }
+
+  /* On a phone the nested scroll costs more than the sticky header buys: the
+     inner box swallows the swipe that was meant to move the page. One scroll
+     container, and the header scrolls away with everything else. */
+  @media (max-width: 720px) {
+    .holdings-wrap { max-height: none; }
   }
 
   #holdings { font-size: 13px; min-width: 1190px; }

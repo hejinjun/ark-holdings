@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ARK trade feed</title>
+<title>Trade feed</title>
 
 <style>
 /*__STYLES__*/
@@ -266,6 +266,9 @@ function paintStatic() {
   document.getElementById('empty').textContent = t('empty');
   document.getElementById('search').placeholder = t('search');
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  // The tab title follows the source and the language; the static one in the
+  // markup is only what shows before this runs.
+  document.title = c.title;
 
   document.getElementById('tiles').innerHTML = c.tiles.map(([l, v, n]) => `
     <div class="tile">
