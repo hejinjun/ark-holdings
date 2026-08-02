@@ -10,20 +10,20 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2020-09-30,Duquesne Family Office,855244109,SBUX,Starbucks Corp,equity,1462100,125624000.00,3.6831
 2020-09-30,Duquesne Family Office,47215P106,JD,Jd.Com Inc,equity,1521943,118118000.00,3.4630
 2020-09-30,Duquesne Family Office,35671D857,FCX,Freeport-Mcmoran Inc,equity,6318400,98820000.00,2.8972
-2020-09-30,Duquesne Family Office,67020Y100,NUANEUR,Nuance Communications Inc,equity,2911525,96634000.00,2.8331
+2020-09-30,Duquesne Family Office,67020Y100,,Nuance Communications Inc,equity,2911525,96634000.00,2.8331
 2020-09-30,Duquesne Family Office,58733R102,MELI,Mercadolibre Inc,equity,71121,76987000.00,2.2571
 2020-09-30,Duquesne Family Office,92189F106,GDX,Vaneck Vectors Etf Tr,equity,1808825,70834000.00,2.0767
 2020-09-30,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc,equity,41181,60355000.00,1.7695
 2020-09-30,Duquesne Family Office,65339F101,NEE,Nextera Energy Inc,equity,215884,59921000.00,1.7568
 2020-09-30,Duquesne Family Office,30303M102,META,Facebook Inc,equity,207895,54448000.00,1.5963
 2020-09-30,Duquesne Family Office,02043Q107,ALNY,Alnylam Pharmaceuticals Inc,equity,368419,53642000.00,1.5727
-2020-09-30,Duquesne Family Office,75615P103,RETAEUR,Reata Pharmaceuticals Inc,equity,543901,52987000.00,1.5535
-2020-09-30,Duquesne Family Office,83200N103,SMARGBP,Smartsheet Inc,equity,1070448,52902000.00,1.5510
+2020-09-30,Duquesne Family Office,75615P103,,Reata Pharmaceuticals Inc,equity,543901,52987000.00,1.5535
+2020-09-30,Duquesne Family Office,83200N103,,Smartsheet Inc,equity,1070448,52902000.00,1.5510
 2020-09-30,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,236095,50791000.00,1.4891
 2020-09-30,Duquesne Family Office,81369Y704,XLI,Select Sector Spdr Tr,equity,650000,50037000.00,1.4670
 2020-09-30,Duquesne Family Office,31620M106,FIS,Fidelity Natl Information Sv,equity,317851,46791000.00,1.3718
 2020-09-30,Duquesne Family Office,92343V104,VZ,Verizon Communications Inc,equity,567443,33757000.00,0.9897
-2020-09-30,Duquesne Family Office,143658300,CCL1EUR,Carnival Corp,equity,2002500,30398000.00,0.8912
+2020-09-30,Duquesne Family Office,143658300,CCL,Carnival Corp,equity,2002500,30398000.00,0.8912
 2020-09-30,Duquesne Family Office,09857L108,BKNG,Booking Holdings Inc,equity,17290,29578000.00,0.8672
 2020-09-30,Duquesne Family Office,30212P303,EXPE,Expedia Group Inc,equity,316278,29000000.00,0.8502
 2020-09-30,Duquesne Family Office,70450Y103,PYPL,Paypal Hldgs Inc,equity,141333,27847000.00,0.8164
@@ -43,7 +43,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2020-09-30,Duquesne Family Office,988498101,YUM,Yum Brands Inc,equity,151124,13798000.00,0.4045
 2020-09-30,Duquesne Family Office,902973304,USB,Us Bancorp Del,equity,363500,13031000.00,0.3820
 2020-09-30,Duquesne Family Office,835699307,SONY,Sony Corp,equity,167335,12843000.00,0.3765
-2020-09-30,Duquesne Family Office,25470M109,DISH,Dish Network Corporation,equity,392679,11399000.00,0.3342
+2020-09-30,Duquesne Family Office,25470M109,,Dish Network Corporation,equity,392679,11399000.00,0.3342
 2020-09-30,Duquesne Family Office,46266C105,IQV,Iqvia Hldgs Inc,equity,71710,11304000.00,0.3314
 2020-09-30,Duquesne Family Office,18915M107,NET,Cloudflare Inc,equity,256535,10533000.00,0.3088
 2020-09-30,Duquesne Family Office,90353T100,UBER,Uber Technologies Inc,equity,271444,9902000.00,0.2903

@@ -15,16 +15,16 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,FIS,Fidelity Natl Information Sv,31620M106,equity,0,204650,0,204650,,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,MA,Mastercard Incorporated,57636Q104,equity,0,78874,0,78874,,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,SYF,Synchrony Financial,87165B103,equity,0,547100,0,547100,,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,NKTREUR,Nektar Therapeutics,640268108,equity,0,1000000,0,1000000,,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,NKTR,Nektar Therapeutics,640268108,equity,0,1000000,0,1000000,,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,KBR,Kbr Inc,48242W106,equity,0,516057,0,516057,,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,SNOW,Snowflake Inc,833445109,equity,0,84745,0,84745,,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,MU,Micron Technology Inc,595112103,equity,0,183726,0,183726,,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,SPAQUSD,Fisker Inc,33813J106,equity,0,710900,0,710900,,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,,Fisker Inc,33813J106,equity,0,710900,0,710900,,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,,Canadian Pac Ry Ltd,13645T100,equity,0,13922,0,13922,,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,STLD,Steel Dynamics Inc,858119100,equity,0,97700,0,97700,,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,TIGR,Up Fintech Hldg Ltd,91531W106,equity,0,274635,0,274635,,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,,Dragoneer Growth Opportun Co,G28302100,equity,0,281879,0,281879,,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,SNSEEUR,Sensei Biotherapeutics Inc,81728A108,equity,0,100000,0,100000,,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,new,,Sensei Biotherapeutics Inc,81728A108,equity,0,100000,0,100000,,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,buy,SBUX,Starbucks Corp,855244109,equity,1977100,2258880,1977100,281780,14.25,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,buy,UBER,Uber Technologies Inc,90353T100,equity,321675,871675,321675,550000,170.98,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,buy,EXPE,Expedia Group Inc,30212P303,equity,270299,443094,270299,172795,63.93,1.000000
@@ -38,7 +38,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,buy,LIN,Linde Plc,G5494J103,equity,144675,159185,144675,14510,10.03,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,buy,FSLR,First Solar Inc,336433107,equity,231000,239475,231000,8475,3.67,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,sell,MSFT,Microsoft Corp,594918104,equity,2638074,2128753,2638074,-509321,-19.31,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,sell,NUANEUR,Nuance Communications Inc,67020Y100,equity,2911525,747851,2911525,-2163674,-74.31,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,sell,,Nuance Communications Inc,67020Y100,equity,2911525,747851,2911525,-2163674,-74.31,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,sell,TMUS,T-Mobile Us Inc,872590104,equity,2338580,1588140,2338580,-750440,-32.09,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,sell,CVNA,Carvana Co,146869102,equity,485981,213867,485981,-272114,-55.99,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,sell,PENN,Penn Natl Gaming Inc,707569109,equity,1517501,900304,1517501,-617197,-40.67,1.000000
@@ -48,23 +48,23 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,sell,AMZN,Amazon Com Inc,023135106,equity,82753,75648,82753,-7105,-8.59,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,sell,PANW,Palo Alto Networks Inc,697435105,equity,459060,417084,459060,-41976,-9.14,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,sell,FCX,Freeport-Mcmoran Inc,35671D857,equity,6284379,6124379,6284379,-160000,-2.55,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,,Arco Platform Ltd Com,G04553106,equity,236460,0,236460,-236460,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,LYV,Live Nation Entertainment In,538034109,equity,214350,0,214350,-214350,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,,Vapotherm Inc,922107107,equity,77660,0,77660,-77660,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,FSLY,Fastly Inc,31188V100,equity,157078,0,157078,-157078,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,SMH,Vaneck Vectors Etf Tr,92189F676,equity,123900,0,123900,-123900,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,SMARGBP,Smartsheet Inc,83200N103,equity,402361,0,402361,-402361,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,,Cyberark Software Ltd,M2682V108,equity,83965,0,83965,-83965,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,BMRN,Biomarin Pharmaceutical Inc,09061G101,equity,192700,0,192700,-192700,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,NYT,New York Times Co,650111107,equity,513150,0,513150,-513150,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,NEE,Nextera Energy Inc,65339F101,equity,779800,0,779800,-779800,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,SAILEUR,Sailpoint Technologies Hldgs,78781P105,equity,88005,0,88005,-88005,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,ADI,Analog Devices Inc,032654105,equity,213328,0,213328,-213328,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,CCL1EUR,Carnival Corp,143658300,equity,2644400,0,2644400,-2644400,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,WDAY,Workday Inc,98138H101,equity,119082,0,119082,-119082,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,IQV,Iqvia Hldgs Inc,46266C105,equity,201977,0,201977,-201977,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,CNQ,Canadian Nat Res Ltd,136385101,equity,411525,0,411525,-411525,-100.00,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,DIS,Disney Walt Co,254687106,equity,684335,0,684335,-684335,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,NEE,Nextera Energy Inc,65339F101,equity,779800,0,779800,-779800,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,CCL,Carnival Corp,143658300,equity,2644400,0,2644400,-2644400,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,IQV,Iqvia Hldgs Inc,46266C105,equity,201977,0,201977,-201977,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,ADI,Analog Devices Inc,032654105,equity,213328,0,213328,-213328,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,WDAY,Workday Inc,98138H101,equity,119082,0,119082,-119082,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,,Smartsheet Inc,83200N103,equity,402361,0,402361,-402361,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,SMH,Vaneck Vectors Etf Tr,92189F676,equity,123900,0,123900,-123900,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,NYT,New York Times Co,650111107,equity,513150,0,513150,-513150,-100.00,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,ELAN,Elanco Animal Health Inc,28414H103,equity,623975,0,623975,-623975,-100.00,1.000000
-2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,HES,Hess Corp,42809H107,equity,166800,0,166800,-166800,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,BMRN,Biomarin Pharmaceutical Inc,09061G101,equity,192700,0,192700,-192700,-100.00,1.000000
 2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,CRWD,Crowdstrike Hldgs Inc,22788C105,equity,78304,0,78304,-78304,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,LYV,Live Nation Entertainment In,538034109,equity,214350,0,214350,-214350,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,FSLY,Fastly Inc,31188V100,equity,157078,0,157078,-157078,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,,Cyberark Software Ltd,M2682V108,equity,83965,0,83965,-83965,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,CNQ,Canadian Nat Res Ltd,136385101,equity,411525,0,411525,-411525,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,HES,Hess Corp,42809H107,equity,166800,0,166800,-166800,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,,Arco Platform Ltd Com,G04553106,equity,236460,0,236460,-236460,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,,Sailpoint Technologies Hldgs,78781P105,equity,88005,0,88005,-88005,-100.00,1.000000
+2020-12-31,2020-12-31,2021-03-31,Duquesne Family Office,exit,,Vapotherm Inc,922107107,equity,77660,0,77660,-77660,-100.00,1.000000

@@ -12,7 +12,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2023-09-30,Duquesne Family Office,92537N108,VRT,Vertiv Holdings Co,equity,1886250,70169000.00,2.5178
 2023-09-30,Duquesne Family Office,92840M102,VST,Vistra Corp,equity,1988561,65980000.00,2.3675
 2023-09-30,Duquesne Family Office,166764100,CVX,Chevron Corp New,equity,384595,64850000.00,2.3270
-2023-09-30,Duquesne Family Office,G7997R103,,Seagate Technology Hldngs Pl,equity,915043,60347000.00,2.1654
+2023-09-30,Duquesne Family Office,G7997R103,STX,Seagate Technology Hldngs Pl,equity,915043,60347000.00,2.1654
 2023-09-30,Duquesne Family Office,12008R107,BLDR,Builders Firstsource Inc,equity,460755,57359000.00,2.0582
 2023-09-30,Duquesne Family Office,H42097107,,Ubs Group Ag,equity,2183445,54056000.00,1.9397
 2023-09-30,Duquesne Family Office,11135F101,AVGO,Broadcom Inc,equity,51956,43154000.00,1.5485
@@ -38,5 +38,5 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2023-09-30,Duquesne Family Office,00288U106,ABCL,Abcellera Biologics Inc,equity,659750,3035000.00,0.1089
 2023-09-30,Duquesne Family Office,546347105,LPX,Louisiana Pac Corp,equity,54432,3008000.00,0.1079
 2023-09-30,Duquesne Family Office,20464U100,COMP,Compass Inc,equity,399100,1157000.00,0.0415
-2023-09-30,Duquesne Family Office,G65163100,,Joby Aviation Inc,equity,22492,145000.00,0.0052
-2023-09-30,Duquesne Family Office,81728A108,SNSEEUR,Sensei Biotherapeutics Inc,equity,100000,80000.00,0.0029
+2023-09-30,Duquesne Family Office,G65163100,JOBY,Joby Aviation Inc,equity,22492,145000.00,0.0052
+2023-09-30,Duquesne Family Office,81728A108,,Sensei Biotherapeutics Inc,equity,100000,80000.00,0.0029

@@ -10,17 +10,17 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2017-09-30,Duquesne Family Office,47215P106,JD,Jd Com Inc,equity,2185100,83471000.00,3.7967
 2017-09-30,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,785600,82794000.00,3.7659
 2017-09-30,Duquesne Family Office,172967424,C,Citigroup Inc,equity,1095200,79665000.00,3.6236
-2017-09-30,Duquesne Family Office,22943F100,CTRPUSD,Ctrip Com Intl Ltd,equity,1412200,74479000.00,3.3877
+2017-09-30,Duquesne Family Office,22943F100,,Ctrip Com Intl Ltd,equity,1412200,74479000.00,3.3877
 2017-09-30,Duquesne Family Office,70450Y103,PYPL,Paypal Hldgs Inc,equity,925200,59241000.00,2.6946
 2017-09-30,Duquesne Family Office,30212P303,EXPE,Expedia Inc Del,equity,323884,46620000.00,2.1205
-2017-09-30,Duquesne Family Office,00507V109,ATVIEUR,Activision Blizzard Inc,equity,714100,46067000.00,2.0954
+2017-09-30,Duquesne Family Office,00507V109,,Activision Blizzard Inc,equity,714100,46067000.00,2.0954
 2017-09-30,Duquesne Family Office,517834107,LVS,Las Vegas Sands Corp,equity,614500,39426000.00,1.7933
 2017-09-30,Duquesne Family Office,464287556,IBB,Ishares Tr,equity,110700,36928000.00,1.6797
 2017-09-30,Duquesne Family Office,H1467J104,CB,Chubb Limited,equity,206600,29451000.00,1.3396
-2017-09-30,Duquesne Family Office,640268108,NKTREUR,Nektar Therapeutics,equity,1166100,27986000.00,1.2729
+2017-09-30,Duquesne Family Office,640268108,NKTR,Nektar Therapeutics,equity,1166100,27986000.00,1.2729
 2017-09-30,Duquesne Family Office,151020104,CELG,Celgene Corp,equity,188100,27429000.00,1.2476
-2017-09-30,Duquesne Family Office,H00263105,,Ac Immune Sa,equity,2388700,26992000.00,1.2277
-2017-09-30,Duquesne Family Office,74005P104,PXGBX,Praxair Inc,equity,184700,25810000.00,1.1740
+2017-09-30,Duquesne Family Office,H00263105,ACIU,Ac Immune Sa,equity,2388700,26992000.00,1.2277
+2017-09-30,Duquesne Family Office,74005P104,,Praxair Inc,equity,184700,25810000.00,1.1740
 2017-09-30,Duquesne Family Office,91912E105,VALE,Vale S A,equity,2478800,24962000.00,1.1354
 2017-09-30,Duquesne Family Office,98850P109,YUMC,Yum China Hldgs Inc,equity,597200,23870000.00,1.0857
 2017-09-30,Duquesne Family Office,57636Q104,MA,Mastercard Incorporated,equity,165200,23326000.00,1.0610
@@ -32,7 +32,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2017-09-30,Duquesne Family Office,75886F107,REGN,Regeneron Pharmaceuticals,equity,31800,14218000.00,0.6467
 2017-09-30,Duquesne Family Office,125269100,CF,Cf Inds Hldgs Inc,equity,391900,13779000.00,0.6267
 2017-09-30,Duquesne Family Office,40415F101,HDB,Hdfc Bank Ltd,equity,128200,12355000.00,0.5620
-2017-09-30,Duquesne Family Office,73755L107,POT1EUR,Potash Corp Sask Inc,equity,609900,11734000.00,0.5337
+2017-09-30,Duquesne Family Office,73755L107,,Potash Corp Sask Inc,equity,609900,11734000.00,0.5337
 2017-09-30,Duquesne Family Office,399909100,GGAL,Grupo Financiero Galicia S A,equity,200000,10308000.00,0.4689
 2017-09-30,Duquesne Family Office,G27358103,,Despegar Com Corp,equity,300000,9600000.00,0.4367
 2017-09-30,Duquesne Family Office,45337C102,INCY,Incyte Corp,equity,75400,8802000.00,0.4004

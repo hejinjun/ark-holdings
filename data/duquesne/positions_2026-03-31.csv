@@ -4,9 +4,9 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2026-03-31,Duquesne Family Office,874039100,TSM,Taiwan Semiconductor Manufac,equity,495280,167380000.00,5.6987
 2026-03-31,Duquesne Family Office,984245100,YPF,Ypf Sociedad Anonima,equity,3235962,149566000.00,5.0922
 2026-03-31,Duquesne Family Office,464286400,EWZ,Ishares Inc,equity,3436170,131915000.00,4.4912
-2026-03-31,Duquesne Family Office,G0896C103,,Bbb Foods Inc,equity,3109202,109972000.00,3.7441
+2026-03-31,Duquesne Family Office,G0896C103,TBBB,Bbb Foods Inc,equity,3109202,109972000.00,3.7441
 2026-03-31,Duquesne Family Office,013872106,AA,Alcoa Corp,equity,1493390,99057000.00,3.3725
-2026-03-31,Duquesne Family Office,N62509109,,Newamsterdam Pharma Company,equity,3070146,98275000.00,3.3459
+2026-03-31,Duquesne Family Office,N62509109,NAMS,Newamsterdam Pharma Company,equity,3070146,98275000.00,3.3459
 2026-03-31,Duquesne Family Office,81141R100,SE,Sea Ltd,equity,1099905,91083000.00,3.1010
 2026-03-31,Duquesne Family Office,861012102,STM,Stmicroelectronics N V,equity,2612880,90275000.00,3.0735
 2026-03-31,Duquesne Family Office,980745103,WWD,Woodward Inc,equity,211355,75648000.00,2.5755
@@ -31,7 +31,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2026-03-31,Duquesne Family Office,84265V105,SCCO,Southern Copper Corp,equity,121843,20964000.00,0.7137
 2026-03-31,Duquesne Family Office,46428R107,GSG,Ishares S&amp;P Gsci Commodity-,equity,643000,20737000.00,0.7060
 2026-03-31,Duquesne Family Office,G54950103,LIN,Linde Plc,equity,41200,20425000.00,0.6954
-2026-03-31,Duquesne Family Office,G7997R103,,Seagate Technology Hldngs Pl,equity,50700,19862000.00,0.6762
+2026-03-31,Duquesne Family Office,G7997R103,STX,Seagate Technology Hldngs Pl,equity,50700,19862000.00,0.6762
 2026-03-31,Duquesne Family Office,185899101,CLF,Cleveland-Cliffs Inc New,equity,2313455,19549000.00,0.6656
 2026-03-31,Duquesne Family Office,67080N101,NUVB,Nuvation Bio Inc,equity,4539800,19476000.00,0.6631
 2026-03-31,Duquesne Family Office,093712107,BE,Bloom Energy Corp,equity,136320,18470000.00,0.6288
@@ -63,4 +63,4 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2026-03-31,Duquesne Family Office,58733R102,MELI,Mercadolibre  Inc,equity,2766,4782000.00,0.1628
 2026-03-31,Duquesne Family Office,83443Q103,SOLS,Solstice Advanced Matls Inc,equity,62525,4762000.00,0.1621
 2026-03-31,Duquesne Family Office,960413102,WLK,Westlake Corporation,equity,21194,2476000.00,0.0843
-2026-03-31,Duquesne Family Office,Y95308105,,Wave Life Sciences Ltd,equity,173000,1254000.00,0.0427
+2026-03-31,Duquesne Family Office,Y95308105,WVE,Wave Life Sciences Ltd,equity,173000,1254000.00,0.0427

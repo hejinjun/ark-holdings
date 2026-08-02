@@ -6,8 +6,8 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2015-03-31,Duquesne Family Office,26875P101,EOG,EOG Res&apos;s Inc,equity,561600,51493000.00,6.5431
 2015-03-31,Duquesne Family Office,881624209,TEVA,Teva Pharm Ind&apos;s Ltd,equity,790500,49248000.00,6.2578
 2015-03-31,Duquesne Family Office,192446102,CTSH,Cognizant Tech Sol&apos;ns Corp,equity,726900,45351000.00,5.7626
-2015-03-31,Duquesne Family Office,723787107,PXDEUR,Pioneer Nat&apos;l Res&apos;s Co,equity,224500,36708000.00,4.6644
-2015-03-31,Duquesne Family Office,655044105,NBL2EUR,Noble Energy Inc,equity,621300,30382000.00,3.8606
+2015-03-31,Duquesne Family Office,723787107,,Pioneer Nat&apos;l Res&apos;s Co,equity,224500,36708000.00,4.6644
+2015-03-31,Duquesne Family Office,655044105,,Noble Energy Inc,equity,621300,30382000.00,3.8606
 2015-03-31,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,330679,27913000.00,3.5468
 2015-03-31,Duquesne Family Office,456788108,INFY,Infosys Ltd,equity,756500,26538000.00,3.3721
 2015-03-31,Duquesne Family Office,00971T101,AKAM,Akamai Tech Inc,equity,355300,25242000.00,3.2074
@@ -21,9 +21,9 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2015-03-31,Duquesne Family Office,056752108,BIDU,Baidu.com Inc,equity,86200,17964000.00,2.2826
 2015-03-31,Duquesne Family Office,30212P303,EXPE,Expedia Inc,equity,160000,15061000.00,1.9138
 2015-03-31,Duquesne Family Office,556099109,MGNX,Macrogenics Inc,equity,472500,14822000.00,1.8834
-2015-03-31,Duquesne Family Office,640268108,NKTREUR,Nektar Therapeutics,equity,655000,7205000.00,0.9155
+2015-03-31,Duquesne Family Office,640268108,NKTR,Nektar Therapeutics,equity,655000,7205000.00,0.9155
 2015-03-31,Duquesne Family Office,05961W105,BMA,Banco Macro SA,equity,110100,6298000.00,0.8003
 2015-03-31,Duquesne Family Office,57722W106,,Mattress Firm Hldg Corp,equity,86900,6052000.00,0.7690
 2015-03-31,Duquesne Family Office,879273209,TEO,Telecom Argentina SA,equity,248000,5632000.00,0.7156
 2015-03-31,Duquesne Family Office,697660207,PAM,Pampa Energia SA,equity,214899,3797000.00,0.4825
-2015-03-31,Duquesne Family Office,450047204,IRSUSD,IRSA Inversiones Y Rep SA,equity,40300,794000.00,0.1009
+2015-03-31,Duquesne Family Office,450047204,,IRSA Inversiones Y Rep SA,equity,40300,794000.00,0.1009

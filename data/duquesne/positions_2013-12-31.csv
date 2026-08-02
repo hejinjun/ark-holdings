@@ -8,15 +8,15 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2013-12-31,Duquesne Family Office,110122108,BMY,Bristol-Myers Squibb Co,equity,954200,50716000.00,3.3792
 2013-12-31,Duquesne Family Office,881624209,TEVA,Teva Pharm Ind&apos;s Ltd,equity,1241000,49739000.00,3.3141
 2013-12-31,Duquesne Family Office,375558103,GILD,Gilead Sciences Inc.,equity,610700,45864000.00,3.0559
-2013-12-31,Duquesne Family Office,013817101,AA,Alcoa Inc.,equity,4000000,42520000.00,2.8331
+2013-12-31,Duquesne Family Office,013817101,,Alcoa Inc.,equity,4000000,42520000.00,2.8331
 2013-12-31,Duquesne Family Office,98138H101,WDAY,Workday Inc.,equity,505500,42037000.00,2.8009
 2013-12-31,Duquesne Family Office,406216101,HAL,Halliburton Co,equity,826700,41955000.00,2.7954
 2013-12-31,Duquesne Family Office,228227104,,Crwn Castle Int&apos;l Corp.,equity,540200,39667000.00,2.6430
-2013-12-31,Duquesne Family Office,723787107,PXDEUR,Pioneer Nat&apos;l Res&apos;s Co,equity,197800,36409000.00,2.4259
-2013-12-31,Duquesne Family Office,78388J106,,SBA Comms Corp,equity,397400,35702000.00,2.3788
+2013-12-31,Duquesne Family Office,723787107,,Pioneer Nat&apos;l Res&apos;s Co,equity,197800,36409000.00,2.4259
+2013-12-31,Duquesne Family Office,78388J106,SBAC,SBA Comms Corp,equity,397400,35702000.00,2.3788
 2013-12-31,Duquesne Family Office,29264F205,,Endo Health Sol&apos;ns Inc.,equity,527000,35551000.00,2.3687
 2013-12-31,Duquesne Family Office,124857202,,CBS Corp,equity,481700,30704000.00,2.0458
-2013-12-31,Duquesne Family Office,25470M109,DISH,DISH Network Corp,equity,515000,29829000.00,1.9875
+2013-12-31,Duquesne Family Office,25470M109,,DISH Network Corp,equity,515000,29829000.00,1.9875
 2013-12-31,Duquesne Family Office,91913Y100,VLO,Valero Energy Corp,equity,578900,29177000.00,1.9441
 2013-12-31,Duquesne Family Office,56585A102,MPC,Marathon Petroleum Corp,equity,315900,28978000.00,1.9308
 2013-12-31,Duquesne Family Office,229678107,,Cubist Pharms Inc.,equity,413000,28443000.00,1.8951
@@ -24,18 +24,18 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2013-12-31,Duquesne Family Office,09062X103,BIIB,Biogen Idec Inc.,equity,91500,25581000.00,1.7045
 2013-12-31,Duquesne Family Office,26884L109,EQT,EQT Corp,equity,284900,25578000.00,1.7043
 2013-12-31,Duquesne Family Office,478160104,JNJ,Johnson &amp; Johnson,equity,235000,21524000.00,1.4341
-2013-12-31,Duquesne Family Office,046353108,AZNN,Astrazeneca PLC,equity,360500,21403000.00,1.4261
+2013-12-31,Duquesne Family Office,046353108,AZN,Astrazeneca PLC,equity,360500,21403000.00,1.4261
 2013-12-31,Duquesne Family Office,00724F101,ADBE,Adobe Systems Inc,equity,336800,20167000.00,1.3437
 2013-12-31,Duquesne Family Office,95058W100,WEN,The Wendy&apos;s Co,equity,2000000,17440000.00,1.1620
 2013-12-31,Duquesne Family Office,97717W851,DXJ,WisdomTree Jpn Hdgd Eq Fnd,equity,303500,15430000.00,1.0281
 2013-12-31,Duquesne Family Office,81369Y605,XLF,Fin&apos;l Select Sctr SPDR Fnd,equity,699000,15280000.00,1.0181
-2013-12-31,Duquesne Family Office,057224107,,Baker Hughes Inc.,equity,268000,14810000.00,0.9868
+2013-12-31,Duquesne Family Office,057224107,BKR,Baker Hughes Inc.,equity,268000,14810000.00,0.9868
 2013-12-31,Duquesne Family Office,097023105,BA,Boeing Co,equity,99200,13540000.00,0.9022
 2013-12-31,Duquesne Family Office,867652406,SPWRQ,Sunpower Corp,equity,442500,13191000.00,0.8789
 2013-12-31,Duquesne Family Office,16411R208,LNG,Cheniere Energy Inc.,equity,303200,13074000.00,0.8711
 2013-12-31,Duquesne Family Office,81369Y704,XLI,Ind&apos;l Select Sctr SPDR Fnd,equity,222900,11649000.00,0.7762
 2013-12-31,Duquesne Family Office,81369Y407,XLY,Cons Disc Sel Sctr SPDR Fnd,equity,170800,11415000.00,0.7606
-2013-12-31,Duquesne Family Office,891894107,,Towers Watson &amp; Co.,equity,88300,11268000.00,0.7508
+2013-12-31,Duquesne Family Office,891894107,WTW,Towers Watson &amp; Co.,equity,88300,11268000.00,0.7508
 2013-12-31,Duquesne Family Office,81369Y209,XLV,Hlth Car Select Sctr SPDR Fnd,equity,188300,10439000.00,0.6955
 2013-12-31,Duquesne Family Office,81369Y803,XLK,Tech Car Select Sctr SPDR Fnd,equity,285700,10211000.00,0.6804
 2013-12-31,Duquesne Family Office,M51363113,,Mellanox Tech&apos;s Ltd.,equity,251500,10052000.00,0.6698

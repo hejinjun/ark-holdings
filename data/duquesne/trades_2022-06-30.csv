@@ -8,7 +8,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,AMR,Alpha Metallurgical Resour I,020764106,equity,0,136720,0,136720,,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,NTRA,Natera Inc,632307104,equity,0,414955,0,414955,,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,ALNY,Alnylam Pharmaceuticals Inc,02043Q107,equity,0,88910,0,88910,,1.000000
-2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,ARCH1USD,Arch Resources Inc,03940R107,equity,0,147935,0,147935,,1.000000
+2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,,Arch Resources Inc,03940R107,equity,0,147935,0,147935,,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,NFE,New Fortress Energy Inc,644393100,equity,0,387325,0,387325,,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,NET,Cloudflare Inc,18915M107,equity,0,249305,0,249305,,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,SHOP,Shopify Inc,82509L107,equity,0,490250,0,490250,,1.000000
@@ -20,12 +20,12 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,CEG,Constellation Energy Corp,21037T109,equity,0,88825,0,88825,,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,NEE,Nextera Energy Inc,65339F101,equity,0,93400,0,93400,,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,TSM,Taiwan Semiconductor Mfg Ltd,874039100,equity,0,87900,0,87900,,1.000000
-2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,FWONKUSD,Liberty Media Corp Del,531229854,equity,0,85400,0,85400,,1.000000
+2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,,Liberty Media Corp Del,531229854,equity,0,85400,0,85400,,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,RUN,Sunrun Inc,86771W105,equity,0,139000,0,139000,,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,AVTR,Avantor Inc,05352A100,equity,0,189695,0,189695,,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,TXG,10X Genomics Inc,88025U109,equity,0,116715,0,116715,,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,BTU,Peabody Energy Corp,704551100,equity,0,21587,0,21587,,1.000000
-2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,,Joby Aviation Inc,G65163100,equity,0,11246,0,11246,,1.000000
+2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,new,JOBY,Joby Aviation Inc,G65163100,equity,0,11246,0,11246,,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,buy,LLY,Lilly Eli &amp; Co,532457108,equity,297150,484895,297150,187745,63.18,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,buy,DDOG,Datadog Inc,23804L103,equity,298040,789175,298040,491135,164.79,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,buy,WDAY,Workday Inc,98138H101,equity,82500,240925,82500,158425,192.03,1.000000
@@ -33,10 +33,10 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,buy,PANW,Palo Alto Networks Inc,697435105,equity,51400,154848,51400,103448,201.26,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,buy,RXRX,Recursion Pharmaceuticals In,75629V104,equity,273650,1385950,273650,1112300,406.47,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,buy,TECK,Teck Resources Ltd,878742204,equity,1061170,1371195,1061170,310025,29.22,1.000000
-2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,buy,PXDEUR,Pioneer Nat Res Co,723787107,equity,48455,91530,48455,43075,88.90,1.000000
+2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,buy,,Pioneer Nat Res Co,723787107,equity,48455,91530,48455,43075,88.90,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,buy,TMUS,T-Mobile Us Inc,872590104,equity,676867,719017,676867,42150,6.23,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,buy,OPEN,Opendoor Technologies Inc,683712103,equity,233000,1538085,233000,1305085,560.12,1.000000
-2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,buy,SMARGBP,Smartsheet Inc,83200N103,equity,149800,151500,149800,1700,1.13,1.000000
+2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,buy,,Smartsheet Inc,83200N103,equity,149800,151500,149800,1700,1.13,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,sell,MSFT,Microsoft Corp,594918104,equity,740785,193535,740785,-547250,-73.87,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,sell,FCX,Freeport-Mcmoran Inc,35671D857,equity,3231827,1169777,3231827,-2062050,-63.80,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,sell,WSC,Willscot Mobil Mini Hldng Co,971378104,equity,1767631,977631,1767631,-790000,-44.69,1.000000
@@ -49,8 +49,8 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,sell,CVE,Cenovus Energy Inc,15135U109,equity,1069345,837845,1069345,-231500,-21.65,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,sell,EQT,Eqt Corp,26884L109,equity,259055,240080,259055,-18975,-7.32,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,exit,WLK,Westlake Corporation,960413102,equity,145520,0,145520,-145520,-100.00,1.000000
-2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,exit,PRCT,Procept Biorobotics Corp,74276L105,equity,39266,0,39266,-39266,-100.00,1.000000
-2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,exit,IOT,Samsara Inc,79589L106,equity,400900,0,400900,-400900,-100.00,1.000000
-2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,exit,PSX,Phillips 66,718546104,equity,119380,0,119380,-119380,-100.00,1.000000
 2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,exit,BKNG,Booking Holdings Inc,09857L108,equity,7748,0,7748,-7748,-100.00,1.000000
-2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,exit,,Global E Online Ltd,M5216V106,equity,20180,0,20180,-20180,-100.00,1.000000
+2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,exit,PSX,Phillips 66,718546104,equity,119380,0,119380,-119380,-100.00,1.000000
+2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,exit,IOT,Samsara Inc,79589L106,equity,400900,0,400900,-400900,-100.00,1.000000
+2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,exit,PRCT,Procept Biorobotics Corp,74276L105,equity,39266,0,39266,-39266,-100.00,1.000000
+2022-06-30,2022-06-30,2022-09-30,Duquesne Family Office,exit,GLBE,Global E Online Ltd,M5216V106,equity,20180,0,20180,-20180,-100.00,1.000000

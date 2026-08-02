@@ -11,9 +11,9 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2025-12-31,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc,equity,385000,120505000.00,2.8555
 2025-12-31,Duquesne Family Office,81141R100,SE,Sea Ltd,equity,944120,120441000.00,2.8540
 2025-12-31,Duquesne Family Office,464286400,EWZ,Ishares Inc,equity,3552575,112865000.00,2.6745
-2025-12-31,Duquesne Family Office,N62509109,,Newamsterdam Pharma Company,equity,3070146,107701000.00,2.5521
+2025-12-31,Duquesne Family Office,N62509109,NAMS,Newamsterdam Pharma Company,equity,3070146,107701000.00,2.5521
 2025-12-31,Duquesne Family Office,58733R102,MELI,Mercadolibre Inc,equity,47149,94970000.00,2.2505
-2025-12-31,Duquesne Family Office,G0896C103,,Bbb Foods Inc,equity,2675152,89323000.00,2.1166
+2025-12-31,Duquesne Family Office,G0896C103,TBBB,Bbb Foods Inc,equity,2675152,89323000.00,2.1166
 2025-12-31,Duquesne Family Office,76131D103,QSR,Restaurant Brands Intl Inc,equity,1209000,82490000.00,1.9547
 2025-12-31,Duquesne Family Office,19240Q201,COGT,Cogent Biosciences Inc,equity,2214470,78658000.00,1.8639
 2025-12-31,Duquesne Family Office,013872106,AA,Alcoa Corp,equity,1376050,73123000.00,1.7328
@@ -45,7 +45,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2025-12-31,Duquesne Family Office,169656105,CMG,Chipotle Mexican Grill Inc,equity,391930,14501000.00,0.3436
 2025-12-31,Duquesne Family Office,74366E102,PTGX,Protagonist Therapeutics Inc,equity,159700,13948000.00,0.3305
 2025-12-31,Duquesne Family Office,98954M200,Z,Zillow Group Inc,equity,192640,13142000.00,0.3114
-2025-12-31,Duquesne Family Office,171757206,CDTX,Cidara Therapeutics Inc,equity,49495,10933000.00,0.2591
+2025-12-31,Duquesne Family Office,171757206,,Cidara Therapeutics Inc,equity,49495,10933000.00,0.2591
 2025-12-31,Duquesne Family Office,718172109,PM,Philip Morris Intl Inc,equity,67400,10811000.00,0.2562
 2025-12-31,Duquesne Family Office,02376R102,AAL,American Airls Group Inc,equity,639785,9808000.00,0.2324
 2025-12-31,Duquesne Family Office,04010E109,AGX,Argan Inc,equity,30000,9400000.00,0.2227
@@ -55,5 +55,5 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2025-12-31,Duquesne Family Office,000899104,ADMA,Adma Biologics Inc,equity,252200,4600000.00,0.1090
 2025-12-31,Duquesne Family Office,020398707,ALM,Almonty Inds Inc,equity,469880,4140000.00,0.0981
 2025-12-31,Duquesne Family Office,97785W106,WOLF,Wolfspeed Inc,equity,186900,3254000.00,0.0771
-2025-12-31,Duquesne Family Office,Y95308105,,Wave Life Sciences Ltd,equity,173000,2941000.00,0.0697
+2025-12-31,Duquesne Family Office,Y95308105,WVE,Wave Life Sciences Ltd,equity,173000,2941000.00,0.0697
 2025-12-31,Duquesne Family Office,64073B103,NP,Neptune Ins Hldgs Inc,equity,20000,583000.00,0.0138

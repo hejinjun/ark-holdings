@@ -1,5 +1,5 @@
 trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_class,prev_shares,shares,expected_shares,active_shares,active_pct,flow_factor
-2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,ANETEUR,Arista Networks Inc,040413106,equity,0,234185,0,234185,,1.000000
+2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,ANET,Arista Networks Inc,040413106,equity,0,234185,0,234185,,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,WWD,Woodward Inc,980745103,equity,0,404635,0,404635,,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,SGI,Tempur Sealy Intl Inc,88023U101,equity,0,749100,0,749100,,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,,Flex Ltd,Y2573F102,equity,0,1134400,0,1134400,,1.000000
@@ -19,7 +19,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,KRE,Spdr Ser Tr,78464A698,equity,0,153965,0,153965,,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,OLED,Universal Display Corp,91347P105,equity,0,28400,0,28400,,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,new,SCHW,Schwab Charles Corp,808513105,equity,0,71700,0,71700,,1.000000
-2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,buy,,Seagate Technology Hldngs Pl,G7997R103,equity,915043,2116108,915043,1201065,131.26,1.000000
+2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,buy,STX,Seagate Technology Hldngs Pl,G7997R103,equity,915043,2116108,915043,1201065,131.26,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,buy,TECK,Teck Resources Ltd,878742204,equity,4105677,5524602,4105677,1418925,34.56,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,buy,KBR,Kbr Inc,48242W106,equity,505658,1158535,505658,652877,129.11,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,buy,CPNG,Coupang Inc,22266T109,equity,20903865,22914940,20903865,2011075,9.62,1.000000
@@ -37,14 +37,14 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,sell,LLY,Eli Lilly &amp; Co,532457108,equity,454115,402550,454115,-51565,-11.36,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,sell,NWSA,News Corp New,65249B109,equity,4772025,4045120,4772025,-726905,-15.23,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,sell,CP,Canadian Pacific Kansas City,13646K108,equity,119100,47505,119100,-71595,-60.11,1.000000
-2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,RIG,Transocean Ltd,H8817H100,equity,1844175,0,1844175,-1844175,-100.00,1.000000
-2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,BABA,Alibaba Group Hldg Ltd,01609W102,equity,307500,0,307500,-307500,-100.00,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,GOOGL,Alphabet Inc,02079K305,equity,838375,0,838375,-838375,-100.00,1.000000
-2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,OPEN,Opendoor Technologies Inc,683712103,equity,1538085,0,1538085,-1538085,-100.00,1.000000
-2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,AVGO,Broadcom Inc,11135F101,equity,51956,0,51956,-51956,-100.00,1.000000
-2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,J,Jacobs Solutions Inc,46982L108,equity,74415,0,74415,-74415,-100.00,1.000000
-2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,DHR,Danaher Corporation,235851102,equity,76040,0,76040,-76040,-100.00,1.000000
-2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,BLDR,Builders Firstsource Inc,12008R107,equity,460755,0,460755,-460755,-100.00,1.000000
-2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,COMP,Compass Inc,20464U100,equity,399100,0,399100,-399100,-100.00,1.000000
-2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,AMZN,Amazon Com Inc,023135106,equity,136690,0,136690,-136690,-100.00,1.000000
 2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,TMUS,T-Mobile Us Inc,872590104,equity,756675,0,756675,-756675,-100.00,1.000000
+2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,BLDR,Builders Firstsource Inc,12008R107,equity,460755,0,460755,-460755,-100.00,1.000000
+2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,AVGO,Broadcom Inc,11135F101,equity,51956,0,51956,-51956,-100.00,1.000000
+2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,BABA,Alibaba Group Hldg Ltd,01609W102,equity,307500,0,307500,-307500,-100.00,1.000000
+2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,DHR,Danaher Corporation,235851102,equity,76040,0,76040,-76040,-100.00,1.000000
+2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,AMZN,Amazon Com Inc,023135106,equity,136690,0,136690,-136690,-100.00,1.000000
+2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,RIG,Transocean Ltd,H8817H100,equity,1844175,0,1844175,-1844175,-100.00,1.000000
+2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,J,Jacobs Solutions Inc,46982L108,equity,74415,0,74415,-74415,-100.00,1.000000
+2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,OPEN,Opendoor Technologies Inc,683712103,equity,1538085,0,1538085,-1538085,-100.00,1.000000
+2023-09-30,2023-09-30,2023-12-31,Duquesne Family Office,exit,COMP,Compass Inc,20464U100,equity,399100,0,399100,-399100,-100.00,1.000000

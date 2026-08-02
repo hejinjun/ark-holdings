@@ -4,7 +4,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2018-12-31,Duquesne Family Office,79466L302,CRM,Salesforce Com Inc,equity,1072585,146912000.00,9.0269
 2018-12-31,Duquesne Family Office,002824100,ABT,Abbott Labs,equity,1295700,93718000.00,5.7584
 2018-12-31,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,525400,83896000.00,5.1549
-2018-12-31,Duquesne Family Office,22266L106,COUPEUR,Coupa Software Inc,equity,1131000,71095000.00,4.3684
+2018-12-31,Duquesne Family Office,22266L106,,Coupa Software Inc,equity,1131000,71095000.00,4.3684
 2018-12-31,Duquesne Family Office,00724F101,ADBE,Adobe Inc,equity,301015,68102000.00,4.1845
 2018-12-31,Duquesne Family Office,464287234,EEM,Ishares Tr,equity,1679700,65609000.00,4.0313
 2018-12-31,Duquesne Family Office,375558103,GILD,Gilead Sciences Inc,equity,1023345,64010000.00,3.9330
@@ -15,17 +15,17 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2018-12-31,Duquesne Family Office,464287556,IBB,Ishares Tr,equity,350300,33779000.00,2.0755
 2018-12-31,Duquesne Family Office,247361702,DAL,Delta Air Lines Inc Del,equity,626600,31267000.00,1.9212
 2018-12-31,Duquesne Family Office,01609W102,BABA,Alibaba Group Hldg Ltd,equity,174400,23905000.00,1.4688
-2018-12-31,Duquesne Family Office,H00263105,,Ac Immune Sa,equity,2491517,23545000.00,1.4467
+2018-12-31,Duquesne Family Office,H00263105,ACIU,Ac Immune Sa,equity,2491517,23545000.00,1.4467
 2018-12-31,Duquesne Family Office,58733R102,MELI,Mercadolibre Inc,equity,74016,21676000.00,1.3319
 2018-12-31,Duquesne Family Office,64110L106,NFLX,Netflix Inc,equity,66010,17668000.00,1.0856
 2018-12-31,Duquesne Family Office,02376R102,AAL,American Airls Group Inc,equity,524900,16855000.00,1.0356
 2018-12-31,Duquesne Family Office,00846U101,A,Agilent Technologies Inc,equity,221300,14929000.00,0.9173
 2018-12-31,Duquesne Family Office,81762P102,NOW,Servicenow Inc,equity,82200,14636000.00,0.8993
-2018-12-31,Duquesne Family Office,436440101,HO1,Hologic Inc,equity,336700,13838000.00,0.8503
+2018-12-31,Duquesne Family Office,436440101,,Hologic Inc,equity,336700,13838000.00,0.8503
 2018-12-31,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc,equity,11299,11807000.00,0.7255
 2018-12-31,Duquesne Family Office,679295105,OKTA,Okta Inc,equity,173900,11095000.00,0.6817
 2018-12-31,Duquesne Family Office,500255104,KSS,Kohls Corp,equity,147500,9785000.00,0.6012
 2018-12-31,Duquesne Family Office,052769106,ADSK,Autodesk Inc,equity,26690,3433000.00,0.2109
-2018-12-31,Duquesne Family Office,98936J101,ZEN1EUR,Zendesk Inc,equity,57600,3362000.00,0.2066
+2018-12-31,Duquesne Family Office,98936J101,,Zendesk Inc,equity,57600,3362000.00,0.2066
 2018-12-31,Duquesne Family Office,067901108,ABX,Barrick Gold Corp,equity,149300,2022000.00,0.1242
 2018-12-31,Duquesne Family Office,N14506104,ESTC,Elastic N V,equity,10000,715000.00,0.0439

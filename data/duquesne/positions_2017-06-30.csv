@@ -7,24 +7,24 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2017-06-30,Duquesne Family Office,01609W102,BABA,Alibaba Group Hldg Ltd,equity,710200,100067000.00,5.3616
 2017-06-30,Duquesne Family Office,79466L302,CRM,Salesforce Com Inc,equity,1081600,93667000.00,5.0187
 2017-06-30,Duquesne Family Office,20030N101,CMCSA,Comcast Corp New,equity,1968400,76610000.00,4.1048
-2017-06-30,Duquesne Family Office,22943F100,CTRPUSD,Ctrip Com Intl Ltd,equity,1412200,76061000.00,4.0754
+2017-06-30,Duquesne Family Office,22943F100,,Ctrip Com Intl Ltd,equity,1412200,76061000.00,4.0754
 2017-06-30,Duquesne Family Office,285512109,EA,Electronic Arts Inc,equity,713900,75474000.00,4.0439
 2017-06-30,Duquesne Family Office,47215P106,JD,Jd Com Inc,equity,1358800,53292000.00,2.8554
 2017-06-30,Duquesne Family Office,70450Y103,PYPL,Paypal Hldgs Inc,equity,925200,49655000.00,2.6605
 2017-06-30,Duquesne Family Office,58933Y105,MRK,Merck &amp; Co Inc,equity,755500,48420000.00,2.5944
 2017-06-30,Duquesne Family Office,30212P303,EXPE,Expedia Inc Del,equity,323884,48243000.00,2.5849
 2017-06-30,Duquesne Family Office,81762P102,NOW,Servicenow Inc,equity,428000,45368000.00,2.4308
-2017-06-30,Duquesne Family Office,00507V109,ATVIEUR,Activision Blizzard Inc,equity,714100,41111000.00,2.2027
+2017-06-30,Duquesne Family Office,00507V109,,Activision Blizzard Inc,equity,714100,41111000.00,2.2027
 2017-06-30,Duquesne Family Office,517834107,LVS,Las Vegas Sands Corp,equity,614500,39260000.00,2.1036
 2017-06-30,Duquesne Family Office,052769106,ADSK,Autodesk Inc,equity,347800,35065000.00,1.8788
-2017-06-30,Duquesne Family Office,73755L107,POT1EUR,Potash Corp Sask Inc,equity,2093500,34124000.00,1.8284
+2017-06-30,Duquesne Family Office,73755L107,,Potash Corp Sask Inc,equity,2093500,34124000.00,1.8284
 2017-06-30,Duquesne Family Office,64110W102,NTES,Netease Inc,equity,85700,25764000.00,1.3804
 2017-06-30,Duquesne Family Office,464287556,IBB,Ishares Tr,equity,82400,25563000.00,1.3697
 2017-06-30,Duquesne Family Office,69370C100,PTC,Ptc Inc,equity,449600,24782000.00,1.3278
 2017-06-30,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,250300,24279000.00,1.3009
 2017-06-30,Duquesne Family Office,98850P109,YUMC,Yum China Hldgs Inc,equity,597200,23548000.00,1.2617
-2017-06-30,Duquesne Family Office,640268108,NKTREUR,Nektar Therapeutics,equity,1166100,22797000.00,1.2215
-2017-06-30,Duquesne Family Office,H00263105,,Ac Immune Sa,equity,2388700,21021000.00,1.1263
+2017-06-30,Duquesne Family Office,640268108,NKTR,Nektar Therapeutics,equity,1166100,22797000.00,1.2215
+2017-06-30,Duquesne Family Office,H00263105,ACIU,Ac Immune Sa,equity,2388700,21021000.00,1.1263
 2017-06-30,Duquesne Family Office,247361702,DAL,Delta Air Lines Inc Del,equity,391000,21012000.00,1.1258
 2017-06-30,Duquesne Family Office,92826C839,V,Visa Inc,equity,216400,20294000.00,1.0874
 2017-06-30,Duquesne Family Office,02376R102,AAL,American Airls Group Inc,equity,400000,20128000.00,1.0785

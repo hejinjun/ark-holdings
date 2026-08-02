@@ -22,10 +22,10 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2022-12-31,Duquesne Family Office,69047Q102,OVV,Ovintiv Inc,equity,413980,20992926.00,1.0448
 2022-12-31,Duquesne Family Office,007903107,AMD,Advanced Micro Devices Inc,equity,308235,19964381.00,0.9936
 2022-12-31,Duquesne Family Office,701094104,PH,Parker-Hannifin Corp,equity,66800,19438800.00,0.9675
-2022-12-31,Duquesne Family Office,03940R107,ARCH1USD,Arch Resources Inc,equity,129140,18439901.00,0.9178
+2022-12-31,Duquesne Family Office,03940R107,,Arch Resources Inc,equity,129140,18439901.00,0.9178
 2022-12-31,Duquesne Family Office,91912E105,VALE,Vale S A,equity,1045000,17733650.00,0.8826
 2022-12-31,Duquesne Family Office,13321L108,CCJ,Cameco Corp,equity,748204,16961785.00,0.8442
-2022-12-31,Duquesne Family Office,723787107,PXDEUR,Pioneer Nat Res Co,equity,71505,16331027.00,0.8128
+2022-12-31,Duquesne Family Office,723787107,,Pioneer Nat Res Co,equity,71505,16331027.00,0.8128
 2022-12-31,Duquesne Family Office,149123101,CAT,Caterpillar Inc,equity,63800,15283928.00,0.7607
 2022-12-31,Duquesne Family Office,697435105,PANW,Palo Alto Networks Inc,equity,109270,15247536.00,0.7589
 2022-12-31,Duquesne Family Office,971378104,WSC,Willscot Mobil Mini Hldng Co,equity,309866,13996647.00,0.6966
@@ -47,12 +47,12 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2022-12-31,Duquesne Family Office,86771W105,RUN,Sunrun Inc,equity,139000,3338780.00,0.1662
 2022-12-31,Duquesne Family Office,12510Q100,CCC,Ccc Intelligent Solutions Hl,equity,281879,2452347.00,0.1221
 2022-12-31,Duquesne Family Office,687793109,OSCR,Oscar Health Inc,equity,994289,2445951.00,0.1217
-2022-12-31,Duquesne Family Office,75615P103,RETAEUR,Reata Pharmaceuticals Inc,equity,58997,2241296.00,0.1116
+2022-12-31,Duquesne Family Office,75615P103,,Reata Pharmaceuticals Inc,equity,58997,2241296.00,0.1116
 2022-12-31,Duquesne Family Office,48666K109,KBH,Kb Home,equity,58535,1864340.00,0.0928
 2022-12-31,Duquesne Family Office,683712103,OPEN,Opendoor Technologies Inc,equity,1538085,1784179.00,0.0888
-2022-12-31,Duquesne Family Office,25470M109,DISH,Dish Network Corporation,equity,112400,1578096.00,0.0785
+2022-12-31,Duquesne Family Office,25470M109,,Dish Network Corporation,equity,112400,1578096.00,0.0785
 2022-12-31,Duquesne Family Office,004225108,ACAD,Acadia Pharmaceuticals Inc,equity,74400,1184448.00,0.0590
 2022-12-31,Duquesne Family Office,20464U100,COMP,Compass Inc,equity,399100,929903.00,0.0463
-2022-12-31,Duquesne Family Office,81728A108,SNSEEUR,Sensei Biotherapeutics Inc,equity,100000,149000.00,0.0074
-2022-12-31,Duquesne Family Office,G65163100,,Joby Aviation Inc,equity,11246,37674.00,0.0019
+2022-12-31,Duquesne Family Office,81728A108,,Sensei Biotherapeutics Inc,equity,100000,149000.00,0.0074
+2022-12-31,Duquesne Family Office,G65163100,JOBY,Joby Aviation Inc,equity,11246,37674.00,0.0019
 2022-12-31,Duquesne Family Office,G2007L105,,Cazoo Group Ltd,equity,140100,21968.00,0.0011

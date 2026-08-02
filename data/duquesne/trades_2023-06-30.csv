@@ -1,7 +1,7 @@
 trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_class,prev_shares,shares,expected_shares,active_shares,active_pct,flow_factor
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,new,GOOGL,Alphabet Inc,02079K305,equity,0,838375,0,838375,,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,new,VST,Vistra Corp,92840M102,equity,0,1988561,0,1988561,,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,new,,Seagate Technology Hldngs Pl,G7997R103,equity,0,915043,0,915043,,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,new,STX,Seagate Technology Hldngs Pl,G7997R103,equity,0,915043,0,915043,,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,new,AVGO,Broadcom Inc,11135F101,equity,0,51956,0,51956,,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,new,BABA,Alibaba Group Hldg Ltd,01609W102,equity,0,307500,0,307500,,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,new,VEEV,Veeva Sys Inc,922475108,equity,0,95700,0,95700,,1.000000
@@ -21,7 +21,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,buy,NWS,News Corp New,65249B208,equity,730700,975600,730700,244900,33.52,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,buy,NWSA,News Corp New,65249B109,equity,4524525,4772025,4524525,247500,5.47,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,buy,J,Jacobs Solutions Inc,46982L108,equity,43400,74415,43400,31015,71.46,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,buy,,Joby Aviation Inc,G65163100,equity,11246,22492,11246,11246,100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,buy,JOBY,Joby Aviation Inc,G65163100,equity,11246,22492,11246,11246,100.00,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,sell,OPCH,Option Care Health Inc,68404L201,equity,4391174,1205350,4391174,-3185824,-72.55,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,sell,TMUS,T-Mobile Us Inc,872590104,equity,1179562,756675,1179562,-422887,-35.85,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,sell,LLY,Eli Lilly &amp; Co,532457108,equity,536445,454115,536445,-82330,-15.35,1.000000
@@ -30,28 +30,28 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,sell,AMZN,Amazon Com Inc,023135106,equity,218380,136690,218380,-81690,-37.41,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,sell,RXRX,Recursion Pharmaceuticals In,75629V104,equity,1385950,906767,1385950,-479183,-34.57,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,sell,CP,Canadian Pacific Kansas City,13646K108,equity,123600,119100,123600,-4500,-3.64,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,WWEUSD,World Wrestling Entmt Inc,98156Q108,equity,98365,0,98365,-98365,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,TSM,Taiwan Semiconductor Mfg Ltd,874039100,equity,486190,0,486190,-486190,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,IQV,Iqvia Hldgs Inc,46266C105,equity,198760,0,198760,-198760,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,PTC,Ptc Inc,69370C100,equity,273434,0,273434,-273434,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,ORCL,Oracle Corp,68389X105,equity,271265,0,271265,-271265,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,SGI,Tempur Sealy Intl Inc,88023U101,equity,525050,0,525050,-525050,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,WCC,Wesco Intl Inc,95082P105,equity,116900,0,116900,-116900,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,,Skechers U S A Inc,830566105,equity,371125,0,371125,-371125,-100.00,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,MRVL,Marvell Technology Inc,573874104,equity,314320,0,314320,-314320,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,CDNS,Cadence Design System Inc,127387108,equity,75395,0,75395,-75395,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,DASH,Doordash Inc,25809K105,equity,206900,0,206900,-206900,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,META,Meta Platforms Inc,30303M102,equity,54665,0,54665,-54665,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,ANET,Arista Networks Inc,040413106,equity,93980,0,93980,-93980,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,MU,Micron Technology Inc,595112103,equity,222200,0,222200,-222200,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,WRBY,Warby Parker Inc,93403J106,equity,1064139,0,1064139,-1064139,-100.00,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,CHTR,Charter Communications Inc N,16119P108,equity,29500,0,29500,-29500,-100.00,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,VNO,Vornado Rlty Tr,929042109,equity,594400,0,594400,-594400,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,,World Wrestling Entmt Inc,98156Q108,equity,98365,0,98365,-98365,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,ILMN,Illumina Inc,452327109,equity,54885,0,54885,-54885,-100.00,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,FUL,Fuller H B Co,359694106,equity,75500,0,75500,-75500,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,CCC,Ccc Intelligent Solutions Hl,12510Q100,equity,281879,0,281879,-281879,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,FSLR,First Solar Inc,336433107,equity,24725,0,24725,-24725,-100.00,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,CSL,Carlisle Cos Inc,142339100,equity,20800,0,20800,-20800,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,RPM,Rpm Intl Inc,749685103,equity,59000,0,59000,-59000,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,FSLR,First Solar Inc,336433107,equity,24725,0,24725,-24725,-100.00,1.000000
+2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,CCC,Ccc Intelligent Solutions Hl,12510Q100,equity,281879,0,281879,-281879,-100.00,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,ACAD,Acadia Pharmaceuticals Inc,004225108,equity,74400,0,74400,-74400,-100.00,1.000000
 2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,GROV,Grove Collaborative Hold Inc,39957D201,equity,196571,0,196571,-196571,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,SGI,Tempur Sealy Intl Inc,88023U101,equity,525050,0,525050,-525050,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,WRBY,Warby Parker Inc,93403J106,equity,1064139,0,1064139,-1064139,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,ILMN,Illumina Inc,452327109,equity,54885,0,54885,-54885,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,META,Meta Platforms Inc,30303M102,equity,54665,0,54665,-54665,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,DASH,Doordash Inc,25809K105,equity,206900,0,206900,-206900,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,PTC,Ptc Inc,69370C100,equity,273434,0,273434,-273434,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,IQV,Iqvia Hldgs Inc,46266C105,equity,198760,0,198760,-198760,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,ANETEUR,Arista Networks Inc,040413106,equity,93980,0,93980,-93980,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,RPM,Rpm Intl Inc,749685103,equity,59000,0,59000,-59000,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,SKAA,Skechers U S A Inc,830566105,equity,371125,0,371125,-371125,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,MU,Micron Technology Inc,595112103,equity,222200,0,222200,-222200,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,TSM,Taiwan Semiconductor Mfg Ltd,874039100,equity,486190,0,486190,-486190,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,ORCL,Oracle Corp,68389X105,equity,271265,0,271265,-271265,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,CDNS,Cadence Design System Inc,127387108,equity,75395,0,75395,-75395,-100.00,1.000000
-2023-06-30,2023-06-30,2023-09-30,Duquesne Family Office,exit,WCC,Wesco Intl Inc,95082P105,equity,116900,0,116900,-116900,-100.00,1.000000

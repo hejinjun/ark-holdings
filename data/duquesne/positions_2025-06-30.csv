@@ -13,7 +13,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2025-06-30,Duquesne Family Office,256163106,DOCU,Docusign Inc,equity,1290440,100512000.00,2.5680
 2025-06-30,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,200930,99945000.00,2.5536
 2025-06-30,Duquesne Family Office,77543R102,ROKU,Roku Inc,equity,1100500,96723000.00,2.4712
-2025-06-30,Duquesne Family Office,925050106,VRNA,Verona Pharma Plc,equity,1002080,94777000.00,2.4215
+2025-06-30,Duquesne Family Office,925050106,,Verona Pharma Plc,equity,1002080,94777000.00,2.4215
 2025-06-30,Duquesne Family Office,532457108,LLY,Eli Lilly &amp; Co,equity,100675,78479000.00,2.0051
 2025-06-30,Duquesne Family Office,934423104,WBD,Warner Bros Discovery Inc,equity,6537160,74916000.00,1.9141
 2025-06-30,Duquesne Family Office,26884L109,EQT,Eqt Corp,equity,1252700,73057000.00,1.8666
@@ -21,7 +21,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2025-06-30,Duquesne Family Office,81369Y605,XLF,Select Sector Spdr Tr,equity,985300,51600000.00,1.3184
 2025-06-30,Duquesne Family Office,76131D103,QSR,Restaurant Brands Intl Inc,equity,751010,49784000.00,1.2720
 2025-06-30,Duquesne Family Office,81141R100,SE,Sea Ltd,equity,309730,49538000.00,1.2657
-2025-06-30,Duquesne Family Office,G6683N103,,Nu Hldgs Ltd,equity,3415365,46859000.00,1.1972
+2025-06-30,Duquesne Family Office,G6683N103,NU,Nu Hldgs Ltd,equity,3415365,46859000.00,1.1972
 2025-06-30,Duquesne Family Office,234264109,DAKT,Daktronics Inc,equity,3076224,46513000.00,1.1884
 2025-06-30,Duquesne Family Office,91332U101,U,Unity Software Inc,equity,1774050,42932000.00,1.0969
 2025-06-30,Duquesne Family Office,12769G100,CZR,Caesars Entertainment Inc Ne,equity,1395875,39629000.00,1.0125
@@ -36,7 +36,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2025-06-30,Duquesne Family Office,38141G104,GS,Goldman Sachs Group Inc,equity,42000,29726000.00,0.7595
 2025-06-30,Duquesne Family Office,06738E204,BCS,Barclays Plc,equity,1549950,28814000.00,0.7362
 2025-06-30,Duquesne Family Office,452327109,ILMN,Illumina Inc,equity,300615,28682000.00,0.7328
-2025-06-30,Duquesne Family Office,G7997R103,,Seagate Technology Hldngs Pl,equity,197490,28504000.00,0.7283
+2025-06-30,Duquesne Family Office,G7997R103,STX,Seagate Technology Hldngs Pl,equity,197490,28504000.00,0.7283
 2025-06-30,Duquesne Family Office,90138F102,TWLO,Twilio Inc,equity,200475,24931000.00,0.6370
 2025-06-30,Duquesne Family Office,11135F101,AVGO,Broadcom Inc,equity,86140,23744000.00,0.6067
 2025-06-30,Duquesne Family Office,37950E259,ARGT,Global X Fds,equity,267700,22682000.00,0.5795
@@ -48,11 +48,11 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2025-06-30,Duquesne Family Office,060505104,BAC,Bank America Corp,equity,341900,16179000.00,0.4134
 2025-06-30,Duquesne Family Office,16935C109,CHYM,Chime Finl Inc,equity,466825,16110000.00,0.4116
 2025-06-30,Duquesne Family Office,05961W105,BMA,Banco Macro Sa,equity,220900,15509000.00,0.3962
-2025-06-30,Duquesne Family Office,N62509109,,Newamsterdam Pharma Company,equity,832175,15071000.00,0.3851
+2025-06-30,Duquesne Family Office,N62509109,NAMS,Newamsterdam Pharma Company,equity,832175,15071000.00,0.3851
 2025-06-30,Duquesne Family Office,92686J106,VKTX,Viking Therapeutics Inc,equity,549295,14556000.00,0.3719
 2025-06-30,Duquesne Family Office,399909100,GGAL,Grupo Financiero Galicia S.A,equity,231481,11664000.00,0.2980
 2025-06-30,Duquesne Family Office,05605H100,BWXT,Bwx Technologies Inc,equity,76475,11017000.00,0.2815
-2025-06-30,Duquesne Family Office,G0896C103,,Bbb Foods Inc,equity,360550,10009000.00,0.2557
+2025-06-30,Duquesne Family Office,G0896C103,TBBB,Bbb Foods Inc,equity,360550,10009000.00,0.2557
 2025-06-30,Duquesne Family Office,23331A109,DHI,D R Horton Inc,equity,77400,9978000.00,0.2549
 2025-06-30,Duquesne Family Office,526057104,LEN,Lennar Corp,equity,89900,9944000.00,0.2541
 2025-06-30,Duquesne Family Office,12008R107,BLDR,Builders Firstsource Inc,equity,85065,9926000.00,0.2536
@@ -63,4 +63,4 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2025-06-30,Duquesne Family Office,883556102,TMO,Thermo Fisher Scientific Inc,equity,12200,4947000.00,0.1264
 2025-06-30,Duquesne Family Office,235851102,DHR,Danaher Corporation,equity,24700,4879000.00,0.1247
 2025-06-30,Duquesne Family Office,163851108,CC,Chemours Co,equity,421800,4830000.00,0.1234
-2025-06-30,Duquesne Family Office,G65163100,,Joby Aviation Inc,equity,31489,332000.00,0.0085
+2025-06-30,Duquesne Family Office,G65163100,JOBY,Joby Aviation Inc,equity,31489,332000.00,0.0085

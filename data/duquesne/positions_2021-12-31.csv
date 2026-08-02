@@ -17,15 +17,15 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2021-12-31,Duquesne Family Office,855244109,SBUX,Starbucks Corp,equity,361990,42342000.00,1.5401
 2021-12-31,Duquesne Family Office,74276L105,PRCT,Procept Biorobotics Corp,equity,1660435,41527000.00,1.5104
 2021-12-31,Duquesne Family Office,68404L201,OPCH,Option Care Health Inc,equity,1190938,33870000.00,1.2319
-2021-12-31,Duquesne Family Office,83200N103,SMARGBP,Smartsheet Inc,equity,390011,30206000.00,1.0987
+2021-12-31,Duquesne Family Office,83200N103,,Smartsheet Inc,equity,390011,30206000.00,1.0987
 2021-12-31,Duquesne Family Office,69608A108,PLTR,Palantir Technologies Inc,equity,1632937,29736000.00,1.0816
 2021-12-31,Duquesne Family Office,538034109,LYV,Live Nation Entertainment In,equity,244590,29275000.00,1.0648
 2021-12-31,Duquesne Family Office,30212P303,EXPE,Expedia Group Inc,equity,154070,27844000.00,1.0128
 2021-12-31,Duquesne Family Office,81141R100,SE,Sea Ltd,equity,104689,23420000.00,0.8518
 2021-12-31,Duquesne Family Office,45687V106,IR,Ingersoll Rand Inc,equity,333295,20621000.00,0.7500
-2021-12-31,Duquesne Family Office,22266L106,COUPEUR,Coupa Software Inc,equity,129399,20452000.00,0.7439
-2021-12-31,Duquesne Family Office,25470M109,DISH,Dish Network Corporation,equity,570434,18505000.00,0.6731
-2021-12-31,Duquesne Family Office,75615P103,RETAEUR,Reata Pharmaceuticals Inc,equity,406264,10713000.00,0.3897
+2021-12-31,Duquesne Family Office,22266L106,,Coupa Software Inc,equity,129399,20452000.00,0.7439
+2021-12-31,Duquesne Family Office,25470M109,,Dish Network Corporation,equity,570434,18505000.00,0.6731
+2021-12-31,Duquesne Family Office,75615P103,,Reata Pharmaceuticals Inc,equity,406264,10713000.00,0.3897
 2021-12-31,Duquesne Family Office,40171V100,GWRE,Guidewire Software Inc,equity,88250,10019000.00,0.3644
 2021-12-31,Duquesne Family Office,87652V109,TASK,Taskus Inc,equity,181000,9767000.00,0.3553
 2021-12-31,Duquesne Family Office,00288U106,ABCL,Abcellera Biologics Inc,equity,659750,9434000.00,0.3431
@@ -46,4 +46,4 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2021-12-31,Duquesne Family Office,81730H109,S,Sentinelone Inc,equity,60000,3029000.00,0.1102
 2021-12-31,Duquesne Family Office,004225108,ACAD,Acadia Pharmaceuticals Inc,equity,74400,1736000.00,0.0631
 2021-12-31,Duquesne Family Office,G2007L105,,Cazoo Group Ltd,equity,140100,845000.00,0.0307
-2021-12-31,Duquesne Family Office,81728A108,SNSEEUR,Sensei Biotherapeutics Inc,equity,100000,580000.00,0.0211
+2021-12-31,Duquesne Family Office,81728A108,,Sensei Biotherapeutics Inc,equity,100000,580000.00,0.0211

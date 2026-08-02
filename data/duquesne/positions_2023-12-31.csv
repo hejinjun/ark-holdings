@@ -4,7 +4,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2023-12-31,Duquesne Family Office,67066G104,NVDA,Nvidia Corporation,equity,617494,305795000.00,9.8345
 2023-12-31,Duquesne Family Office,532457108,LLY,Eli Lilly &amp; Co,equity,402550,234654000.00,7.5466
 2023-12-31,Duquesne Family Office,878742204,TECK,Teck Resources Ltd,equity,5524602,233548000.00,7.5110
-2023-12-31,Duquesne Family Office,G7997R103,,Seagate Technology Hldngs Pl,equity,2116108,180652000.00,5.8098
+2023-12-31,Duquesne Family Office,G7997R103,STX,Seagate Technology Hldngs Pl,equity,2116108,180652000.00,5.8098
 2023-12-31,Duquesne Family Office,92537N108,VRT,Vertiv Holdings Co,equity,2313500,111117000.00,3.5736
 2023-12-31,Duquesne Family Office,65249B109,NWSA,News Corp New,equity,4045120,99308000.00,3.1938
 2023-12-31,Duquesne Family Office,369604301,GE,General Electric Co,equity,736095,93948000.00,3.0214
@@ -15,7 +15,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2023-12-31,Duquesne Family Office,13321L108,CCJ,Cameco Corp,equity,1332625,57436000.00,1.8472
 2023-12-31,Duquesne Family Office,166764100,CVX,Chevron Corp New,equity,384595,57366000.00,1.8449
 2023-12-31,Duquesne Family Office,632307104,NTRA,Natera Inc,equity,893030,55939000.00,1.7990
-2023-12-31,Duquesne Family Office,040413106,ANETEUR,Arista Networks Inc,equity,234185,55153000.00,1.7737
+2023-12-31,Duquesne Family Office,040413106,ANET,Arista Networks Inc,equity,234185,55153000.00,1.7737
 2023-12-31,Duquesne Family Office,980745103,WWD,Woodward Inc,equity,404635,55083000.00,1.7715
 2023-12-31,Duquesne Family Office,68404L201,OPCH,Option Care Health Inc,equity,1456215,49060000.00,1.5778
 2023-12-31,Duquesne Family Office,88023U101,SGI,Tempur Sealy Intl Inc,equity,749100,38182000.00,1.2279
@@ -47,5 +47,5 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2023-12-31,Duquesne Family Office,00288U106,ABCL,Abcellera Biologics Inc,equity,659750,3767000.00,0.1211
 2023-12-31,Duquesne Family Office,13646K108,CP,Canadian Pacific Kansas City,equity,47505,3756000.00,0.1208
 2023-12-31,Duquesne Family Office,G4701H109,IHS,Ihs Holding Limited,equity,770310,3543000.00,0.1139
-2023-12-31,Duquesne Family Office,G65163100,,Joby Aviation Inc,equity,22492,150000.00,0.0048
-2023-12-31,Duquesne Family Office,81728A108,SNSEEUR,Sensei Biotherapeutics Inc,equity,100000,69000.00,0.0022
+2023-12-31,Duquesne Family Office,G65163100,JOBY,Joby Aviation Inc,equity,22492,150000.00,0.0048
+2023-12-31,Duquesne Family Office,81728A108,,Sensei Biotherapeutics Inc,equity,100000,69000.00,0.0022

@@ -1,15 +1,15 @@
 trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_class,prev_shares,shares,expected_shares,active_shares,active_pct,flow_factor
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,TECK,Teck Resources Ltd,878742204,equity,0,2420125,0,2420125,,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,CTRA,Coterra Energy Inc,127097103,equity,0,1776000,0,1776000,,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,PXDEUR,Pioneer Nat Res Co,723787107,equity,0,130375,0,130375,,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,,Pioneer Nat Res Co,723787107,equity,0,130375,0,130375,,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,PNC,Pnc Finl Svcs Group Inc,693475105,equity,0,168726,0,168726,,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,CVE,Cenovus Energy Inc,15135U109,equity,0,1438375,0,1438375,,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,ZEN1EUR,Zendesk Inc,98936J101,equity,0,167660,0,167660,,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,,Zendesk Inc,98936J101,equity,0,167660,0,167660,,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,WDAY,Workday Inc,98138H101,equity,0,82500,0,82500,,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,,Global E Online Ltd,M5216V106,equity,0,575630,0,575630,,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,GLBE,Global E Online Ltd,M5216V106,equity,0,575630,0,575630,,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,NYT,New York Times Co,650111107,equity,0,409325,0,409325,,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,AR,Antero Resources Corp,03674X106,equity,0,491800,0,491800,,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,PLANUSD,Anaplan Inc,03272L108,equity,0,211315,0,211315,,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,,Anaplan Inc,03272L108,equity,0,211315,0,211315,,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,ALNY,Alnylam Pharmaceuticals Inc,02043Q107,equity,0,63945,0,63945,,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,NFLX,Netflix Inc,64110L106,equity,0,26240,0,26240,,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,PSX,Phillips 66,718546104,equity,0,113335,0,113335,,1.000000
@@ -17,7 +17,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,MOS,Mosaic Co New,61945C103,equity,0,143825,0,143825,,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,new,EWZ,Ishares Inc,464286400,equity,0,144565,0,144565,,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,buy,MSFT,Microsoft Corp,594918104,equity,800490,1020305,800490,219815,27.46,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,buy,SMARGBP,Smartsheet Inc,83200N103,equity,390011,961722,390011,571711,146.59,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,buy,,Smartsheet Inc,83200N103,equity,390011,961722,390011,571711,146.59,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,buy,CPNG,Coupang Inc,22266T109,equity,17763525,19434307,17763525,1670782,9.41,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,buy,PLTR,Palantir Technologies Inc,69608A108,equity,1632937,3340537,1632937,1707600,104.57,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,buy,CVX,Chevron Corp New,166764100,equity,824440,964880,824440,140440,17.03,1.000000
@@ -31,24 +31,24 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,,Flex Ltd,Y2573F102,equity,2537199,240666,2537199,-2296533,-90.51,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,EXPE,Expedia Group Inc,30212P303,equity,154070,56565,154070,-97505,-63.29,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,PRCT,Procept Biorobotics Corp,74276L105,equity,1660435,1128041,1660435,-532394,-32.06,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,DISH,Dish Network Corporation,25470M109,equity,570434,112400,570434,-458034,-80.30,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,RETAEUR,Reata Pharmaceuticals Inc,75615P103,equity,406264,58997,406264,-347267,-85.48,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,,Dish Network Corporation,25470M109,equity,570434,112400,570434,-458034,-80.30,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,,Reata Pharmaceuticals Inc,75615P103,equity,406264,58997,406264,-347267,-85.48,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,OPCH,Option Care Health Inc,68404L201,equity,1190938,863148,1190938,-327790,-27.52,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,SE,Sea Ltd,81141R100,equity,104689,48396,104689,-56293,-53.77,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,sell,BTI,British Amern Tob Plc,110448107,equity,132550,120950,132550,-11600,-8.75,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,LYV,Live Nation Entertainment In,538034109,equity,244590,0,244590,-244590,-100.00,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,GOOGL,Alphabet Inc,02079K305,equity,94414,0,94414,-94414,-100.00,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,FSLY,Fastly Inc,31188V100,equity,130685,0,130685,-130685,-100.00,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,GWRE,Guidewire Software Inc,40171V100,equity,88250,0,88250,-88250,-100.00,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,LMT,Lockheed Martin Corp,539830109,equity,14450,0,14450,-14450,-100.00,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,CVNA,Carvana Co,146869102,equity,522127,0,522127,-522127,-100.00,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,S,Sentinelone Inc,81730H109,equity,60000,0,60000,-60000,-100.00,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,IOT,Samsara Inc,79589L106,equity,272700,0,272700,-272700,-100.00,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,ABNB,Airbnb Inc,009066101,equity,496861,0,496861,-496861,-100.00,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,LAD,Lithia Mtrs Inc,536797103,equity,29081,0,29081,-29081,-100.00,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,COUPEUR,Coupa Software Inc,22266L106,equity,129399,0,129399,-129399,-100.00,1.000000
-2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,IR,Ingersoll Rand Inc,45687V106,equity,333295,0,333295,-333295,-100.00,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,PANW,Palo Alto Networks Inc,697435105,equity,229500,0,229500,-229500,-100.00,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,CVNA,Carvana Co,146869102,equity,522127,0,522127,-522127,-100.00,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,ABNB,Airbnb Inc,009066101,equity,496861,0,496861,-496861,-100.00,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,SBUX,Starbucks Corp,855244109,equity,361990,0,361990,-361990,-100.00,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,LYV,Live Nation Entertainment In,538034109,equity,244590,0,244590,-244590,-100.00,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,IR,Ingersoll Rand Inc,45687V106,equity,333295,0,333295,-333295,-100.00,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,,Coupa Software Inc,22266L106,equity,129399,0,129399,-129399,-100.00,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,GWRE,Guidewire Software Inc,40171V100,equity,88250,0,88250,-88250,-100.00,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,TASK,Taskus Inc,87652V109,equity,181000,0,181000,-181000,-100.00,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,LAD,Lithia Mtrs Inc,536797103,equity,29081,0,29081,-29081,-100.00,1.000000
 2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,OLLI,Ollies Bargain Outlet Hldgs,681116109,equity,158200,0,158200,-158200,-100.00,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,IOT,Samsara Inc,79589L106,equity,272700,0,272700,-272700,-100.00,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,LMT,Lockheed Martin Corp,539830109,equity,14450,0,14450,-14450,-100.00,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,FSLY,Fastly Inc,31188V100,equity,130685,0,130685,-130685,-100.00,1.000000
+2021-12-31,2021-12-31,2022-03-31,Duquesne Family Office,exit,S,Sentinelone Inc,81730H109,equity,60000,0,60000,-60000,-100.00,1.000000

@@ -28,7 +28,7 @@ import sys
 import time
 from pathlib import Path
 
-import cusips
+import issuers
 
 HERE = Path(__file__).parent
 DATA = HERE / "data"
@@ -147,6 +147,58 @@ def write(name: str, label: str, period: str, agg: dict, tickers: dict) -> Path:
     return path
 
 
+def managers() -> list[str]:
+    """Directories holding an ingested filer, newest period first inside each."""
+    return sorted(p.name for p in DATA.iterdir()
+                  if p.is_dir() and any(p.glob("positions_*.csv")))
+
+
+def periods(manager: str) -> list[str]:
+    return sorted(p.name.removeprefix("positions_").removesuffix(".csv")
+                  for p in (DATA / manager).glob("positions_*.csv"))
+
+
+def summary(manager: str | None = None, limit: int = 5) -> dict | None:
+    """The newest filed book for one manager, for the home page.
+
+    Reported as of a quarter end and filed up to 45 days after it, so this is
+    the one card on that page describing something that already happened
+    rather than something that just did. The lag is stated with it.
+    """
+    have = managers()
+    if not have:
+        return None
+    manager = manager or have[0]
+    quarters = periods(manager)
+    if not quarters:
+        return None
+
+    def book(period: str) -> list[dict]:
+        with (DATA / manager / f"positions_{period}.csv").open(encoding="utf-8") as fh:
+            return list(csv.DictReader(fh))
+
+    rows = book(quarters[-1])
+    total = sum(float(r["market_value"]) for r in rows)
+    out = {
+        "manager": manager,
+        "label": rows[0]["fund"] if rows else manager,
+        "period": quarters[-1],
+        "quarters": len(quarters),
+        "n": len(rows),
+        "total": total,
+        "unidentified": sum(1 for r in rows if not r["ticker"]),
+        "top": [{"t": r["ticker"], "n": r["company"], "v": float(r["market_value"]),
+                 "w": float(r["weight"])} for r in rows[:limit]],
+    }
+    if len(quarters) > 1:
+        prev = {r["cusip"] for r in book(quarters[-2])}
+        now = {r["cusip"] for r in rows}
+        out["prevPeriod"] = quarters[-2]
+        out["opened"] = len(now - prev)
+        out["closed"] = len(prev - now)
+    return out
+
+
 def main(argv: list[str]) -> int:
     args = [a for a in argv[1:] if not a.startswith("--")]
     if "--cik" in argv:
@@ -187,7 +239,7 @@ def main(argv: list[str]) -> int:
     pairs = sorted({(c, a["company"])
                     for v in live.values() for c, a in v["agg"].items()})
     print(f"\nresolving {len(pairs)} CUSIPs to tickers")
-    tickers = cusips.resolve(pairs)
+    tickers = issuers.resolve(pairs)
     hit = sum(1 for c, _ in pairs if tickers.get(c, {}).get("ticker"))
     print(f"  resolved {hit}/{len(pairs)}")
 

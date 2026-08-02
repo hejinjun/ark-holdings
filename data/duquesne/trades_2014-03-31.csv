@@ -5,15 +5,15 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,EOG,EOG Resources Inc.,26875P101,equity,0,288200,0,288200,,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,BIIB,Biogen Idec Inc.,09062X103,equity,0,103800,0,103800,,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,RRC,Range Res&apos;s Corp,75281A109,equity,0,363400,0,363400,,1.000000
-2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,DISH,DISH Network Corp,25470M109,equity,0,414500,0,414500,,1.000000
-2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,MS$F,McDermott Int&apos;l Inc.,580037109,equity,0,3300000,0,3300000,,1.000000
+2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,,DISH Network Corp,25470M109,equity,0,414500,0,414500,,1.000000
+2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,,McDermott Int&apos;l Inc.,580037109,equity,0,3300000,0,3300000,,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,HAL,Halliburton Co,406216101,equity,0,368700,0,368700,,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,PBR,Petroleo Brasileiro SA,71654V408,equity,0,1717000,0,1717000,,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,PSX,Phillips 66,718546104,equity,0,303200,0,303200,,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,CELG,Celgene Corp,151020104,equity,0,276000,0,276000,,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,BIDU,Baidu.com Inc.,056752108,equity,0,126000,0,126000,,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,ATI,Allegheny Tech Inc.,01741R102,equity,0,510000,0,510000,,1.000000
-2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,PXDEUR,Pioneer Nat&apos;l Res&apos;s Co,723787107,equity,0,99800,0,99800,,1.000000
+2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,,Pioneer Nat&apos;l Res&apos;s Co,723787107,equity,0,99800,0,99800,,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,,Canadian Pac Railway Ltd.,13645T100,equity,0,92000,0,92000,,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,DVN,Devon Energy Corp,25179M103,equity,0,207500,0,207500,,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,LEN,Lennar Corp,526057104,equity,0,370400,0,370400,,1.000000
@@ -33,17 +33,17 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,new,MPC,Marathon Pete Corp,56585A102,equity,0,123400,0,123400,,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,buy,ILMN,Illumina Inc.,452327109,equity,253300,410100,253300,156800,61.90,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,buy,,SanDisk Corp,80004C101,equity,130800,330600,130800,199800,152.75,1.000000
-2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,buy,AA,Alcoa Inc.,013817101,equity,5000000,5744000,5000000,744000,14.88,1.000000
-2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,buy,,NXP Semiconductors NV,N6596X109,equity,179400,324400,179400,145000,80.82,1.000000
+2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,buy,,Alcoa Inc.,013817101,equity,5000000,5744000,5000000,744000,14.88,1.000000
+2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,buy,NXPI,NXP Semiconductors NV,N6596X109,equity,179400,324400,179400,145000,80.82,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,sell,WDAY,Workday Inc.,98138H101,equity,437079,222679,437079,-214400,-49.05,1.000000
-2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,sell,AZNN,Astrazeneca PLC,046353108,equity,360500,208900,360500,-151600,-42.05,1.000000
+2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,sell,AZN,Astrazeneca PLC,046353108,equity,360500,208900,360500,-151600,-42.05,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,sell,XLV,Hlth Care Select Sctr SPDR,81369Y209,equity,193300,172300,193300,-21000,-10.86,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,sell,XLB,Mat&apos;s Select Sctr SPDR Trust,81369Y100,equity,209000,202600,209000,-6400,-3.06,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,sell,XLF,Fin&apos;l Select Sctr SPDR Fnd,81369Y605,equity,447600,441500,447600,-6100,-1.36,1.000000
-2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,ECH,ISh MSCI Chile Cap Inv Mkt Idx Fd,464286640,equity,67000,0,67000,-67000,-100.00,1.000000
-2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,ADBE,Adobe Systems Inc,00724F101,equity,976700,0,976700,-976700,-100.00,1.000000
-2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,EWA,ISh MSCI Australia Idx Fd,464286103,equity,397000,0,397000,-397000,-100.00,1.000000
-2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,EPHE,ISh MSCI Phillipines Inv Mkt Idx Fd,46429B408,equity,87300,0,87300,-87300,-100.00,1.000000
-2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,,Sensata Technologies Hldng NV,N7902X106,equity,248100,0,248100,-248100,-100.00,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,MSFT,Microsoft Corp,594918104,equity,1724200,0,1724200,-1724200,-100.00,1.000000
+2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,ADBE,Adobe Systems Inc,00724F101,equity,976700,0,976700,-976700,-100.00,1.000000
 2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,,Monsanto Co,61166W101,equity,177500,0,177500,-177500,-100.00,1.000000
+2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,,Sensata Technologies Hldng NV,N7902X106,equity,248100,0,248100,-248100,-100.00,1.000000
+2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,EWA,ISh MSCI Australia Idx Fd,464286103,equity,397000,0,397000,-397000,-100.00,1.000000
+2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,ECH,ISh MSCI Chile Cap Inv Mkt Idx Fd,464286640,equity,67000,0,67000,-67000,-100.00,1.000000
+2014-03-31,2014-03-31,2014-06-30,Duquesne Family Office,exit,EPHE,ISh MSCI Phillipines Inv Mkt Idx Fd,46429B408,equity,87300,0,87300,-87300,-100.00,1.000000

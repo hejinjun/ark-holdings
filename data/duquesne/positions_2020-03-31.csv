@@ -5,11 +5,11 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2020-03-31,Duquesne Family Office,30303M102,META,Facebook Inc,equity,1243752,207458000.00,8.4308
 2020-03-31,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,1104832,174243000.00,7.0810
 2020-03-31,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc,equity,139712,162338000.00,6.5972
-2020-03-31,Duquesne Family Office,00507V109,ATVIEUR,Activision Blizzard Inc,equity,1560400,92813000.00,3.7718
+2020-03-31,Duquesne Family Office,00507V109,,Activision Blizzard Inc,equity,1560400,92813000.00,3.7718
 2020-03-31,Duquesne Family Office,70450Y103,PYPL,Paypal Hldgs Inc,equity,931198,89153000.00,3.6231
 2020-03-31,Duquesne Family Office,01609W102,BABA,Alibaba Group Hldg Ltd,equity,412105,80146000.00,3.2570
 2020-03-31,Duquesne Family Office,067901108,ABX,Barrick Gold Corporation,equity,4271600,78256000.00,3.1802
-2020-03-31,Duquesne Family Office,75615P103,RETAEUR,Reata Pharmaceuticals Inc,equity,531878,76771000.00,3.1199
+2020-03-31,Duquesne Family Office,75615P103,,Reata Pharmaceuticals Inc,equity,531878,76771000.00,3.1199
 2020-03-31,Duquesne Family Office,369604103,,General Electric Co,equity,7965928,63249000.00,2.5704
 2020-03-31,Duquesne Family Office,002824100,ABT,Abbott Labs,equity,791300,62441000.00,2.5375
 2020-03-31,Duquesne Family Office,437076102,HD,Home Depot Inc,equity,309100,57712000.00,2.3453
@@ -20,20 +20,20 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2020-03-31,Duquesne Family Office,747525103,QCOM,Qualcomm Inc,equity,472150,31941000.00,1.2980
 2020-03-31,Duquesne Family Office,81762P102,NOW,Servicenow Inc,equity,110030,31532000.00,1.2814
 2020-03-31,Duquesne Family Office,47215P106,JD,Jd Com Inc,equity,579894,23486000.00,0.9544
-2020-03-31,Duquesne Family Office,25470M109,DISH,Dish Network Corporation,equity,966100,19312000.00,0.7848
+2020-03-31,Duquesne Family Office,25470M109,,Dish Network Corporation,equity,966100,19312000.00,0.7848
 2020-03-31,Duquesne Family Office,00724F101,ADBE,Adobe Inc,equity,59930,19072000.00,0.7751
 2020-03-31,Duquesne Family Office,46429B598,INDA,Ishares Tr,equity,750450,18093000.00,0.7353
 2020-03-31,Duquesne Family Office,874080104,TAL,Tal Education Group,equity,312300,16633000.00,0.6759
-2020-03-31,Duquesne Family Office,89610F101,1T7,Tricida Inc,equity,688344,15144000.00,0.6154
-2020-03-31,Duquesne Family Office,22266L106,COUPEUR,Coupa Software Inc,equity,94000,13135000.00,0.5338
+2020-03-31,Duquesne Family Office,89610F101,,Tricida Inc,equity,688344,15144000.00,0.6154
+2020-03-31,Duquesne Family Office,22266L106,,Coupa Software Inc,equity,94000,13135000.00,0.5338
 2020-03-31,Duquesne Family Office,90214J101,,2U Inc,equity,444748,9438000.00,0.3835
 2020-03-31,Duquesne Family Office,35671D857,FCX,Freeport-Mcmoran Inc,equity,1391700,9394000.00,0.3818
 2020-03-31,Duquesne Family Office,22788C105,CRWD,Crowdstrike Hldgs Inc,equity,159040,8855000.00,0.3599
 2020-03-31,Duquesne Family Office,647581107,,New Oriental Ed &amp; Tech Grp I,equity,80230,8684000.00,0.3529
 2020-03-31,Duquesne Family Office,835699307,SONY,Sony Corp,equity,146400,8664000.00,0.3521
 2020-03-31,Duquesne Family Office,517834107,LVS,Las Vegas Sands Corp,equity,176168,7482000.00,0.3041
-2020-03-31,Duquesne Family Office,65343E108,NXTCEUR,Nextcure Inc,equity,141459,5244000.00,0.2131
-2020-03-31,Duquesne Family Office,03272L108,PLANUSD,Anaplan Inc,equity,170763,5167000.00,0.2100
+2020-03-31,Duquesne Family Office,65343E108,NXTC,Nextcure Inc,equity,141459,5244000.00,0.2131
+2020-03-31,Duquesne Family Office,03272L108,,Anaplan Inc,equity,170763,5167000.00,0.2100
 2020-03-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,458790,3842000.00,0.1561
 2020-03-31,Duquesne Family Office,90138F102,TWLO,Twilio Inc,equity,26558,2377000.00,0.0966
 2020-03-31,Duquesne Family Office,31188V100,FSLY,Fastly Inc,equity,116036,2202000.00,0.0895
@@ -41,4 +41,4 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2020-03-31,Duquesne Family Office,G98239109,XP,Xp Inc,equity,50000,965000.00,0.0392
 2020-03-31,Duquesne Family Office,23804L103,DDOG,Datadog Inc,equity,25810,929000.00,0.0378
 2020-03-31,Duquesne Family Office,54951L109,LKNCY,Luckin Coffee Inc,equity,21276,578000.00,0.0235
-2020-03-31,Duquesne Family Office,L5140P101,INTC,Intelsat S A,equity,25000,38000.00,0.0015
+2020-03-31,Duquesne Family Office,L5140P101,,Intelsat S A,equity,25000,38000.00,0.0015

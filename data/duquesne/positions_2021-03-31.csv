@@ -13,7 +13,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2021-03-31,Duquesne Family Office,231021106,CMI,Cummins Inc,equity,324725,84139000.00,2.1668
 2021-03-31,Duquesne Family Office,682189105,ON,On Semiconductor Corp,equity,1841239,76614000.00,1.9730
 2021-03-31,Duquesne Family Office,30212P303,EXPE,Expedia Group Inc,equity,443094,76265000.00,1.9640
-2021-03-31,Duquesne Family Office,75615P103,RETAEUR,Reata Pharmaceuticals Inc,equity,749897,74765000.00,1.9254
+2021-03-31,Duquesne Family Office,75615P103,,Reata Pharmaceuticals Inc,equity,749897,74765000.00,1.9254
 2021-03-31,Duquesne Family Office,067901108,ABX,Barrick Gold Corp,equity,3606850,71416000.00,1.8391
 2021-03-31,Duquesne Family Office,09857L108,BKNG,Booking Holdings Inc,equity,29904,69672000.00,1.7942
 2021-03-31,Duquesne Family Office,461202103,INTU,Intuit,equity,175515,67233000.00,1.7314
@@ -35,27 +35,27 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2021-03-31,Duquesne Family Office,22266T109,CPNG,Coupang Inc,equity,714285,35250000.00,0.9078
 2021-03-31,Duquesne Family Office,912008109,USFD,Us Foods Hldg Corp,equity,890415,33943000.00,0.8741
 2021-03-31,Duquesne Family Office,320517105,FHN,First Horizon Corporation,equity,1954150,33045000.00,0.8510
-2021-03-31,Duquesne Family Office,67020Y100,NUANEUR,Nuance Communications Inc,equity,747851,32636000.00,0.8404
+2021-03-31,Duquesne Family Office,67020Y100,,Nuance Communications Inc,equity,747851,32636000.00,0.8404
 2021-03-31,Duquesne Family Office,92826C839,V,Visa Inc,equity,144030,30495000.00,0.7853
 2021-03-31,Duquesne Family Office,31620M106,FIS,Fidelity Natl Information Sv,equity,204650,28776000.00,0.7410
 2021-03-31,Duquesne Family Office,57636Q104,MA,Mastercard Incorporated,equity,78874,28083000.00,0.7232
 2021-03-31,Duquesne Family Office,00288U106,ABCL,Abcellera Biologics Inc,equity,659750,22405000.00,0.5770
 2021-03-31,Duquesne Family Office,91912E105,VALE,Vale S A,equity,1286612,22361000.00,0.5758
 2021-03-31,Duquesne Family Office,87165B103,SYF,Synchrony Financial,equity,547100,22245000.00,0.5729
-2021-03-31,Duquesne Family Office,531229854,FWONKUSD,Liberty Media Corp Del,equity,485800,21030000.00,0.5416
+2021-03-31,Duquesne Family Office,531229854,,Liberty Media Corp Del,equity,485800,21030000.00,0.5416
 2021-03-31,Duquesne Family Office,336433107,FSLR,First Solar Inc,equity,239475,20906000.00,0.5384
-2021-03-31,Duquesne Family Office,640268108,NKTREUR,Nektar Therapeutics,equity,1000000,20000000.00,0.5150
+2021-03-31,Duquesne Family Office,640268108,NKTR,Nektar Therapeutics,equity,1000000,20000000.00,0.5150
 2021-03-31,Duquesne Family Office,48242W106,KBR,Kbr Inc,equity,516057,19811000.00,0.5102
 2021-03-31,Duquesne Family Office,833445109,SNOW,Snowflake Inc,equity,84745,19430000.00,0.5004
 2021-03-31,Duquesne Family Office,47215P106,JD,Jd.Com Inc,equity,205313,17314000.00,0.4459
 2021-03-31,Duquesne Family Office,70450Y103,PYPL,Paypal Hldgs Inc,equity,67188,16316000.00,0.4202
 2021-03-31,Duquesne Family Office,595112103,MU,Micron Technology Inc,equity,183726,16206000.00,0.4173
 2021-03-31,Duquesne Family Office,04271T100,ARRY,Array Technologies Inc,equity,518250,15454000.00,0.3980
-2021-03-31,Duquesne Family Office,33813J106,SPAQUSD,Fisker Inc,equity,710900,12242000.00,0.3153
+2021-03-31,Duquesne Family Office,33813J106,,Fisker Inc,equity,710900,12242000.00,0.3153
 2021-03-31,Duquesne Family Office,68404L201,OPCH,Option Care Health Inc,equity,656568,11648000.00,0.3000
 2021-03-31,Duquesne Family Office,18915M107,NET,Cloudflare Inc,equity,96738,6797000.00,0.1750
 2021-03-31,Duquesne Family Office,13645T100,,Canadian Pac Ry Ltd,equity,13922,5318000.00,0.1370
 2021-03-31,Duquesne Family Office,858119100,STLD,Steel Dynamics Inc,equity,97700,4959000.00,0.1277
 2021-03-31,Duquesne Family Office,91531W106,TIGR,Up Fintech Hldg Ltd,equity,274635,4886000.00,0.1258
 2021-03-31,Duquesne Family Office,G28302100,,Dragoneer Growth Opportun Co,equity,281879,2861000.00,0.0737
-2021-03-31,Duquesne Family Office,81728A108,SNSEEUR,Sensei Biotherapeutics Inc,equity,100000,1453000.00,0.0374
+2021-03-31,Duquesne Family Office,81728A108,,Sensei Biotherapeutics Inc,equity,100000,1453000.00,0.0374

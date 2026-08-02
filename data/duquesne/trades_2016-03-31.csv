@@ -2,19 +2,19 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,HAL,Halliburton Co,406216101,equity,0,2177600,0,2177600,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,ABBV,AbbVie Inc.,00287Y109,equity,0,1324920,0,1324920,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,FCX,Freeport-McMoRan Inc,35671D857,equity,0,3470700,0,3470700,,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,AA,Alcoa Inc.,013817101,equity,0,3390700,0,3390700,,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,,Alcoa Inc.,013817101,equity,0,3390700,0,3390700,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,DE,Deere &amp; Co,244199105,equity,0,360500,0,360500,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,CF,CF Ind&apos;s Hldgs Inc.,125269100,equity,0,930800,0,930800,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,,Agrium Inc.,008916108,equity,0,220500,0,220500,,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,POT1EUR,Potash Corp of Sask Inc.,73755L107,equity,0,1192000,0,1192000,,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,CTRPUSD,Ctrip.com Int&apos;l Ltd.,22943F100,equity,0,409000,0,409000,,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,,Potash Corp of Sask Inc.,73755L107,equity,0,1192000,0,1192000,,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,,Ctrip.com Int&apos;l Ltd.,22943F100,equity,0,409000,0,409000,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,,Ingersoll-Rand Plc,G47791101,equity,0,238500,0,238500,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,ABT,Abbott Labs,002824100,equity,0,385400,0,385400,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,NVDA,NVIDIA Corp.,67066G104,equity,0,320000,0,320000,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,CRM,Salesforce.com Inc.,79466L302,equity,0,189000,0,189000,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,ROK,Rockwell Automation Inc.,773903109,equity,0,130100,0,130100,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,GD,General Dynamics Corp,369550108,equity,0,104900,0,104900,,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,RTN1USD,Raytheon Co,755111507,equity,0,77100,0,77100,,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,,Raytheon Co,755111507,equity,0,77100,0,77100,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,,Mead Johnson Nut&apos;n Co,582839106,equity,0,110300,0,110300,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,NUE,Nucor Corp,670346105,equity,0,201000,0,201000,,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,new,A,Agilent Tech&apos;s Inc.,00846U101,equity,0,220300,0,220300,,1.000000
@@ -23,24 +23,24 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,sell,META,Facebook Inc.,30303M102,equity,2023694,932394,2023694,-1091300,-53.93,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,sell,EEM,IShrs MSCI Emg&apos;g Mkt Idx,464287234,equity,2971000,2093400,2971000,-877600,-29.54,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,sell,AMZN,Amazon.com Inc.,023135106,equity,77200,35400,77200,-41800,-54.15,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,JD,JD.Com Inc.,47215P106,equity,356400,0,356400,-356400,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,KO,Coca-Cola Co,191216100,equity,1388900,0,1388900,-1388900,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,PM,Philip Morris Int&apos;l Inc.,718172109,equity,554800,0,554800,-554800,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,SO,Southern Co,842587107,equity,1017400,0,1017400,-1017400,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,DUK,Duke Energy Corp,26441C204,equity,649100,0,649100,-649100,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,GOOGL,Alphabet Inc.,02079K305,equity,55700,0,55700,-55700,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,PPL,PPL Corp,69351T106,equity,974700,0,974700,-974700,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,PEP,Pepsico Inc.,713448108,equity,353300,0,353300,-353300,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,EMR,Emerson Electric Inc.,291011104,equity,551000,0,551000,-551000,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,MSFT,Microsoft Corp,594918104,equity,517100,0,517100,-517100,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,CAT,Caterpillar Inc.,149123101,equity,330000,0,330000,-330000,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,LUV,Southwest Airlines Co.,844741108,equity,493000,0,493000,-493000,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,VZ,Verizon Comms Inc.,92343V104,equity,400000,0,400000,-400000,-100.00,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,HD,Home Depot Inc.,437076102,equity,150700,0,150700,-150700,-100.00,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,WDAY,Workday Inc.,98138H101,equity,259700,0,259700,-259700,-100.00,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,MCD,McDonald&apos;s Corp,580135101,equity,158200,0,158200,-158200,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,VZ,Verizon Comms Inc.,92343V104,equity,400000,0,400000,-400000,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,DUK,Duke Energy Corp,26441C204,equity,649100,0,649100,-649100,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,GOOGL,Alphabet Inc.,02079K305,equity,55700,0,55700,-55700,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,PEP,Pepsico Inc.,713448108,equity,353300,0,353300,-353300,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,MSFT,Microsoft Corp,594918104,equity,517100,0,517100,-517100,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,AEP,Am Elect Pwr Co Inc.,025537101,equity,160200,0,160200,-160200,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,PPL,PPL Corp,69351T106,equity,974700,0,974700,-974700,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,LUV,Southwest Airlines Co.,844741108,equity,493000,0,493000,-493000,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,WEC,WEC Energy Grp Inc.,92939U106,equity,178000,0,178000,-178000,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,PM,Philip Morris Int&apos;l Inc.,718172109,equity,554800,0,554800,-554800,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,CAT,Caterpillar Inc.,149123101,equity,330000,0,330000,-330000,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,EL,The Estee Lauder Co Inc.,518439104,equity,111900,0,111900,-111900,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,KO,Coca-Cola Co,191216100,equity,1388900,0,1388900,-1388900,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,EMR,Emerson Electric Inc.,291011104,equity,551000,0,551000,-551000,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,SGI,Tempur Sealy Int&apos;l Inc.,88023U101,equity,125500,0,125500,-125500,-100.00,1.000000
 2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,ED,Consolidated Edison Inc.,209115104,equity,141900,0,141900,-141900,-100.00,1.000000
-2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,SO,Southern Co,842587107,equity,1017400,0,1017400,-1017400,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,WEC,WEC Energy Grp Inc.,92939U106,equity,178000,0,178000,-178000,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,AEP,Am Elect Pwr Co Inc.,025537101,equity,160200,0,160200,-160200,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,EL,The Estee Lauder Co Inc.,518439104,equity,111900,0,111900,-111900,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,JD,JD.Com Inc.,47215P106,equity,356400,0,356400,-356400,-100.00,1.000000
+2016-03-31,2016-03-31,2016-06-30,Duquesne Family Office,exit,SGI,Tempur Sealy Int&apos;l Inc.,88023U101,equity,125500,0,125500,-125500,-100.00,1.000000

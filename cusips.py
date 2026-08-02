@@ -1,17 +1,15 @@
-"""Resolve a CUSIP to a US ticker.
+"""Map a CUSIP to a ticker through OpenFIGI.
 
-13F filings identify holdings by CUSIP and issuer name only. Everything
-downstream of the position table -- quotes, links, company facts, the segment
-filters -- is keyed on ticker, so this is the one piece of plumbing a 13F
-source needs that an ARK source does not.
+One strategy, not a decision: OpenFIGI is authoritative where it answers, but
+it does not carry every foreign-issuer CINS (BBB Foods, G0896C103, NYSE: TBBB
+is absent) and it falls back to a foreign line when the CUSIP has no US row,
+answering ANETEUR for Arista. Judging those answers, and identifying what is
+left over, belongs to issuers.py -- which is what callers should use.
 
-Two steps, because neither alone is enough:
-
-  OpenFIGI   authoritative and free, no key, but it does not carry every
-             foreign-issuer CINS. BBB Foods (G0896C103, NYSE: TBBB) is absent.
-  name match reuses listings.names_agree against Nasdaq's own directory, which
-             covers exactly the cases OpenFIGI misses -- a US-listed issuer
-             always appears there under a name the filing echoes.
+A name fallback used to live here. It reused listings.names_agree, which is a
+verifier for one proposed pair rather than a search, and over twelve thousand
+listings it returned an ambiguous answer for almost everything: on the last
+full run it recovered 0 of 74. issuers.py replaced it with scoring.
 
 Results are cached, including the misses, so a rerun costs nothing.
 """
@@ -22,8 +20,6 @@ import time
 import urllib.request
 from pathlib import Path
 
-import listings
-
 REF = Path(__file__).parent / "data" / "reference"
 CACHE = REF / "cusip_tickers.json"
 FIGI = "https://api.openfigi.com/v3/mapping"
@@ -32,6 +28,7 @@ UA = "ark-holdings/1.0"
 # whole batch is lost -- and about 25 requests a minute.
 BATCH = 10
 DELAY = 3.0
+TICKER = re.compile(r"^[A-Z]{1,5}(?:[./][A-Z])?$")
 US_EXCHANGES = {"US", "UN", "UQ", "UA", "UP", "UW", "UR", "UV", "UF"}
 # Funds and notes are reportable on a 13F but are not operating companies; the
 # securityType is kept so a caller can filter them out.
@@ -73,28 +70,23 @@ def _figi(batch: list[str]) -> dict[str, dict]:
     for cusip, r in zip(batch, results):
         rows = r.get("data") or []
         us = [x for x in rows if x.get("exchCode") in US_EXCHANGES]
-        pick = (us or rows or [None])[0]
+        # No US row means no answer. Falling back to the first row of any
+        # exchange returned ANETEUR for Arista and ACLXGBX for Arcellx --
+        # real identifiers for the European lines, and useless here, since
+        # nothing downstream can price or link them. A delisted US ticker is
+        # a different case and still wanted: Alexion really was ALXN, and a
+        # 2015 position should say so.
+        pick = (us or [None])[0]
+        # A US row can still carry a placeholder rather than a ticker: FIGI
+        # returns 9990302D for Apache and MS$F for McDermott, both Bloomberg
+        # codes for issuers that stopped trading. A real US ticker is letters,
+        # optionally with a class suffix.
+        if pick and not TICKER.match(pick.get("ticker") or ""):
+            pick = None
         if pick and pick.get("ticker"):
             out[cusip] = {"ticker": pick["ticker"], "name": pick.get("name") or "",
                           "type": pick.get("securityType") or "", "via": "figi"}
     return out
-
-
-def _by_name(company: str, listed: dict) -> dict | None:
-    """Last resort: find the US listing whose issuer name agrees with the
-    filing's. Only accepted when exactly one candidate matches, so a common
-    word can never pull in the wrong company."""
-    tokens = listings._tokens(company)
-    if not tokens:
-        return None
-    hits = []
-    for symbol, (exchange, name) in listed.items():
-        if listings.names_agree(company, name):
-            hits.append((symbol, exchange, name))
-    if len(hits) != 1:
-        return None
-    symbol, exchange, name = hits[0]
-    return {"ticker": symbol, "name": name, "type": exchange, "via": "name"}
 
 
 def resolve(items: list[tuple[str, str]], refresh: bool = False) -> dict[str, dict]:
@@ -111,17 +103,6 @@ def resolve(items: list[tuple[str, str]], refresh: bool = False) -> dict[str, di
         print(f"  openfigi {i + len(batch):>4}/{len(todo)}  matched {len(found)}/{len(batch)}")
         if i + BATCH < len(todo):
             time.sleep(DELAY)
-
-    unresolved = [(c, n) for c, n in items if not cache.get(c, {}).get("ticker")]
-    if unresolved:
-        listed = listings.load()
-        fixed = 0
-        for c, name in unresolved:
-            hit = _by_name(name, listed)
-            if hit:
-                cache[c] = hit
-                fixed += 1
-        print(f"  name fallback recovered {fixed}/{len(unresolved)}")
 
     save_cache(cache)
     return cache

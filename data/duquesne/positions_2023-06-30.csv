@@ -22,19 +22,19 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2023-06-30,Duquesne Family Office,13321L108,CCJ,Cameco Corp,equity,869740,27249000.00,0.9479
 2023-06-30,Duquesne Family Office,88023U101,SGI,Tempur Sealy Intl Inc,equity,525050,21039000.00,0.7319
 2023-06-30,Duquesne Family Office,95082P105,WCC,Wesco Intl Inc,equity,116900,20932000.00,0.7282
-2023-06-30,Duquesne Family Office,830566105,SKAA,Skechers U S A Inc,equity,371125,19543000.00,0.6798
+2023-06-30,Duquesne Family Office,830566105,,Skechers U S A Inc,equity,371125,19543000.00,0.6798
 2023-06-30,Duquesne Family Office,573874104,MRVL,Marvell Technology Inc,equity,314320,18790000.00,0.6537
 2023-06-30,Duquesne Family Office,127387108,CDNS,Cadence Design System Inc,equity,75395,17682000.00,0.6151
 2023-06-30,Duquesne Family Office,25809K105,DASH,Doordash Inc,equity,206900,15811000.00,0.5500
 2023-06-30,Duquesne Family Office,30303M102,META,Meta Platforms Inc,equity,54665,15688000.00,0.5457
 2023-06-30,Duquesne Family Office,H42097107,,Ubs Group Ag,equity,759500,15370000.00,0.5347
-2023-06-30,Duquesne Family Office,040413106,ANETEUR,Arista Networks Inc,equity,93980,15230000.00,0.5298
+2023-06-30,Duquesne Family Office,040413106,ANET,Arista Networks Inc,equity,93980,15230000.00,0.5298
 2023-06-30,Duquesne Family Office,65249B208,NWS,News Corp New,equity,730700,14409000.00,0.5013
 2023-06-30,Duquesne Family Office,595112103,MU,Micron Technology Inc,equity,222200,14023000.00,0.4878
 2023-06-30,Duquesne Family Office,93403J106,WRBY,Warby Parker Inc,equity,1064139,12440000.00,0.4328
 2023-06-30,Duquesne Family Office,16119P108,CHTR,Charter Communications Inc N,equity,29500,10837000.00,0.3770
 2023-06-30,Duquesne Family Office,929042109,VNO,Vornado Rlty Tr,equity,594400,10782000.00,0.3751
-2023-06-30,Duquesne Family Office,98156Q108,WWEUSD,World Wrestling Entmt Inc,equity,98365,10670000.00,0.3712
+2023-06-30,Duquesne Family Office,98156Q108,,World Wrestling Entmt Inc,equity,98365,10670000.00,0.3712
 2023-06-30,Duquesne Family Office,75629V104,RXRX,Recursion Pharmaceuticals In,equity,1385950,10353000.00,0.3602
 2023-06-30,Duquesne Family Office,452327109,ILMN,Illumina Inc,equity,54885,10290000.00,0.3580
 2023-06-30,Duquesne Family Office,13646K108,CP,Canadian Pacific Kansas City,equity,123600,9986000.00,0.3474
@@ -50,5 +50,5 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2023-06-30,Duquesne Family Office,004225108,ACAD,Acadia Pharmaceuticals Inc,equity,74400,1782000.00,0.0620
 2023-06-30,Duquesne Family Office,20464U100,COMP,Compass Inc,equity,399100,1397000.00,0.0486
 2023-06-30,Duquesne Family Office,39957D201,GROV,Grove Collaborative Hold Inc,equity,196571,348000.00,0.0121
-2023-06-30,Duquesne Family Office,G65163100,,Joby Aviation Inc,equity,11246,115000.00,0.0040
-2023-06-30,Duquesne Family Office,81728A108,SNSEEUR,Sensei Biotherapeutics Inc,equity,100000,114000.00,0.0040
+2023-06-30,Duquesne Family Office,G65163100,JOBY,Joby Aviation Inc,equity,11246,115000.00,0.0040
+2023-06-30,Duquesne Family Office,81728A108,,Sensei Biotherapeutics Inc,equity,100000,114000.00,0.0040

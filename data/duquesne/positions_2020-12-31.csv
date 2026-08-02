@@ -7,16 +7,16 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2020-12-31,Duquesne Family Office,697435105,PANW,Palo Alto Networks Inc,equity,459060,163145000.00,4.4141
 2020-12-31,Duquesne Family Office,81141R100,SE,Sea Ltd,equity,764714,152216000.00,4.1184
 2020-12-31,Duquesne Family Office,707569109,PENN,Penn Natl Gaming Inc,equity,1517501,131067000.00,3.5462
-2020-12-31,Duquesne Family Office,67020Y100,NUANEUR,Nuance Communications Inc,equity,2911525,128369000.00,3.4732
+2020-12-31,Duquesne Family Office,67020Y100,,Nuance Communications Inc,equity,2911525,128369000.00,3.4732
 2020-12-31,Duquesne Family Office,254687106,DIS,Disney Walt Co,equity,684335,123988000.00,3.3546
 2020-12-31,Duquesne Family Office,146869102,CVNA,Carvana Co,equity,485981,116412000.00,3.1497
 2020-12-31,Duquesne Family Office,58733R102,MELI,Mercadolibre Inc,equity,63277,106003000.00,2.8680
-2020-12-31,Duquesne Family Office,75615P103,RETAEUR,Reata Pharmaceuticals Inc,equity,749897,92702000.00,2.5082
+2020-12-31,Duquesne Family Office,75615P103,,Reata Pharmaceuticals Inc,equity,749897,92702000.00,2.5082
 2020-12-31,Duquesne Family Office,067901108,ABX,Barrick Gold Corp,equity,3606850,82164000.00,2.2230
 2020-12-31,Duquesne Family Office,65339F101,NEE,Nextera Energy Inc,equity,779800,60162000.00,1.6278
 2020-12-31,Duquesne Family Office,18915M107,NET,Cloudflare Inc,equity,790848,60097000.00,1.6260
 2020-12-31,Duquesne Family Office,878742204,TECK,Teck Resources Ltd,equity,3275350,59448000.00,1.6084
-2020-12-31,Duquesne Family Office,143658300,CCL1EUR,Carnival Corp,equity,2644400,57278000.00,1.5497
+2020-12-31,Duquesne Family Office,143658300,CCL,Carnival Corp,equity,2644400,57278000.00,1.5497
 2020-12-31,Duquesne Family Office,231021106,CMI,Cummins Inc,equity,219320,49808000.00,1.3476
 2020-12-31,Duquesne Family Office,369604103,,General Electric Co,equity,4375778,47258000.00,1.2786
 2020-12-31,Duquesne Family Office,86771W105,RUN,Sunrun Inc,equity,661535,45897000.00,1.2418
@@ -28,14 +28,14 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2020-12-31,Duquesne Family Office,032654105,ADI,Analog Devices Inc,equity,213328,31515000.00,0.8527
 2020-12-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,1733430,31167000.00,0.8433
 2020-12-31,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,119082,28533000.00,0.7720
-2020-12-31,Duquesne Family Office,83200N103,SMARGBP,Smartsheet Inc,equity,402361,27880000.00,0.7543
+2020-12-31,Duquesne Family Office,83200N103,,Smartsheet Inc,equity,402361,27880000.00,0.7543
 2020-12-31,Duquesne Family Office,92189F676,SMH,Vaneck Vectors Etf Tr,equity,123900,27062000.00,0.7322
 2020-12-31,Duquesne Family Office,650111107,NYT,New York Times Co,equity,513150,26566000.00,0.7188
 2020-12-31,Duquesne Family Office,00288U106,ABCL,Abcellera Biologics Inc,equity,659750,26548000.00,0.7183
 2020-12-31,Duquesne Family Office,013872106,AA,Alcoa Corp,equity,1102000,25401000.00,0.6873
 2020-12-31,Duquesne Family Office,336433107,FSLR,First Solar Inc,equity,231000,22851000.00,0.6183
 2020-12-31,Duquesne Family Office,04271T100,ARRY,Array Technologies Inc,equity,518250,22357000.00,0.6049
-2020-12-31,Duquesne Family Office,531229854,FWONKUSD,Liberty Media Corp Del,equity,485800,20695000.00,0.5599
+2020-12-31,Duquesne Family Office,531229854,,Liberty Media Corp Del,equity,485800,20695000.00,0.5599
 2020-12-31,Duquesne Family Office,28414H103,ELAN,Elanco Animal Health Inc,equity,623975,19137000.00,0.5178
 2020-12-31,Duquesne Family Office,47215P106,JD,Jd.Com Inc,equity,205313,18047000.00,0.4883
 2020-12-31,Duquesne Family Office,09061G101,BMRN,Biomarin Pharmaceutical Inc,equity,192700,16898000.00,0.4572
@@ -51,5 +51,5 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2020-12-31,Duquesne Family Office,G04553106,,Arco Platform Ltd Com,equity,236460,8392000.00,0.2271
 2020-12-31,Duquesne Family Office,68404L201,OPCH,Option Care Health Inc,equity,388915,6083000.00,0.1646
 2020-12-31,Duquesne Family Office,912008109,USFD,Us Foods Hldg Corp,equity,157200,5236000.00,0.1417
-2020-12-31,Duquesne Family Office,78781P105,SAILEUR,Sailpoint Technologies Hldgs,equity,88005,4685000.00,0.1268
+2020-12-31,Duquesne Family Office,78781P105,,Sailpoint Technologies Hldgs,equity,88005,4685000.00,0.1268
 2020-12-31,Duquesne Family Office,922107107,,Vapotherm Inc,equity,77660,2086000.00,0.0564

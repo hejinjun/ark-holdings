@@ -1,13 +1,13 @@
 trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_class,prev_shares,shares,expected_shares,active_shares,active_pct,flow_factor
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,KRE,Spdr Ser Tr,78464A698,equity,0,2053323,0,2053323,,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,AVGO,Broadcom Inc,11135F101,equity,0,239980,0,239980,,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,,Ascendis Pharma A/S,04351P101,equity,0,265040,0,265040,,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,,Nvent Electric Plc,G6700G107,equity,0,451065,0,451065,,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,ASND,Ascendis Pharma A/S,04351P101,equity,0,265040,0,265040,,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,NVT,Nvent Electric Plc,G6700G107,equity,0,451065,0,451065,,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,TEVA,Teva Pharmaceutical Inds Ltd,881624209,equity,0,1427950,0,1427950,,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,USX1,United States Stl Corp,912909108,equity,0,663090,0,663090,,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,,United States Stl Corp,912909108,equity,0,663090,0,663090,,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,CNM,Core &amp; Main Inc,21874C102,equity,0,475195,0,475195,,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,C,Citigroup Inc,172967424,equity,0,327400,0,327400,,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,VRNA,Verona Pharma Plc,925050106,equity,0,686045,0,686045,,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,,Verona Pharma Plc,925050106,equity,0,686045,0,686045,,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,CRH,Crh Plc,G25508105,equity,0,162500,0,162500,,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,CB,Chubb Limited,H1467J104,equity,0,34800,0,34800,,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,ADSK,Autodesk Inc,052769106,equity,0,36400,0,36400,,1.000000
@@ -27,7 +27,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,XPO,Xpo Inc,983793100,equity,0,46500,0,46500,,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,PCVX,Vaxcyte Inc,92243G108,equity,0,42965,0,42965,,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,WDC,Western Digital Corp.,958102105,equity,0,71405,0,71405,,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,,Newamsterdam Pharma Company,N62509109,equity,0,287535,0,287535,,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,NAMS,Newamsterdam Pharma Company,N62509109,equity,0,287535,0,287535,,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,RARE,Ultragenyx Pharmaceutical In,90400D108,equity,0,85445,0,85445,,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,new,ARM,Arm Holdings Plc,042068205,equity,0,21610,0,21610,,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,buy,NTRA,Natera Inc,632307104,equity,1974880,3566850,1974880,1591970,80.61,1.000000
@@ -35,7 +35,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,buy,MELI,Mercadolibre Inc,58733R102,equity,36493,48110,36493,11617,31.83,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,buy,CPNG,Coupang Inc,22266T109,equity,10971140,11696092,10971140,724952,6.61,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,buy,WWD,Woodward Inc,980745103,equity,954230,1057715,954230,103485,10.84,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,buy,DFSEUR,Discover Finl Svcs,254709108,equity,167255,284865,167255,117610,70.32,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,buy,,Discover Finl Svcs,254709108,equity,167255,284865,167255,117610,70.32,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,buy,FCX,Freeport-Mcmoran Inc,35671D857,equity,1153135,1376935,1153135,223800,19.41,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,buy,BMA,Banco Macro Sa,05961W105,equity,273130,424130,273130,151000,55.29,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,buy,WAB,Wabtec,929740108,equity,150675,179650,150675,28975,19.23,1.000000
@@ -54,31 +54,31 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,TECK,Teck Resources Ltd,878742204,equity,1453410,1017085,1453410,-436325,-30.02,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,FLUT,Flutter Entmt Plc,G3643J108,equity,335076,260953,335076,-74123,-22.12,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,PANW,Palo Alto Networks Inc,697435105,equity,88968,43712,88968,-45256,-50.87,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,,Seagate Technology Hldngs Pl,G7997R103,equity,1755278,1640369,1755278,-114909,-6.55,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,SWTXUSD,Springworks Therapeutics Inc,85205L107,equity,1021367,705066,1021367,-316301,-30.97,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,STX,Seagate Technology Hldngs Pl,G7997R103,equity,1755278,1640369,1755278,-114909,-6.55,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,,Springworks Therapeutics Inc,85205L107,equity,1021367,705066,1021367,-316301,-30.97,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,GGAL,Grupo Financiero Galicia S.A,399909100,equity,475763,355263,475763,-120500,-25.33,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,YPF,Ypf Sociedad Anonima,984245100,equity,638435,430100,638435,-208335,-32.63,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,ADBE,Adobe Inc,00724F101,equity,36685,34495,36685,-2190,-5.97,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,sell,BCS,Barclays Plc,06738E204,equity,2075455,2007755,2075455,-67700,-3.26,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,LYV,Live Nation Entertainment In,538034109,equity,103100,0,103100,-103100,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,MSGE,Madison Square Garden Entmt,558256103,equity,694225,0,694225,-694225,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,,Liberty Global Ltd,G61188101,equity,275275,0,275275,-275275,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,NWS,News Corp New,65249B208,equity,635850,0,635850,-635850,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,GPCR,Structure Therapeutics Inc,86366E106,equity,37700,0,37700,-37700,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,BLDR,Builders Firstsource Inc,12008R107,equity,29385,0,29385,-29385,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,SGI,Tempur Sealy Intl Inc,88023U101,equity,103100,0,103100,-103100,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,VCYT,Veracyte Inc,92337F107,equity,259944,0,259944,-259944,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,SPHR,Sphere Entertainment Co,55826T102,equity,122411,0,122411,-122411,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,AES,Aes Corp,00130H105,equity,314750,0,314750,-314750,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,AAPL,Apple Inc,037833100,equity,24400,0,24400,-24400,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,ANETEUR,Arista Networks Inc,040413106,equity,52275,0,52275,-52275,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,SE,Sea Ltd,81141R100,equity,66900,0,66900,-66900,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,CNK,Cinemark Hldgs Inc,17243V102,equity,400792,0,400792,-400792,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,,Liberty Global Ltd,G61188127,equity,261875,0,261875,-261875,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,IQV,Iqvia Hldgs Inc,46266C105,equity,60360,0,60360,-60360,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,BAH,Booz Allen Hamilton Hldg Cor,099502106,equity,83841,0,83841,-83841,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,NWSA,News Corp New,65249B109,equity,683800,0,683800,-683800,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,TEO,Telecom Argentina Sa,879273209,equity,143051,0,143051,-143051,-100.00,1.000000
-2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,EQT,Eqt Corp,26884L109,equity,121000,0,121000,-121000,-100.00,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,OPCH,Option Care Health Inc,68404L201,equity,1871818,0,1871818,-1871818,-100.00,1.000000
 2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,NVDA,Nvidia Corporation,67066G104,equity,214060,0,214060,-214060,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,MSGE,Madison Square Garden Entmt,558256103,equity,694225,0,694225,-694225,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,NWSA,News Corp New,65249B109,equity,683800,0,683800,-683800,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,ANET,Arista Networks Inc,040413106,equity,52275,0,52275,-52275,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,NWS,News Corp New,65249B208,equity,635850,0,635850,-635850,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,BAH,Booz Allen Hamilton Hldg Cor,099502106,equity,83841,0,83841,-83841,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,IQV,Iqvia Hldgs Inc,46266C105,equity,60360,0,60360,-60360,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,LYV,Live Nation Entertainment In,538034109,equity,103100,0,103100,-103100,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,CNK,Cinemark Hldgs Inc,17243V102,equity,400792,0,400792,-400792,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,VCYT,Veracyte Inc,92337F107,equity,259944,0,259944,-259944,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,AES,Aes Corp,00130H105,equity,314750,0,314750,-314750,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,AAPL,Apple Inc,037833100,equity,24400,0,24400,-24400,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,SGI,Tempur Sealy Intl Inc,88023U101,equity,103100,0,103100,-103100,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,,Liberty Global Ltd,G61188101,equity,275275,0,275275,-275275,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,SE,Sea Ltd,81141R100,equity,66900,0,66900,-66900,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,,Liberty Global Ltd,G61188127,equity,261875,0,261875,-261875,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,EQT,Eqt Corp,26884L109,equity,121000,0,121000,-121000,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,SPHR,Sphere Entertainment Co,55826T102,equity,122411,0,122411,-122411,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,BLDR,Builders Firstsource Inc,12008R107,equity,29385,0,29385,-29385,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,GPCR,Structure Therapeutics Inc,86366E106,equity,37700,0,37700,-37700,-100.00,1.000000
+2024-06-30,2024-06-30,2024-09-30,Duquesne Family Office,exit,TEO,Telecom Argentina Sa,879273209,equity,143051,0,143051,-143051,-100.00,1.000000

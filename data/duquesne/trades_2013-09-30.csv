@@ -2,19 +2,19 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,FDX,Federal Express Corp.,31428X106,equity,0,356900,0,356900,,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,BMY,Bristol-Myers Squibb Co,110122108,equity,0,954200,0,954200,,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,TEVA,Teva Pharm Ind&apos;s Ltd,881624209,equity,0,1241000,0,1241000,,1.000000
-2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,AA,Alcoa Inc.,013817101,equity,0,4000000,0,4000000,,1.000000
+2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,,Alcoa Inc.,013817101,equity,0,4000000,0,4000000,,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,,Crwn Castle Int&apos;l Corp.,228227104,equity,0,540200,0,540200,,1.000000
-2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,,SBA Comms Corp,78388J106,equity,0,397400,0,397400,,1.000000
-2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,DISH,DISH Network Corp,25470M109,equity,0,515000,0,515000,,1.000000
+2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,SBAC,SBA Comms Corp,78388J106,equity,0,397400,0,397400,,1.000000
+2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,,DISH Network Corp,25470M109,equity,0,515000,0,515000,,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,VLO,Valero Energy Corp,91913Y100,equity,0,578900,0,578900,,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,MPC,Marathon Petroleum Corp,56585A102,equity,0,315900,0,315900,,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,EQT,EQT Corp,26884L109,equity,0,284900,0,284900,,1.000000
-2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,AZNN,Astrazeneca PLC,046353108,equity,0,360500,0,360500,,1.000000
+2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,AZN,Astrazeneca PLC,046353108,equity,0,360500,0,360500,,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,ADBE,Adobe Systems Inc,00724F101,equity,0,336800,0,336800,,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,XLF,Fin&apos;l Select Sctr SPDR Fnd,81369Y605,equity,0,699000,0,699000,,1.000000
-2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,,Baker Hughes Inc.,057224107,equity,0,268000,0,268000,,1.000000
+2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,BKR,Baker Hughes Inc.,057224107,equity,0,268000,0,268000,,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,SPWRQ,Sunpower Corp,867652406,equity,0,442500,0,442500,,1.000000
-2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,,Towers Watson &amp; Co.,891894107,equity,0,88300,0,88300,,1.000000
+2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,WTW,Towers Watson &amp; Co.,891894107,equity,0,88300,0,88300,,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,XLV,Hlth Car Select Sctr SPDR Fnd,81369Y209,equity,0,188300,0,188300,,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,XLK,Tech Car Select Sctr SPDR Fnd,81369Y803,equity,0,285700,0,285700,,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,,Mellanox Tech&apos;s Ltd.,M51363113,equity,0,251500,0,251500,,1.000000
@@ -22,13 +22,13 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,new,JBLU,JetBlue Airways Corp,477143101,equity,0,1000000,0,1000000,,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,buy,,Google Inc.,38259P508,equity,223250,233250,223250,10000,4.48,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,buy,DXJ,WisdomTree Jpn Hdgd Eq Fnd,97717W851,equity,102000,303500,102000,201500,197.55,1.000000
-2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,buy,PXDEUR,Pioneer Nat&apos;l Res&apos;s Co,723787107,equity,143000,197800,143000,54800,38.32,1.000000
+2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,buy,,Pioneer Nat&apos;l Res&apos;s Co,723787107,equity,143000,197800,143000,54800,38.32,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,buy,HAL,Halliburton Co,406216101,equity,633700,826700,633700,193000,30.46,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,buy,JNJ,Johnson &amp; Johnson,478160104,equity,129000,235000,129000,106000,82.17,1.000000
-2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,exit,NOK,Nokia Oyj,654902204,equity,1000000,0,1000000,-1000000,-100.00,1.000000
-2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,exit,XLB,Mat&apos;ls Select Sctr SPDR Tst,81369Y100,equity,120400,0,120400,-120400,-100.00,1.000000
+2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,exit,EMB,Ishares JPM USD Emg Bnd,464288281,equity,136500,0,136500,-136500,-100.00,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,exit,EWY,IShares MSCI Sth Kor Cap Idx Fnd,464286772,equity,165500,0,165500,-165500,-100.00,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,exit,XLE,Engy Select Sctr SPDR Fnd,81369Y506,equity,116900,0,116900,-116900,-100.00,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,exit,FXI,IShares FTSE China 25 Idx Fnd,464287184,equity,260700,0,260700,-260700,-100.00,1.000000
-2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,exit,EMB,Ishares JPM USD Emg Bnd,464288281,equity,136500,0,136500,-136500,-100.00,1.000000
+2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,exit,NOK,Nokia Oyj,654902204,equity,1000000,0,1000000,-1000000,-100.00,1.000000
 2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,exit,HLF,Herbalife Ltd.,G4412G101,equity,79032,0,79032,-79032,-100.00,1.000000
+2013-09-30,2013-09-30,2013-12-31,Duquesne Family Office,exit,XLB,Mat&apos;ls Select Sctr SPDR Tst,81369Y100,equity,120400,0,120400,-120400,-100.00,1.000000

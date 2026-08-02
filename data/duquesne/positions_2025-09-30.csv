@@ -7,7 +7,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2025-09-30,Duquesne Family Office,22266T109,CPNG,Coupang Inc,equity,4633124,149187000.00,3.7949
 2025-09-30,Duquesne Family Office,58733R102,MELI,Mercadolibre Inc,equity,58344,136346000.00,3.4682
 2025-09-30,Duquesne Family Office,256163106,DOCU,Docusign Inc,equity,1685950,121540000.00,3.0916
-2025-09-30,Duquesne Family Office,925050106,VRNA,Verona Pharma Plc,equity,1002080,106932000.00,2.7200
+2025-09-30,Duquesne Family Office,925050106,,Verona Pharma Plc,equity,1002080,106932000.00,2.7200
 2025-09-30,Duquesne Family Office,464287234,EEM,Ishares Tr,equity,1900000,101460000.00,2.5808
 2025-09-30,Duquesne Family Office,023135106,AMZN,Amazon Com Inc,equity,437070,95967000.00,2.4411
 2025-09-30,Duquesne Family Office,77543R102,ROKU,Roku Inc,equity,822435,82350000.00,2.0947
@@ -16,7 +16,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2025-09-30,Duquesne Family Office,86384P109,STUB,Stubhub Hldgs Inc,equity,4259516,71730000.00,1.8246
 2025-09-30,Duquesne Family Office,929740108,WAB,Wabtec,equity,302410,60624000.00,1.5421
 2025-09-30,Duquesne Family Office,30303M102,META,Meta Platforms Inc,equity,76100,55886000.00,1.4216
-2025-09-30,Duquesne Family Office,N62509109,,Newamsterdam Pharma Company,equity,1923700,54710000.00,1.3917
+2025-09-30,Duquesne Family Office,N62509109,NAMS,Newamsterdam Pharma Company,equity,1923700,54710000.00,1.3917
 2025-09-30,Duquesne Family Office,144285103,CRS,Carpenter Technology Corp,equity,220035,54027000.00,1.3743
 2025-09-30,Duquesne Family Office,172967424,C,Citigroup Inc,equity,514850,52257000.00,1.3293
 2025-09-30,Duquesne Family Office,90138F102,TWLO,Twilio Inc,equity,512800,51326000.00,1.3056
@@ -30,7 +30,7 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2025-09-30,Duquesne Family Office,526057104,LEN,Lennar Corp,equity,279424,35219000.00,0.8959
 2025-09-30,Duquesne Family Office,23331A109,DHI,D R Horton Inc,equity,205150,34767000.00,0.8844
 2025-09-30,Duquesne Family Office,185899101,CLF,Cleveland-Cliffs Inc New,equity,2715035,33123000.00,0.8426
-2025-09-30,Duquesne Family Office,G0896C103,,Bbb Foods Inc,equity,1183125,31897000.00,0.8114
+2025-09-30,Duquesne Family Office,G0896C103,TBBB,Bbb Foods Inc,equity,1183125,31897000.00,0.8114
 2025-09-30,Duquesne Family Office,74623V103,PCT,Purecycle Technologies Inc,equity,2303084,30286000.00,0.7704
 2025-09-30,Duquesne Family Office,531229755,FWONK,Liberty Media Corp Del,equity,288400,30123000.00,0.7662
 2025-09-30,Duquesne Family Office,234264109,DAKT,Daktronics Inc,equity,1436936,30061000.00,0.7647
@@ -42,9 +42,9 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2025-09-30,Duquesne Family Office,69331C108,PCG,Pg&amp;E Corp,equity,1649300,24871000.00,0.6326
 2025-09-30,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc,equity,102200,24845000.00,0.6320
 2025-09-30,Duquesne Family Office,042068205,ARM,Arm Holdings Plc,equity,167900,23756000.00,0.6043
-2025-09-30,Duquesne Family Office,G6683N103,,Nu Hldgs Ltd,equity,1454180,23281000.00,0.5922
+2025-09-30,Duquesne Family Office,G6683N103,NU,Nu Hldgs Ltd,equity,1454180,23281000.00,0.5922
 2025-09-30,Duquesne Family Office,816850101,SMTC,Semtech Corp,equity,301515,21543000.00,0.5480
-2025-09-30,Duquesne Family Office,G7997R103,,Seagate Technology Hldngs Pl,equity,85900,20278000.00,0.5158
+2025-09-30,Duquesne Family Office,G7997R103,STX,Seagate Technology Hldngs Pl,equity,85900,20278000.00,0.5158
 2025-09-30,Duquesne Family Office,372460105,GPC,Genuine Parts Co,equity,144185,19984000.00,0.5083
 2025-09-30,Duquesne Family Office,29337E102,ELVN,Enliven Therapeutics Inc,equity,947405,19393000.00,0.4933
 2025-09-30,Duquesne Family Office,737446104,POST,Post Hldgs Inc,equity,176400,18959000.00,0.4823

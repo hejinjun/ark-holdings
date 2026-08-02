@@ -12,7 +12,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,new,MU,Micron Technology Inc,595112103,equity,0,222200,0,222200,,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,new,CHTR,Charter Communications Inc N,16119P108,equity,0,29500,0,29500,,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,new,VNO,Vornado Rlty Tr,929042109,equity,0,594400,0,594400,,1.000000
-2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,new,WWEUSD,World Wrestling Entmt Inc,98156Q108,equity,0,98365,0,98365,,1.000000
+2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,new,,World Wrestling Entmt Inc,98156Q108,equity,0,98365,0,98365,,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,new,CP,Canadian Pacific Kansas City,13646K108,equity,0,123600,0,123600,,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,new,FUL,Fuller H B Co,359694106,equity,0,75500,0,75500,,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,new,CSL,Carlisle Cos Inc,142339100,equity,0,20800,0,20800,,1.000000
@@ -27,7 +27,7 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,buy,MSFT,Microsoft Corp,594918104,equity,729040,828960,729040,99920,13.71,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,buy,CPNG,Coupang Inc,22266T109,equity,20283765,20903865,20283765,620100,3.06,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,buy,LW,Lamb Weston Hldgs Inc,513272104,equity,1978810,2066610,1978810,87800,4.44,1.000000
-2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,buy,ANETEUR,Arista Networks Inc,040413106,equity,32000,93980,32000,61980,193.69,1.000000
+2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,buy,ANET,Arista Networks Inc,040413106,equity,32000,93980,32000,61980,193.69,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,buy,TECK,Teck Resources Ltd,878742204,equity,3235347,3416742,3235347,181395,5.61,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,buy,WRBY,Warby Parker Inc,93403J106,equity,646500,1064139,646500,417639,64.60,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,buy,NWS,News Corp New,65249B208,equity,613050,730700,613050,117650,19.19,1.000000
@@ -40,20 +40,20 @@ trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_clas
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,sell,MRVL,Marvell Technology Inc,573874104,equity,571320,314320,571320,-257000,-44.98,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,sell,ILMN,Illumina Inc,452327109,equity,109285,54885,109285,-54400,-49.78,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,sell,TSM,Taiwan Semiconductor Mfg Ltd,874039100,equity,578590,486190,578590,-92400,-15.97,1.000000
-2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,sell,SKAA,Skechers U S A Inc,830566105,equity,540050,371125,540050,-168925,-31.28,1.000000
-2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,BABA,Alibaba Group Hldg Ltd,01609W102,equity,50915,0,50915,-50915,-100.00,1.000000
+2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,sell,,Skechers U S A Inc,830566105,equity,540050,371125,540050,-168925,-31.28,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,GOOGL,Alphabet Inc,02079K305,equity,877720,0,877720,-877720,-100.00,1.000000
-2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,BNTX,Biontech Se,09075V102,equity,38800,0,38800,-38800,-100.00,1.000000
-2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,PSX,Phillips 66,718546104,equity,100555,0,100555,-100555,-100.00,1.000000
-2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,MRNA,Moderna Inc,60770K107,equity,22154,0,22154,-22154,-100.00,1.000000
-2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,WSC,Willscot Mobil Mini Hldng Co,971378104,equity,215500,0,215500,-215500,-100.00,1.000000
+2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,FCX,Freeport-Mcmoran Inc,35671D857,equity,837627,0,837627,-837627,-100.00,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,AMD,Advanced Micro Devices Inc,007903107,equity,329677,0,329677,-329677,-100.00,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,ABX,Barrick Gold Corp,067901108,equity,1176875,0,1176875,-1176875,-100.00,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,PANW,Palo Alto Networks Inc,697435105,equity,75235,0,75235,-75235,-100.00,1.000000
-2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,OPHTEUR,Iveric Bio Inc,46583P102,equity,400000,0,400000,-400000,-100.00,1.000000
-2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,PLTR,Palantir Technologies Inc,69608A108,equity,700707,0,700707,-700707,-100.00,1.000000
+2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,PSX,Phillips 66,718546104,equity,100555,0,100555,-100555,-100.00,1.000000
+2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,WSC,Willscot Mobil Mini Hldng Co,971378104,equity,215500,0,215500,-215500,-100.00,1.000000
+2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,,Arch Resources Inc,03940R107,equity,75665,0,75665,-75665,-100.00,1.000000
+2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,,Iveric Bio Inc,46583P102,equity,400000,0,400000,-400000,-100.00,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,HUBS,Hubspot Inc,443573100,equity,20300,0,20300,-20300,-100.00,1.000000
-2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,FXI,Ishares Tr,464287184,equity,183410,0,183410,-183410,-100.00,1.000000
-2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,ARCH1USD,Arch Resources Inc,03940R107,equity,75665,0,75665,-75665,-100.00,1.000000
-2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,FCX,Freeport-Mcmoran Inc,35671D857,equity,837627,0,837627,-837627,-100.00,1.000000
+2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,PLTR,Palantir Technologies Inc,69608A108,equity,700707,0,700707,-700707,-100.00,1.000000
 2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,TOST,Toast Inc,888787108,equity,327700,0,327700,-327700,-100.00,1.000000
+2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,FXI,Ishares Tr,464287184,equity,183410,0,183410,-183410,-100.00,1.000000
+2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,BABA,Alibaba Group Hldg Ltd,01609W102,equity,50915,0,50915,-50915,-100.00,1.000000
+2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,BNTX,Biontech Se,09075V102,equity,38800,0,38800,-38800,-100.00,1.000000
+2023-03-31,2023-03-31,2023-06-30,Duquesne Family Office,exit,MRNA,Moderna Inc,60770K107,equity,22154,0,22154,-22154,-100.00,1.000000

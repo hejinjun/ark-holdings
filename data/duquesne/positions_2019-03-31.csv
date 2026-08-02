@@ -14,49 +14,49 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2019-03-31,Duquesne Family Office,70450Y103,PYPL,Paypal Hldgs Inc,equity,807745,83876000.00,2.4319
 2019-03-31,Duquesne Family Office,46120E602,ISRG,Intuitive Surgical Inc,equity,131100,74803000.00,2.1688
 2019-03-31,Duquesne Family Office,437076102,HD,Home Depot Inc,equity,387300,74319000.00,2.1548
-2019-03-31,Duquesne Family Office,22266L106,COUPEUR,Coupa Software Inc,equity,802690,73029000.00,2.1174
+2019-03-31,Duquesne Family Office,22266L106,,Coupa Software Inc,equity,802690,73029000.00,2.1174
 2019-03-31,Duquesne Family Office,369604103,,General Electric Co,equity,6241000,62348000.00,1.8077
 2019-03-31,Duquesne Family Office,57636Q104,MA,Mastercard Inc,equity,238300,56108000.00,1.6268
 2019-03-31,Duquesne Family Office,92826C839,V,Visa Inc,equity,350900,54807000.00,1.5891
 2019-03-31,Duquesne Family Office,747525103,QCOM,Qualcomm Inc,equity,948100,54070000.00,1.5677
 2019-03-31,Duquesne Family Office,452327109,ILMN,Illumina Inc,equity,171800,53377000.00,1.5476
-2019-03-31,Duquesne Family Office,00507V109,ATVIEUR,Activision Blizzard Inc,equity,1091152,49680000.00,1.4404
+2019-03-31,Duquesne Family Office,00507V109,,Activision Blizzard Inc,equity,1091152,49680000.00,1.4404
 2019-03-31,Duquesne Family Office,31620M106,FIS,Fidelity Natl Information Sv,equity,389845,44091000.00,1.2784
 2019-03-31,Duquesne Family Office,16411R208,LNG,Cheniere Energy Inc,equity,611200,41782000.00,1.2114
 2019-03-31,Duquesne Family Office,00846U101,A,Agilent Technologies Inc,equity,478800,38486000.00,1.1159
 2019-03-31,Duquesne Family Office,81762P102,NOW,Servicenow Inc,equity,135515,33403000.00,0.9685
 2019-03-31,Duquesne Family Office,56585A102,MPC,Marathon Pete Corp,equity,541000,32379000.00,0.9388
-2019-03-31,Duquesne Family Office,983919101,XLNXEUR,Xilinx Inc,equity,224000,28401000.00,0.8235
+2019-03-31,Duquesne Family Office,983919101,,Xilinx Inc,equity,224000,28401000.00,0.8235
 2019-03-31,Duquesne Family Office,032654105,ADI,Analog Devices Inc,equity,222625,23436000.00,0.6795
 2019-03-31,Duquesne Family Office,87336U105,DATA,Tableau Software Inc,equity,183405,23344000.00,0.6768
 2019-03-31,Duquesne Family Office,737446104,POST,Post Hldgs Inc,equity,204000,22318000.00,0.6471
 2019-03-31,Duquesne Family Office,58933Y105,MRK,Merck &amp; Co Inc,equity,266300,22148000.00,0.6422
-2019-03-31,Duquesne Family Office,L8681T102,,Spotify Technology S A,equity,159505,22139000.00,0.6419
+2019-03-31,Duquesne Family Office,L8681T102,SPOT,Spotify Technology S A,equity,159505,22139000.00,0.6419
 2019-03-31,Duquesne Family Office,595112103,MU,Micron Technology Inc,equity,480300,19851000.00,0.5756
 2019-03-31,Duquesne Family Office,45337C102,INCY,Incyte Corp,equity,202400,17404000.00,0.5046
 2019-03-31,Duquesne Family Office,256163106,DOCU,Docusign Inc,equity,331410,17180000.00,0.4981
-2019-03-31,Duquesne Family Office,436440101,HO1,Hologic Inc,equity,336700,16296000.00,0.4725
-2019-03-31,Duquesne Family Office,848637104,SPLKCHF,Splunk Inc,equity,115500,14398000.00,0.4175
+2019-03-31,Duquesne Family Office,436440101,,Hologic Inc,equity,336700,16296000.00,0.4725
+2019-03-31,Duquesne Family Office,848637104,,Splunk Inc,equity,115500,14398000.00,0.4175
 2019-03-31,Duquesne Family Office,644393100,NFE,New Fortress Energy Llc Cl A Shs Rp,equity,1200000,14016000.00,0.4064
 2019-03-31,Duquesne Family Office,83304A106,SNAP,Snap Inc,equity,1240200,13667000.00,0.3963
-2019-03-31,Duquesne Family Office,G47567105,IHS,Ihs Markit Ltd,equity,244500,13296000.00,0.3855
-2019-03-31,Duquesne Family Office,845467109,SWN1EUR,Southwestern Energy Co,equity,2257700,10589000.00,0.3070
+2019-03-31,Duquesne Family Office,G47567105,,Ihs Markit Ltd,equity,244500,13296000.00,0.3855
+2019-03-31,Duquesne Family Office,845467109,,Southwestern Energy Co,equity,2257700,10589000.00,0.3070
 2019-03-31,Duquesne Family Office,127097103,CTRA,Cabot Oil &amp; Gas Corp,equity,395500,10323000.00,0.2993
 2019-03-31,Duquesne Family Office,30303M102,META,Facebook Inc,equity,61665,10279000.00,0.2980
 2019-03-31,Duquesne Family Office,75281A109,RRC,Range Res Corp,equity,844500,9492000.00,0.2752
 2019-03-31,Duquesne Family Office,85207U105,,Sprint Corporation,equity,1550000,8758000.00,0.2539
-2019-03-31,Duquesne Family Office,H00263105,,Ac Immune Sa,equity,1324935,6691000.00,0.1940
-2019-03-31,Duquesne Family Office,G06242104,,Atlassian Corp Plc,equity,46770,5253000.00,0.1523
+2019-03-31,Duquesne Family Office,H00263105,ACIU,Ac Immune Sa,equity,1324935,6691000.00,0.1940
+2019-03-31,Duquesne Family Office,G06242104,TEAM,Atlassian Corp Plc,equity,46770,5253000.00,0.1523
 2019-03-31,Duquesne Family Office,052769106,ADSK,Autodesk Inc,equity,31300,4877000.00,0.1414
 2019-03-31,Duquesne Family Office,654902204,NOK,Nokia Corp,equity,731000,4181000.00,0.1212
 2019-03-31,Duquesne Family Office,90138F102,TWLO,Twilio Inc,equity,31480,4067000.00,0.1179
-2019-03-31,Duquesne Family Office,339041105,FLT1EUR,Fleetcor Technologies Inc,equity,14605,3601000.00,0.1044
+2019-03-31,Duquesne Family Office,339041105,,Fleetcor Technologies Inc,equity,14605,3601000.00,0.1044
 2019-03-31,Duquesne Family Office,75606N109,RP,Realpage Inc,equity,58690,3562000.00,0.1033
 2019-03-31,Duquesne Family Office,26969P108,EXP,Eagle Materials Inc,equity,30700,2588000.00,0.0750
 2019-03-31,Duquesne Family Office,679295105,OKTA,Okta Inc,equity,25807,2135000.00,0.0619
 2019-03-31,Duquesne Family Office,14081R103,,Carbon Black Inc,equity,105525,1472000.00,0.0427
 2019-03-31,Duquesne Family Office,981558109,WP,Worldpay Inc,equity,10120,1149000.00,0.0333
-2019-03-31,Duquesne Family Office,78781P105,SAILEUR,Sailpoint Technlgies Hldgs I,equity,33870,973000.00,0.0282
-2019-03-31,Duquesne Family Office,101388106,EPAYEUR,Bottomline Tech Del Inc,equity,10200,511000.00,0.0148
+2019-03-31,Duquesne Family Office,78781P105,,Sailpoint Technlgies Hldgs I,equity,33870,973000.00,0.0282
+2019-03-31,Duquesne Family Office,101388106,,Bottomline Tech Del Inc,equity,10200,511000.00,0.0148
 2019-03-31,Duquesne Family Office,81141R100,SE,Sea Ltd,equity,21200,499000.00,0.0145
 2019-03-31,Duquesne Family Office,135086106,GOOS,Canada Goose Holdings Inc,equity,9550,459000.00,0.0133

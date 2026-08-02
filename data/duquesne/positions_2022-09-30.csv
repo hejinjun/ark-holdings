@@ -19,12 +19,12 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2022-09-30,Duquesne Family Office,22788C105,CRWD,Crowdstrike Hldgs Inc,equity,153524,25302000.00,1.4535
 2022-09-30,Duquesne Family Office,693506107,PPG,Ppg Inds Inc,equity,212945,23571000.00,1.3541
 2022-09-30,Duquesne Family Office,30303M102,META,Meta Platforms Inc,equity,160360,21758000.00,1.2499
-2022-09-30,Duquesne Family Office,723787107,PXDEUR,Pioneer Nat Res Co,equity,91530,19819000.00,1.1385
+2022-09-30,Duquesne Family Office,723787107,,Pioneer Nat Res Co,equity,91530,19819000.00,1.1385
 2022-09-30,Duquesne Family Office,69608A108,PLTR,Palantir Technologies Inc,equity,2421282,19685000.00,1.1308
 2022-09-30,Duquesne Family Office,020764106,AMR,Alpha Metallurgical Resour I,equity,136720,18709000.00,1.0748
 2022-09-30,Duquesne Family Office,632307104,NTRA,Natera Inc,equity,414955,18183000.00,1.0446
 2022-09-30,Duquesne Family Office,02043Q107,ALNY,Alnylam Pharmaceuticals Inc,equity,88910,17796000.00,1.0223
-2022-09-30,Duquesne Family Office,03940R107,ARCH1USD,Arch Resources Inc,equity,147935,17545000.00,1.0079
+2022-09-30,Duquesne Family Office,03940R107,,Arch Resources Inc,equity,147935,17545000.00,1.0079
 2022-09-30,Duquesne Family Office,644393100,NFE,New Fortress Energy Inc,equity,387325,16930000.00,0.9726
 2022-09-30,Duquesne Family Office,281020107,EIX,Edison Intl,equity,287600,16272000.00,0.9348
 2022-09-30,Duquesne Family Office,75629V104,RXRX,Recursion Pharmaceuticals In,equity,1385950,14747000.00,0.8472
@@ -42,8 +42,8 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2022-09-30,Duquesne Family Office,65339F101,NEE,Nextera Energy Inc,equity,93400,7323000.00,0.4207
 2022-09-30,Duquesne Family Office,00288U106,ABCL,Abcellera Biologics Inc,equity,659750,6525000.00,0.3748
 2022-09-30,Duquesne Family Office,874039100,TSM,Taiwan Semiconductor Mfg Ltd,equity,87900,6026000.00,0.3462
-2022-09-30,Duquesne Family Office,83200N103,SMARGBP,Smartsheet Inc,equity,151500,5206000.00,0.2991
-2022-09-30,Duquesne Family Office,531229854,FWONKUSD,Liberty Media Corp Del,equity,85400,4996000.00,0.2870
+2022-09-30,Duquesne Family Office,83200N103,,Smartsheet Inc,equity,151500,5206000.00,0.2991
+2022-09-30,Duquesne Family Office,531229854,,Liberty Media Corp Del,equity,85400,4996000.00,0.2870
 2022-09-30,Duquesne Family Office,687793109,OSCR,Oscar Health Inc,equity,994289,4962000.00,0.2851
 2022-09-30,Duquesne Family Office,683712103,OPEN,Opendoor Technologies Inc,equity,1538085,4783000.00,0.2748
 2022-09-30,Duquesne Family Office,86771W105,RUN,Sunrun Inc,equity,139000,3835000.00,0.2203
@@ -54,11 +54,11 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2022-09-30,Duquesne Family Office,142038108,CRBU,Caribou Biosciences Inc,equity,271430,2864000.00,0.1645
 2022-09-30,Duquesne Family Office,60770K107,MRNA,Moderna Inc,equity,22154,2620000.00,0.1505
 2022-09-30,Duquesne Family Office,12510Q100,CCC,Ccc Intelligent Solutions Hl,equity,281879,2565000.00,0.1474
-2022-09-30,Duquesne Family Office,25470M109,DISH,Dish Network Corporation,equity,112400,1554000.00,0.0893
-2022-09-30,Duquesne Family Office,75615P103,RETAEUR,Reata Pharmaceuticals Inc,equity,58997,1483000.00,0.0852
+2022-09-30,Duquesne Family Office,25470M109,,Dish Network Corporation,equity,112400,1554000.00,0.0893
+2022-09-30,Duquesne Family Office,75615P103,,Reata Pharmaceuticals Inc,equity,58997,1483000.00,0.0852
 2022-09-30,Duquesne Family Office,004225108,ACAD,Acadia Pharmaceuticals Inc,equity,74400,1217000.00,0.0699
 2022-09-30,Duquesne Family Office,20464U100,COMP,Compass Inc,equity,399100,926000.00,0.0532
 2022-09-30,Duquesne Family Office,704551100,BTU,Peabody Energy Corp,equity,21587,536000.00,0.0308
-2022-09-30,Duquesne Family Office,81728A108,SNSEEUR,Sensei Biotherapeutics Inc,equity,100000,155000.00,0.0089
+2022-09-30,Duquesne Family Office,81728A108,,Sensei Biotherapeutics Inc,equity,100000,155000.00,0.0089
 2022-09-30,Duquesne Family Office,G2007L105,,Cazoo Group Ltd,equity,140100,64000.00,0.0037
-2022-09-30,Duquesne Family Office,G65163100,,Joby Aviation Inc,equity,11246,49000.00,0.0028
+2022-09-30,Duquesne Family Office,G65163100,JOBY,Joby Aviation Inc,equity,11246,49000.00,0.0028

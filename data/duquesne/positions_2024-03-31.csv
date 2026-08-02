@@ -8,12 +8,12 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2024-03-31,Duquesne Family Office,19247G107,COHR,Coherent Corp,equity,2525070,153070000.00,4.1109
 2024-03-31,Duquesne Family Office,369604301,GE,General Electric Co,equity,853095,149744000.00,4.0215
 2024-03-31,Duquesne Family Office,980745103,WWD,Woodward Inc,equity,954230,147066000.00,3.9496
-2024-03-31,Duquesne Family Office,G7997R103,,Seagate Technology Hldngs Pl,equity,1438983,133897000.00,3.5959
-2024-03-31,Duquesne Family Office,040413106,ANETEUR,Arista Networks Inc,equity,428252,124185000.00,3.3351
+2024-03-31,Duquesne Family Office,G7997R103,STX,Seagate Technology Hldngs Pl,equity,1438983,133897000.00,3.5959
+2024-03-31,Duquesne Family Office,040413106,ANET,Arista Networks Inc,equity,428252,124185000.00,3.3351
 2024-03-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,3863155,110525000.00,2.9683
 2024-03-31,Duquesne Family Office,98980F104,GTM,Zoominfo Technologies Inc,equity,5881906,94287000.00,2.5322
 2024-03-31,Duquesne Family Office,65249B109,NWSA,News Corp New,equity,3312025,86709000.00,2.3287
-2024-03-31,Duquesne Family Office,254709108,DFSEUR,Discover Finl Svcs,equity,645205,84580000.00,2.2715
+2024-03-31,Duquesne Family Office,254709108,,Discover Finl Svcs,equity,645205,84580000.00,2.2715
 2024-03-31,Duquesne Family Office,92537N108,VRT,Vertiv Holdings Co,equity,998510,81548000.00,2.1901
 2024-03-31,Duquesne Family Office,49456B101,KMI,Kinder Morgan Inc Del,equity,3880500,71168000.00,1.9113
 2024-03-31,Duquesne Family Office,35671D857,FCX,Freeport-Mcmoran Inc,equity,1378875,64835000.00,1.7412
@@ -57,9 +57,9 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2024-03-31,Duquesne Family Office,92337F107,VCYT,Veracyte Inc,equity,259944,5760000.00,0.1547
 2024-03-31,Duquesne Family Office,00130H105,AES,Aes Corp,equity,314750,5643000.00,0.1515
 2024-03-31,Duquesne Family Office,65340P106,NXE,Nexgen Energy Ltd,equity,712000,5532000.00,0.1486
-2024-03-31,Duquesne Family Office,03940C100,ACLXGBX,Arcellx Inc,equity,74100,5154000.00,0.1384
+2024-03-31,Duquesne Family Office,03940C100,,Arcellx Inc,equity,74100,5154000.00,0.1384
 2024-03-31,Duquesne Family Office,958102105,WDC,Western Digital Corp.,equity,73505,5016000.00,0.1347
-2024-03-31,Duquesne Family Office,M87915274,,Tower Semiconductor Ltd,equity,146400,4897000.00,0.1315
+2024-03-31,Duquesne Family Office,M87915274,TSEM,Tower Semiconductor Ltd,equity,146400,4897000.00,0.1315
 2024-03-31,Duquesne Family Office,088786108,BCYC,Bicycle Therapeutics Plc,equity,190200,4736000.00,0.1272
 2024-03-31,Duquesne Family Office,G61188101,,Liberty Global Ltd,equity,275275,4658000.00,0.1251
 2024-03-31,Duquesne Family Office,G61188127,,Liberty Global Ltd,equity,261875,4619000.00,0.1240
@@ -70,4 +70,4 @@ date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
 2024-03-31,Duquesne Family Office,879273209,TEO,Telecom Argentina Sa,equity,143051,1137000.00,0.0305
 2024-03-31,Duquesne Family Office,67080M103,NRIX,Nurix Therapeutics Inc,equity,44200,650000.00,0.0175
 2024-03-31,Duquesne Family Office,G29183103,,Eaton Corp Plc,equity,1090,341000.00,0.0092
-2024-03-31,Duquesne Family Office,G65163100,,Joby Aviation Inc,equity,22492,121000.00,0.0032
+2024-03-31,Duquesne Family Office,G65163100,JOBY,Joby Aviation Inc,equity,22492,121000.00,0.0032
