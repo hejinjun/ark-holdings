@@ -164,6 +164,25 @@ def summary(date: str | None = None) -> dict | None:
     return out
 
 
+def weights(date: str | None = None) -> dict[str, dict]:
+    """symbol -> weight, value and company across the whole tradeable book.
+
+    summary()'s `top` is capped at five; a page that wants to say "ARK also
+    holds this" for any symbol, not just its five largest, needs the full
+    book instead.
+    """
+    dates = tradeable_dates()
+    if not dates:
+        return {}
+    date = date or dates[-1]
+    with (DATA / f"tradeable_{date}.csv").open(encoding="utf-8") as fh:
+        rows = list(csv.DictReader(fh))
+    total = sum(float(r["total_market_value"]) for r in rows)
+    return {r["symbol"]: {"v": float(r["total_market_value"]),
+                          "w": 100 * float(r["total_market_value"]) / total if total else 0,
+                          "n": r["company"]} for r in rows}
+
+
 def load_full(date: str) -> dict:
     path = DATA / f"baseline_{date}.csv"
     if not path.exists():

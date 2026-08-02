@@ -502,93 +502,114 @@ NAV = {
 # ---- home ----
 
 # Labels for the freshness strip. Keyed by the source keys in home.SOURCES.
+# 13F has its own row per manager instead -- see home.thirteenf_rows() --
+# built from thirteenf.MANAGERS, whose filer names are deliberately
+# untranslated like every other company or fund name on the site.
 SOURCES = {
     "en": {
         "holdings": "ARK holdings", "trades": "Trades", "quotes": "Quotes",
         "leaders": "Market cap", "financials": "Financials", "venture": "ARKVX",
-        "thirteenf": "13F filings",
     },
     "zh": {
         "holdings": "ARK 持仓", "trades": "交易", "quotes": "报价",
         "leaders": "市值榜", "financials": "财报", "venture": "ARKVX 创投",
-        "thirteenf": "13F 申报",
     },
 }
 
 HOME = {
     "en": {
         "sources": "Data on file",
-        "sourcesHint": "Every source overwrites in place at origin. These are the "
-                       "newest copies archived here, and how far behind they are.",
+        "sourcesHint": "The newest copy of every source, and how far behind it is. 13F "
+                       "gets one row per filer; anything archived but not read by any "
+                       "page yet is marked unused rather than shown as current.",
         "ok": "current", "late": "late", "stale": "stale", "missing": "missing",
+        "unused": "archived, unused",
         "sessionBehind": "1 session behind",
         "sessionsBehind": "{n} sessions behind",
         "dayBehind": "1 day old",
         "daysBehind": "{n} days old",
         "never": "never fetched",
-        "moves": "What ARK did",
-        "movesHint": "Newest session, merged across funds. Agreement first.",
-        "movesTally": "{new} opened · {buy} added · {sell} trimmed · {exit} closed",
-        "movesMore": "all {n} moves →",
-        "movesAgree": "{n} funds",
-        "book": "The book",
-        "bookHint": "US-listed equities only, the part you can actually buy.",
-        "bookAll": "all holdings →",
+        "quartersOnFile": "{n} quarters on file",
+        "moves": "What moved",
+        "movesHint": "Grouped by each holder's own cadence — a quarter's exit and a "
+                    "day's add are not the same unit, so they are not sorted into one "
+                    "queue against each other.",
+        "sessionHead": "Last session · {d}",
+        "quarterHead": "{q} change",
+        "movesAgree": "{n} funds agree",
+        "also": "{label} {w}%",
+        "arkSub": "8 ETFs · daily · US-listed equities only",
+        "cadenceDaily": "daily", "cadenceQuarterly": "quarterly",
         "bookSymbols": "symbols",
-        "bookSince": "vs {d}",
-        "bookAdded": "+{n} new", "bookRemoved": "−{n} gone",
+        "positionsWord": "positions",
+        "unidentWord": "unresolved",
+        "asOfQuarter": "as of {d} — a quarter end, not today",
+        "archived": "{n} sessions archived",
+        "quartersArchived": "{n} quarters archived",
+        "notIngestedHint": "CIK {cik} is in the registry, not yet ingested",
+        "notIngestedBody": "python3 thirteenf.py {name} would give this a book. "
+                           "Comparing two managers is the only real test of whether "
+                           "the ingest generalises.",
+        "notIngestedFoot": "not ingested",
+        "watchlist": "Watchlist",
+        "watchlistSub": "What you hold or want to — the fourth holder",
+        "watchlistBody": "Nothing here yet. It's the same kind of thing as the cards "
+                         "above — a holding, just authored by you. With it, the "
+                         "market ranking and the move stream could answer \"does this "
+                         "affect me\".",
+        "watchlistFoot": "planned",
         "leaders": "Top of the market",
-        "leadersHint": "Rank movement since the previous snapshot.",
-        "leadersAll": "full ranking →",
+        "leadersHint": "The market's own coordinate system, not a holder — a "
+                      "different kind of thing from the cards above, the ruler they "
+                      "share instead. The marks show who on this list actually owns it.",
         "leadersFirst": "First snapshot on file — movement starts with the next one.",
         "leadersIn": "in", "leadersOut": "out", "leadersHeld": "{n} held by ARK",
         "leadersCutoff": "entry at ${v}B",
-        "manager": "A manager's book",
-        "managerHint": "Filed quarterly, up to 45 days after the quarter ends.",
-        "managerBook": "{n} positions · {q} quarters on file",
-        "managerChurn": "{opened} opened · {closed} closed vs {d}",
-        "managerLag": "as of {d} — a quarter end, not today",
-        "managerAll": "the whole book →",
-        "next": "Not wired up yet",
-        "nextHint": "Collected or planned, but not yet on a page.",
         "empty": "Nothing on file yet.",
         "arkHeld": "ARK holds",
     },
     "zh": {
-        "sources": "已存档的数据",
-        "sourcesHint": "每个数据源在原站点都是就地覆盖、不留历史。这里是本地存档的最新副本，"
-                       "以及它落后了多久。",
+        "sources": "数据在不在",
+        "sourcesHint": "每一路数据的最新副本，以及落后多久。13F 按管理人分行；"
+                       "已存档但还没有页面在用的数据标成「只存不用」，不算作最新。",
         "ok": "最新", "late": "偏旧", "stale": "过期", "missing": "缺失",
+        "unused": "只存不用",
         "sessionBehind": "落后 1 个交易日",
         "sessionsBehind": "落后 {n} 个交易日",
         "dayBehind": "1 天前",
         "daysBehind": "{n} 天前",
         "never": "从未抓取",
-        "moves": "ARK 今天做了什么",
-        "movesHint": "最近一个交易日，跨基金合并，按一致性排序。",
-        "movesTally": "建仓 {new} · 加仓 {buy} · 减仓 {sell} · 清仓 {exit}",
-        "movesMore": "查看全部 {n} 笔 →",
-        "movesAgree": "{n} 只基金",
-        "book": "持仓全景",
-        "bookHint": "仅美股上市普通股，也就是你真正买得到的部分。",
-        "bookAll": "查看全部持仓 →",
+        "quartersOnFile": "{n} 个季度存档",
+        "moves": "谁在动",
+        "movesHint": "按持有人自己的节奏分组——一个季度的清仓和一天的加仓不是同一种单位，"
+                    "不能排在一条队列里比大小。",
+        "sessionHead": "本交易日 · {d}",
+        "quarterHead": "{q} 变化",
+        "movesAgree": "{n} 只基金一致",
+        "also": "{label} {w}%",
+        "arkSub": "8 只 ETF · 日频 · 仅美股上市部分",
+        "cadenceDaily": "日频", "cadenceQuarterly": "季频",
         "bookSymbols": "只标的",
-        "bookSince": "相比 {d}",
-        "bookAdded": "新增 {n}", "bookRemoved": "移出 {n}",
-        "leaders": "市场最前排",
-        "leadersHint": "相比上一份快照的排名变化。",
-        "leadersAll": "查看完整榜单 →",
+        "positionsWord": "个仓位",
+        "unidentWord": "未识别",
+        "asOfQuarter": "{d} — 是季度末，不是今天",
+        "archived": "已存档 {n} 个交易日",
+        "quartersArchived": "已存档 {n} 个季度",
+        "notIngestedHint": "CIK {cik} 在注册表里，还没抓过",
+        "notIngestedBody": "运行 python3 thirteenf.py {name} 之后这里会有一本书。"
+                           "两个管理人之间的对比才是检验这套抓取能不能推广的唯一办法。",
+        "notIngestedFoot": "未抓取",
+        "watchlist": "我的关注",
+        "watchlistSub": "你自己持有或想持有的标的 — 第四个持有人",
+        "watchlistBody": "还没有这个模块。它和上面几个是同一种东西：一份持仓，只是作者是你。"
+                         "有了它，市值榜和变化流才能回答「这条动作跟我有关吗」。",
+        "watchlistFoot": "计划中",
+        "leaders": "市值榜 300",
+        "leadersHint": "市场坐标系，不是持有人——所以它跟上面几张卡不是同一类东西，"
+                      "而是它们共用的尺子。标记显示榜上每一位是被谁持有的。",
         "leadersFirst": "这是第一份快照——排名变化从下一份开始有。",
         "leadersIn": "进榜", "leadersOut": "出榜", "leadersHeld": "{n} 家被 ARK 持有",
         "leadersCutoff": "入榜门槛 ${v}B",
-        "manager": "管理人持仓",
-        "managerHint": "13F 按季度申报，最晚在季度结束后 45 天披露。",
-        "managerBook": "{n} 个仓位 · 已存档 {q} 个季度",
-        "managerChurn": "相比 {d}：建仓 {opened} · 清仓 {closed}",
-        "managerLag": "数据截至 {d}——是季度末，不是今天",
-        "managerAll": "查看完整持仓 →",
-        "next": "尚未接入",
-        "nextHint": "已经在采集或已列入计划，但还没有对应页面。",
         "empty": "还没有数据。",
         "arkHeld": "ARK 持有",
     },
@@ -597,24 +618,23 @@ HOME = {
 HOME_PAGE = {
     "en": {
         "eyebrow": "Daily brief",
-        "title": "What moved, and whether the data is any good",
+        "title": "Who holds what, and what moved",
         "standfirst": (
-            "One screen answering two questions before anything else: what ARK did in "
-            "the last session, and whether every feed behind these pages actually "
-            "updated. A stale source is indistinguishable from a quiet market until "
-            "someone checks, so the check goes first."
+            "One screen, three questions: who moved, where the market stands, and "
+            "whether the data behind it is any good. ARK is the one holder that "
+            "reports daily, not the subject of the page — a 13F filer and the "
+            "market-cap ranking are cards of the same size, and a watchlist is the "
+            "fourth holder this site does not have yet."
         ),
-        "provenance": "holdings {holdings}  ·  ranking {leaders}  ·  {n} sessions archived",
     },
     "zh": {
         "eyebrow": "每日简报",
-        "title": "今天发生了什么，以及数据本身还可不可信",
+        "title": "谁持有什么，变了什么",
         "standfirst": (
-            "一屏之内先回答两个问题：ARK 在最近一个交易日做了什么，"
-            "以及这些页面背后的每一路数据到底有没有更新。"
-            "在有人核对之前，数据源不动和市场没动看起来一模一样——所以核对放在最前面。"
+            "一屏之内回答三件事：谁动了、市场坐标在哪、这些数据可不可信。"
+            "ARK 是唯一一个日频的持有人，不是页面的主语——13F 管理人和市值榜是同等大小的"
+            "模块，关注列表是还没做的第四个持有人。"
         ),
-        "provenance": "持仓 {holdings}  ·  榜单 {leaders}  ·  已存档 {n} 个交易日",
     },
 }
 
@@ -624,42 +644,28 @@ HOME_FOOTNOTES = {
          "A Friday file read on Sunday is current, not two days late. Market holidays "
          "are not modelled, so the day after one reads as a session behind — the "
          "error points at looking, which is the safe direction."],
-        ["Agreement is the ranking, not size.",
+        ["“What moved” groups by each holder's own cadence, not by size or time.",
+         "ARK's daily moves and a 13F filer's quarterly ones are not the same unit, so "
+         "ranking them against each other would compare incomparable things; the "
+         "group headings say whose move and what cadence instead."],
+        ["Within ARK's own group, agreement is the ranking, not size.",
          "Four funds adding the same name on the same day is the firm agreeing with "
-         "itself; one fund moving twice the shares is a rebalance. The moves list "
-         "sorts on the number of funds first for that reason."],
-        ["", "Sources: ARK's daily holdings files, Nasdaq's screener, Yahoo quotes, "
-             "SEC XBRL. Holdings data, not investment advice."],
+         "itself; one fund moving twice the shares is a rebalance."],
+        ["", "Sources: ARK's daily holdings files, the manager's own 13F-HR filings on "
+             "SEC EDGAR, Nasdaq's screener. Holdings data, not investment advice."],
     ],
     "zh": [
         ["新鲜度按交易日计算，不按自然日。",
          "周五的文件在周日看仍然是最新的，不算落后两天。节假日没有建模，"
          "所以长假之后会显示落后一个交易日——这个误差指向「去看一眼」，方向是安全的。"],
-        ["排序看的是一致性，不是金额。",
+        ["「谁在动」按持有人自己的节奏分组，不按金额或时间排序。",
+         "ARK 日频、13F 季频，两种单位没法放进同一个排序里比大小；分组之后，"
+         "标题本身就说清楚了这是谁的动作、什么节奏。"],
+        ["ARK 自己那一段内部排的是一致性，不是金额。",
          "四只基金在同一天买同一个标的，是这家公司在跟自己达成一致；"
-         "一只基金买了两倍的股数，多半只是再平衡。所以动作列表先按参与基金数排序。"],
-        ["", "数据来源：ARK 每日持仓文件、Nasdaq 筛选器、Yahoo 报价、SEC XBRL。"
-             "仅为持仓数据，不构成投资建议。"],
-    ],
-}
-
-
-# What the home page's last card lists: collected or planned, no page yet.
-# Kept as copy rather than derived from the modules, because "exists but is
-# not shown" is a judgement about the site, not a fact about the code.
-HOME_NEXT = {
-    "en": [
-        ["More filers", "The registry knows Key Square and Berkshire. Neither has "
-                        "been ingested, so nothing here compares two managers -- "
-                        "which is the only real test of whether the ingest generalises."],
-        ["Watchlist", "Nothing here follows what you own or want to own. That is the "
-                      "next thing worth having."],
-    ],
-    "zh": [
-        ["更多管理人", "注册表里还有 Key Square 和 Berkshire，都还没抓过，"
-                       "所以现在无法做两个管理人之间的对比——而那才是检验这套抓取"
-                       "能不能推广的唯一办法。"],
-        ["关注列表", "目前没有任何一页跟踪你自己持有或想持有的标的。这是下一个值得做的东西。"],
+         "一只基金买了两倍的股数，多半只是再平衡。"],
+        ["", "数据来源：ARK 每日持仓文件、该管理人自己提交给 SEC EDGAR 的 13F-HR 申报、"
+             "Nasdaq 筛选器。仅为持仓数据，不构成投资建议。"],
     ],
 }
 

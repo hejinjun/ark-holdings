@@ -672,7 +672,7 @@
    two read as one family rather than two panels that happen to sit together. */
 .sources {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1px;
   background: var(--rule);
   border: 1px solid var(--rule);
@@ -682,7 +682,7 @@
 
 .src {
   background: var(--surface);
-  padding: 12px 14px;
+  padding: 11px 13px;
   display: grid;
   grid-template-columns: 7px 1fr;
   gap: 3px 8px;
@@ -700,6 +700,7 @@
 .src[data-s="late"] .dot { background: var(--orange); }
 .src[data-s="stale"] .dot,
 .src[data-s="missing"] .dot { background: var(--pos-exit-bg); }
+.src[data-s="unused"] .dot { background: var(--ink-3); }
 .src[data-s="stale"], .src[data-s="missing"] { background: var(--surface-alt); }
 
 .src .slabel {
@@ -719,6 +720,7 @@
 .src .sage { grid-column: 2; font-size: 11.5px; color: var(--ink-2); }
 .src[data-s="stale"] .sage,
 .src[data-s="missing"] .sage { color: var(--orange); font-weight: 600; }
+.src[data-s="unused"] .sage { color: var(--ink-3); }
 
 /* ---- card grid ---- */
 
@@ -736,9 +738,15 @@
   display: flex;
   flex-direction: column;
 }
-/* The day's moves are the reason to open the page, so they get the full width
-   and the other cards share the row underneath. */
+/* The move stream is the reason to open the page, so it gets the full width
+   and the leaderboard shares the row underneath the holder cards. */
 .card-wide { grid-column: 1 / -1; }
+
+/* An un-ingested manager or the watchlist: a slot the registry knows about
+   with no book behind it yet, kept visually distinct from a card with data. */
+.card.ghost { border-style: dashed; background: transparent; }
+.card.ghost .cardhead { border-bottom-style: dashed; }
+.card.ghost h2 { color: var(--ink-2); }
 
 /* Title and link on one row, the hint on its own underneath: in a card three
    across, a hint sharing the row pushes the link onto a second line and the
@@ -773,32 +781,67 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* ---- moves ---- */
+/* ---- holder badges ---- */
 
-.moves { display: flex; flex-direction: column; }
+/* Whose row this is. ARK gets its own accent because it is the one holder
+   that reports daily; every filer shares one neutral style rather than each
+   getting a colour of its own, so a newly ingested manager needs no CSS. */
+.holder {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 600;
+  padding: 2px 7px; border-radius: 2px; white-space: nowrap;
+  background: var(--surface-alt); color: var(--ink-2);
+  border: 1px solid var(--rule-strong);
+}
+.holder[data-h="ark"] { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+.holder[data-h="watchlist"] { background: transparent; color: var(--ink-3); border-style: dashed; }
 
-.move-row {
+/* Who else, besides the row's own holder, also has this ticker -- a small
+   inline mark distinct from .holder so the eye can tell "whose row this is"
+   from "who else is in it" at a glance. */
+.alsopill {
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  padding: 1px 6px; border-radius: 999px; white-space: nowrap;
+  background: var(--surface-alt); color: var(--ink-2); opacity: 0.85;
+}
+.alsopill[data-h="ark"] { background: var(--accent-soft); color: var(--accent); }
+
+/* ---- the cross-holder move stream ---- */
+
+/* Grouped by cadence rather than merged by size or time: a season's exit and
+   a day's add are not commensurable, so the groups say so instead of forcing
+   one ranking onto both. */
+.streamgroup + .streamgroup { border-top: 1px solid var(--rule); }
+.streamgroup-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding: 12px 18px 8px; flex-wrap: wrap;
+}
+.streamgroup-head .sgtitle { display: flex; align-items: baseline; gap: 9px; }
+.streamgroup-head .sgtitle b { font-size: 13.5px; }
+.streamgroup-head .sgtitle span { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); }
+.streamgroup-head .sgtally { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.stream { display: flex; flex-direction: column; }
+.srow {
   display: grid;
-  grid-template-columns: 74px minmax(0, 1fr) auto;
+  grid-template-columns: 78px minmax(0, 1fr) auto;
   gap: 4px 14px;
   align-items: baseline;
   padding: 9px 18px;
-  border-bottom: 1px solid var(--rule);
+  border-top: 1px solid var(--rule);
   text-decoration: none;
   color: inherit;
 }
-.move-row:last-child { border-bottom: none; }
-.move-row:hover { background: var(--surface-alt); }
-.move-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-/* Agreement is the point of the ordering, so it gets the one strong mark. */
-.move-row.agree { box-shadow: inset 3px 0 0 var(--accent); }
+.streamgroup-head + .stream .srow:first-child { border-top: none; }
+.srow:hover { background: var(--surface-alt); }
+.srow:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* Agreement is the ordering inside ARK's own group, so it gets the one strong mark. */
+.srow.agree { box-shadow: inset 3px 0 0 var(--accent); }
 
-.move-row .who { min-width: 0; }
-.move-row .tick { font-family: var(--mono); font-weight: 600; font-size: 13px; }
-.move-row .co {
+.srow .who { min-width: 0; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.srow .tick { font-family: var(--mono); font-weight: 600; font-size: 13px; }
+.srow .co {
   font-size: 12.5px;
   color: var(--ink-2);
-  /* One line: a wrapped issuer name turns a six-row card into a nine-row one. */
   display: inline-block;
   max-width: 100%;
   overflow: hidden;
@@ -806,7 +849,7 @@
   white-space: nowrap;
   vertical-align: bottom;
 }
-.move-row .tail {
+.srow .tail {
   display: flex;
   align-items: baseline;
   gap: 16px;
@@ -814,18 +857,18 @@
   font-size: 12.5px;
   font-variant-numeric: tabular-nums;
 }
-.move-row .val { min-width: 68px; text-align: right; }
-.move-row .agreecount { color: var(--ink-2); min-width: 74px; }
-.move-row.agree .agreecount { color: var(--accent); font-weight: 600; }
+.srow .val { min-width: 68px; text-align: right; }
+.srow .agreecount { color: var(--ink-2); font-size: 11.5px; min-width: 70px; }
+.srow.agree .agreecount { color: var(--accent); font-weight: 600; }
 
-@media (max-width: 620px) {
-  .move-row { grid-template-columns: max-content minmax(0, 1fr); padding: 10px 14px; }
-  .move-row .tag-action { grid-row: 1 / 3; align-self: center; }
-  .move-row .tail { justify-content: flex-start; gap: 14px; }
-  .move-row .val, .move-row .agreecount { min-width: 0; text-align: left; }
+@media (max-width: 700px) {
+  .srow { grid-template-columns: max-content minmax(0, 1fr); padding: 10px 14px; }
+  .srow .tag-action { grid-row: 1 / 3; align-self: center; }
+  .srow .tail { grid-column: 1 / -1; justify-content: flex-start; margin-top: 2px; }
+  .srow .val { min-width: 0; text-align: left; }
 }
 
-/* ---- the book ---- */
+/* ---- a holder's book ---- */
 
 .headline {
   display: flex;
@@ -840,19 +883,6 @@
   letter-spacing: -0.02em;
 }
 .headline .sub { font-size: 12.5px; color: var(--ink-2); }
-
-.delta {
-  font-family: var(--mono);
-  font-size: 12px;
-  font-variant-numeric: tabular-nums;
-  padding: 2px 7px;
-  border-radius: 2px;
-  white-space: nowrap;
-  background: var(--pos-buy-bg);
-  color: var(--pos-buy-fg);
-}
-.delta[data-d="down"] { background: var(--pos-sell-bg); color: var(--pos-sell-fg); }
-.delta[data-d="flat"] { background: var(--surface-alt); color: var(--ink-2); }
 
 .fundsplit { display: flex; flex-direction: column; gap: 6px; }
 .fundrow {
@@ -894,7 +924,7 @@
   color: var(--ink-3);
   font-variant-numeric: tabular-nums;
 }
-.rankrow .rname { min-width: 0; display: flex; gap: 7px; align-items: baseline; }
+.rankrow .rname { min-width: 0; display: flex; gap: 7px; align-items: baseline; flex-wrap: wrap; }
 .rankrow .tick { font-family: var(--mono); font-weight: 600; }
 .rankrow .co {
   font-size: 12px;
@@ -903,6 +933,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.rankrow .rtail { display: flex; align-items: center; gap: 7px; justify-content: flex-end; }
 .rankrow .rmove {
   font-family: var(--mono);
   font-size: 12px;
@@ -925,24 +956,11 @@
 }
 .pill b { color: var(--ink); font-weight: 600; }
 
-/* ---- roadmap ---- */
-
-/* The roadmap is the one card that is not a reading of today's data, so it
-   spans the last row rather than being left standing alone in a column. */
-#card-next { grid-column: 1 / -1; }
-.nextlist {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 11px 22px;
-}
-.nextitem { display: flex; flex-direction: column; gap: 2px; }
-.nextitem b { font-size: 13px; font-weight: 600; }
-.nextitem span { font-size: 12.5px; color: var(--ink-2); line-height: 1.55; }
-
 @media (max-width: 620px) {
   .wrap { padding: 24px 14px 56px; gap: 22px; }
   .cardhead, .cardbody { padding-left: 14px; padding-right: 14px; }
   .cardfoot { padding-left: 14px; padding-right: 14px; }
+  .streamgroup-head { padding: 12px 14px 8px; }
 }
 </style>
 
@@ -967,19 +985,17 @@
     <div class="sources" id="sources"></div>
   </section>
 
-  <div class="cards">
-    <section class="card card-wide" id="card-moves"></section>
-    <section class="card" id="card-book"></section>
-    <section class="card" id="card-leaders"></section>
-    <section class="card" id="card-manager"></section>
-    <section class="card" id="card-next"></section>
-  </div>
+  <section class="card card-wide" id="card-moves"></section>
+
+  <div class="cards" id="holdercards"></div>
+
+  <section class="card card-wide" id="card-leaders"></section>
 
   <footer id="footnotes"></footer>
 </div>
 
 <script>
-const DATA = {"asOf":"2026-07-31","today":"2026-08-02","langs":[{"v":"en","label":"EN"},{"v":"zh","label":"\u4e2d\u6587"}],"sources":[{"k":"holdings","date":"2026-07-31","unit":"sessions","behind":0,"status":"ok","n":33},{"k":"trades","date":"2026-07-30","unit":"sessions","behind":1,"status":"ok","n":32},{"k":"quotes","date":"2026-07-31","unit":"sessions","behind":0,"status":"ok","n":1},{"k":"leaders","date":"2026-08-02","unit":"sessions","behind":0,"status":"ok","n":1},{"k":"financials","date":"2026-07-31","unit":"days","behind":2,"status":"ok","n":1},{"k":"venture","date":"2026-06-30","unit":"days","behind":33,"status":"ok","n":1},{"k":"thirteenf","date":"2026-03-31","unit":"days","behind":124,"status":"ok","n":52}],"book":{"date":"2026-07-31","total":11784334589.62,"n":137,"funds":[{"f":"ARKK","n":44,"v":5554008805.920002},{"f":"ARKQ","n":38,"v":1776764712.9399998},{"f":"ARKG","n":32,"v":1582186858.0099995},{"f":"ARKW","n":37,"v":1497602021.35},{"f":"ARKX","n":31,"v":699788947.0499997},{"f":"ARKF","n":33,"v":636857340.37},{"f":"PRNT","n":26,"v":37125903.97999999}],"top":[{"t":"TSLA","v":863970813.0},{"t":"AMD","v":530518164.47},{"t":"SPCX","v":513279881.4},{"t":"SHOP","v":407062375.2},{"t":"TEM","v":379816822.91}],"prev":{"date":"2026-07-30","total":11435774677.77,"n":137,"added":[],"removed":[]}},"moves":{"date":"2026-07-30","conviction":3,"total":17,"tally":{"new":0,"buy":3,"sell":14,"exit":0},"items":[{"t":"META","n":"META PLATFORMS INC-CLASS A","k":"buy","s":26511.0,"f":["ARKF","ARKK","ARKW"],"v":15525106.71},{"t":"","n":"BRERA HOLDINGS PLC-CL B","k":"sell","s":-10615.0,"f":["ARKF","ARKK","ARKW"],"v":38532.45},{"t":"SRTA","n":"STRATA CRITICAL MEDICAL INC","k":"sell","s":-348014.0,"f":["ARKQ","ARKX"],"v":1694828.18},{"t":"LHX","n":"L3HARRIS TECHNOLOGIES INC","k":"buy","s":37635.0,"f":["ARKQ","ARKX"],"v":11197541.549999999},{"t":"TDY","n":"TELEDYNE TECHNOLOGIES INC","k":"sell","s":-2597.0,"f":["ARKQ","ARKX"],"v":1639615.9499999997},{"t":"ESLT","n":"ELBIT SYSTEMS LTD","k":"sell","s":-2142.0,"f":["ARKQ","ARKX"],"v":1647412.2}]},"leaders":{"date":"2026-08-02","prevDate":null,"size":300,"cutoff":53420399356.0,"top":[{"t":"NVDA","n":"NVIDIA Corporation","r":1,"cap":4858150000000.0,"ch":2.928,"ark":234708990.56},{"t":"AAPL","n":"Apple Inc.","r":2,"cap":4537071141960.0,"ch":-7.354},{"t":"GOOG","n":"Alphabet Inc.","r":3,"cap":4361829500000.0,"ch":6.884,"ark":293916689.12},{"t":"MSFT","n":"Microsoft Corporation","r":4,"cap":3450799500578.0,"ch":3.019},{"t":"AMZN","n":"Amazon.com Inc.","r":5,"cap":2921415780629.0,"ch":15.321,"ark":325943539.5}],"moved":[],"in":[],"out":[],"held":36},"manager":{"manager":"duquesne","label":"Duquesne Family Office","period":"2026-03-31","quarters":52,"n":65,"total":2937172000.0,"unidentified":0,"top":[{"t":"NTRA","n":"Natera Inc","v":612691000.0,"w":20.8599},{"t":"INSM","n":"Insmed Inc","v":188717000.0,"w":6.4251},{"t":"TSM","n":"Taiwan Semiconductor Manufac","v":167380000.0,"w":5.6987},{"t":"YPF","n":"Ypf Sociedad Anonima","v":149566000.0,"w":5.0922},{"t":"EWZ","n":"Ishares Inc","v":131915000.0,"w":4.4912}],"prevPeriod":"2025-12-31","opened":30,"closed":23},"i18n":{"en":{"eyebrow":"Daily brief","title":"What moved, and whether the data is any good","standfirst":"One screen answering two questions before anything else: what ARK did in the last session, and whether every feed behind these pages actually updated. A stale source is indistinguishable from a quiet market until someone checks, so the check goes first.","provenance":"holdings 2026-07-31  \u00b7  ranking 2026-08-02  \u00b7  33 sessions archived","sources":{"holdings":"ARK holdings","trades":"Trades","quotes":"Quotes","leaders":"Market cap","financials":"Financials","venture":"ARKVX","thirteenf":"13F filings"},"next":[["More filers","The registry knows Key Square and Berkshire. Neither has been ingested, so nothing here compares two managers -- which is the only real test of whether the ingest generalises."],["Watchlist","Nothing here follows what you own or want to own. That is the next thing worth having."]],"footnotes":[["Freshness is counted in sessions, not clock time.","A Friday file read on Sunday is current, not two days late. Market holidays are not modelled, so the day after one reads as a session behind \u2014 the error points at looking, which is the safe direction."],["Agreement is the ranking, not size.","Four funds adding the same name on the same day is the firm agreeing with itself; one fund moving twice the shares is a rebalance. The moves list sorts on the number of funds first for that reason."],["","Sources: ARK's daily holdings files, Nasdaq's screener, Yahoo quotes, SEC XBRL. Holdings data, not investment advice."]],"nav":{"index":"Today","holdings":"Holdings","activity":"Trades","leaders":"Top 300","manager":"13F","archive":"Archive"},"ui":{"sources":"Data on file","sourcesHint":"Every source overwrites in place at origin. These are the newest copies archived here, and how far behind they are.","ok":"current","late":"late","stale":"stale","missing":"missing","sessionBehind":"1 session behind","sessionsBehind":"{n} sessions behind","dayBehind":"1 day old","daysBehind":"{n} days old","never":"never fetched","moves":"What ARK did","movesHint":"Newest session, merged across funds. Agreement first.","movesTally":"{new} opened \u00b7 {buy} added \u00b7 {sell} trimmed \u00b7 {exit} closed","movesMore":"all {n} moves \u2192","movesAgree":"{n} funds","book":"The book","bookHint":"US-listed equities only, the part you can actually buy.","bookAll":"all holdings \u2192","bookSymbols":"symbols","bookSince":"vs {d}","bookAdded":"+{n} new","bookRemoved":"\u2212{n} gone","leaders":"Top of the market","leadersHint":"Rank movement since the previous snapshot.","leadersAll":"full ranking \u2192","leadersFirst":"First snapshot on file \u2014 movement starts with the next one.","leadersIn":"in","leadersOut":"out","leadersHeld":"{n} held by ARK","leadersCutoff":"entry at ${v}B","manager":"A manager's book","managerHint":"Filed quarterly, up to 45 days after the quarter ends.","managerBook":"{n} positions \u00b7 {q} quarters on file","managerChurn":"{opened} opened \u00b7 {closed} closed vs {d}","managerLag":"as of {d} \u2014 a quarter end, not today","managerAll":"the whole book \u2192","next":"Not wired up yet","nextHint":"Collected or planned, but not yet on a page.","empty":"Nothing on file yet.","arkHeld":"ARK holds","new":"opened","buy":"added","sell":"trimmed","exit":"closed"}},"zh":{"eyebrow":"\u6bcf\u65e5\u7b80\u62a5","title":"\u4eca\u5929\u53d1\u751f\u4e86\u4ec0\u4e48\uff0c\u4ee5\u53ca\u6570\u636e\u672c\u8eab\u8fd8\u53ef\u4e0d\u53ef\u4fe1","standfirst":"\u4e00\u5c4f\u4e4b\u5185\u5148\u56de\u7b54\u4e24\u4e2a\u95ee\u9898\uff1aARK \u5728\u6700\u8fd1\u4e00\u4e2a\u4ea4\u6613\u65e5\u505a\u4e86\u4ec0\u4e48\uff0c\u4ee5\u53ca\u8fd9\u4e9b\u9875\u9762\u80cc\u540e\u7684\u6bcf\u4e00\u8def\u6570\u636e\u5230\u5e95\u6709\u6ca1\u6709\u66f4\u65b0\u3002\u5728\u6709\u4eba\u6838\u5bf9\u4e4b\u524d\uff0c\u6570\u636e\u6e90\u4e0d\u52a8\u548c\u5e02\u573a\u6ca1\u52a8\u770b\u8d77\u6765\u4e00\u6a21\u4e00\u6837\u2014\u2014\u6240\u4ee5\u6838\u5bf9\u653e\u5728\u6700\u524d\u9762\u3002","provenance":"\u6301\u4ed3 2026-07-31  \u00b7  \u699c\u5355 2026-08-02  \u00b7  \u5df2\u5b58\u6863 33 \u4e2a\u4ea4\u6613\u65e5","sources":{"holdings":"ARK \u6301\u4ed3","trades":"\u4ea4\u6613","quotes":"\u62a5\u4ef7","leaders":"\u5e02\u503c\u699c","financials":"\u8d22\u62a5","venture":"ARKVX \u521b\u6295","thirteenf":"13F \u7533\u62a5"},"next":[["\u66f4\u591a\u7ba1\u7406\u4eba","\u6ce8\u518c\u8868\u91cc\u8fd8\u6709 Key Square \u548c Berkshire\uff0c\u90fd\u8fd8\u6ca1\u6293\u8fc7\uff0c\u6240\u4ee5\u73b0\u5728\u65e0\u6cd5\u505a\u4e24\u4e2a\u7ba1\u7406\u4eba\u4e4b\u95f4\u7684\u5bf9\u6bd4\u2014\u2014\u800c\u90a3\u624d\u662f\u68c0\u9a8c\u8fd9\u5957\u6293\u53d6\u80fd\u4e0d\u80fd\u63a8\u5e7f\u7684\u552f\u4e00\u529e\u6cd5\u3002"],["\u5173\u6ce8\u5217\u8868","\u76ee\u524d\u6ca1\u6709\u4efb\u4f55\u4e00\u9875\u8ddf\u8e2a\u4f60\u81ea\u5df1\u6301\u6709\u6216\u60f3\u6301\u6709\u7684\u6807\u7684\u3002\u8fd9\u662f\u4e0b\u4e00\u4e2a\u503c\u5f97\u505a\u7684\u4e1c\u897f\u3002"]],"footnotes":[["\u65b0\u9c9c\u5ea6\u6309\u4ea4\u6613\u65e5\u8ba1\u7b97\uff0c\u4e0d\u6309\u81ea\u7136\u65e5\u3002","\u5468\u4e94\u7684\u6587\u4ef6\u5728\u5468\u65e5\u770b\u4ecd\u7136\u662f\u6700\u65b0\u7684\uff0c\u4e0d\u7b97\u843d\u540e\u4e24\u5929\u3002\u8282\u5047\u65e5\u6ca1\u6709\u5efa\u6a21\uff0c\u6240\u4ee5\u957f\u5047\u4e4b\u540e\u4f1a\u663e\u793a\u843d\u540e\u4e00\u4e2a\u4ea4\u6613\u65e5\u2014\u2014\u8fd9\u4e2a\u8bef\u5dee\u6307\u5411\u300c\u53bb\u770b\u4e00\u773c\u300d\uff0c\u65b9\u5411\u662f\u5b89\u5168\u7684\u3002"],["\u6392\u5e8f\u770b\u7684\u662f\u4e00\u81f4\u6027\uff0c\u4e0d\u662f\u91d1\u989d\u3002","\u56db\u53ea\u57fa\u91d1\u5728\u540c\u4e00\u5929\u4e70\u540c\u4e00\u4e2a\u6807\u7684\uff0c\u662f\u8fd9\u5bb6\u516c\u53f8\u5728\u8ddf\u81ea\u5df1\u8fbe\u6210\u4e00\u81f4\uff1b\u4e00\u53ea\u57fa\u91d1\u4e70\u4e86\u4e24\u500d\u7684\u80a1\u6570\uff0c\u591a\u534a\u53ea\u662f\u518d\u5e73\u8861\u3002\u6240\u4ee5\u52a8\u4f5c\u5217\u8868\u5148\u6309\u53c2\u4e0e\u57fa\u91d1\u6570\u6392\u5e8f\u3002"],["","\u6570\u636e\u6765\u6e90\uff1aARK \u6bcf\u65e5\u6301\u4ed3\u6587\u4ef6\u3001Nasdaq \u7b5b\u9009\u5668\u3001Yahoo \u62a5\u4ef7\u3001SEC XBRL\u3002\u4ec5\u4e3a\u6301\u4ed3\u6570\u636e\uff0c\u4e0d\u6784\u6210\u6295\u8d44\u5efa\u8bae\u3002"]],"nav":{"index":"\u4eca\u65e5","holdings":"\u6301\u4ed3","activity":"\u4ea4\u6613","leaders":"\u5e02\u503c\u699c","manager":"\u7ba1\u7406\u4eba","archive":"\u5b58\u6863"},"ui":{"sources":"\u5df2\u5b58\u6863\u7684\u6570\u636e","sourcesHint":"\u6bcf\u4e2a\u6570\u636e\u6e90\u5728\u539f\u7ad9\u70b9\u90fd\u662f\u5c31\u5730\u8986\u76d6\u3001\u4e0d\u7559\u5386\u53f2\u3002\u8fd9\u91cc\u662f\u672c\u5730\u5b58\u6863\u7684\u6700\u65b0\u526f\u672c\uff0c\u4ee5\u53ca\u5b83\u843d\u540e\u4e86\u591a\u4e45\u3002","ok":"\u6700\u65b0","late":"\u504f\u65e7","stale":"\u8fc7\u671f","missing":"\u7f3a\u5931","sessionBehind":"\u843d\u540e 1 \u4e2a\u4ea4\u6613\u65e5","sessionsBehind":"\u843d\u540e {n} \u4e2a\u4ea4\u6613\u65e5","dayBehind":"1 \u5929\u524d","daysBehind":"{n} \u5929\u524d","never":"\u4ece\u672a\u6293\u53d6","moves":"ARK \u4eca\u5929\u505a\u4e86\u4ec0\u4e48","movesHint":"\u6700\u8fd1\u4e00\u4e2a\u4ea4\u6613\u65e5\uff0c\u8de8\u57fa\u91d1\u5408\u5e76\uff0c\u6309\u4e00\u81f4\u6027\u6392\u5e8f\u3002","movesTally":"\u5efa\u4ed3 {new} \u00b7 \u52a0\u4ed3 {buy} \u00b7 \u51cf\u4ed3 {sell} \u00b7 \u6e05\u4ed3 {exit}","movesMore":"\u67e5\u770b\u5168\u90e8 {n} \u7b14 \u2192","movesAgree":"{n} \u53ea\u57fa\u91d1","book":"\u6301\u4ed3\u5168\u666f","bookHint":"\u4ec5\u7f8e\u80a1\u4e0a\u5e02\u666e\u901a\u80a1\uff0c\u4e5f\u5c31\u662f\u4f60\u771f\u6b63\u4e70\u5f97\u5230\u7684\u90e8\u5206\u3002","bookAll":"\u67e5\u770b\u5168\u90e8\u6301\u4ed3 \u2192","bookSymbols":"\u53ea\u6807\u7684","bookSince":"\u76f8\u6bd4 {d}","bookAdded":"\u65b0\u589e {n}","bookRemoved":"\u79fb\u51fa {n}","leaders":"\u5e02\u573a\u6700\u524d\u6392","leadersHint":"\u76f8\u6bd4\u4e0a\u4e00\u4efd\u5feb\u7167\u7684\u6392\u540d\u53d8\u5316\u3002","leadersAll":"\u67e5\u770b\u5b8c\u6574\u699c\u5355 \u2192","leadersFirst":"\u8fd9\u662f\u7b2c\u4e00\u4efd\u5feb\u7167\u2014\u2014\u6392\u540d\u53d8\u5316\u4ece\u4e0b\u4e00\u4efd\u5f00\u59cb\u6709\u3002","leadersIn":"\u8fdb\u699c","leadersOut":"\u51fa\u699c","leadersHeld":"{n} \u5bb6\u88ab ARK \u6301\u6709","leadersCutoff":"\u5165\u699c\u95e8\u69db ${v}B","manager":"\u7ba1\u7406\u4eba\u6301\u4ed3","managerHint":"13F \u6309\u5b63\u5ea6\u7533\u62a5\uff0c\u6700\u665a\u5728\u5b63\u5ea6\u7ed3\u675f\u540e 45 \u5929\u62ab\u9732\u3002","managerBook":"{n} \u4e2a\u4ed3\u4f4d \u00b7 \u5df2\u5b58\u6863 {q} \u4e2a\u5b63\u5ea6","managerChurn":"\u76f8\u6bd4 {d}\uff1a\u5efa\u4ed3 {opened} \u00b7 \u6e05\u4ed3 {closed}","managerLag":"\u6570\u636e\u622a\u81f3 {d}\u2014\u2014\u662f\u5b63\u5ea6\u672b\uff0c\u4e0d\u662f\u4eca\u5929","managerAll":"\u67e5\u770b\u5b8c\u6574\u6301\u4ed3 \u2192","next":"\u5c1a\u672a\u63a5\u5165","nextHint":"\u5df2\u7ecf\u5728\u91c7\u96c6\u6216\u5df2\u5217\u5165\u8ba1\u5212\uff0c\u4f46\u8fd8\u6ca1\u6709\u5bf9\u5e94\u9875\u9762\u3002","empty":"\u8fd8\u6ca1\u6709\u6570\u636e\u3002","arkHeld":"ARK \u6301\u6709","new":"\u5efa\u4ed3","buy":"\u52a0\u4ed3","sell":"\u51cf\u4ed3","exit":"\u6e05\u4ed3"}}}};
+const DATA = {"asOf":"2026-07-31","today":"2026-08-02","sessions":33,"langs":[{"v":"en","label":"EN"},{"v":"zh","label":"\u4e2d\u6587"}],"sources":[{"k":"holdings","date":"2026-07-31","unit":"sessions","behind":0,"status":"ok","n":33},{"k":"trades","date":"2026-07-30","unit":"sessions","behind":1,"status":"ok","n":32},{"k":"quotes","date":"2026-07-31","unit":"sessions","behind":0,"status":"ok","n":1},{"k":"leaders","date":"2026-08-02","unit":"sessions","behind":0,"status":"ok","n":1},{"k":"financials","date":"2026-07-31","unit":"days","behind":2,"status":"unused","n":1},{"k":"venture","date":"2026-06-30","unit":"days","behind":33,"status":"unused","n":1}],"thirteenf":[{"manager":"duquesne","label":"Duquesne","date":"2026-03-31","status":"ok","quarters":52},{"manager":"keysquare","label":"Key Square","cik":1662970,"status":"missing"},{"manager":"berkshire","label":"Berkshire","cik":1067983,"status":"missing"}],"book":{"date":"2026-07-31","total":11784334589.62,"n":137,"funds":[{"f":"ARKK","n":44,"v":5554008805.920002},{"f":"ARKQ","n":38,"v":1776764712.9399998},{"f":"ARKG","n":32,"v":1582186858.0099995},{"f":"ARKW","n":37,"v":1497602021.35},{"f":"ARKX","n":31,"v":699788947.0499997},{"f":"ARKF","n":33,"v":636857340.37},{"f":"PRNT","n":26,"v":37125903.97999999}],"top":[{"t":"TSLA","v":863970813.0},{"t":"AMD","v":530518164.47},{"t":"SPCX","v":513279881.4},{"t":"SHOP","v":407062375.2},{"t":"TEM","v":379816822.91}],"prev":{"date":"2026-07-30","total":11435774677.77,"n":137,"added":[],"removed":[]}},"arkWeights":{"TSLA":{"v":863970813.0,"w":7.331519708893973,"n":"TESLA INC"},"AMD":{"v":530518164.47,"w":4.5018932586766205,"n":"ADVANCED MICRO DEVICES"},"SPCX":{"v":513279881.4,"w":4.355611914245141,"n":"SPACE EXPLORATION TECHN-CL A"},"SHOP":{"v":407062375.2,"w":3.454266951640637,"n":"SHOPIFY INC - CLASS A"},"TEM":{"v":379816822.91,"w":3.2230655029479065,"n":"TEMPUS AI INC-CL A"},"CRSP":{"v":366698501.96,"w":3.1117455056223466,"n":"CRISPR THERAPEUTICS AG"},"COIN":{"v":364610495.94,"w":3.0940270166901063,"n":"COINBASE GLOBAL INC -CLASS A"},"TXG":{"v":350710446.99,"w":2.976073399162617,"n":"10X GENOMICS INC-CLASS A"},"PLTR":{"v":339912753.7,"w":2.8844458812244302,"n":"PALANTIR TECHNOLOGIES INC-A"},"AMZN":{"v":325943539.5,"w":2.765905338321783,"n":"AMAZON.COM INC"},"HOOD":{"v":315456261.2,"w":2.6769119529062206,"n":"ROBINHOOD MARKETS INC - A"},"CRCL":{"v":311684771.2,"w":2.644907685110548,"n":"CIRCLE INTERNET GROUP INC"},"TWST":{"v":305298563.31,"w":2.5907153347369842,"n":"TWIST BIOSCIENCE CORP"},"GOOG":{"v":293916689.12,"w":2.4941305500515125,"n":"ALPHABET INC-CL C"},"RBLX":{"v":254528087.57,"w":2.159885105385552,"n":"ROBLOX CORP -CLASS A"},"NVDA":{"v":234708990.56,"w":1.9917033819350207,"n":"NVIDIA CORP"},"XYZ":{"v":228578561.7,"w":1.939681531966505,"n":"BLOCK INC"},"BEAM":{"v":223373242.89,"w":1.895510019604789,"n":"BEAM THERAPEUTICS INC"},"KTOS":{"v":218851386.57,"w":1.857138261864789,"n":"KRATOS DEFENSE & SECURITY"},"TER":{"v":206580430.35,"w":1.753008867653523,"n":"TERADYNE INC"},"TSM":{"v":181620172.44,"w":1.5412000657209493,"n":"TAIWAN SEMICONDUCTOR-SP ADR"},"CRWV":{"v":168176520.9,"w":1.4271193644496056,"n":"COREWEAVE INC-CL A"},"DE":{"v":159601693.86,"w":1.3543547380314713,"n":"DEERE & CO"},"ILMN":{"v":155416176.55,"w":1.3188370999487344,"n":"ILLUMINA INC"},"META":{"v":152817161.12,"w":1.2967822659635444,"n":"META PLATFORMS INC-CLASS A"},"NTLA":{"v":141835610.45,"w":1.2035945633700276,"n":"INTELLIA THERAPEUTICS INC"},"BMNR":{"v":138742213.6,"w":1.1773444868258267,"n":"BITMINE IMMERSION TECHNOLOGI"},"AVGO":{"v":137818168.32,"w":1.169503184688887,"n":"BROADCOM INC"},"ACHR":{"v":135283448.88,"w":1.1479939563084178,"n":"ARCHER AVIATION INC-A"},"NTRA":{"v":134750450.3,"w":1.1434710146357547,"n":"NATERA INC"},"BLSH":{"v":134565512.58,"w":1.141901662386007,"n":"BULLISH"},"CBRS":{"v":131758720.38,"w":1.1180836675840575,"n":"CEREBRAS SYSTEMS INC - A"},"LHX":{"v":118608218.0,"w":1.0064905837320142,"n":"L3HARRIS TECHNOLOGIES INC"},"XE":{"v":115680260.3,"w":0.9816443976556358,"n":"X-ENERGY INC"},"VCYT":{"v":113072136.38,"w":0.9595122704645315,"n":"VERACYTE INC"},"LLY":{"v":106571391.84,"w":0.9043479801894908,"n":"ELI LILLY & CO"},"RXRX":{"v":103575298.88,"w":0.8789236090702335,"n":"RECURSION PHARMACEUTICALS-A"},"RKLB":{"v":98472195.36,"w":0.8356194794972751,"n":"ROCKET LAB"},"WGS":{"v":91774588.48,"w":0.778784646532676,"n":"GENEDX HOLDINGS CORP"},"BWXT":{"v":90950141.91,"w":0.7717885233003452,"n":"BWX TECHNOLOGIES INC"},"AVAV":{"v":83972737.83,"w":0.712579375537807,"n":"AEROVIRONMENT INC"},"PSNL":{"v":82896140.0,"w":0.703443536583028,"n":"PERSONALIS INC"},"ABSI":{"v":78794291.96,"w":0.6686359026958076,"n":"ABSCI CORP"},"DASH":{"v":72169363.27,"w":0.612417805359744,"n":"DOORDASH INC - A"},"GH":{"v":69625930.55,"w":0.5908346374629301,"n":"GUARDANT HEALTH INC"},"TRMB":{"v":65314128.42,"w":0.5542453663657061,"n":"TRIMBLE INC"},"SNOW":{"v":63446113.5,"w":0.5383936871232871,"n":"SNOWFLAKE INC"},"CRWD":{"v":61832177.82,"w":0.5246980841367459,"n":"CROWDSTRIKE HOLDINGS INC - A"},"TOST":{"v":60664587.75,"w":0.5147900994209313,"n":"TOAST INC-CLASS A"},"CDNA":{"v":58497711.3,"w":0.4964023284906265,"n":"CAREDX INC"},"SOFI":{"v":55998543.51,"w":0.475194785790665,"n":"SOFI TECHNOLOGIES INC"},"CMPS":{"v":51775021.09,"w":0.4393546423537992,"n":"COMPASS PATHWAYS PLC"},"CERS":{"v":45037459.44,"w":0.38218075952858943,"n":"CERUS CORP"},"ADPT":{"v":43019943.72,"w":0.36506044013629135,"n":"ADAPTIVE BIOTECHNOLOGIES"},"LUNR":{"v":42644014.0,"w":0.3618703599740128,"n":"INTUITIVE MACHINES INC"},"DDOG":{"v":42436776.96,"w":0.3601117792206919,"n":"DATADOG INC - CLASS A"},"MELI":{"v":41297487.0,"w":0.3504439447635514,"n":"MERCADOLIBRE INC"},"JOBY":{"v":41177550.68,"w":0.3494261841162456,"n":"JOBY AVIATION INC"},"ESLT":{"v":40157054.28,"w":0.3407664130257431,"n":"ELBIT SYSTEMS LTD"},"NRIX":{"v":39761114.76,"w":0.3374065328645946,"n":"NURIX THERAPEUTICS INC"},"BFLY":{"v":39074095.27,"w":0.33157659410330775,"n":"BUTTERFLY NETWORK INC"},"NET":{"v":37370639.3,"w":0.3171213360906876,"n":"CLOUDFLARE INC - CLASS A"},"GOOGL":{"v":36991883.22,"w":0.31390727188435036,"n":"ALPHABET INC-CL A"},"PACB":{"v":34864568.68,"w":0.2958552170668149,"n":"PACIFIC BIOSCIENCES OF CALIF"},"CAT":{"v":33097062.56,"w":0.2808564396088422,"n":"CATERPILLAR INC"},"SPOT":{"v":33025293.73,"w":0.28024742066547975,"n":"SPOTIFY TECHNOLOGY SA"},"AUR":{"v":32670406.08,"w":0.27723590018206956,"n":"AURORA INNOVATION INC"},"SDGR":{"v":31431289.35,"w":0.2667209515392208,"n":"SCHRODINGER INC"},"CCJ":{"v":28964232.63,"w":0.24578589830190814,"n":"CAMECO CORP"},"SYM":{"v":28495069.88,"w":0.24180465738896553,"n":"SYMBOTIC INC"},"IONS":{"v":28395522.72,"w":0.24095991592950558,"n":"IONIS PHARMACEUTICALS INC"},"DKNG":{"v":28325261.72,"w":0.24036369219310652,"n":"DRAFTKINGS INC-CL A"},"SNPS":{"v":26198255.79,"w":0.2223142561912339,"n":"SYNOPSYS INC"},"P":{"v":24811758.54,"w":0.21054865975932954,"n":"EVERPURE INC-A"},"ALMR":{"v":24055918.5,"w":0.204134720692581,"n":"ALAMAR BIOSCIENCES INC"},"ISRG":{"v":24007607.52,"w":0.20372476135518613,"n":"INTUITIVE SURGICAL INC"},"RBRK":{"v":23822969.28,"w":0.20215795044536494,"n":"RUBRIK INC-A"},"PONY":{"v":22812302.84,"w":0.19358159484111873,"n":"PONY AI INC"},"PRME":{"v":22746957.1,"w":0.1930270812238835,"n":"PRIME MEDICINE INC"},"ABNB":{"v":22443662.24,"w":0.1904533689986116,"n":"AIRBNB INC-CLASS A"},"WRD":{"v":21964734.4,"w":0.1863892630759755,"n":"WERIDE INC-ADR"},"GTLB":{"v":21295562.52,"w":0.18071077631110183,"n":"GITLAB INC-CL A"},"BIDU":{"v":20516212.32,"w":0.17409733374399688,"n":"BAIDU INC - SPON ADR"},"NFLX":{"v":19571804.28,"w":0.16608323644543696,"n":"NETFLIX INC"},"FIG":{"v":19041691.68,"w":0.1615847847427253,"n":"FIGMA INC-CL A"},"OKLO":{"v":18836354.53,"w":0.1598423261555356,"n":"OKLO INC"},"GENB":{"v":17410626.71,"w":0.1477438253097108,"n":"GENERATE BIOMEDICINES INC"},"GENI":{"v":16954755.04,"w":0.14387537040007556,"n":"GENIUS SPORTS LTD"},"KDK":{"v":16638282.62,"w":0.14118983548426658,"n":"KODIAK AI INC"},"SE":{"v":16417373.44,"w":0.1393152351127311,"n":"SEA LTD-ADR"},"ARCT":{"v":16267656.8,"w":0.1380447633787405,"n":"ARCTURUS THERAPEUTICS HOLDIN"},"TDY":{"v":15732877.3,"w":0.1335067091005545,"n":"TELEDYNE TECHNOLOGIES INC"},"NU":{"v":15145643.52,"w":0.12852353609630823,"n":"NU HOLDINGS LTD/CAYMAN ISL-A"},"HEI":{"v":14676804.8,"w":0.12454504485071032,"n":"HEICO CORP"},"MASS":{"v":14592812.56,"w":0.12383229998284155,"n":"908 DEVICES INC"},"IRDM":{"v":14065471.8,"w":0.11935736967608926,"n":"IRIDIUM COMMUNICATIONS INC"},"GRMN":{"v":13574528.55,"w":0.1151913028840581,"n":"GARMIN LTD"},"KLAR":{"v":13200079.0,"w":0.11201378321035649,"n":"KLARNA GROUP PLC"},"ATAI":{"v":11835504.82,"w":0.10043422248401765,"n":"ATAIBECKLEY INC"},"FUTU":{"v":10155016.64,"w":0.08617386550569302,"n":"FUTU HOLDINGS LTD-ADR"},"ETOR":{"v":9084186.54,"w":0.07708697059570614,"n":"ETORO GROUP LTD-A"},"LMT":{"v":7818229.98,"w":0.06634426339936524,"n":"LOCKHEED MARTIN CORP"},"SCTX":{"v":7200567.6,"w":0.061102878106859576,"n":"SCRIBE THERAPEUTICS INC"},"Z":{"v":5017396.4,"w":0.042576832504564795,"n":"ZILLOW GROUP INC - C"},"QSI":{"v":4879841.04,"w":0.041409559469724425,"n":"QUANTUM-SI INC"},"SECZ":{"v":4657518.04,"w":0.039522961645220796,"n":"SECURITIZE CORP"},"HONA":{"v":4133393.6,"w":0.0350753245214271,"n":"HONEYWELL AEROSPACE INC"},"PAYP":{"v":3845220.38,"w":0.03262993214217616,"n":"PAYPAY CORP"},"KSPI":{"v":3606832.32,"w":0.03060700875870418,"n":"JSC KASPI.KZ ADR"},"ADSK":{"v":3144368.54,"w":0.026682614245946947,"n":"AUTODESK INC"},"PTC":{"v":3137489.7,"w":0.026624241497382434,"n":"PTC INC"},"XRAY":{"v":2854168.98,"w":0.024220026665858915,"n":"DENTSPLY SIRONA INC"},"HPQ":{"v":2441520.28,"w":0.020718355045269716,"n":"HP INC"},"NNDM":{"v":2250677.66,"w":0.01909889474779904,"n":"NANO DIMENSION LTD - ADR"},"DDD":{"v":2220185.7,"w":0.01884014479659808,"n":"3D SYSTEMS CORP"},"SSYS":{"v":2208266.06,"w":0.01873899661627995,"n":"STRATASYS LTD"},"MTLS":{"v":2193008.43,"w":0.01860952278062156,"n":"MATERIALISE NV-ADR"},"PRLB":{"v":2152685.86,"w":0.01826735182736708,"n":"PROTO LABS INC"},"VELO":{"v":2037050.39,"w":0.017286087513115046,"n":"VELO3D INC"},"XMTR":{"v":1936287.64,"w":0.016431030749123,"n":"XOMETRY INC-A"},"MOG.A":{"v":1152937.5,"w":0.009783645323644683,"n":"MOOG INC-CLASS A"},"KALU":{"v":1101588.84,"w":0.009347908714084825,"n":"KAISER ALUMINUM CORP"},"GE":{"v":1099558.88,"w":0.00933068279450012,"n":"GENERAL ELECTRIC"},"LECO":{"v":1067188.3,"w":0.009055991171024725,"n":"LINCOLN ELECTRIC HOLDINGS"},"AME":{"v":986441.1,"w":0.008370783199493395,"n":"AMETEK INC"},"ALGN":{"v":948032.47,"w":0.008044853638448587,"n":"ALIGN TECHNOLOGY INC"},"CNTN":{"v":731821.15,"w":0.006210118564052062,"n":"CANTON STRATEGIC HOLDINGS IN"},"ROKU":{"v":515649.86,"w":0.004375723177906032,"n":"ROKU INC"},"BABA":{"v":507969.44,"w":0.004310548348206566,"n":"ALIBABA GROUP HOLDING-SP ADR"},"SRTA":{"v":259182.8,"w":0.002199384259067933,"n":"STRATA CRITICAL MEDICAL INC"},"MMM":{"v":89619.63,"w":0.0007604980096113334,"n":"3M CO"},"ATI":{"v":80763.6,"w":0.0006853471393381773,"n":"ATI INC"},"JBL":{"v":76821.48,"w":0.0006518949323423547,"n":"JABIL INC"},"CRS":{"v":74549.08,"w":0.0006326117052520309,"n":"CARPENTER TECHNOLOGY"},"AVNT":{"v":73616.76,"w":0.0006247001851495618,"n":"AVIENT CORP"},"KMT":{"v":71638.0,"w":0.000607908740669167,"n":"KENNAMETAL INC"},"MTRN":{"v":70757.4,"w":0.0006004361083087818,"n":"MATERION CORP"}},"moves":{"date":"2026-07-30","conviction":3,"total":17,"tally":{"new":0,"buy":3,"sell":14,"exit":0},"items":[{"t":"META","n":"META PLATFORMS INC-CLASS A","k":"buy","s":26511.0,"f":["ARKF","ARKK","ARKW"],"v":15525106.71},{"t":"","n":"BRERA HOLDINGS PLC-CL B","k":"sell","s":-10615.0,"f":["ARKF","ARKK","ARKW"],"v":38532.45},{"t":"SRTA","n":"STRATA CRITICAL MEDICAL INC","k":"sell","s":-348014.0,"f":["ARKQ","ARKX"],"v":1694828.18},{"t":"LHX","n":"L3HARRIS TECHNOLOGIES INC","k":"buy","s":37635.0,"f":["ARKQ","ARKX"],"v":11197541.549999999},{"t":"TDY","n":"TELEDYNE TECHNOLOGIES INC","k":"sell","s":-2597.0,"f":["ARKQ","ARKX"],"v":1639615.9499999997},{"t":"ESLT","n":"ELBIT SYSTEMS LTD","k":"sell","s":-2142.0,"f":["ARKQ","ARKX"],"v":1647412.2}]},"leaders":{"date":"2026-08-02","prevDate":null,"size":300,"cutoff":53420399356.0,"top":[{"t":"NVDA","n":"NVIDIA Corporation","r":1,"cap":4858150000000.0,"ch":2.928,"ark":234708990.56},{"t":"AAPL","n":"Apple Inc.","r":2,"cap":4537071141960.0,"ch":-7.354},{"t":"GOOG","n":"Alphabet Inc.","r":3,"cap":4361829500000.0,"ch":6.884,"ark":293916689.12},{"t":"MSFT","n":"Microsoft Corporation","r":4,"cap":3450799500578.0,"ch":3.019},{"t":"AMZN","n":"Amazon.com Inc.","r":5,"cap":2921415780629.0,"ch":15.321,"ark":325943539.5},{"t":"TSM","n":"Taiwan Semiconductor Manufacturing Company Ltd.","r":6,"cap":2096644607442.0,"ch":0.233,"ark":181620172.44},{"t":"AVGO","n":"Broadcom Inc.","r":7,"cap":1852030819477.0,"ch":0.371,"ark":137818168.32},{"t":"SPCX","n":"Space Exploration Technologies Corp.","r":8,"cap":1418655844187.0,"ch":-3.414,"ark":513279881.4}],"moved":[],"in":[],"out":[],"held":36},"filers":{"duquesne":{"manager":"duquesne","label":"Duquesne Family Office","period":"2026-03-31","quarters":52,"n":65,"total":2937172000.0,"unidentified":0,"top":[{"t":"NTRA","n":"Natera Inc","v":612691000.0,"w":20.8599},{"t":"INSM","n":"Insmed Inc","v":188717000.0,"w":6.4251},{"t":"TSM","n":"Taiwan Semiconductor Manufac","v":167380000.0,"w":5.6987},{"t":"YPF","n":"Ypf Sociedad Anonima","v":149566000.0,"w":5.0922}],"prevPeriod":"2025-12-31","opened":30,"closed":23,"short":"Duquesne","weights":{"NTRA":{"v":612691000.0,"w":20.8599,"n":"Natera Inc"},"INSM":{"v":188717000.0,"w":6.4251,"n":"Insmed Inc"},"TSM":{"v":167380000.0,"w":5.6987,"n":"Taiwan Semiconductor Manufac"},"YPF":{"v":149566000.0,"w":5.0922,"n":"Ypf Sociedad Anonima"},"EWZ":{"v":131915000.0,"w":4.4912,"n":"Ishares Inc"},"TBBB":{"v":109972000.0,"w":3.7441,"n":"Bbb Foods Inc"},"AA":{"v":99057000.0,"w":3.3725,"n":"Alcoa Corp"},"NAMS":{"v":98275000.0,"w":3.3459,"n":"Newamsterdam Pharma Company"},"SE":{"v":91083000.0,"w":3.101,"n":"Sea Ltd"},"STM":{"v":90275000.0,"w":3.0735,"n":"Stmicroelectronics N V"},"WWD":{"v":75648000.0,"w":2.5755,"n":"Woodward Inc"},"TEVA":{"v":71604000.0,"w":2.4379,"n":"Teva Pharmaceutical Inds Ltd"},"ROKU":{"v":70983000.0,"w":2.4167,"n":"Roku Inc"},"AVGO":{"v":60650000.0,"w":2.0649,"n":"Broadcom Inc"},"CPNG":{"v":50362000.0,"w":1.7146,"n":"Coupang Inc"},"OPCH":{"v":50301000.0,"w":1.7126,"n":"Option Care Health Inc"},"CRH":{"v":39689000.0,"w":1.3513,"n":"Crh Plc"},"FIGR":{"v":39057000.0,"w":1.3297,"n":"Figure Technology Solutio"},"ARGT":{"v":36152000.0,"w":1.2308,"n":"Global X Fds"},"CAI":{"v":33873000.0,"w":1.1533,"n":"Caris Life Sciences Inc"},"QSR":{"v":33583000.0,"w":1.1434,"n":"Restaurant Brands Intl Inc"},"RVMD":{"v":30717000.0,"w":1.0458,"n":"Revolution Medicines Inc"},"LSCC":{"v":29974000.0,"w":1.0205,"n":"Lattice Semiconductor Corp"},"SNDK":{"v":24241000.0,"w":0.8253,"n":"Sandisk Corp"},"UAL":{"v":24168000.0,"w":0.8228,"n":"United Airls Hldgs Inc"},"HUM":{"v":23842000.0,"w":0.8117,"n":"Humana Inc"},"WAB":{"v":23715000.0,"w":0.8074,"n":"Wabtec"},"TWLO":{"v":22869000.0,"w":0.7786,"n":"Twilio Inc"},"JBL":{"v":21835000.0,"w":0.7434,"n":"Jabil Inc"},"SCCO":{"v":20964000.0,"w":0.7137,"n":"Southern Copper Corp"},"GSG":{"v":20737000.0,"w":0.706,"n":"Ishares S&amp;P Gsci Commodity-"},"LIN":{"v":20425000.0,"w":0.6954,"n":"Linde Plc"},"STX":{"v":19862000.0,"w":0.6762,"n":"Seagate Technology Hldngs Pl"},"CLF":{"v":19549000.0,"w":0.6656,"n":"Cleveland-Cliffs Inc New"},"NUVB":{"v":19476000.0,"w":0.6631,"n":"Nuvation Bio Inc"},"BE":{"v":18470000.0,"w":0.6288,"n":"Bloom Energy Corp"},"INTC":{"v":18155000.0,"w":0.6181,"n":"Intel Corp"},"BLTE":{"v":16917000.0,"w":0.576,"n":"Belite Bio Inc Sponsored"},"PTGX":{"v":16832000.0,"w":0.5731,"n":"Protagonist Therapeutics Inc"},"U":{"v":16209000.0,"w":0.5519,"n":"Unity Software Inc"},"ARM":{"v":16142000.0,"w":0.5496,"n":"Arm Holdings Plc"},"OLMA":{"v":14714000.0,"w":0.501,"n":"Olema Pharmaceuticals Inc"},"Q":{"v":14498000.0,"w":0.4936,"n":"Qnity Electronics Inc"},"ADMA":{"v":13926000.0,"w":0.4741,"n":"Adma Biologics Inc"},"XENE":{"v":13875000.0,"w":0.4724,"n":"Xenon Pharmaceuticals Inc"},"JBS":{"v":11780000.0,"w":0.4011,"n":"Jbs N.V."},"DAKT":{"v":11000000.0,"w":0.3745,"n":"Daktronics Inc"},"NET":{"v":10840000.0,"w":0.3691,"n":"Cloudflare Inc"},"LYB":{"v":10588000.0,"w":0.3605,"n":"Lyondellbasell Industries Nv"},"VIST":{"v":10166000.0,"w":0.3461,"n":"Vista Energy S.A.B. De C.V."},"TWST":{"v":9789000.0,"w":0.3333,"n":"Twist Bioscience Corp"},"COHR":{"v":9624000.0,"w":0.3277,"n":"Coherent Corp"},"AMZN":{"v":9539000.0,"w":0.3248,"n":"Amazon Com Inc"},"CLS":{"v":9373000.0,"w":0.3191,"n":"Celestica Inc"},"STUB":{"v":8531000.0,"w":0.2904,"n":"Stubhub Hldgs Inc"},"DBVT":{"v":8008000.0,"w":0.2726,"n":"Dbv Technologies S A Sponsored"},"MU":{"v":7905000.0,"w":0.2691,"n":"Micron Technology Inc"},"ECHO":{"v":7114000.0,"w":0.2422,"n":"Echostar Corp"},"ALM":{"v":6804000.0,"w":0.2317,"n":"Almonty Inds Inc"},"PCT":{"v":4999000.0,"w":0.1702,"n":"Purecycle Technologies Inc"},"LITE":{"v":4893000.0,"w":0.1666,"n":"Lumentum Hldgs Inc"},"MELI":{"v":4782000.0,"w":0.1628,"n":"Mercadolibre  Inc"},"SOLS":{"v":4762000.0,"w":0.1621,"n":"Solstice Advanced Matls Inc"},"WLK":{"v":2476000.0,"w":0.0843,"n":"Westlake Corporation"},"WVE":{"v":1254000.0,"w":0.0427,"n":"Wave Life Sciences Ltd"}},"moves":{"date":"2025-12-31","conviction":3,"total":83,"tally":{"new":30,"buy":12,"sell":18,"exit":23},"items":[{"t":"XLF","n":"Select Sector Spdr Tr","k":"exit","s":-5495600.0,"f":["Duquesne Family Office"],"v":300994000.0},{"t":"NUVB","n":"Nuvation Bio Inc","k":"new","s":4539800.0,"f":["Duquesne Family Office"],"v":19476000.0},{"t":"CPNG","n":"Coupang Inc","k":"sell","s":-4105424.0,"f":["Duquesne Family Office"],"v":96846998.64592895},{"t":"TEVA","n":"Teva Pharmaceutical Inds Ltd","k":"sell","s":-3497585.0,"f":["Duquesne Family Office"],"v":109159810.80006877},{"t":"YPF","n":"Ypf Sociedad Anonima","k":"buy","s":2628972.0,"f":["Duquesne Family Office"],"v":95064673.9287303},{"t":"COGT","n":"Cogent Biosciences Inc","k":"exit","s":-2214470.0,"f":["Duquesne Family Office"],"v":78658000.0}]}}},"known":{"keysquare":{"cik":1662970,"label":"Key Square Capital Management","short":"Key Square"},"berkshire":{"cik":1067983,"label":"Berkshire Hathaway","short":"Berkshire"}},"i18n":{"en":{"eyebrow":"Daily brief","title":"Who holds what, and what moved","standfirst":"One screen, three questions: who moved, where the market stands, and whether the data behind it is any good. ARK is the one holder that reports daily, not the subject of the page \u2014 a 13F filer and the market-cap ranking are cards of the same size, and a watchlist is the fourth holder this site does not have yet.","sources":{"holdings":"ARK holdings","trades":"Trades","quotes":"Quotes","leaders":"Market cap","financials":"Financials","venture":"ARKVX"},"footnotes":[["Freshness is counted in sessions, not clock time.","A Friday file read on Sunday is current, not two days late. Market holidays are not modelled, so the day after one reads as a session behind \u2014 the error points at looking, which is the safe direction."],["\u201cWhat moved\u201d groups by each holder's own cadence, not by size or time.","ARK's daily moves and a 13F filer's quarterly ones are not the same unit, so ranking them against each other would compare incomparable things; the group headings say whose move and what cadence instead."],["Within ARK's own group, agreement is the ranking, not size.","Four funds adding the same name on the same day is the firm agreeing with itself; one fund moving twice the shares is a rebalance."],["","Sources: ARK's daily holdings files, the manager's own 13F-HR filings on SEC EDGAR, Nasdaq's screener. Holdings data, not investment advice."]],"nav":{"index":"Today","holdings":"Holdings","activity":"Trades","leaders":"Top 300","manager":"13F","archive":"Archive"},"ui":{"sources":"Data on file","sourcesHint":"The newest copy of every source, and how far behind it is. 13F gets one row per filer; anything archived but not read by any page yet is marked unused rather than shown as current.","ok":"current","late":"late","stale":"stale","missing":"missing","unused":"archived, unused","sessionBehind":"1 session behind","sessionsBehind":"{n} sessions behind","dayBehind":"1 day old","daysBehind":"{n} days old","never":"never fetched","quartersOnFile":"{n} quarters on file","moves":"What moved","movesHint":"Grouped by each holder's own cadence \u2014 a quarter's exit and a day's add are not the same unit, so they are not sorted into one queue against each other.","sessionHead":"Last session \u00b7 {d}","quarterHead":"{q} change","movesAgree":"{n} funds agree","also":"{label} {w}%","arkSub":"8 ETFs \u00b7 daily \u00b7 US-listed equities only","cadenceDaily":"daily","cadenceQuarterly":"quarterly","bookSymbols":"symbols","positionsWord":"positions","unidentWord":"unresolved","asOfQuarter":"as of {d} \u2014 a quarter end, not today","archived":"{n} sessions archived","quartersArchived":"{n} quarters archived","notIngestedHint":"CIK {cik} is in the registry, not yet ingested","notIngestedBody":"python3 thirteenf.py {name} would give this a book. Comparing two managers is the only real test of whether the ingest generalises.","notIngestedFoot":"not ingested","watchlist":"Watchlist","watchlistSub":"What you hold or want to \u2014 the fourth holder","watchlistBody":"Nothing here yet. It's the same kind of thing as the cards above \u2014 a holding, just authored by you. With it, the market ranking and the move stream could answer \"does this affect me\".","watchlistFoot":"planned","leaders":"Top of the market","leadersHint":"The market's own coordinate system, not a holder \u2014 a different kind of thing from the cards above, the ruler they share instead. The marks show who on this list actually owns it.","leadersFirst":"First snapshot on file \u2014 movement starts with the next one.","leadersIn":"in","leadersOut":"out","leadersHeld":"{n} held by ARK","leadersCutoff":"entry at ${v}B","empty":"Nothing on file yet.","arkHeld":"ARK holds","new":"opened","buy":"added","sell":"trimmed","exit":"closed"}},"zh":{"eyebrow":"\u6bcf\u65e5\u7b80\u62a5","title":"\u8c01\u6301\u6709\u4ec0\u4e48\uff0c\u53d8\u4e86\u4ec0\u4e48","standfirst":"\u4e00\u5c4f\u4e4b\u5185\u56de\u7b54\u4e09\u4ef6\u4e8b\uff1a\u8c01\u52a8\u4e86\u3001\u5e02\u573a\u5750\u6807\u5728\u54ea\u3001\u8fd9\u4e9b\u6570\u636e\u53ef\u4e0d\u53ef\u4fe1\u3002ARK \u662f\u552f\u4e00\u4e00\u4e2a\u65e5\u9891\u7684\u6301\u6709\u4eba\uff0c\u4e0d\u662f\u9875\u9762\u7684\u4e3b\u8bed\u2014\u201413F \u7ba1\u7406\u4eba\u548c\u5e02\u503c\u699c\u662f\u540c\u7b49\u5927\u5c0f\u7684\u6a21\u5757\uff0c\u5173\u6ce8\u5217\u8868\u662f\u8fd8\u6ca1\u505a\u7684\u7b2c\u56db\u4e2a\u6301\u6709\u4eba\u3002","sources":{"holdings":"ARK \u6301\u4ed3","trades":"\u4ea4\u6613","quotes":"\u62a5\u4ef7","leaders":"\u5e02\u503c\u699c","financials":"\u8d22\u62a5","venture":"ARKVX \u521b\u6295"},"footnotes":[["\u65b0\u9c9c\u5ea6\u6309\u4ea4\u6613\u65e5\u8ba1\u7b97\uff0c\u4e0d\u6309\u81ea\u7136\u65e5\u3002","\u5468\u4e94\u7684\u6587\u4ef6\u5728\u5468\u65e5\u770b\u4ecd\u7136\u662f\u6700\u65b0\u7684\uff0c\u4e0d\u7b97\u843d\u540e\u4e24\u5929\u3002\u8282\u5047\u65e5\u6ca1\u6709\u5efa\u6a21\uff0c\u6240\u4ee5\u957f\u5047\u4e4b\u540e\u4f1a\u663e\u793a\u843d\u540e\u4e00\u4e2a\u4ea4\u6613\u65e5\u2014\u2014\u8fd9\u4e2a\u8bef\u5dee\u6307\u5411\u300c\u53bb\u770b\u4e00\u773c\u300d\uff0c\u65b9\u5411\u662f\u5b89\u5168\u7684\u3002"],["\u300c\u8c01\u5728\u52a8\u300d\u6309\u6301\u6709\u4eba\u81ea\u5df1\u7684\u8282\u594f\u5206\u7ec4\uff0c\u4e0d\u6309\u91d1\u989d\u6216\u65f6\u95f4\u6392\u5e8f\u3002","ARK \u65e5\u9891\u300113F \u5b63\u9891\uff0c\u4e24\u79cd\u5355\u4f4d\u6ca1\u6cd5\u653e\u8fdb\u540c\u4e00\u4e2a\u6392\u5e8f\u91cc\u6bd4\u5927\u5c0f\uff1b\u5206\u7ec4\u4e4b\u540e\uff0c\u6807\u9898\u672c\u8eab\u5c31\u8bf4\u6e05\u695a\u4e86\u8fd9\u662f\u8c01\u7684\u52a8\u4f5c\u3001\u4ec0\u4e48\u8282\u594f\u3002"],["ARK \u81ea\u5df1\u90a3\u4e00\u6bb5\u5185\u90e8\u6392\u7684\u662f\u4e00\u81f4\u6027\uff0c\u4e0d\u662f\u91d1\u989d\u3002","\u56db\u53ea\u57fa\u91d1\u5728\u540c\u4e00\u5929\u4e70\u540c\u4e00\u4e2a\u6807\u7684\uff0c\u662f\u8fd9\u5bb6\u516c\u53f8\u5728\u8ddf\u81ea\u5df1\u8fbe\u6210\u4e00\u81f4\uff1b\u4e00\u53ea\u57fa\u91d1\u4e70\u4e86\u4e24\u500d\u7684\u80a1\u6570\uff0c\u591a\u534a\u53ea\u662f\u518d\u5e73\u8861\u3002"],["","\u6570\u636e\u6765\u6e90\uff1aARK \u6bcf\u65e5\u6301\u4ed3\u6587\u4ef6\u3001\u8be5\u7ba1\u7406\u4eba\u81ea\u5df1\u63d0\u4ea4\u7ed9 SEC EDGAR \u7684 13F-HR \u7533\u62a5\u3001Nasdaq \u7b5b\u9009\u5668\u3002\u4ec5\u4e3a\u6301\u4ed3\u6570\u636e\uff0c\u4e0d\u6784\u6210\u6295\u8d44\u5efa\u8bae\u3002"]],"nav":{"index":"\u4eca\u65e5","holdings":"\u6301\u4ed3","activity":"\u4ea4\u6613","leaders":"\u5e02\u503c\u699c","manager":"\u7ba1\u7406\u4eba","archive":"\u5b58\u6863"},"ui":{"sources":"\u6570\u636e\u5728\u4e0d\u5728","sourcesHint":"\u6bcf\u4e00\u8def\u6570\u636e\u7684\u6700\u65b0\u526f\u672c\uff0c\u4ee5\u53ca\u843d\u540e\u591a\u4e45\u300213F \u6309\u7ba1\u7406\u4eba\u5206\u884c\uff1b\u5df2\u5b58\u6863\u4f46\u8fd8\u6ca1\u6709\u9875\u9762\u5728\u7528\u7684\u6570\u636e\u6807\u6210\u300c\u53ea\u5b58\u4e0d\u7528\u300d\uff0c\u4e0d\u7b97\u4f5c\u6700\u65b0\u3002","ok":"\u6700\u65b0","late":"\u504f\u65e7","stale":"\u8fc7\u671f","missing":"\u7f3a\u5931","unused":"\u53ea\u5b58\u4e0d\u7528","sessionBehind":"\u843d\u540e 1 \u4e2a\u4ea4\u6613\u65e5","sessionsBehind":"\u843d\u540e {n} \u4e2a\u4ea4\u6613\u65e5","dayBehind":"1 \u5929\u524d","daysBehind":"{n} \u5929\u524d","never":"\u4ece\u672a\u6293\u53d6","quartersOnFile":"{n} \u4e2a\u5b63\u5ea6\u5b58\u6863","moves":"\u8c01\u5728\u52a8","movesHint":"\u6309\u6301\u6709\u4eba\u81ea\u5df1\u7684\u8282\u594f\u5206\u7ec4\u2014\u2014\u4e00\u4e2a\u5b63\u5ea6\u7684\u6e05\u4ed3\u548c\u4e00\u5929\u7684\u52a0\u4ed3\u4e0d\u662f\u540c\u4e00\u79cd\u5355\u4f4d\uff0c\u4e0d\u80fd\u6392\u5728\u4e00\u6761\u961f\u5217\u91cc\u6bd4\u5927\u5c0f\u3002","sessionHead":"\u672c\u4ea4\u6613\u65e5 \u00b7 {d}","quarterHead":"{q} \u53d8\u5316","movesAgree":"{n} \u53ea\u57fa\u91d1\u4e00\u81f4","also":"{label} {w}%","arkSub":"8 \u53ea ETF \u00b7 \u65e5\u9891 \u00b7 \u4ec5\u7f8e\u80a1\u4e0a\u5e02\u90e8\u5206","cadenceDaily":"\u65e5\u9891","cadenceQuarterly":"\u5b63\u9891","bookSymbols":"\u53ea\u6807\u7684","positionsWord":"\u4e2a\u4ed3\u4f4d","unidentWord":"\u672a\u8bc6\u522b","asOfQuarter":"{d} \u2014 \u662f\u5b63\u5ea6\u672b\uff0c\u4e0d\u662f\u4eca\u5929","archived":"\u5df2\u5b58\u6863 {n} \u4e2a\u4ea4\u6613\u65e5","quartersArchived":"\u5df2\u5b58\u6863 {n} \u4e2a\u5b63\u5ea6","notIngestedHint":"CIK {cik} \u5728\u6ce8\u518c\u8868\u91cc\uff0c\u8fd8\u6ca1\u6293\u8fc7","notIngestedBody":"\u8fd0\u884c python3 thirteenf.py {name} \u4e4b\u540e\u8fd9\u91cc\u4f1a\u6709\u4e00\u672c\u4e66\u3002\u4e24\u4e2a\u7ba1\u7406\u4eba\u4e4b\u95f4\u7684\u5bf9\u6bd4\u624d\u662f\u68c0\u9a8c\u8fd9\u5957\u6293\u53d6\u80fd\u4e0d\u80fd\u63a8\u5e7f\u7684\u552f\u4e00\u529e\u6cd5\u3002","notIngestedFoot":"\u672a\u6293\u53d6","watchlist":"\u6211\u7684\u5173\u6ce8","watchlistSub":"\u4f60\u81ea\u5df1\u6301\u6709\u6216\u60f3\u6301\u6709\u7684\u6807\u7684 \u2014 \u7b2c\u56db\u4e2a\u6301\u6709\u4eba","watchlistBody":"\u8fd8\u6ca1\u6709\u8fd9\u4e2a\u6a21\u5757\u3002\u5b83\u548c\u4e0a\u9762\u51e0\u4e2a\u662f\u540c\u4e00\u79cd\u4e1c\u897f\uff1a\u4e00\u4efd\u6301\u4ed3\uff0c\u53ea\u662f\u4f5c\u8005\u662f\u4f60\u3002\u6709\u4e86\u5b83\uff0c\u5e02\u503c\u699c\u548c\u53d8\u5316\u6d41\u624d\u80fd\u56de\u7b54\u300c\u8fd9\u6761\u52a8\u4f5c\u8ddf\u6211\u6709\u5173\u5417\u300d\u3002","watchlistFoot":"\u8ba1\u5212\u4e2d","leaders":"\u5e02\u503c\u699c 300","leadersHint":"\u5e02\u573a\u5750\u6807\u7cfb\uff0c\u4e0d\u662f\u6301\u6709\u4eba\u2014\u2014\u6240\u4ee5\u5b83\u8ddf\u4e0a\u9762\u51e0\u5f20\u5361\u4e0d\u662f\u540c\u4e00\u7c7b\u4e1c\u897f\uff0c\u800c\u662f\u5b83\u4eec\u5171\u7528\u7684\u5c3a\u5b50\u3002\u6807\u8bb0\u663e\u793a\u699c\u4e0a\u6bcf\u4e00\u4f4d\u662f\u88ab\u8c01\u6301\u6709\u7684\u3002","leadersFirst":"\u8fd9\u662f\u7b2c\u4e00\u4efd\u5feb\u7167\u2014\u2014\u6392\u540d\u53d8\u5316\u4ece\u4e0b\u4e00\u4efd\u5f00\u59cb\u6709\u3002","leadersIn":"\u8fdb\u699c","leadersOut":"\u51fa\u699c","leadersHeld":"{n} \u5bb6\u88ab ARK \u6301\u6709","leadersCutoff":"\u5165\u699c\u95e8\u69db ${v}B","empty":"\u8fd8\u6ca1\u6709\u6570\u636e\u3002","arkHeld":"ARK \u6301\u6709","new":"\u5efa\u4ed3","buy":"\u52a0\u4ed3","sell":"\u51cf\u4ed3","exit":"\u6e05\u4ed3"}}}};
 
 const LANGS = DATA.langs.map(l => l.v);
 let lang = (() => {
@@ -990,7 +1006,7 @@ let lang = (() => {
 const page = () => DATA.i18n[lang];
 const t = k => page().ui[k];
 const fill = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k] ?? '');
-const esc = s => String(s).replace(/[&<>"]/g, c =>
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c =>
   ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
 
 function money(v) {
@@ -1025,24 +1041,52 @@ function paintNav() {
 }
 
 
+const ARROW = {new: '▲', buy: '▲', sell: '▼', exit: '▼'};
+
+const FILERS = Object.entries(DATA.filers);
+const HOLDER_LABEL = {ark: 'ARK'};
+FILERS.forEach(([k, f]) => { HOLDER_LABEL[k] = f.short; });
+
+// Every registered holder of one ticker: ARK's whole book plus every ingested
+// filer's, not just the handful that happen to appear in a top-N slice.
+function holdersOf(ticker) {
+  const out = [];
+  if (DATA.arkWeights[ticker]) out.push({h: 'ark', w: DATA.arkWeights[ticker].w});
+  FILERS.forEach(([k, f]) => { if (f.weights && f.weights[ticker]) out.push({h: k, w: f.weights[ticker].w}); });
+  return out;
+}
+
+const alsoPills = (ticker, exclude) => holdersOf(ticker)
+  .filter(x => x.h !== exclude)
+  .map(x => `<span class="alsopill" data-h="${x.h}">${esc(fill(t('also'), {label: HOLDER_LABEL[x.h], w: x.w.toFixed(1)}))}</span>`)
+  .join('');
+
+function quarterOf(d) {
+  const [y, m] = d.split('-');
+  return `${y} Q${Math.ceil(+m / 3)}`;
+}
+
 /* ---- freshness ---- */
 
 function paintSources() {
   const names = page().sources;
-  document.getElementById('sources').innerHTML = DATA.sources.map(s => {
-    // sessionBehind / sessionsBehind / dayBehind / daysBehind
-    const key = (s.unit === 'sessions' ? 'session' : 'day')
-      + (s.behind === 1 ? 'Behind' : 'sBehind');
+  const rows = DATA.sources.map(s => {
     const age = s.status === 'missing' ? t('never')
+      : s.status === 'unused' ? t('unused')
       : s.behind === 0 ? t('ok')
-      : fill(t(key), {n: s.behind});
-    return `<div class="src" data-s="${s.status}">
-      <span class="dot"></span>
-      <span class="slabel">${esc(names[s.k] || s.k)}</span>
-      <span class="sdate">${s.date || '—'}</span>
-      <span class="sage">${esc(age)}</span>
-    </div>`;
-  }).join('');
+      : fill(t((s.unit === 'sessions' ? 'session' : 'day') + (s.behind === 1 ? 'Behind' : 'sBehind')), {n: s.behind});
+    return {status: s.status, label: names[s.k] || s.k, date: s.date, age};
+  });
+  DATA.thirteenf.forEach(r => rows.push({
+    status: r.status, label: `13F · ${r.label}`, date: r.date,
+    age: r.status === 'missing' ? t('never') : fill(t('quartersOnFile'), {n: r.quarters}),
+  }));
+  document.getElementById('sources').innerHTML = rows.map(r => `<div class="src" data-s="${r.status}">
+    <span class="dot"></span>
+    <span class="slabel">${esc(r.label)}</span>
+    <span class="sdate">${esc(r.date || '—')}</span>
+    <span class="sage">${esc(r.age)}</span>
+  </div>`).join('');
 }
 
 /* ---- cards ---- */
@@ -1052,77 +1096,134 @@ function paintSources() {
 const head = (title, hint, href, linkText) => `
   <div class="cardhead">
     <h2>${esc(title)}</h2>
-    ${href ? `<a href="${NAV_BASE}${href}">${esc(linkText)}</a>` : ''}
+    ${href ? `<a href="${NAV_BASE}${href}" aria-label="${esc(title)}">${esc(linkText)}</a>` : ''}
     ${hint ? `<span class="hint">${esc(hint)}</span>` : ''}
   </div>`;
 
-const ARROW = {new: '▲', buy: '▲', sell: '▼', exit: '▼'};
+function srow(holder, href, e, cadenceTail, agree) {
+  return `<a class="srow${agree ? ' agree' : ''}" href="${NAV_BASE}${href}">
+    <span class="tag-action" data-k="${e.k}"><span class="arrow">${ARROW[e.k]}</span>${esc(t(e.k))}</span>
+    <span class="who"><span class="tick">${esc(e.t || '—')}</span>
+      <span class="co">${esc(e.n)}</span>${alsoPills(e.t, holder)}</span>
+    <span class="tail">
+      <span class="val">${e.v ? money(e.v) : '—'}</span>
+      <span class="agreecount">${esc(cadenceTail)}</span>
+    </span>
+  </a>`;
+}
+
+function moveGroup(headline, tally, rowsHTML) {
+  const chips = tally ? `<div class="sgtally">
+      <span class="pill">${esc(t('new'))} <b>${tally.new}</b></span>
+      <span class="pill">${esc(t('buy'))} <b>${tally.buy}</b></span>
+      <span class="pill">${esc(t('sell'))} <b>${tally.sell}</b></span>
+      <span class="pill">${esc(t('exit'))} <b>${tally.exit}</b></span>
+    </div>` : '';
+  return `<div class="streamgroup">
+    <div class="streamgroup-head"><div class="sgtitle">${headline}</div>${chips}</div>
+    <div class="stream">${rowsHTML}</div>
+  </div>`;
+}
 
 function paintMoves() {
-  const m = DATA.moves;
   const el = document.getElementById('card-moves');
-  if (!m) {
+  const groups = [];
+
+  const a = DATA.moves;
+  if (a) {
+    const rows = a.items.map(e => srow('ark', 'activity.html', e,
+      fill(t('movesAgree'), {n: e.f.length}), e.f.length >= a.conviction)).join('');
+    groups.push(moveGroup(`<b>ARK</b><span>${esc(fill(t('sessionHead'), {d: a.date}))}</span>`, a.tally, rows));
+  }
+
+  FILERS.forEach(([key, f]) => {
+    if (!f.moves) return;
+    const q = quarterOf(f.moves.date);
+    const rows = f.moves.items.map(e => srow(key, `${key}/activity.html`, e, q, false)).join('');
+    groups.push(moveGroup(
+      `<b>${esc(f.short)}</b><span>${esc(fill(t('quarterHead'), {q}))}</span>`, f.moves.tally, rows));
+  });
+
+  if (!groups.length) {
     el.innerHTML = head(t('moves'), '', '', '') +
       `<div class="cardbody"><span class="hint">${esc(t('empty'))}</span></div>`;
     return;
   }
-  const rows = m.items.map(e => {
-    const agree = e.f.length >= m.conviction;
-    return `<a class="move-row${agree ? ' agree' : ''}" href="${NAV_BASE}activity.html">
-      <span class="tag-action" data-k="${e.k}"><span class="arrow">${ARROW[e.k]}</span>${esc(t(e.k))}</span>
-      <span class="who"><span class="tick">${esc(e.t || '—')}</span>
-        <span class="co">${esc(e.n)}</span></span>
-      <span class="tail">
-        <span class="val">${e.v ? money(e.v) : '—'}</span>
-        <span class="agreecount">${fill(t('movesAgree'), {n: e.f.length})}</span>
-      </span>
-    </a>`;
-  }).join('');
-
-  el.innerHTML = head(t('moves'), t('movesHint'), 'activity.html',
-                      fill(t('movesMore'), {n: m.total}))
-    + `<div class="moves">${rows}</div>`
-    + `<div class="cardfoot">${m.date}  ·  ${esc(fill(t('movesTally'), m.tally))}</div>`;
+  el.innerHTML = head(t('moves'), t('movesHint'), '', '') + groups.join('');
 }
 
-function paintBook() {
+function arkCard() {
   const b = DATA.book;
-  const el = document.getElementById('card-book');
   const max = Math.max(...b.funds.map(f => f.v), 1);
-  const bars = b.funds.filter(f => f.v > 0).map(f => `
-    <div class="fundrow">
-      <span class="fname">${esc(f.f)}</span>
-      <span class="ftrack"><span class="fbar" style="width:${(f.v / max * 100).toFixed(1)}%"></span></span>
-      <span class="fval">${money(f.v)}</span>
-      <span class="fpct">${(f.v / b.total * 100).toFixed(0)}%</span>
-    </div>`).join('');
+  const bars = b.funds.filter(f => f.v > 0).map(f => `<div class="fundrow">
+    <span class="fname">${esc(f.f)}</span>
+    <span class="ftrack"><span class="fbar" style="width:${(f.v / max * 100).toFixed(1)}%"></span></span>
+    <span class="fval">${money(f.v)}</span>
+    <span class="fpct">${(f.v / b.total * 100).toFixed(0)}%</span></div>`).join('');
+  const tl = DATA.moves ? DATA.moves.tally : null;
+  return `<section class="card">
+    ${head('ARK Invest', t('arkSub'), 'holdings.html', '→')}
+    <div class="cardbody">
+      <div class="headline"><span class="big">${money(b.total)}</span>
+        <span class="holder" data-h="ark">${esc(t('cadenceDaily'))}</span>
+        <span class="sub">${b.n} ${esc(t('bookSymbols'))}</span></div>
+      ${tl ? `<div class="turnover">
+        <span class="pill">${esc(t('new'))} <b>${tl.new}</b></span>
+        <span class="pill">${esc(t('buy'))} <b>${tl.buy}</b></span>
+        <span class="pill">${esc(t('sell'))} <b>${tl.sell}</b></span>
+        <span class="pill">${esc(t('exit'))} <b>${tl.exit}</b></span>
+      </div>` : ''}
+      <div class="fundsplit">${bars}</div>
+    </div>
+    <div class="cardfoot">${b.date} · ${esc(fill(t('archived'), {n: DATA.sessions}))}</div>
+  </section>`;
+}
 
-  let delta = '';
-  if (b.prev) {
-    const d = b.total - b.prev.total;
-    const pct = b.prev.total ? d / b.prev.total * 100 : 0;
-    const dir = Math.abs(pct) < 0.05 ? 'flat' : d > 0 ? 'up' : 'down';
-    delta = `<span class="delta" data-d="${dir}">${d > 0 ? '+' : ''}${pct.toFixed(1)}%</span>`;
-  }
+function filerCard(key, f) {
+  const rows = f.top.slice(0, 4).map(c => `<div class="rankrow">
+    <span class="rk">${c.w.toFixed(1)}%</span>
+    <span class="rname"><span class="tick">${esc(c.t || '—')}</span>
+      <span class="co">${esc(c.n)}</span>${alsoPills(c.t, key)}</span>
+    <span class="rcap">${money(c.v)}</span></div>`).join('');
+  return `<section class="card">
+    ${head(f.label, `13F · ${t('cadenceQuarterly')}`, `${key}/activity.html`, '→')}
+    <div class="cardbody">
+      <div class="headline"><span class="big">${money(f.total)}</span>
+        <span class="holder" data-h="${key}">${esc(t('cadenceQuarterly'))}</span>
+        <span class="sub">${f.n} ${esc(t('positionsWord'))}</span></div>
+      ${f.prevPeriod ? `<div class="turnover">
+        <span class="pill">${esc(t('new'))} <b>${f.opened}</b></span>
+        <span class="pill">${esc(t('exit'))} <b>${f.closed}</b></span>
+        ${f.unidentified ? `<span class="pill">${esc(t('unidentWord'))} <b>${f.unidentified}</b></span>` : ''}
+      </div>` : ''}
+      <div class="ranklist">${rows}</div>
+    </div>
+    <div class="cardfoot">${esc(fill(t('asOfQuarter'), {d: f.period}))} · ${esc(fill(t('quartersArchived'), {n: f.quarters}))}</div>
+  </section>`;
+}
 
-  const churn = b.prev ? [
-    b.prev.added.length ? `<span class="pill">${esc(fill(t('bookAdded'), {n: b.prev.added.length}))}
-      <b>${b.prev.added.slice(0, 3).map(esc).join(' ')}</b></span>` : '',
-    b.prev.removed.length ? `<span class="pill">${esc(fill(t('bookRemoved'), {n: b.prev.removed.length}))}
-      <b>${b.prev.removed.slice(0, 3).map(esc).join(' ')}</b></span>` : '',
-  ].filter(Boolean).join('') : '';
+function ghostCard(key, m) {
+  return `<section class="card ghost">
+    ${head(m.label, fill(t('notIngestedHint'), {cik: m.cik}), '', '')}
+    <div class="cardbody"><span class="hint">${esc(fill(t('notIngestedBody'), {name: key}))}</span></div>
+    <div class="cardfoot">${esc(t('notIngestedFoot'))}</div>
+  </section>`;
+}
 
-  el.innerHTML = head(t('book'), t('bookHint'), 'holdings.html', t('bookAll'))
-    + `<div class="cardbody">
-        <div class="headline">
-          <span class="big">${money(b.total)}</span>
-          ${delta}
-          <span class="sub">${b.n} ${esc(t('bookSymbols'))}</span>
-        </div>
-        ${churn ? `<div class="turnover">${churn}</div>` : ''}
-        <div class="fundsplit">${bars}</div>
-      </div>`
-    + (b.prev ? `<div class="cardfoot">${esc(fill(t('bookSince'), {d: b.prev.date}))}</div>` : '');
+function watchlistCard() {
+  return `<section class="card ghost">
+    ${head(t('watchlist'), t('watchlistSub'), '', '')}
+    <div class="cardbody"><span class="hint">${esc(t('watchlistBody'))}</span></div>
+    <div class="cardfoot">${esc(t('watchlistFoot'))}</div>
+  </section>`;
+}
+
+function paintHolderCards() {
+  document.getElementById('holdercards').innerHTML =
+    arkCard()
+    + FILERS.map(([k, f]) => filerCard(k, f)).join('')
+    + Object.entries(DATA.known).map(([k, m]) => ghostCard(k, m)).join('')
+    + watchlistCard();
 }
 
 function paintLeaders() {
@@ -1135,65 +1236,29 @@ function paintLeaders() {
   }
   // With movement to show, movement is the story; without it, the ranking is.
   const moved = l.moved.length > 0;
-  const rows = (moved ? l.moved : l.top).map(c => `
-    <div class="rankrow">
+  const rows = (moved ? l.moved : l.top).map(c => {
+    const marks = holdersOf(c.t).map(h =>
+      `<span class="holder" data-h="${h.h}">${esc(HOLDER_LABEL[h.h])}</span>`).join('');
+    return `<div class="rankrow">
       <span class="rk">#${c.r}</span>
       <span class="rname"><span class="tick">${esc(c.t)}</span>
         <span class="co">${esc(c.n)}</span></span>
-      ${moved
-        ? `<span class="rmove" data-d="${c.d > 0 ? 'up' : 'down'}">${c.d > 0 ? '▲' : '▼'} ${Math.abs(c.d)}</span>`
-        : `<span class="rcap">${money(c.cap)}</span>`}
-    </div>`).join('');
+      <span class="rtail">${marks}
+        ${moved
+          ? `<span class="rmove" data-d="${c.d > 0 ? 'up' : 'down'}">${c.d > 0 ? '▲' : '▼'} ${Math.abs(c.d)}</span>`
+          : `<span class="rcap">${money(c.cap)}</span>`}</span>
+    </div>`;
+  }).join('');
 
   const turnover = l.prevDate ? `<div class="turnover">
-      <span class="pill"><b>${l.in.length}</b> ${esc(t('leadersIn'))}</span>
-      <span class="pill"><b>${l.out.length}</b> ${esc(t('leadersOut'))}</span>
+      <span class="pill">${esc(t('leadersIn'))} <b>${l.in.length}</b></span>
+      <span class="pill">${esc(t('leadersOut'))} <b>${l.out.length}</b></span>
       <span class="pill">${esc(fill(t('leadersHeld'), {n: l.held}))}</span>
     </div>` : `<span class="hint">${esc(t('leadersFirst'))}</span>`;
 
-  el.innerHTML = head(t('leaders'), t('leadersHint'), 'leaders.html', t('leadersAll'))
+  el.innerHTML = head(t('leaders'), t('leadersHint'), 'leaders.html', '→')
     + `<div class="cardbody">${turnover}<div class="ranklist">${rows}</div></div>`
     + `<div class="cardfoot">${esc(fill(t('leadersCutoff'), {v: (l.cutoff / 1e9).toFixed(0)}))}  ·  ${l.date}</div>`;
-}
-
-function paintManager() {
-  const m = DATA.manager;
-  const el = document.getElementById('card-manager');
-  if (!m) { el.hidden = true; return; }
-
-  const rows = m.top.map(c => `
-    <div class="rankrow">
-      <span class="rk">${c.w.toFixed(1)}%</span>
-      <span class="rname"><span class="tick">${esc(c.t || '—')}</span>
-        <span class="co">${esc(c.n)}</span></span>
-      <span class="rcap">${money(c.v)}</span>
-    </div>`).join('');
-
-  const churn = m.prevPeriod ? `<div class="turnover">
-      <span class="pill">${esc(fill(t('managerChurn'),
-        {opened: m.opened, closed: m.closed, d: m.prevPeriod}))}</span>
-    </div>` : '';
-
-  el.innerHTML = head(t('manager'), t('managerHint'), 'manager.html', t('managerAll'))
-    + `<div class="cardbody">
-        <div class="headline">
-          <span class="big">${money(m.total)}</span>
-          <span class="sub">${esc(m.label)}</span>
-        </div>
-        <span class="hint">${esc(fill(t('managerBook'), {n: m.n, q: m.quarters}))}</span>
-        ${churn}
-        <div class="ranklist">${rows}</div>
-      </div>`
-    + `<div class="cardfoot">${esc(fill(t('managerLag'), {d: m.period}))}</div>`;
-}
-
-function paintNext() {
-  document.getElementById('card-next').innerHTML =
-    head(t('next'), t('nextHint'), '', '')
-    + `<div class="cardbody"><div class="nextlist">${
-      page().next.map(([b, x]) =>
-        `<div class="nextitem"><b>${esc(b)}</b><span>${esc(x)}</span></div>`).join('')
-    }</div></div>`;
 }
 
 /* ---- shell ---- */
@@ -1209,6 +1274,12 @@ switcher.addEventListener('click', ev => {
   render();
 });
 
+function paintProvenance() {
+  const bits = [`ARK ${DATA.asOf}`, `${page().sources.leaders} ${DATA.leaders.date}`,
+    ...FILERS.map(([, f]) => `${f.short} ${f.period}`)];
+  document.getElementById('provenance').textContent = bits.join('  ·  ');
+}
+
 function render() {
   const c = page();
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
@@ -1216,7 +1287,6 @@ function render() {
   document.getElementById('eyebrow').textContent = c.eyebrow;
   document.getElementById('title').textContent = c.title;
   document.getElementById('standfirst').textContent = c.standfirst;
-  document.getElementById('provenance').textContent = c.provenance;
   document.getElementById('h-sources').textContent = t('sources');
   document.getElementById('hint-sources').textContent = t('sourcesHint');
   document.getElementById('footnotes').innerHTML = c.footnotes
@@ -1225,12 +1295,11 @@ function render() {
     b.setAttribute('aria-pressed', b.dataset.l === lang ? 'true' : 'false'));
 
   paintNav();
+  paintProvenance();
   paintSources();
   paintMoves();
-  paintBook();
+  paintHolderCards();
   paintLeaders();
-  paintManager();
-  paintNext();
 }
 
 render();

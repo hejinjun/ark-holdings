@@ -33,6 +33,11 @@ TEMPLATE = HERE / "home_template.html"
 # Freshness thresholds, in sessions for the daily feeds and in calendar days
 # for the ones that report on their own schedule. `late` is the first value
 # that stops reading as current; `stale` is where it stops being usable.
+#
+# 13F is not in this list: a glob spanning every manager directory could only
+# report the newest filer's date under one shared key, which is exactly the
+# collapse the redesign undoes. It gets its own row per manager instead, see
+# `thirteenf_rows()`.
 SOURCES = [
     {"key": "holdings", "glob": "tradeable_*.csv", "unit": "sessions", "late": 2, "stale": 4},
     # Trades are derived from a pair of snapshots, so the newest trade date is
@@ -42,17 +47,20 @@ SOURCES = [
     {"key": "quotes", "glob": "quotes_*.csv", "unit": "sessions", "late": 2, "stale": 4},
     {"key": "leaders", "glob": "leaders_[0-9]*.csv", "unit": "sessions", "late": 2, "stale": 4},
     # Filings arrive quarterly; anything inside a quarter plus the filing
-    # window is simply the newest that exists.
-    {"key": "financials", "glob": "financials_*.json", "unit": "days", "late": 100, "stale": 200},
+    # window is simply the newest that exists. Archived per the README, but no
+    # page reads it, so a fresh copy should not read as "current" either --
+    # see the `unused` flag in freshness().
+    {"key": "financials", "glob": "financials_*.json", "unit": "days", "late": 100,
+     "stale": 200, "unused": True},
     # ARKVX publishes monthly and holds no share counts, so it is archived for
     # completeness rather than consumed.
-    {"key": "venture", "glob": "raw/*/ARKVX.csv", "unit": "days", "late": 45, "stale": 90},
-    # A 13F reports a quarter end and is filed up to 45 days later, so a book
-    # is current until the next quarter's filing window closes. The glob spans
-    # every manager directory, so a new filer appears here without being named.
-    {"key": "thirteenf", "glob": "*/positions_*.csv", "unit": "days",
-     "late": 135, "stale": 225},
+    {"key": "venture", "glob": "raw/*/ARKVX.csv", "unit": "days", "late": 45,
+     "stale": 90, "unused": True},
 ]
+
+# A 13F reports a quarter end and is filed up to 45 days later, so a book is
+# current until the next quarter's filing window closes.
+THIRTEENF_LATE, THIRTEENF_STALE = 135, 225
 
 
 def _stamp(path: Path) -> str:
@@ -90,22 +98,57 @@ def freshness(now: str) -> list[dict]:
                   else (_date.fromisoformat(now) - _date.fromisoformat(stamp)).days)
         status = ("ok" if behind < src["late"] else
                   "late" if behind < src["stale"] else "stale")
+        # A source nobody reads should not read as current just because it is
+        # fresh -- see financials.py and the ARKVX line in SOURCES above.
+        if src.get("unused") and status == "ok":
+            status = "unused"
         out.append({"k": src["key"], "date": stamp, "unit": src["unit"],
                     "behind": behind, "status": status, "n": len(paths)})
     return out
 
 
-def page(lang: str, sources: list[dict], sessions: int) -> dict:
+def thirteenf_rows(now: str) -> list[dict]:
+    """One freshness row per manager: ingested filers by filing date, and
+    anything the registry knows about but has never fetched.
+
+    A single row keyed on the newest filer's date -- the shape a plain glob
+    over every manager directory would give -- hides every manager but one.
+    """
+    rows = []
+    for m in thirteenf.managers():
+        stamp = thirteenf.periods(m)[-1]
+        behind = (_date.fromisoformat(now) - _date.fromisoformat(stamp)).days
+        status = ("ok" if behind < THIRTEENF_LATE else
+                  "late" if behind < THIRTEENF_STALE else "stale")
+        rows.append({"manager": m, "label": thirteenf.MANAGERS[m]["short"],
+                    "date": stamp, "status": status, "quarters": len(thirteenf.periods(m))})
+    for m, info in thirteenf.MANAGERS.items():
+        if m not in thirteenf.managers():
+            rows.append({"manager": m, "label": info["short"], "cik": info["cik"],
+                        "status": "missing"})
+    return rows
+
+
+def filer_block(manager: str) -> dict:
+    """One ingested filer's book, its own weight map, and its change feed."""
+    s = thirteenf.summary(manager, limit=4) or {}
+    s["short"] = thirteenf.MANAGERS[manager]["short"]
+    s["weights"] = thirteenf.weights(manager)
+    try:
+        activity.use_source(manager)
+        s["moves"] = activity.summary(limit=6)
+    finally:
+        activity.use_source("ark")
+    return s
+
+
+def page(lang: str) -> dict:
     c = i18n.HOME_PAGE[lang]
-    on_file = {s["k"]: s.get("date", "—") for s in sources}
     return {
         "eyebrow": c["eyebrow"],
         "title": c["title"],
         "standfirst": c["standfirst"],
-        "provenance": c["provenance"].format(
-            holdings=on_file["holdings"], leaders=on_file["leaders"], n=sessions),
         "sources": i18n.SOURCES[lang],
-        "next": i18n.HOME_NEXT[lang],
         "footnotes": i18n.HOME_FOOTNOTES[lang],
         "nav": i18n.NAV[lang],
         # The action words are the feed's, borrowed rather than re-translated:
@@ -123,17 +166,23 @@ def build() -> dict:
     if not book:
         raise SystemExit("no tradeable_*.csv found -- run the pipeline first")
 
+    ingested = thirteenf.managers()
     return {
         "asOf": book["date"],
         "today": now,
+        "sessions": len(report.tradeable_dates()),
         "langs": [{"v": k, "label": lb} for k, lb in i18n.LANGS],
         "sources": sources,
+        "thirteenf": thirteenf_rows(now),
         "book": book,
+        "arkWeights": report.weights(book["date"]),
         "moves": activity.summary(),
-        "leaders": leaders.summary(),
-        "manager": thirteenf.summary(),
-        "i18n": {k: page(k, sources, len(report.tradeable_dates()))
-                 for k, _ in i18n.LANGS},
+        "leaders": leaders.summary(limit=8),
+        "filers": {m: filer_block(m) for m in ingested},
+        # In the registry, no data on disk. Shown as an honest "not ingested"
+        # card rather than a second, invented book.
+        "known": {k: v for k, v in thirteenf.MANAGERS.items() if k not in ingested},
+        "i18n": {k: page(k) for k, _ in i18n.LANGS},
     }
 
 
@@ -141,7 +190,8 @@ def main(argv: list[str]) -> int:
     payload = build()
     out = DATA / "home.html"
     out.write_text(shell.render(TEMPLATE, payload), encoding="utf-8")
-    late = [s["k"] for s in payload["sources"] if s["status"] != "ok"]
+    late = ([s["k"] for s in payload["sources"] if s["status"] not in ("ok", "unused")]
+            + [r["manager"] for r in payload["thirteenf"] if r["status"] not in ("ok",)])
     print(f"{out}  ({out.stat().st_size:,} bytes)  "
           + (f"stale: {', '.join(late)}" if late else "all sources current"))
     if "--open" in argv:

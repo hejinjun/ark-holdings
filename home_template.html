@@ -11,7 +11,7 @@
    two read as one family rather than two panels that happen to sit together. */
 .sources {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1px;
   background: var(--rule);
   border: 1px solid var(--rule);
@@ -21,7 +21,7 @@
 
 .src {
   background: var(--surface);
-  padding: 12px 14px;
+  padding: 11px 13px;
   display: grid;
   grid-template-columns: 7px 1fr;
   gap: 3px 8px;
@@ -39,6 +39,7 @@
 .src[data-s="late"] .dot { background: var(--orange); }
 .src[data-s="stale"] .dot,
 .src[data-s="missing"] .dot { background: var(--pos-exit-bg); }
+.src[data-s="unused"] .dot { background: var(--ink-3); }
 .src[data-s="stale"], .src[data-s="missing"] { background: var(--surface-alt); }
 
 .src .slabel {
@@ -58,6 +59,7 @@
 .src .sage { grid-column: 2; font-size: 11.5px; color: var(--ink-2); }
 .src[data-s="stale"] .sage,
 .src[data-s="missing"] .sage { color: var(--orange); font-weight: 600; }
+.src[data-s="unused"] .sage { color: var(--ink-3); }
 
 /* ---- card grid ---- */
 
@@ -75,9 +77,15 @@
   display: flex;
   flex-direction: column;
 }
-/* The day's moves are the reason to open the page, so they get the full width
-   and the other cards share the row underneath. */
+/* The move stream is the reason to open the page, so it gets the full width
+   and the leaderboard shares the row underneath the holder cards. */
 .card-wide { grid-column: 1 / -1; }
+
+/* An un-ingested manager or the watchlist: a slot the registry knows about
+   with no book behind it yet, kept visually distinct from a card with data. */
+.card.ghost { border-style: dashed; background: transparent; }
+.card.ghost .cardhead { border-bottom-style: dashed; }
+.card.ghost h2 { color: var(--ink-2); }
 
 /* Title and link on one row, the hint on its own underneath: in a card three
    across, a hint sharing the row pushes the link onto a second line and the
@@ -112,32 +120,67 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* ---- moves ---- */
+/* ---- holder badges ---- */
 
-.moves { display: flex; flex-direction: column; }
+/* Whose row this is. ARK gets its own accent because it is the one holder
+   that reports daily; every filer shares one neutral style rather than each
+   getting a colour of its own, so a newly ingested manager needs no CSS. */
+.holder {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 600;
+  padding: 2px 7px; border-radius: 2px; white-space: nowrap;
+  background: var(--surface-alt); color: var(--ink-2);
+  border: 1px solid var(--rule-strong);
+}
+.holder[data-h="ark"] { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+.holder[data-h="watchlist"] { background: transparent; color: var(--ink-3); border-style: dashed; }
 
-.move-row {
+/* Who else, besides the row's own holder, also has this ticker -- a small
+   inline mark distinct from .holder so the eye can tell "whose row this is"
+   from "who else is in it" at a glance. */
+.alsopill {
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  padding: 1px 6px; border-radius: 999px; white-space: nowrap;
+  background: var(--surface-alt); color: var(--ink-2); opacity: 0.85;
+}
+.alsopill[data-h="ark"] { background: var(--accent-soft); color: var(--accent); }
+
+/* ---- the cross-holder move stream ---- */
+
+/* Grouped by cadence rather than merged by size or time: a season's exit and
+   a day's add are not commensurable, so the groups say so instead of forcing
+   one ranking onto both. */
+.streamgroup + .streamgroup { border-top: 1px solid var(--rule); }
+.streamgroup-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding: 12px 18px 8px; flex-wrap: wrap;
+}
+.streamgroup-head .sgtitle { display: flex; align-items: baseline; gap: 9px; }
+.streamgroup-head .sgtitle b { font-size: 13.5px; }
+.streamgroup-head .sgtitle span { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); }
+.streamgroup-head .sgtally { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.stream { display: flex; flex-direction: column; }
+.srow {
   display: grid;
-  grid-template-columns: 74px minmax(0, 1fr) auto;
+  grid-template-columns: 78px minmax(0, 1fr) auto;
   gap: 4px 14px;
   align-items: baseline;
   padding: 9px 18px;
-  border-bottom: 1px solid var(--rule);
+  border-top: 1px solid var(--rule);
   text-decoration: none;
   color: inherit;
 }
-.move-row:last-child { border-bottom: none; }
-.move-row:hover { background: var(--surface-alt); }
-.move-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-/* Agreement is the point of the ordering, so it gets the one strong mark. */
-.move-row.agree { box-shadow: inset 3px 0 0 var(--accent); }
+.streamgroup-head + .stream .srow:first-child { border-top: none; }
+.srow:hover { background: var(--surface-alt); }
+.srow:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* Agreement is the ordering inside ARK's own group, so it gets the one strong mark. */
+.srow.agree { box-shadow: inset 3px 0 0 var(--accent); }
 
-.move-row .who { min-width: 0; }
-.move-row .tick { font-family: var(--mono); font-weight: 600; font-size: 13px; }
-.move-row .co {
+.srow .who { min-width: 0; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.srow .tick { font-family: var(--mono); font-weight: 600; font-size: 13px; }
+.srow .co {
   font-size: 12.5px;
   color: var(--ink-2);
-  /* One line: a wrapped issuer name turns a six-row card into a nine-row one. */
   display: inline-block;
   max-width: 100%;
   overflow: hidden;
@@ -145,7 +188,7 @@
   white-space: nowrap;
   vertical-align: bottom;
 }
-.move-row .tail {
+.srow .tail {
   display: flex;
   align-items: baseline;
   gap: 16px;
@@ -153,18 +196,18 @@
   font-size: 12.5px;
   font-variant-numeric: tabular-nums;
 }
-.move-row .val { min-width: 68px; text-align: right; }
-.move-row .agreecount { color: var(--ink-2); min-width: 74px; }
-.move-row.agree .agreecount { color: var(--accent); font-weight: 600; }
+.srow .val { min-width: 68px; text-align: right; }
+.srow .agreecount { color: var(--ink-2); font-size: 11.5px; min-width: 70px; }
+.srow.agree .agreecount { color: var(--accent); font-weight: 600; }
 
-@media (max-width: 620px) {
-  .move-row { grid-template-columns: max-content minmax(0, 1fr); padding: 10px 14px; }
-  .move-row .tag-action { grid-row: 1 / 3; align-self: center; }
-  .move-row .tail { justify-content: flex-start; gap: 14px; }
-  .move-row .val, .move-row .agreecount { min-width: 0; text-align: left; }
+@media (max-width: 700px) {
+  .srow { grid-template-columns: max-content minmax(0, 1fr); padding: 10px 14px; }
+  .srow .tag-action { grid-row: 1 / 3; align-self: center; }
+  .srow .tail { grid-column: 1 / -1; justify-content: flex-start; margin-top: 2px; }
+  .srow .val { min-width: 0; text-align: left; }
 }
 
-/* ---- the book ---- */
+/* ---- a holder's book ---- */
 
 .headline {
   display: flex;
@@ -179,19 +222,6 @@
   letter-spacing: -0.02em;
 }
 .headline .sub { font-size: 12.5px; color: var(--ink-2); }
-
-.delta {
-  font-family: var(--mono);
-  font-size: 12px;
-  font-variant-numeric: tabular-nums;
-  padding: 2px 7px;
-  border-radius: 2px;
-  white-space: nowrap;
-  background: var(--pos-buy-bg);
-  color: var(--pos-buy-fg);
-}
-.delta[data-d="down"] { background: var(--pos-sell-bg); color: var(--pos-sell-fg); }
-.delta[data-d="flat"] { background: var(--surface-alt); color: var(--ink-2); }
 
 .fundsplit { display: flex; flex-direction: column; gap: 6px; }
 .fundrow {
@@ -233,7 +263,7 @@
   color: var(--ink-3);
   font-variant-numeric: tabular-nums;
 }
-.rankrow .rname { min-width: 0; display: flex; gap: 7px; align-items: baseline; }
+.rankrow .rname { min-width: 0; display: flex; gap: 7px; align-items: baseline; flex-wrap: wrap; }
 .rankrow .tick { font-family: var(--mono); font-weight: 600; }
 .rankrow .co {
   font-size: 12px;
@@ -242,6 +272,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.rankrow .rtail { display: flex; align-items: center; gap: 7px; justify-content: flex-end; }
 .rankrow .rmove {
   font-family: var(--mono);
   font-size: 12px;
@@ -264,24 +295,11 @@
 }
 .pill b { color: var(--ink); font-weight: 600; }
 
-/* ---- roadmap ---- */
-
-/* The roadmap is the one card that is not a reading of today's data, so it
-   spans the last row rather than being left standing alone in a column. */
-#card-next { grid-column: 1 / -1; }
-.nextlist {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 11px 22px;
-}
-.nextitem { display: flex; flex-direction: column; gap: 2px; }
-.nextitem b { font-size: 13px; font-weight: 600; }
-.nextitem span { font-size: 12.5px; color: var(--ink-2); line-height: 1.55; }
-
 @media (max-width: 620px) {
   .wrap { padding: 24px 14px 56px; gap: 22px; }
   .cardhead, .cardbody { padding-left: 14px; padding-right: 14px; }
   .cardfoot { padding-left: 14px; padding-right: 14px; }
+  .streamgroup-head { padding: 12px 14px 8px; }
 }
 </style>
 
@@ -306,13 +324,11 @@
     <div class="sources" id="sources"></div>
   </section>
 
-  <div class="cards">
-    <section class="card card-wide" id="card-moves"></section>
-    <section class="card" id="card-book"></section>
-    <section class="card" id="card-leaders"></section>
-    <section class="card" id="card-manager"></section>
-    <section class="card" id="card-next"></section>
-  </div>
+  <section class="card card-wide" id="card-moves"></section>
+
+  <div class="cards" id="holdercards"></div>
+
+  <section class="card card-wide" id="card-leaders"></section>
 
   <footer id="footnotes"></footer>
 </div>
@@ -329,7 +345,7 @@ let lang = (() => {
 const page = () => DATA.i18n[lang];
 const t = k => page().ui[k];
 const fill = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k] ?? '');
-const esc = s => String(s).replace(/[&<>"]/g, c =>
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c =>
   ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
 
 function money(v) {
@@ -342,24 +358,52 @@ function money(v) {
 const HERE = 'index';
 /*__NAV__*/
 
+const ARROW = {new: '▲', buy: '▲', sell: '▼', exit: '▼'};
+
+const FILERS = Object.entries(DATA.filers);
+const HOLDER_LABEL = {ark: 'ARK'};
+FILERS.forEach(([k, f]) => { HOLDER_LABEL[k] = f.short; });
+
+// Every registered holder of one ticker: ARK's whole book plus every ingested
+// filer's, not just the handful that happen to appear in a top-N slice.
+function holdersOf(ticker) {
+  const out = [];
+  if (DATA.arkWeights[ticker]) out.push({h: 'ark', w: DATA.arkWeights[ticker].w});
+  FILERS.forEach(([k, f]) => { if (f.weights && f.weights[ticker]) out.push({h: k, w: f.weights[ticker].w}); });
+  return out;
+}
+
+const alsoPills = (ticker, exclude) => holdersOf(ticker)
+  .filter(x => x.h !== exclude)
+  .map(x => `<span class="alsopill" data-h="${x.h}">${esc(fill(t('also'), {label: HOLDER_LABEL[x.h], w: x.w.toFixed(1)}))}</span>`)
+  .join('');
+
+function quarterOf(d) {
+  const [y, m] = d.split('-');
+  return `${y} Q${Math.ceil(+m / 3)}`;
+}
+
 /* ---- freshness ---- */
 
 function paintSources() {
   const names = page().sources;
-  document.getElementById('sources').innerHTML = DATA.sources.map(s => {
-    // sessionBehind / sessionsBehind / dayBehind / daysBehind
-    const key = (s.unit === 'sessions' ? 'session' : 'day')
-      + (s.behind === 1 ? 'Behind' : 'sBehind');
+  const rows = DATA.sources.map(s => {
     const age = s.status === 'missing' ? t('never')
+      : s.status === 'unused' ? t('unused')
       : s.behind === 0 ? t('ok')
-      : fill(t(key), {n: s.behind});
-    return `<div class="src" data-s="${s.status}">
-      <span class="dot"></span>
-      <span class="slabel">${esc(names[s.k] || s.k)}</span>
-      <span class="sdate">${s.date || '—'}</span>
-      <span class="sage">${esc(age)}</span>
-    </div>`;
-  }).join('');
+      : fill(t((s.unit === 'sessions' ? 'session' : 'day') + (s.behind === 1 ? 'Behind' : 'sBehind')), {n: s.behind});
+    return {status: s.status, label: names[s.k] || s.k, date: s.date, age};
+  });
+  DATA.thirteenf.forEach(r => rows.push({
+    status: r.status, label: `13F · ${r.label}`, date: r.date,
+    age: r.status === 'missing' ? t('never') : fill(t('quartersOnFile'), {n: r.quarters}),
+  }));
+  document.getElementById('sources').innerHTML = rows.map(r => `<div class="src" data-s="${r.status}">
+    <span class="dot"></span>
+    <span class="slabel">${esc(r.label)}</span>
+    <span class="sdate">${esc(r.date || '—')}</span>
+    <span class="sage">${esc(r.age)}</span>
+  </div>`).join('');
 }
 
 /* ---- cards ---- */
@@ -369,77 +413,134 @@ function paintSources() {
 const head = (title, hint, href, linkText) => `
   <div class="cardhead">
     <h2>${esc(title)}</h2>
-    ${href ? `<a href="${NAV_BASE}${href}">${esc(linkText)}</a>` : ''}
+    ${href ? `<a href="${NAV_BASE}${href}" aria-label="${esc(title)}">${esc(linkText)}</a>` : ''}
     ${hint ? `<span class="hint">${esc(hint)}</span>` : ''}
   </div>`;
 
-const ARROW = {new: '▲', buy: '▲', sell: '▼', exit: '▼'};
+function srow(holder, href, e, cadenceTail, agree) {
+  return `<a class="srow${agree ? ' agree' : ''}" href="${NAV_BASE}${href}">
+    <span class="tag-action" data-k="${e.k}"><span class="arrow">${ARROW[e.k]}</span>${esc(t(e.k))}</span>
+    <span class="who"><span class="tick">${esc(e.t || '—')}</span>
+      <span class="co">${esc(e.n)}</span>${alsoPills(e.t, holder)}</span>
+    <span class="tail">
+      <span class="val">${e.v ? money(e.v) : '—'}</span>
+      <span class="agreecount">${esc(cadenceTail)}</span>
+    </span>
+  </a>`;
+}
+
+function moveGroup(headline, tally, rowsHTML) {
+  const chips = tally ? `<div class="sgtally">
+      <span class="pill">${esc(t('new'))} <b>${tally.new}</b></span>
+      <span class="pill">${esc(t('buy'))} <b>${tally.buy}</b></span>
+      <span class="pill">${esc(t('sell'))} <b>${tally.sell}</b></span>
+      <span class="pill">${esc(t('exit'))} <b>${tally.exit}</b></span>
+    </div>` : '';
+  return `<div class="streamgroup">
+    <div class="streamgroup-head"><div class="sgtitle">${headline}</div>${chips}</div>
+    <div class="stream">${rowsHTML}</div>
+  </div>`;
+}
 
 function paintMoves() {
-  const m = DATA.moves;
   const el = document.getElementById('card-moves');
-  if (!m) {
+  const groups = [];
+
+  const a = DATA.moves;
+  if (a) {
+    const rows = a.items.map(e => srow('ark', 'activity.html', e,
+      fill(t('movesAgree'), {n: e.f.length}), e.f.length >= a.conviction)).join('');
+    groups.push(moveGroup(`<b>ARK</b><span>${esc(fill(t('sessionHead'), {d: a.date}))}</span>`, a.tally, rows));
+  }
+
+  FILERS.forEach(([key, f]) => {
+    if (!f.moves) return;
+    const q = quarterOf(f.moves.date);
+    const rows = f.moves.items.map(e => srow(key, `${key}/activity.html`, e, q, false)).join('');
+    groups.push(moveGroup(
+      `<b>${esc(f.short)}</b><span>${esc(fill(t('quarterHead'), {q}))}</span>`, f.moves.tally, rows));
+  });
+
+  if (!groups.length) {
     el.innerHTML = head(t('moves'), '', '', '') +
       `<div class="cardbody"><span class="hint">${esc(t('empty'))}</span></div>`;
     return;
   }
-  const rows = m.items.map(e => {
-    const agree = e.f.length >= m.conviction;
-    return `<a class="move-row${agree ? ' agree' : ''}" href="${NAV_BASE}activity.html">
-      <span class="tag-action" data-k="${e.k}"><span class="arrow">${ARROW[e.k]}</span>${esc(t(e.k))}</span>
-      <span class="who"><span class="tick">${esc(e.t || '—')}</span>
-        <span class="co">${esc(e.n)}</span></span>
-      <span class="tail">
-        <span class="val">${e.v ? money(e.v) : '—'}</span>
-        <span class="agreecount">${fill(t('movesAgree'), {n: e.f.length})}</span>
-      </span>
-    </a>`;
-  }).join('');
-
-  el.innerHTML = head(t('moves'), t('movesHint'), 'activity.html',
-                      fill(t('movesMore'), {n: m.total}))
-    + `<div class="moves">${rows}</div>`
-    + `<div class="cardfoot">${m.date}  ·  ${esc(fill(t('movesTally'), m.tally))}</div>`;
+  el.innerHTML = head(t('moves'), t('movesHint'), '', '') + groups.join('');
 }
 
-function paintBook() {
+function arkCard() {
   const b = DATA.book;
-  const el = document.getElementById('card-book');
   const max = Math.max(...b.funds.map(f => f.v), 1);
-  const bars = b.funds.filter(f => f.v > 0).map(f => `
-    <div class="fundrow">
-      <span class="fname">${esc(f.f)}</span>
-      <span class="ftrack"><span class="fbar" style="width:${(f.v / max * 100).toFixed(1)}%"></span></span>
-      <span class="fval">${money(f.v)}</span>
-      <span class="fpct">${(f.v / b.total * 100).toFixed(0)}%</span>
-    </div>`).join('');
+  const bars = b.funds.filter(f => f.v > 0).map(f => `<div class="fundrow">
+    <span class="fname">${esc(f.f)}</span>
+    <span class="ftrack"><span class="fbar" style="width:${(f.v / max * 100).toFixed(1)}%"></span></span>
+    <span class="fval">${money(f.v)}</span>
+    <span class="fpct">${(f.v / b.total * 100).toFixed(0)}%</span></div>`).join('');
+  const tl = DATA.moves ? DATA.moves.tally : null;
+  return `<section class="card">
+    ${head('ARK Invest', t('arkSub'), 'holdings.html', '→')}
+    <div class="cardbody">
+      <div class="headline"><span class="big">${money(b.total)}</span>
+        <span class="holder" data-h="ark">${esc(t('cadenceDaily'))}</span>
+        <span class="sub">${b.n} ${esc(t('bookSymbols'))}</span></div>
+      ${tl ? `<div class="turnover">
+        <span class="pill">${esc(t('new'))} <b>${tl.new}</b></span>
+        <span class="pill">${esc(t('buy'))} <b>${tl.buy}</b></span>
+        <span class="pill">${esc(t('sell'))} <b>${tl.sell}</b></span>
+        <span class="pill">${esc(t('exit'))} <b>${tl.exit}</b></span>
+      </div>` : ''}
+      <div class="fundsplit">${bars}</div>
+    </div>
+    <div class="cardfoot">${b.date} · ${esc(fill(t('archived'), {n: DATA.sessions}))}</div>
+  </section>`;
+}
 
-  let delta = '';
-  if (b.prev) {
-    const d = b.total - b.prev.total;
-    const pct = b.prev.total ? d / b.prev.total * 100 : 0;
-    const dir = Math.abs(pct) < 0.05 ? 'flat' : d > 0 ? 'up' : 'down';
-    delta = `<span class="delta" data-d="${dir}">${d > 0 ? '+' : ''}${pct.toFixed(1)}%</span>`;
-  }
+function filerCard(key, f) {
+  const rows = f.top.slice(0, 4).map(c => `<div class="rankrow">
+    <span class="rk">${c.w.toFixed(1)}%</span>
+    <span class="rname"><span class="tick">${esc(c.t || '—')}</span>
+      <span class="co">${esc(c.n)}</span>${alsoPills(c.t, key)}</span>
+    <span class="rcap">${money(c.v)}</span></div>`).join('');
+  return `<section class="card">
+    ${head(f.label, `13F · ${t('cadenceQuarterly')}`, `${key}/activity.html`, '→')}
+    <div class="cardbody">
+      <div class="headline"><span class="big">${money(f.total)}</span>
+        <span class="holder" data-h="${key}">${esc(t('cadenceQuarterly'))}</span>
+        <span class="sub">${f.n} ${esc(t('positionsWord'))}</span></div>
+      ${f.prevPeriod ? `<div class="turnover">
+        <span class="pill">${esc(t('new'))} <b>${f.opened}</b></span>
+        <span class="pill">${esc(t('exit'))} <b>${f.closed}</b></span>
+        ${f.unidentified ? `<span class="pill">${esc(t('unidentWord'))} <b>${f.unidentified}</b></span>` : ''}
+      </div>` : ''}
+      <div class="ranklist">${rows}</div>
+    </div>
+    <div class="cardfoot">${esc(fill(t('asOfQuarter'), {d: f.period}))} · ${esc(fill(t('quartersArchived'), {n: f.quarters}))}</div>
+  </section>`;
+}
 
-  const churn = b.prev ? [
-    b.prev.added.length ? `<span class="pill">${esc(fill(t('bookAdded'), {n: b.prev.added.length}))}
-      <b>${b.prev.added.slice(0, 3).map(esc).join(' ')}</b></span>` : '',
-    b.prev.removed.length ? `<span class="pill">${esc(fill(t('bookRemoved'), {n: b.prev.removed.length}))}
-      <b>${b.prev.removed.slice(0, 3).map(esc).join(' ')}</b></span>` : '',
-  ].filter(Boolean).join('') : '';
+function ghostCard(key, m) {
+  return `<section class="card ghost">
+    ${head(m.label, fill(t('notIngestedHint'), {cik: m.cik}), '', '')}
+    <div class="cardbody"><span class="hint">${esc(fill(t('notIngestedBody'), {name: key}))}</span></div>
+    <div class="cardfoot">${esc(t('notIngestedFoot'))}</div>
+  </section>`;
+}
 
-  el.innerHTML = head(t('book'), t('bookHint'), 'holdings.html', t('bookAll'))
-    + `<div class="cardbody">
-        <div class="headline">
-          <span class="big">${money(b.total)}</span>
-          ${delta}
-          <span class="sub">${b.n} ${esc(t('bookSymbols'))}</span>
-        </div>
-        ${churn ? `<div class="turnover">${churn}</div>` : ''}
-        <div class="fundsplit">${bars}</div>
-      </div>`
-    + (b.prev ? `<div class="cardfoot">${esc(fill(t('bookSince'), {d: b.prev.date}))}</div>` : '');
+function watchlistCard() {
+  return `<section class="card ghost">
+    ${head(t('watchlist'), t('watchlistSub'), '', '')}
+    <div class="cardbody"><span class="hint">${esc(t('watchlistBody'))}</span></div>
+    <div class="cardfoot">${esc(t('watchlistFoot'))}</div>
+  </section>`;
+}
+
+function paintHolderCards() {
+  document.getElementById('holdercards').innerHTML =
+    arkCard()
+    + FILERS.map(([k, f]) => filerCard(k, f)).join('')
+    + Object.entries(DATA.known).map(([k, m]) => ghostCard(k, m)).join('')
+    + watchlistCard();
 }
 
 function paintLeaders() {
@@ -452,65 +553,29 @@ function paintLeaders() {
   }
   // With movement to show, movement is the story; without it, the ranking is.
   const moved = l.moved.length > 0;
-  const rows = (moved ? l.moved : l.top).map(c => `
-    <div class="rankrow">
+  const rows = (moved ? l.moved : l.top).map(c => {
+    const marks = holdersOf(c.t).map(h =>
+      `<span class="holder" data-h="${h.h}">${esc(HOLDER_LABEL[h.h])}</span>`).join('');
+    return `<div class="rankrow">
       <span class="rk">#${c.r}</span>
       <span class="rname"><span class="tick">${esc(c.t)}</span>
         <span class="co">${esc(c.n)}</span></span>
-      ${moved
-        ? `<span class="rmove" data-d="${c.d > 0 ? 'up' : 'down'}">${c.d > 0 ? '▲' : '▼'} ${Math.abs(c.d)}</span>`
-        : `<span class="rcap">${money(c.cap)}</span>`}
-    </div>`).join('');
+      <span class="rtail">${marks}
+        ${moved
+          ? `<span class="rmove" data-d="${c.d > 0 ? 'up' : 'down'}">${c.d > 0 ? '▲' : '▼'} ${Math.abs(c.d)}</span>`
+          : `<span class="rcap">${money(c.cap)}</span>`}</span>
+    </div>`;
+  }).join('');
 
   const turnover = l.prevDate ? `<div class="turnover">
-      <span class="pill"><b>${l.in.length}</b> ${esc(t('leadersIn'))}</span>
-      <span class="pill"><b>${l.out.length}</b> ${esc(t('leadersOut'))}</span>
+      <span class="pill">${esc(t('leadersIn'))} <b>${l.in.length}</b></span>
+      <span class="pill">${esc(t('leadersOut'))} <b>${l.out.length}</b></span>
       <span class="pill">${esc(fill(t('leadersHeld'), {n: l.held}))}</span>
     </div>` : `<span class="hint">${esc(t('leadersFirst'))}</span>`;
 
-  el.innerHTML = head(t('leaders'), t('leadersHint'), 'leaders.html', t('leadersAll'))
+  el.innerHTML = head(t('leaders'), t('leadersHint'), 'leaders.html', '→')
     + `<div class="cardbody">${turnover}<div class="ranklist">${rows}</div></div>`
     + `<div class="cardfoot">${esc(fill(t('leadersCutoff'), {v: (l.cutoff / 1e9).toFixed(0)}))}  ·  ${l.date}</div>`;
-}
-
-function paintManager() {
-  const m = DATA.manager;
-  const el = document.getElementById('card-manager');
-  if (!m) { el.hidden = true; return; }
-
-  const rows = m.top.map(c => `
-    <div class="rankrow">
-      <span class="rk">${c.w.toFixed(1)}%</span>
-      <span class="rname"><span class="tick">${esc(c.t || '—')}</span>
-        <span class="co">${esc(c.n)}</span></span>
-      <span class="rcap">${money(c.v)}</span>
-    </div>`).join('');
-
-  const churn = m.prevPeriod ? `<div class="turnover">
-      <span class="pill">${esc(fill(t('managerChurn'),
-        {opened: m.opened, closed: m.closed, d: m.prevPeriod}))}</span>
-    </div>` : '';
-
-  el.innerHTML = head(t('manager'), t('managerHint'), 'manager.html', t('managerAll'))
-    + `<div class="cardbody">
-        <div class="headline">
-          <span class="big">${money(m.total)}</span>
-          <span class="sub">${esc(m.label)}</span>
-        </div>
-        <span class="hint">${esc(fill(t('managerBook'), {n: m.n, q: m.quarters}))}</span>
-        ${churn}
-        <div class="ranklist">${rows}</div>
-      </div>`
-    + `<div class="cardfoot">${esc(fill(t('managerLag'), {d: m.period}))}</div>`;
-}
-
-function paintNext() {
-  document.getElementById('card-next').innerHTML =
-    head(t('next'), t('nextHint'), '', '')
-    + `<div class="cardbody"><div class="nextlist">${
-      page().next.map(([b, x]) =>
-        `<div class="nextitem"><b>${esc(b)}</b><span>${esc(x)}</span></div>`).join('')
-    }</div></div>`;
 }
 
 /* ---- shell ---- */
@@ -526,6 +591,12 @@ switcher.addEventListener('click', ev => {
   render();
 });
 
+function paintProvenance() {
+  const bits = [`ARK ${DATA.asOf}`, `${page().sources.leaders} ${DATA.leaders.date}`,
+    ...FILERS.map(([, f]) => `${f.short} ${f.period}`)];
+  document.getElementById('provenance').textContent = bits.join('  ·  ');
+}
+
 function render() {
   const c = page();
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
@@ -533,7 +604,6 @@ function render() {
   document.getElementById('eyebrow').textContent = c.eyebrow;
   document.getElementById('title').textContent = c.title;
   document.getElementById('standfirst').textContent = c.standfirst;
-  document.getElementById('provenance').textContent = c.provenance;
   document.getElementById('h-sources').textContent = t('sources');
   document.getElementById('hint-sources').textContent = t('sourcesHint');
   document.getElementById('footnotes').innerHTML = c.footnotes
@@ -542,12 +612,11 @@ function render() {
     b.setAttribute('aria-pressed', b.dataset.l === lang ? 'true' : 'false'));
 
   paintNav();
+  paintProvenance();
   paintSources();
   paintMoves();
-  paintBook();
+  paintHolderCards();
   paintLeaders();
-  paintManager();
-  paintNext();
 }
 
 render();

@@ -36,9 +36,9 @@ DATA = HERE / "data"
 UA = "ark-holdings-research hejinjun 62hfdkv7vm@privaterelay.appleid.com"
 
 MANAGERS = {
-    "duquesne": {"cik": 1536411, "label": "Duquesne Family Office"},
-    "keysquare": {"cik": 1662970, "label": "Key Square Capital Management"},
-    "berkshire": {"cik": 1067983, "label": "Berkshire Hathaway"},
+    "duquesne": {"cik": 1536411, "label": "Duquesne Family Office", "short": "Duquesne"},
+    "keysquare": {"cik": 1662970, "label": "Key Square Capital Management", "short": "Key Square"},
+    "berkshire": {"cik": 1067983, "label": "Berkshire Hathaway", "short": "Berkshire"},
 }
 
 # The value column changed from thousands of dollars to whole dollars around
@@ -198,6 +198,24 @@ def summary(manager: str | None = None, limit: int = 5) -> dict | None:
         out["opened"] = len(now - prev)
         out["closed"] = len(prev - now)
     return out
+
+
+def weights(manager: str, period: str | None = None) -> dict[str, dict]:
+    """ticker -> weight, value and company across one manager's whole book.
+
+    summary()'s `top` is capped at `limit`, five by default; a page that wants
+    to answer "does ARK also hold this" for every row, not just the largest
+    five, needs the full book instead.
+    """
+    quarters = periods(manager)
+    if not quarters:
+        return {}
+    period = period or quarters[-1]
+    path = DATA / manager / f"positions_{period}.csv"
+    with path.open(encoding="utf-8") as fh:
+        return {r["ticker"]: {"v": float(r["market_value"]), "w": float(r["weight"]),
+                              "n": r["company"]}
+                for r in csv.DictReader(fh) if r["ticker"]}
 
 
 def ledger(name: str, known: list[dict]) -> dict[str, str]:
