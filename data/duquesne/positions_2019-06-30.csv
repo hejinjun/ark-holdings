@@ -1,0 +1,61 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2019-06-30,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,5226193,700101000.00,20.8166
+2019-06-30,Duquesne Family Office,023135106,AMZN,Amazon Com Inc,equity,125527,237702000.00,7.0678
+2019-06-30,Duquesne Family Office,64110L106,NFLX,Netflix Inc,equity,534160,196208000.00,5.8340
+2019-06-30,Duquesne Family Office,01609W102,BABA,Alibaba Group Hldg Ltd,equity,1038393,175956000.00,5.2318
+2019-06-30,Duquesne Family Office,00724F101,ADBE,Adobe Inc,equity,515971,152031000.00,4.5204
+2019-06-30,Duquesne Family Office,90353T100,UBER,Uber Technologies Inc,equity,2689840,124755000.00,3.7094
+2019-06-30,Duquesne Family Office,58733R102,MELI,Mercadolibre Inc,equity,194913,119242000.00,3.5455
+2019-06-30,Duquesne Family Office,464287234,EEM,Ishares Tr,equity,2410500,103435000.00,3.0755
+2019-06-30,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,493787,101513000.00,3.0184
+2019-06-30,Duquesne Family Office,437076102,HD,Home Depot Inc,equity,453900,94398000.00,2.8068
+2019-06-30,Duquesne Family Office,22266L106,COUPEUR,Coupa Software Inc,equity,693306,87779000.00,2.6100
+2019-06-30,Duquesne Family Office,00507V109,ATVIEUR,Activision Blizzard Inc,equity,1744075,82320000.00,2.4477
+2019-06-30,Duquesne Family Office,002824100,ABT,Abbott Labs,equity,916300,77061000.00,2.2913
+2019-06-30,Duquesne Family Office,83304A106,SNAP,Snap Inc,equity,5234631,74855000.00,2.2257
+2019-06-30,Duquesne Family Office,79466L302,CRM,Salesforce Com Inc,equity,482103,73149000.00,2.1750
+2019-06-30,Duquesne Family Office,69331C108,PCG,Pg&amp;E Corp,equity,3051300,69936000.00,2.0795
+2019-06-30,Duquesne Family Office,369604103,,General Electric Co,equity,6190650,65002000.00,1.9328
+2019-06-30,Duquesne Family Office,452327109,ILMN,Illumina Inc,equity,170800,62880000.00,1.8697
+2019-06-30,Duquesne Family Office,067901108,ABX,Barrick Gold Corporation,equity,3980100,62766000.00,1.8663
+2019-06-30,Duquesne Family Office,57636Q104,MA,Mastercard Inc,equity,234000,61900000.00,1.8405
+2019-06-30,Duquesne Family Office,31620M106,FIS,Fidelity Natl Information Sv,equity,493237,60510000.00,1.7992
+2019-06-30,Duquesne Family Office,92826C839,V,Visa Inc,equity,344700,59823000.00,1.7788
+2019-06-30,Duquesne Family Office,872590104,TMUS,T Mobile Us Inc,equity,765600,56762000.00,1.6877
+2019-06-30,Duquesne Family Office,81762P102,NOW,Servicenow Inc,equity,200580,55073000.00,1.6375
+2019-06-30,Duquesne Family Office,70450Y103,PYPL,Paypal Hldgs Inc,equity,481100,55067000.00,1.6373
+2019-06-30,Duquesne Family Office,81141R100,SE,Sea Ltd,equity,1599905,53149000.00,1.5803
+2019-06-30,Duquesne Family Office,47215P106,JD,Jd Com Inc,equity,1299213,39353000.00,1.1701
+2019-06-30,Duquesne Family Office,58933Y105,MRK,Merck &amp; Co Inc,equity,467200,39175000.00,1.1648
+2019-06-30,Duquesne Family Office,L5140P101,INTC,Intelsat S A,equity,1364570,26541000.00,0.7892
+2019-06-30,Duquesne Family Office,56585A102,MPC,Marathon Pete Corp,equity,410100,22916000.00,0.6814
+2019-06-30,Duquesne Family Office,008474108,AEM,Agnico Eagle Mines Ltd,equity,419400,21490000.00,0.6390
+2019-06-30,Duquesne Family Office,852234103,XYZ,Square Inc,equity,293838,21312000.00,0.6337
+2019-06-30,Duquesne Family Office,45337C102,INCY,Incyte Corp,equity,202400,17196000.00,0.5113
+2019-06-30,Duquesne Family Office,644393100,NFE,New Fortress Energy Llc Cl A Shs Rp,equity,1200000,14052000.00,0.4178
+2019-06-30,Duquesne Family Office,G47567105,IHS,Ihs Markit Ltd,equity,188000,11974000.00,0.3560
+2019-06-30,Duquesne Family Office,127097103,CTRA,Cabot Oil &amp; Gas Corp,equity,395500,9081000.00,0.2700
+2019-06-30,Duquesne Family Office,595112103,MU,Micron Technology Inc,equity,230613,8899000.00,0.2646
+2019-06-30,Duquesne Family Office,697435105,PANW,Palo Alto Networks Inc,equity,40700,8293000.00,0.2466
+2019-06-30,Duquesne Family Office,30303M102,META,Facebook Inc,equity,34941,6744000.00,0.2005
+2019-06-30,Duquesne Family Office,256163106,DOCU,Docusign Inc,equity,113700,5652000.00,0.1681
+2019-06-30,Duquesne Family Office,339041105,FLT1EUR,Fleetcor Technologies Inc,equity,17660,4960000.00,0.1475
+2019-06-30,Duquesne Family Office,16411R208,LNG,Cheniere Energy Inc,equity,68530,4691000.00,0.1395
+2019-06-30,Duquesne Family Office,75606N109,RP,Realpage Inc,equity,74750,4399000.00,0.1308
+2019-06-30,Duquesne Family Office,052769106,ADSK,Autodesk Inc,equity,23762,3871000.00,0.1151
+2019-06-30,Duquesne Family Office,26969P108,EXP,Eagle Materials Inc,equity,40150,3722000.00,0.1107
+2019-06-30,Duquesne Family Office,35137L105,FOXA,Fox Corp,equity,84655,3102000.00,0.0922
+2019-06-30,Duquesne Family Office,98936J101,ZEN1EUR,Zendesk Inc,equity,34102,3036000.00,0.0903
+2019-06-30,Duquesne Family Office,02156B103,AYXEUR,Alteryx Inc,equity,22373,2441000.00,0.0726
+2019-06-30,Duquesne Family Office,L8681T102,,Spotify Technology S A,equity,13967,2042000.00,0.0607
+2019-06-30,Duquesne Family Office,835699307,SONY,Sony Corp,equity,38670,2026000.00,0.0602
+2019-06-30,Duquesne Family Office,90138F102,TWLO,Twilio Inc,equity,14640,1996000.00,0.0593
+2019-06-30,Duquesne Family Office,94419L101,W,Wayfair Inc,equity,12505,1826000.00,0.0543
+2019-06-30,Duquesne Family Office,83200N103,SMARGBP,Smartsheet Inc,equity,36740,1778000.00,0.0529
+2019-06-30,Duquesne Family Office,N6596X109,,Nxp Semiconductors N V,equity,15725,1535000.00,0.0456
+2019-06-30,Duquesne Family Office,922475108,VEEV,Veeva Sys Inc,equity,8795,1426000.00,0.0424
+2019-06-30,Duquesne Family Office,G06242104,,Atlassian Corp Plc,equity,10035,1313000.00,0.0390
+2019-06-30,Duquesne Family Office,98954M200,Z,Zillow Group Inc,equity,23200,1076000.00,0.0320
+2019-06-30,Duquesne Family Office,74736K101,QRVO,Qorvo Inc,equity,11675,778000.00,0.0231
+2019-06-30,Duquesne Family Office,78781P105,SAILEUR,Sailpoint Technlgies Hldgs I,equity,33870,679000.00,0.0202
+2019-06-30,Duquesne Family Office,85207U105,,Sprint Corporation,equity,66610,438000.00,0.0130

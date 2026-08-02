@@ -69,6 +69,7 @@ UI = {
         # {n} shown, {t} total, {v} market value, {p} percent
         "status": "{n} of {t} securities  ·  ${v}  ·  {p}% of complex market value",
         "feedLink": "Trade feed \u2192",
+        "leadersLink": "Top 200 \u2192",
     },
     "zh": {
         "byFund": "分基金",
@@ -104,6 +105,7 @@ UI = {
         "empty": "没有符合筛选条件的证券。",
         "status": "{n} / {t} 只  ·  ${v}  ·  占组合市值 {p}%",
         "feedLink": "交易流 \u2192",
+        "leadersLink": "市值榜 \u2192",
     },
 }
 
@@ -216,6 +218,7 @@ ACTIVITY = {
         "status": "{n} of {t} moves  ·  {d} session(s)",
         "empty": "No move matches those filters.",
         "holdings": "Holdings \u2192",
+        "leaders": "Top 200 \u2192",
         "fundsWord": "funds",
     },
     "zh": {
@@ -234,6 +237,7 @@ ACTIVITY = {
         "status": "{n} / {t} 笔  ·  {d} 个交易日",
         "empty": "没有符合筛选条件的操作。",
         "holdings": "持仓明细 \u2192",
+        "leaders": "市值榜 \u2192",
         "fundsWord": "只基金",
     },
 }
@@ -306,5 +310,332 @@ ACTIVITY_FOOTNOTES = {
          "低于阈值的小额变动被有意剔除。"],
         ["", "数据来源：ARK 官方每日持仓文件（assets.ark-funds.com）。"
              "仅为持仓数据，不构成投资建议。"],
+    ],
+}
+
+
+# ---- market cap leaderboard ----
+
+LEADERS = {
+    "en": {
+        "board": "The ranking",
+        "boardHint": "Click a row for sector, listing vintage and links. Click a column head to sort.",
+        "search": "Search ticker or company",
+        "clear": "Clear filters",
+        "colRank": "#",
+        "colMove": "Move",
+        "colTicker": "Ticker",
+        "colCompany": "Company",
+        "colSector": "Sector",
+        "colCap": "Market cap",
+        "colWeight": "Weight",
+        "colPrice": "Price",
+        "colChange": "Change",
+        "colArk": "ARK",
+        "arkHeld": "held",
+        "listed": "listed",
+        "listedUnknown": "listing year not reported",
+        "wasRanked": "was #{r}",
+        "newEntry": "new to the top {n}",
+        "arkPosition": "ARK position",
+        "dropped": "Dropped out",
+        "droppedHint": "In the top {n} on {d}, not today.",
+        "status": "{n} of {t} companies  ·  ${v}  ·  {p}% of the leaderboard",
+        "empty": "No company matches those filters.",
+        "toHoldings": "ARK holdings →",
+        "toFeed": "Trade feed →",
+    },
+    "zh": {
+        "board": "榜单",
+        "boardHint": "点击某一行查看板块、上市年份和外部链接，点击列头排序。",
+        "search": "搜索代码或公司名",
+        "clear": "清除筛选",
+        "colRank": "排名",
+        "colMove": "变化",
+        "colTicker": "代码",
+        "colCompany": "公司",
+        "colSector": "板块",
+        "colCap": "市值",
+        "colWeight": "权重",
+        "colPrice": "现价",
+        "colChange": "涨跌",
+        "colArk": "ARK",
+        "arkHeld": "持有",
+        "listed": "上市于",
+        "listedUnknown": "未提供上市年份",
+        "wasRanked": "前值第 {r} 名",
+        "newEntry": "新进前 {n}",
+        "arkPosition": "ARK 持仓",
+        "dropped": "跌出榜单",
+        "droppedHint": "{d} 时位于前 {n}，今天不在。",
+        "status": "{n} / {t} 家  ·  ${v}  ·  占榜单市值 {p}%",
+        "empty": "没有符合筛选条件的公司。",
+        "toHoldings": "ARK 持仓 →",
+        "toFeed": "交易流 →",
+    },
+}
+
+LEADERS_PAGE = {
+    "en": {
+        "eyebrow": "Market cap leaderboard",
+        "title": "The 200 largest US companies",
+        "standfirst": (
+            "Every US-registered operating company listed on a US exchange, ranked by "
+            "market capitalisation, cut at 200. Foreign issuers are excluded even though "
+            "they trade here — TSMC would rank eighth — because the largest US "
+            "companies and the largest companies on a US exchange are different lists. "
+            "Nasdaq's screener has no memory, so each day's ranking is archived here; "
+            "the movement column is what that archive buys."
+        ),
+        "tileCap": "Leaderboard market cap",
+        "tileCapNote": "{p}% of all {n} US-listed US companies",
+        "tileCutoff": "Entry threshold",
+        "tileCutoffNote": "#200 is {t}",
+        "tileTop10": "Top 10 share",
+        "tileTop10Note": "of the 200's combined value",
+        "tileTurnover": "In / out",
+        "tileTurnoverNote": "since {d}",
+        "tileArk": "Held by ARK",
+        "tileArkNote": "overlap with the ARK book",
+        "provenance": ("as of {date}  ·  top {n} of {u} US-registered companies  ·  "
+                       "{held} also held by ARK  ·  market caps from the Nasdaq screener"),
+    },
+    "zh": {
+        "eyebrow": "市值榜",
+        "title": "美国市值最大的 200 家公司",
+        "standfirst": (
+            "在美国交易所挂牌、且注册地在美国的经营性公司，按市值排序取前 200 名。"
+            "在美上市的外国公司即使市值很高也不计入——台积电本可排到第八"
+            "——因为「美国最大的公司」和「美股上最大的公司」是两份不同的名单。"
+            "Nasdaq 的筛选器不保留历史，所以每天的排名都在这里存档，"
+            "「变化」这一列就是存档换来的东西。"
+        ),
+        "tileCap": "榜单总市值",
+        "tileCapNote": "占全部 {n} 家美国公司的 {p}%",
+        "tileCutoff": "入榜门槛",
+        "tileCutoffNote": "第 200 名是 {t}",
+        "tileTop10": "前十占比",
+        "tileTop10Note": "占榜单总市值",
+        "tileTurnover": "进榜 / 出榜",
+        "tileTurnoverNote": "相比 {d}",
+        "tileArk": "ARK 持有",
+        "tileArkNote": "与 ARK 持仓的重叠",
+        "provenance": ("数据日期 {date}  ·  {u} 家美国注册公司中的前 {n} 名  ·  "
+                       "其中 {held} 家被 ARK 持有  ·  市值来自 Nasdaq 筛选器"),
+    },
+}
+
+LEADERS_FOOTNOTES = {
+    "en": [
+        ["Registration decides membership, not where the shares trade.",
+         "The screener's country field is what is filtered on. TSMC, ASML, Novo Nordisk "
+         "and Toyota all trade on a US exchange and are all excluded; so are the 223 "
+         "Canadian issuers. This is a ranking of US companies, not of US listings."],
+        ["Dual-class lines are collapsed by hand, not by rule.",
+         "Nasdaq reports Alphabet's whole market cap against both GOOG and GOOGL, and "
+         "Berkshire's against both BRK.A and BRK.B — summing them would invent a "
+         "company and shift every rank below it. Fox and News Corp are the other kind, "
+         "each class carrying its own cap, and are left alone. The build fails if a new "
+         "pair appears rather than counting it twice."],
+        ["Market cap moves with the price, so the ranking is a daily snapshot.",
+         "Neighbouring ranks are usually within a few percent of each other, which means "
+         "the exact ordering in the middle of the list is noise. Read the tiers, not the "
+         "individual positions."],
+        ["Sector labels come from Nasdaq and are often wrong.",
+         "SpaceX is tagged Computer Software, GE Aerospace is tagged Consumer "
+         "Electronics. Useful for narrowing the list, not for classifying it."],
+        ["Companies with no reported market cap are absent, not zero.",
+         "Around 315 listings — almost all 2025-26 SPACs — return a blank cap "
+         "from the screener. None are anywhere near the threshold."],
+        ["", "Source: Nasdaq's stock screener, archived daily. "
+             "Market data, not investment advice."],
+    ],
+    "zh": [
+        ["决定是否入榜的是注册地，不是股票在哪里交易。",
+         "筛选依据是数据源的 country 字段。台积电、ASML、诺和诺德、丰田都在美国交易所"
+         "挂牌，但都不计入；223 家加拿大公司同样不计入。这是一份美国公司的榜单，"
+         "不是一份美股挂牌公司的榜单。"],
+        ["双重股权是逐个手工归并的，不是靠规则。",
+         "Nasdaq 把 Alphabet 的整家公司市值同时挂在 GOOG 和 GOOGL 两条线上，"
+         "Berkshire 的 BRK.A 和 BRK.B 也一样——两条相加会凭空造出一家公司，"
+         "并把它下面所有排名整体挪一位。Fox 和 News Corp 属于另一种，每个类别各报各的，"
+         "不作归并。如果出现新的配对，构建会直接失败，而不是默默重复计算。"],
+        ["市值随股价波动，所以排名只是当日快照。",
+         "相邻名次之间通常只差百分之几，也就是说榜单中段的具体顺序是噪音。"
+         "看档位，不要看单个名次。"],
+        ["板块标签来自 Nasdaq，错误不少。",
+         "SpaceX 被标成「计算机软件」，GE 航空发动机被标成「消费电子」。"
+         "适合用来缩小范围，不适合当分类依据。"],
+        ["没有市值数据的公司是缺失，不是零。",
+         "约 315 只标的——几乎全是 2025-26 年的 SPAC 壳——"
+         "在数据源里市值为空，没有一只接近入榜门槛。"],
+        ["", "数据来源：Nasdaq 股票筛选器，每日存档。"
+             "仅为市场数据，不构成投资建议。"],
+    ],
+}
+
+
+# ---- shared navigation ----
+
+# One nav for every page, so a new page is added here and appears on all of
+# them. Keys match the file each entry points at.
+NAV = {
+    "en": {
+        "index": "Today", "holdings": "Holdings", "activity": "Trades",
+        "leaders": "Top 200", "archive": "Archive",
+    },
+    "zh": {
+        "index": "今日", "holdings": "持仓", "activity": "交易",
+        "leaders": "市值榜", "archive": "存档",
+    },
+}
+
+
+# ---- home ----
+
+# Labels for the freshness strip. Keyed by the source keys in home.SOURCES.
+SOURCES = {
+    "en": {
+        "holdings": "ARK holdings", "trades": "Trades", "quotes": "Quotes",
+        "leaders": "Market cap", "financials": "Financials", "venture": "ARKVX",
+    },
+    "zh": {
+        "holdings": "ARK 持仓", "trades": "交易", "quotes": "报价",
+        "leaders": "市值榜", "financials": "财报", "venture": "ARKVX 创投",
+    },
+}
+
+HOME = {
+    "en": {
+        "sources": "Data on file",
+        "sourcesHint": "Every source overwrites in place at origin. These are the "
+                       "newest copies archived here, and how far behind they are.",
+        "ok": "current", "late": "late", "stale": "stale", "missing": "missing",
+        "sessionsBehind": "{n} session(s) behind",
+        "daysBehind": "{n} days old",
+        "never": "never fetched",
+        "moves": "What ARK did",
+        "movesHint": "Newest session, merged across funds. Agreement first.",
+        "movesTally": "{new} opened · {buy} added · {sell} trimmed · {exit} closed",
+        "movesMore": "all {n} moves →",
+        "movesAgree": "{n} funds",
+        "book": "The book",
+        "bookHint": "US-listed equities only, the part you can actually buy.",
+        "bookAll": "all holdings →",
+        "bookSymbols": "symbols",
+        "bookSince": "vs {d}",
+        "bookAdded": "+{n} new", "bookRemoved": "−{n} gone",
+        "leaders": "Top of the market",
+        "leadersHint": "Rank movement since the previous snapshot.",
+        "leadersAll": "full ranking →",
+        "leadersFirst": "First snapshot on file — movement starts with the next one.",
+        "leadersIn": "in", "leadersOut": "out", "leadersHeld": "{n} held by ARK",
+        "leadersCutoff": "entry at ${v}B",
+        "next": "Not wired up yet",
+        "nextHint": "Collected or planned, but not yet on a page.",
+        "empty": "Nothing on file yet.",
+        "arkHeld": "ARK holds",
+    },
+    "zh": {
+        "sources": "已存档的数据",
+        "sourcesHint": "每个数据源在原站点都是就地覆盖、不留历史。这里是本地存档的最新副本，"
+                       "以及它落后了多久。",
+        "ok": "最新", "late": "偏旧", "stale": "过期", "missing": "缺失",
+        "sessionsBehind": "落后 {n} 个交易日",
+        "daysBehind": "{n} 天前",
+        "never": "从未抓取",
+        "moves": "ARK 今天做了什么",
+        "movesHint": "最近一个交易日，跨基金合并，按一致性排序。",
+        "movesTally": "建仓 {new} · 加仓 {buy} · 减仓 {sell} · 清仓 {exit}",
+        "movesMore": "查看全部 {n} 笔 →",
+        "movesAgree": "{n} 只基金",
+        "book": "持仓全景",
+        "bookHint": "仅美股上市普通股，也就是你真正买得到的部分。",
+        "bookAll": "查看全部持仓 →",
+        "bookSymbols": "只标的",
+        "bookSince": "相比 {d}",
+        "bookAdded": "新增 {n}", "bookRemoved": "移出 {n}",
+        "leaders": "市场最前排",
+        "leadersHint": "相比上一份快照的排名变化。",
+        "leadersAll": "查看完整榜单 →",
+        "leadersFirst": "这是第一份快照——排名变化从下一份开始有。",
+        "leadersIn": "进榜", "leadersOut": "出榜", "leadersHeld": "{n} 家被 ARK 持有",
+        "leadersCutoff": "入榜门槛 ${v}B",
+        "next": "尚未接入",
+        "nextHint": "已经在采集或已列入计划，但还没有对应页面。",
+        "empty": "还没有数据。",
+        "arkHeld": "ARK 持有",
+    },
+}
+
+HOME_PAGE = {
+    "en": {
+        "eyebrow": "Daily brief",
+        "title": "What moved, and whether the data is any good",
+        "standfirst": (
+            "One screen answering two questions before anything else: what ARK did in "
+            "the last session, and whether every feed behind these pages actually "
+            "updated. A stale source is indistinguishable from a quiet market until "
+            "someone checks, so the check goes first."
+        ),
+        "provenance": "holdings {holdings}  ·  ranking {leaders}  ·  {n} sessions archived",
+    },
+    "zh": {
+        "eyebrow": "每日简报",
+        "title": "今天发生了什么，以及数据本身还可不可信",
+        "standfirst": (
+            "一屏之内先回答两个问题：ARK 在最近一个交易日做了什么，"
+            "以及这些页面背后的每一路数据到底有没有更新。"
+            "在有人核对之前，数据源不动和市场没动看起来一模一样——所以核对放在最前面。"
+        ),
+        "provenance": "持仓 {holdings}  ·  榜单 {leaders}  ·  已存档 {n} 个交易日",
+    },
+}
+
+HOME_FOOTNOTES = {
+    "en": [
+        ["Freshness is counted in sessions, not clock time.",
+         "A Friday file read on Sunday is current, not two days late. Market holidays "
+         "are not modelled, so the day after one reads as a session behind — the "
+         "error points at looking, which is the safe direction."],
+        ["Agreement is the ranking, not size.",
+         "Four funds adding the same name on the same day is the firm agreeing with "
+         "itself; one fund moving twice the shares is a rebalance. The moves list "
+         "sorts on the number of funds first for that reason."],
+        ["", "Sources: ARK's daily holdings files, Nasdaq's screener, Yahoo quotes, "
+             "SEC XBRL. Holdings data, not investment advice."],
+    ],
+    "zh": [
+        ["新鲜度按交易日计算，不按自然日。",
+         "周五的文件在周日看仍然是最新的，不算落后两天。节假日没有建模，"
+         "所以长假之后会显示落后一个交易日——这个误差指向「去看一眼」，方向是安全的。"],
+        ["排序看的是一致性，不是金额。",
+         "四只基金在同一天买同一个标的，是这家公司在跟自己达成一致；"
+         "一只基金买了两倍的股数，多半只是再平衡。所以动作列表先按参与基金数排序。"],
+        ["", "数据来源：ARK 每日持仓文件、Nasdaq 筛选器、Yahoo 报价、SEC XBRL。"
+             "仅为持仓数据，不构成投资建议。"],
+    ],
+}
+
+
+# What the home page's last card lists: collected or planned, no page yet.
+# Kept as copy rather than derived from the modules, because "exists but is
+# not shown" is a judgement about the site, not a fact about the code.
+HOME_NEXT = {
+    "en": [
+        ["13F managers", "thirteenf.py ingests a filer's quarterly positions into the "
+                         "same schema as ARK's. No comparison page yet."],
+        ["Company financials", "Revenue, margin, cash and runway are pulled from SEC "
+                               "XBRL and cached. The detail panel that shows them is "
+                               "switched off."],
+        ["Watchlist", "Nothing here follows what you own or want to own. That is the "
+                      "next thing worth having."],
+    ],
+    "zh": [
+        ["13F 管理人", "thirteenf.py 已能把某位管理人的季度持仓抓成与 ARK 相同的表结构，"
+                       "但还没有对比页面。"],
+        ["公司财务", "营收、毛利率、现金和续航月数已从 SEC XBRL 抓取并缓存，"
+                     "展示它们的详情面板还没有打开。"],
+        ["关注列表", "目前没有任何一页跟踪你自己持有或想持有的标的。这是下一个值得做的东西。"],
     ],
 }

@@ -1,0 +1,58 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2022-12-31,Duquesne Family Office,22266T109,CPNG,Coupang Inc,equity,20283765,298374183.00,14.8503
+2022-12-31,Duquesne Family Office,532457108,LLY,Lilly Eli &amp; Co,equity,737725,269889314.00,13.4326
+2022-12-31,Duquesne Family Office,166764100,CVX,Chevron Corp New,equity,983655,176556236.00,8.7873
+2022-12-31,Duquesne Family Office,513272104,LW,Lamb Weston Hldgs Inc,equity,1657875,148147710.00,7.3734
+2022-12-31,Duquesne Family Office,30303M102,META,Meta Platforms Inc,equity,901675,108507570.00,5.4005
+2022-12-31,Duquesne Family Office,48242W106,KBR,Kbr Inc,equity,1687468,89098310.00,4.4345
+2022-12-31,Duquesne Family Office,67066G104,NVDA,Nvidia Corporation,equity,582915,85187198.00,4.2398
+2022-12-31,Duquesne Family Office,92537N108,VRT,Vertiv Holdings Co,equity,5916120,80814199.00,4.0222
+2022-12-31,Duquesne Family Office,878742204,TECK,Teck Resources Ltd,equity,1780705,67346263.00,3.3519
+2022-12-31,Duquesne Family Office,872590104,TMUS,T-Mobile Us Inc,equity,454362,63610680.00,3.1660
+2022-12-31,Duquesne Family Office,15135U109,CVE,Cenovus Energy Inc,equity,2701140,52426229.00,2.6093
+2022-12-31,Duquesne Family Office,68404L201,OPCH,Option Care Health Inc,equity,1526120,45920951.00,2.2855
+2022-12-31,Duquesne Family Office,526057104,LEN,Lennar Corp,equity,441892,39991226.00,1.9904
+2022-12-31,Duquesne Family Office,35671D857,FCX,Freeport-Mcmoran Inc,equity,837627,31829826.00,1.5842
+2022-12-31,Duquesne Family Office,244199105,DE,Deere &amp; Co,equity,72905,31258748.00,1.5558
+2022-12-31,Duquesne Family Office,674599105,OXY,Occidental Pete Corp,equity,420580,26492334.00,1.3185
+2022-12-31,Duquesne Family Office,632307104,NTRA,Natera Inc,equity,643530,25850600.00,1.2866
+2022-12-31,Duquesne Family Office,00206R102,T,At&amp;T Inc,equity,1375780,25328110.00,1.2606
+2022-12-31,Duquesne Family Office,23804L103,DDOG,Datadog Inc,equity,332253,24420596.00,1.2154
+2022-12-31,Duquesne Family Office,02043Q107,ALNY,Alnylam Pharmaceuticals Inc,equity,88910,21129462.00,1.0516
+2022-12-31,Duquesne Family Office,69047Q102,OVV,Ovintiv Inc,equity,413980,20992926.00,1.0448
+2022-12-31,Duquesne Family Office,007903107,AMD,Advanced Micro Devices Inc,equity,308235,19964381.00,0.9936
+2022-12-31,Duquesne Family Office,701094104,PH,Parker-Hannifin Corp,equity,66800,19438800.00,0.9675
+2022-12-31,Duquesne Family Office,03940R107,ARCH1USD,Arch Resources Inc,equity,129140,18439901.00,0.9178
+2022-12-31,Duquesne Family Office,91912E105,VALE,Vale S A,equity,1045000,17733650.00,0.8826
+2022-12-31,Duquesne Family Office,13321L108,CCJ,Cameco Corp,equity,748204,16961785.00,0.8442
+2022-12-31,Duquesne Family Office,723787107,PXDEUR,Pioneer Nat Res Co,equity,71505,16331027.00,0.8128
+2022-12-31,Duquesne Family Office,149123101,CAT,Caterpillar Inc,equity,63800,15283928.00,0.7607
+2022-12-31,Duquesne Family Office,697435105,PANW,Palo Alto Networks Inc,equity,109270,15247536.00,0.7589
+2022-12-31,Duquesne Family Office,971378104,WSC,Willscot Mobil Mini Hldng Co,equity,309866,13996647.00,0.6966
+2022-12-31,Duquesne Family Office,718546104,PSX,Phillips 66,equity,113850,11849508.00,0.5898
+2022-12-31,Duquesne Family Office,75629V104,RXRX,Recursion Pharmaceuticals In,equity,1385950,10685675.00,0.5318
+2022-12-31,Duquesne Family Office,23331A109,DHI,D R Horton Inc,equity,113400,10108476.00,0.5031
+2022-12-31,Duquesne Family Office,79589L106,IOT,Samsara Inc,equity,810713,10077163.00,0.5015
+2022-12-31,Duquesne Family Office,69608A108,PLTR,Palantir Technologies Inc,equity,1270707,8157939.00,0.4060
+2022-12-31,Duquesne Family Office,65339F101,NEE,Nextera Energy Inc,equity,93400,7808240.00,0.3886
+2022-12-31,Duquesne Family Office,21037T109,CEG,Constellation Energy Corp,equity,88825,7657603.00,0.3811
+2022-12-31,Duquesne Family Office,00288U106,ABCL,Abcellera Biologics Inc,equity,659750,6683268.00,0.3326
+2022-12-31,Duquesne Family Office,293594107,ENVX,Enovix Corporation,equity,464400,5777136.00,0.2875
+2022-12-31,Duquesne Family Office,020764106,AMR,Alpha Metallurgical Resour I,equity,39370,5763374.00,0.2868
+2022-12-31,Duquesne Family Office,50187T106,LGIH,Lgi Homes Inc,equity,50000,4630000.00,0.2304
+2022-12-31,Duquesne Family Office,05352A100,AVTR,Avantor Inc,equity,189695,4000668.00,0.1991
+2022-12-31,Duquesne Family Office,60770K107,MRNA,Moderna Inc,equity,22154,3979301.00,0.1981
+2022-12-31,Duquesne Family Office,G4701H109,IHS,Ihs Holding Limited,equity,771096,3793792.00,0.1888
+2022-12-31,Duquesne Family Office,29362U104,ENTG,Entegris Inc,equity,55500,3640245.00,0.1812
+2022-12-31,Duquesne Family Office,86771W105,RUN,Sunrun Inc,equity,139000,3338780.00,0.1662
+2022-12-31,Duquesne Family Office,12510Q100,CCC,Ccc Intelligent Solutions Hl,equity,281879,2452347.00,0.1221
+2022-12-31,Duquesne Family Office,687793109,OSCR,Oscar Health Inc,equity,994289,2445951.00,0.1217
+2022-12-31,Duquesne Family Office,75615P103,RETAEUR,Reata Pharmaceuticals Inc,equity,58997,2241296.00,0.1116
+2022-12-31,Duquesne Family Office,48666K109,KBH,Kb Home,equity,58535,1864340.00,0.0928
+2022-12-31,Duquesne Family Office,683712103,OPEN,Opendoor Technologies Inc,equity,1538085,1784179.00,0.0888
+2022-12-31,Duquesne Family Office,25470M109,DISH,Dish Network Corporation,equity,112400,1578096.00,0.0785
+2022-12-31,Duquesne Family Office,004225108,ACAD,Acadia Pharmaceuticals Inc,equity,74400,1184448.00,0.0590
+2022-12-31,Duquesne Family Office,20464U100,COMP,Compass Inc,equity,399100,929903.00,0.0463
+2022-12-31,Duquesne Family Office,81728A108,SNSEEUR,Sensei Biotherapeutics Inc,equity,100000,149000.00,0.0074
+2022-12-31,Duquesne Family Office,G65163100,,Joby Aviation Inc,equity,11246,37674.00,0.0019
+2022-12-31,Duquesne Family Office,G2007L105,,Cazoo Group Ltd,equity,140100,21968.00,0.0011

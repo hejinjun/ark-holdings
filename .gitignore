@@ -3,10 +3,16 @@
 data/reference/companyfacts/
 
 # Reports are rebuilt from the committed CSVs by build_site.py on every run, so
-# committing them would just add ~180KB of churn per day for nothing.
+# committing them would just add ~180KB of churn per day for nothing. The
+# leaderboard snapshots (data/leaders_*.csv) ARE committed -- they are the
+# archive, and nothing can rebuild them after the day has passed.
 data/report_*.html
+data/leaders_*.html
 site/
 
 __pycache__/
 *.pyc
 .DS_Store
+
+# Scratch downloads for the 13F ingest; re-fetched on demand.
+data/reference/tmp13f/

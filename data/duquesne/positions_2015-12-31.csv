@@ -1,0 +1,13 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2015-12-31,Duquesne Family Office,30303M102,META,Facebook Inc.,equity,2530494,264842000.00,38.6671
+2015-12-31,Duquesne Family Office,023135106,AMZN,Amazon.com Inc.,equity,190000,128419000.00,18.7492
+2015-12-31,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,1165000,64634000.00,9.4366
+2015-12-31,Duquesne Family Office,755111507,RTN1USD,Raytheon Co,equity,417800,52029000.00,7.5963
+2015-12-31,Duquesne Family Office,22943F100,CTRPUSD,Ctrip.com Int&apos;l Ltd.,equity,772300,35781000.00,5.2240
+2015-12-31,Duquesne Family Office,40415F101,HDB,HDFC Bank Ltd.,equity,491100,30252000.00,4.4168
+2015-12-31,Duquesne Family Office,666807102,NOC,Northrop Grumman Corp,equity,135600,25603000.00,3.7381
+2015-12-31,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc.,equity,32800,25519000.00,3.7258
+2015-12-31,Duquesne Family Office,74624M102,P,Pure Storage Inc.,equity,1600000,24912000.00,3.6372
+2015-12-31,Duquesne Family Office,87165B103,SYF,Syncrony Fin&apos;l,equity,473600,14402000.00,2.1027
+2015-12-31,Duquesne Family Office,169656105,CMG,Chipotle Mex Grill Inc.,equity,20200,9693000.00,1.4152
+2015-12-31,Duquesne Family Office,88023U101,SGI,Tempur Sealy Int&apos;l Inc.,equity,125500,8843000.00,1.2911

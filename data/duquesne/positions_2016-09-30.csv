@@ -1,0 +1,42 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2016-09-30,Duquesne Family Office,464287234,EEM,Ishares Tr,equity,4534600,169821000.00,15.0173
+2016-09-30,Duquesne Family Office,00287Y109,ABBV,Abbvie Inc,equity,1324920,83563000.00,7.3895
+2016-09-30,Duquesne Family Office,35671D857,FCX,Freeport-Mcmoran Inc,equity,4877000,52964000.00,4.6836
+2016-09-30,Duquesne Family Office,01609W102,BABA,Alibaba Group Hldg Ltd,equity,470600,49785000.00,4.4025
+2016-09-30,Duquesne Family Office,002824100,ABT,Abbott Labs,equity,1068000,45166000.00,3.9940
+2016-09-30,Duquesne Family Office,58933Y105,MRK,Merck &amp; Co Inc,equity,683800,42676000.00,3.7738
+2016-09-30,Duquesne Family Office,Y09827109,,Broadcom Ltd,equity,201900,34832000.00,3.0802
+2016-09-30,Duquesne Family Office,00507V109,ATVIEUR,Activision Blizzard Inc,equity,748700,33167000.00,2.9330
+2016-09-30,Duquesne Family Office,067901108,ABX,Barrick Gold Corp,equity,1832600,32474000.00,2.8717
+2016-09-30,Duquesne Family Office,023135106,AMZN,Amazon Com Inc,equity,35800,29976000.00,2.6508
+2016-09-30,Duquesne Family Office,008474108,AEM,Agnico Eagle Mines Ltd,equity,530800,28759000.00,2.5432
+2016-09-30,Duquesne Family Office,40415F101,HDB,Hdfc Bank Ltd,equity,378600,27218000.00,2.4069
+2016-09-30,Duquesne Family Office,74624M102,P,Pure Storage Inc,equity,1984600,26891000.00,2.3780
+2016-09-30,Duquesne Family Office,26875P101,EOG,Eog Res Inc,equity,270300,26141000.00,2.3116
+2016-09-30,Duquesne Family Office,98978V103,ZTS,Zoetis Inc,equity,477900,24856000.00,2.1980
+2016-09-30,Duquesne Family Office,060505104,BAC,Bank Amer Corp,equity,1579700,24722000.00,2.1862
+2016-09-30,Duquesne Family Office,H00263105,,Ac Immune Sa,equity,1500000,24705000.00,2.1847
+2016-09-30,Duquesne Family Office,30303M102,META,Facebook Inc,equity,187894,24101000.00,2.1312
+2016-09-30,Duquesne Family Office,038222105,AMAT,Applied Matls Inc,equity,777500,23442000.00,2.0730
+2016-09-30,Duquesne Family Office,737446104,POST,Post Hldgs Inc,equity,291200,22472000.00,1.9872
+2016-09-30,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,239700,21978000.00,1.9435
+2016-09-30,Duquesne Family Office,458140100,INTC,Intel Corp,equity,547200,20657000.00,1.8267
+2016-09-30,Duquesne Family Office,97717W422,EPI,Wisdomtree Tr,equity,952800,20600000.00,1.8217
+2016-09-30,Duquesne Family Office,741503403,,Priceline Grp Inc,equity,13780,20277000.00,1.7931
+2016-09-30,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc,equity,25000,20102000.00,1.7776
+2016-09-30,Duquesne Family Office,464287556,IBB,Ishares Tr,equity,67800,19580000.00,1.7315
+2016-09-30,Duquesne Family Office,595112103,MU,Micron Technology Inc,equity,927200,16486000.00,1.4579
+2016-09-30,Duquesne Family Office,369550108,GD,General Dynamics Corp,equity,104900,16276000.00,1.4393
+2016-09-30,Duquesne Family Office,512807108,LRCXEUR,Lam Research Corp,equity,169000,16006000.00,1.4154
+2016-09-30,Duquesne Family Office,773903109,ROK,Rockwell Automation Inc,equity,130100,15916000.00,1.4075
+2016-09-30,Duquesne Family Office,67066G104,NVDA,Nvidia Corp,equity,223800,15335000.00,1.3561
+2016-09-30,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,264700,15247000.00,1.3483
+2016-09-30,Duquesne Family Office,48205A109,,Juno Therapeutics Inc,equity,493000,14795000.00,1.3083
+2016-09-30,Duquesne Family Office,088606108,BHP,Bhp Billiton Ltd,equity,325000,11261000.00,0.9958
+2016-09-30,Duquesne Family Office,00846U101,A,Agilent Technologies Inc,equity,220300,10374000.00,0.9174
+2016-09-30,Duquesne Family Office,723787107,PXDEUR,Pioneer Nat Res Co,equity,54400,10099000.00,0.8931
+2016-09-30,Duquesne Family Office,670346105,NUE,Nucor Corp,equity,201000,9939000.00,0.8789
+2016-09-30,Duquesne Family Office,640268108,NKTREUR,Nektar Therapeutics,equity,572100,9829000.00,0.8692
+2016-09-30,Duquesne Family Office,969457100,WMB,Williams Cos Inc Del,equity,278400,8555000.00,0.7565
+2016-09-30,Duquesne Family Office,693475105,PNC,Pnc Finl Svcs Group Inc,equity,69500,6261000.00,0.5537
+2016-09-30,Duquesne Family Office,008916108,,Agrium Inc,equity,38974,3535000.00,0.3126

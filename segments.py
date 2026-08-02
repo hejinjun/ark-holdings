@@ -95,11 +95,72 @@ DIMENSIONS = [
     },
 ]
 
+# The leaderboard needs its own cuts. Its universe starts around $60B, so the
+# holdings page's cap buckets would collapse it into two chips -- "mega" and
+# "large" -- and say nothing. Rank tiers and trillion-scale cap bands are what
+# separate companies that are all already large.
+LEADER_DIMENSIONS = [
+    {
+        "key": "tier", "label": "Rank", "label_zh": "排名", "field": "rank",
+        "buckets": [
+            ("t1", "Top 10", 1, 11),
+            ("t2", "11–50", 11, 51),
+            ("t3", "51–100", 51, 101),
+            ("t4", "101–200", 101, INF),
+        ],
+    },
+    {
+        "key": "cap", "label": "Market cap", "label_zh": "市值", "field": "market_cap",
+        "buckets": [
+            ("c1", "≥$1T", 1e12, INF),
+            ("c2", "$500B–1T", 500e9, 1e12),
+            ("c3", "$200–500B", 200e9, 500e9),
+            ("c4", "$100–200B", 100e9, 200e9),
+            ("c5", "<$100B", 0, 100e9),
+        ],
+    },
+    {
+        # Same cuts as the holdings page's `oh`, so a name filtered as "30-50%
+        # off its high" means the same thing on both pages.
+        "key": "oh", "label": "Off 52w high", "label_zh": "距 52 周高点", "field": "drawdown",
+        "buckets": [
+            ("d1", "<10%", 0, 10),
+            ("d2", "10–30%", 10, 30),
+            ("d3", "30–50%", 30, 50),
+            ("d4", "50–70%", 50, 70),
+            ("d5", "≥70%", 70, INF),
+        ],
+    },
+    {
+        "key": "rng", "label": "Range position", "label_zh": "区间位置", "field": "range_pct",
+        "buckets": [
+            ("top", "Top >75%", 75, INF),
+            ("mid", "Middle 25–75%", 25, 75),
+            ("bot", "Bottom <25%", 0, 25),
+        ],
+    },
+    {
+        # Listing vintage, which is the cheapest available proxy for whether a
+        # company got here the slow way or the fast way.
+        "key": "ipo", "label": "Listed", "label_zh": "上市年代", "field": "ipo_decade",
+        "buckets": [
+            ("y5", "2020s", 2020, INF),
+            ("y4", "2010s", 2010, 2020),
+            ("y3", "2000s", 2000, 2010),
+            ("y2", "1990s", 1990, 2000),
+            ("y1", "Before 1990", 0, 1990),
+        ],
+    },
+]
+
 UNKNOWN = ("none", "Unclassified", "未分类")
 
 # Buckets whose label is not already language-neutral. Numeric labels like
 # "$50–200M" or "10–30%" read the same in both, so only these need a pair.
-LABEL_ZH = {'Mega ≥$200B': '巨盘 ≥$200B', 'Large $10–200B': '大盘 $10–200B', 'Mid $2–10B': '中盘 $2–10B', 'Small $300M–2B': '小盘 $300M–2B', 'Micro <$300M': '微盘 <$300M', 'Top >75%': '顶部 >75%', 'Middle 25–75%': '中部 25–75%', 'Bottom <25%': '底部 <25%', '1 fund': '1 只', '2–3 funds': '2-3 只', '4+ funds': '4 只以上', '≥$100M': '≥1亿', '$10–100M': '1千万–1亿', '$1–10M': '100万–1千万', '<$1M': '<100万'}
+LABEL_ZH = {'Mega ≥$200B': '巨盘 ≥$200B', 'Large $10–200B': '大盘 $10–200B', 'Mid $2–10B': '中盘 $2–10B', 'Small $300M–2B': '小盘 $300M–2B', 'Micro <$300M': '微盘 <$300M', 'Top >75%': '顶部 >75%', 'Middle 25–75%': '中部 25–75%', 'Bottom <25%': '底部 <25%', '1 fund': '1 只', '2–3 funds': '2-3 只', '4+ funds': '4 只以上', '≥$100M': '≥1亿', '$10–100M': '1千万–1亿', '$1–10M': '100万–1千万', '<$1M': '<100万',
+            'Top 10': '前 10', '11–50': '11–50 名', '51–100': '51–100 名', '101–200': '101–200 名',
+            '2020s': '2020 年代', '2010s': '2010 年代', '2000s': '2000 年代', '1990s': '1990 年代',
+            'Before 1990': '1990 年前'}
 
 
 def assign(dim: dict, value) -> str:

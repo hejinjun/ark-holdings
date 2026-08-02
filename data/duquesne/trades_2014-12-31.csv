@@ -1,0 +1,45 @@
+trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_class,prev_shares,shares,expected_shares,active_shares,active_pct,flow_factor
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,LYB,LyondellBasell Ind&apos;s NV,N53745100,equity,0,716950,0,716950,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,EOG,EOG Res&apos;s Inc,26875P101,equity,0,561600,0,561600,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,TEVA,Teva Pharm Ind&apos;s Ltd,881624209,equity,0,790500,0,790500,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,PXDEUR,Pioneer Nat&apos;l Res&apos;s Co,723787107,equity,0,224500,0,224500,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,NBL2EUR,Noble Energy Inc,655044105,equity,0,621300,0,621300,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,AKAM,Akamai Tech Inc,00971T101,equity,0,355300,0,355300,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,LNG,Cheniere Energy Inc,16411R208,equity,0,258700,0,258700,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,QSR,Restaurant Brands Int&apos;l Inc,76131D103,equity,0,514000,0,514000,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,BIDU,Baidu.com Inc,056752108,equity,0,86200,0,86200,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,EXPE,Expedia Inc,30212P303,equity,0,160000,0,160000,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,BMA,Banco Macro SA,05961W105,equity,0,110100,0,110100,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,TEO,Telecom Argentina SA,879273209,equity,0,248000,0,248000,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,PAM,Pampa Energia SA,697660207,equity,0,214899,0,214899,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,new,IRSUSD,IRSA Inversiones Y Rep SA,450047204,equity,0,40300,0,40300,,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,buy,CTSH,Cognizant Tech Sol&apos;ns Corp,192446102,equity,369600,726900,369600,357300,96.67,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,buy,YPF,YPF S.A.,984245100,equity,298900,698300,298900,399400,133.62,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,buy,INFY,Infosys Ltd,456788108,equity,623700,756500,623700,132800,21.29,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,sell,BIIB,Biogen Inc,09062X103,equity,359400,175000,359400,-184400,-51.31,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,sell,CELG,Celgene Corp,151020104,equity,434100,195975,434100,-238125,-54.85,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,sell,,Bluebird Bio Inc,09609G100,equity,355400,184082,355400,-171318,-48.20,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,sell,META,Facebook Inc,30303M102,equity,430000,252000,430000,-178000,-41.40,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,sell,,Mattress Firm Hldg Corp,57722W106,equity,176200,86900,176200,-89300,-50.68,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,sell,BABA,Alibaba Grp Hldg Ltd,01609W102,equity,253900,239500,253900,-14400,-5.67,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,TGT,Target Corp,87612E106,equity,760600,0,760600,-760600,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,HD,Home Depot Inc,437076102,equity,529100,0,529100,-529100,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,M,"Macy&apos;s, Inc",55616P104,equity,250200,0,250200,-250200,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,CCI,Crown Castle Int&apos;l Corp,22822V101,equity,119000,0,119000,-119000,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,DAL,Delta Air Lines Inc,247361702,equity,419900,0,419900,-419900,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,AEO,Amer Eagle Outfitters Inc,02553E106,equity,1429200,0,1429200,-1429200,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,COST,Costco Wholesale Corp,22160K105,equity,285000,0,285000,-285000,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,WOO,Foot Locker Inc,344849104,equity,210400,0,210400,-210400,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,AAL,American Air Grp Inc,02376R102,equity,414600,0,414600,-414600,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,WSM,Williams-Sonoma Inc,969904101,equity,347600,0,347600,-347600,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,AA,Alcoa Inc,013817101,equity,1875600,0,1875600,-1875600,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,GS,Goldman Sachs Grp Inc,38141G104,equity,132500,0,132500,-132500,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,LBEUR,L Brands Inc,501797104,equity,271600,0,271600,-271600,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,JWNUSD,Nordstrom Inc,655664100,equity,429400,0,429400,-429400,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,,Juno Therapeutics Inc,48205A109,equity,70000,0,70000,-70000,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,LUV,Southwest Airlines Co,844741108,equity,270000,0,270000,-270000,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,WFC,Wells Fargo &amp; Co,949746101,equity,453000,0,453000,-453000,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,LOW,Lowe&apos;s Companies Inc,548661107,equity,669200,0,669200,-669200,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,MS,Morgan Stanley,617446448,equity,663700,0,663700,-663700,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,,Virgin America Inc,92765X208,equity,8100,0,8100,-8100,-100.00,1.000000
+2014-12-31,2014-12-31,2015-03-31,Duquesne Family Office,exit,KSS,Kohl&apos;s Corp,500255104,equity,229900,0,229900,-229900,-100.00,1.000000

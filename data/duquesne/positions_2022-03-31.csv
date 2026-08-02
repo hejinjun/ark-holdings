@@ -1,0 +1,50 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2022-03-31,Duquesne Family Office,22266T109,CPNG,Coupang Inc,equity,19434307,343599000.00,15.7003
+2022-03-31,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,1020305,314570000.00,14.3739
+2022-03-31,Duquesne Family Office,35671D857,FCX,Freeport-Mcmoran Inc,equity,4836809,240583000.00,10.9931
+2022-03-31,Duquesne Family Office,023135106,AMZN,Amazon Com Inc,equity,60997,198847000.00,9.0861
+2022-03-31,Duquesne Family Office,166764100,CVX,Chevron Corp New,equity,964880,157111000.00,7.1790
+2022-03-31,Duquesne Family Office,872590104,TMUS,T-Mobile Us Inc,equity,891207,114386000.00,5.2267
+2022-03-31,Duquesne Family Office,878742204,TECK,Teck Resources Ltd,equity,2420125,97749000.00,4.4665
+2022-03-31,Duquesne Family Office,971378104,WSC,Willscot Mobil Mini Hldng Co,equity,1927271,75414000.00,3.4459
+2022-03-31,Duquesne Family Office,48242W106,KBR,Kbr Inc,equity,1201903,65780000.00,3.0057
+2022-03-31,Duquesne Family Office,83200N103,SMARGBP,Smartsheet Inc,equity,961722,52683000.00,2.4073
+2022-03-31,Duquesne Family Office,127097103,CTRA,Coterra Energy Inc,equity,1776000,47899000.00,2.1887
+2022-03-31,Duquesne Family Office,69608A108,PLTR,Palantir Technologies Inc,equity,3340537,45866000.00,2.0958
+2022-03-31,Duquesne Family Office,74276L105,PRCT,Procept Biorobotics Corp,equity,1128041,39470000.00,1.8035
+2022-03-31,Duquesne Family Office,09857L108,BKNG,Booking Holdings Inc,equity,14778,34705000.00,1.5858
+2022-03-31,Duquesne Family Office,723787107,PXDEUR,Pioneer Nat Res Co,equity,130375,32598000.00,1.4895
+2022-03-31,Duquesne Family Office,693475105,PNC,Pnc Finl Svcs Group Inc,equity,168726,31122000.00,1.4221
+2022-03-31,Duquesne Family Office,68404L201,OPCH,Option Care Health Inc,equity,863148,24652000.00,1.1264
+2022-03-31,Duquesne Family Office,15135U109,CVE,Cenovus Energy Inc,equity,1438375,23992000.00,1.0963
+2022-03-31,Duquesne Family Office,98936J101,ZEN1EUR,Zendesk Inc,equity,167660,20168000.00,0.9216
+2022-03-31,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,82500,19755000.00,0.9027
+2022-03-31,Duquesne Family Office,M5216V106,,Global E Online Ltd,equity,575630,19445000.00,0.8885
+2022-03-31,Duquesne Family Office,650111107,NYT,New York Times Co,equity,409325,18763000.00,0.8574
+2022-03-31,Duquesne Family Office,03674X106,AR,Antero Resources Corp,equity,491800,15015000.00,0.6861
+2022-03-31,Duquesne Family Office,03272L108,PLANUSD,Anaplan Inc,equity,211315,13746000.00,0.6281
+2022-03-31,Duquesne Family Office,30212P303,EXPE,Expedia Group Inc,equity,56565,11068000.00,0.5057
+2022-03-31,Duquesne Family Office,02043Q107,ALNY,Alnylam Pharmaceuticals Inc,equity,63945,10442000.00,0.4771
+2022-03-31,Duquesne Family Office,687793109,OSCR,Oscar Health Inc,equity,994289,9913000.00,0.4530
+2022-03-31,Duquesne Family Office,64110L106,NFLX,Netflix Inc,equity,26240,9829000.00,0.4491
+2022-03-31,Duquesne Family Office,718546104,PSX,Phillips 66,equity,113335,9791000.00,0.4474
+2022-03-31,Duquesne Family Office,83417M104,SEDG,Solaredge Technologies Inc,equity,29900,9639000.00,0.4404
+2022-03-31,Duquesne Family Office,61945C103,MOS,Mosaic Co New,equity,143825,9564000.00,0.4370
+2022-03-31,Duquesne Family Office,G4701H109,IHS,Ihs Holding Limited,equity,771096,8544000.00,0.3904
+2022-03-31,Duquesne Family Office,83304A106,SNAP,Snap Inc,equity,235440,8473000.00,0.3872
+2022-03-31,Duquesne Family Office,00288U106,ABCL,Abcellera Biologics Inc,equity,659750,6433000.00,0.2939
+2022-03-31,Duquesne Family Office,81141R100,SE,Sea Ltd,equity,48396,5797000.00,0.2649
+2022-03-31,Duquesne Family Office,464286400,EWZ,Ishares Inc,equity,144565,5466000.00,0.2498
+2022-03-31,Duquesne Family Office,86771W105,RUN,Sunrun Inc,equity,178450,5420000.00,0.2477
+2022-03-31,Duquesne Family Office,110448107,BTI,British Amern Tob Plc,equity,120950,5099000.00,0.2330
+2022-03-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,240666,4464000.00,0.2040
+2022-03-31,Duquesne Family Office,25470M109,DISH,Dish Network Corporation,equity,112400,3557000.00,0.1625
+2022-03-31,Duquesne Family Office,20464U100,COMP,Compass Inc,equity,399100,3137000.00,0.1433
+2022-03-31,Duquesne Family Office,12510Q100,CCC,Ccc Intelligent Solutions Hl,equity,281879,3112000.00,0.1422
+2022-03-31,Duquesne Family Office,142038108,CRBU,Caribou Biosciences Inc,equity,271430,2492000.00,0.1139
+2022-03-31,Duquesne Family Office,683712103,OPEN,Opendoor Technologies Inc,equity,233000,2015000.00,0.0921
+2022-03-31,Duquesne Family Office,75629V104,RXRX,Recursion Pharmaceuticals In,equity,273650,1959000.00,0.0895
+2022-03-31,Duquesne Family Office,75615P103,RETAEUR,Reata Pharmaceuticals Inc,equity,58997,1933000.00,0.0883
+2022-03-31,Duquesne Family Office,004225108,ACAD,Acadia Pharmaceuticals Inc,equity,74400,1802000.00,0.0823
+2022-03-31,Duquesne Family Office,G2007L105,,Cazoo Group Ltd,equity,140100,387000.00,0.0177
+2022-03-31,Duquesne Family Office,81728A108,SNSEEUR,Sensei Biotherapeutics Inc,equity,100000,231000.00,0.0106

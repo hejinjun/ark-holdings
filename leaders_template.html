@@ -1,0 +1,489 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Largest US companies by market cap</title>
+
+<style>
+/*__STYLES__*/
+
+/* ---- leaderboard ---- */
+
+#board { font-size: 13px; min-width: 1020px; }
+#board thead th { position: sticky; top: 0; z-index: 2; }
+#board th.sortable { cursor: pointer; user-select: none; }
+#board th.sortable:hover { color: var(--ink); }
+#board th.sortable:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+#board th .arrow { opacity: 0; margin-left: 3px; }
+#board th[data-dir] .arrow { opacity: 1; color: var(--accent); }
+#board td:first-child, #board th:first-child { padding-left: 18px; }
+#board td:last-child, #board th:last-child { padding-right: 18px; }
+
+.rank-cell {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--ink-2);
+  width: 46px;
+  text-align: right;
+}
+/* The top ten carry the ranking; below that the exact number is noise, so
+   only those get the ink. */
+.row-main[data-top="1"] .rank-cell { color: var(--ink); }
+
+/* Direction is carried by the glyph first and the hue second, so the column
+   still reads with no colour at all. */
+.move-cell {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  width: 62px;
+}
+.move-cell[data-m="up"]   { color: var(--aqua); }
+.move-cell[data-m="down"] { color: var(--orange); }
+.move-cell[data-m="flat"] { color: var(--ink-3); }
+.move-cell[data-m="in"]   { color: var(--accent); font-weight: 600; }
+
+.cap-cell { position: relative; }
+.cap-val {
+  position: relative;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+.cap-bar {
+  position: absolute;
+  right: 0;
+  bottom: 3px;
+  height: 3px;
+  background: var(--bar);
+  border-radius: 1px;
+}
+
+.chg-cell { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.chg-cell[data-d="up"]   { color: var(--aqua); }
+.chg-cell[data-d="down"] { color: var(--orange); }
+
+.ark-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 2px;
+  background: var(--pos2-bg);
+  color: var(--pos2-fg);
+  white-space: nowrap;
+}
+
+.sector-cell { color: var(--ink-2); font-size: 12.5px; }
+.alt-sym { color: var(--ink-3); font-weight: 400; }
+
+.dropped-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+.dropped-list span {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 3px 9px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  color: var(--ink-2);
+}
+.dropped-list b { color: var(--ink); font-weight: 600; }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <div class="eyebrow" id="eyebrow"></div>
+      <div style="display:flex; gap:10px; align-items:center">
+        <a class="clear" id="toholdings" href="index.html" style="text-decoration:none"></a>
+        <a class="clear" id="tofeed" href="activity.html" style="text-decoration:none"></a>
+        <div class="langswitch" id="langswitch" role="group" aria-label="Language"></div>
+      </div>
+    </div>
+    <h1 id="title"></h1>
+    <p class="standfirst" id="standfirst"></p>
+    <div class="provenance" id="provenance"></div>
+  </header>
+
+  <section class="tiles" id="tiles"></section>
+
+  <section>
+    <div class="section-head">
+      <h2 id="h-board"></h2>
+      <span class="hint" id="hint-board"></span>
+    </div>
+
+    <div class="filterbar" style="margin:14px 0 10px">
+      <div class="filter-top">
+        <input class="search" id="search" type="search" aria-label="Search companies">
+        <button class="clear" type="button" id="clear" hidden></button>
+      </div>
+      <div class="filter-groups" id="filter-groups"></div>
+    </div>
+
+    <div class="status" id="status"></div>
+
+    <div class="holdings-wrap" style="margin-top:8px">
+      <table id="board">
+        <thead>
+          <tr>
+            <th scope="col" class="sortable num" data-key="r" tabindex="0"><span class="hd" data-t="r"></span><span class="arrow">▾</span></th>
+            <th scope="col" id="hd-move"></th>
+            <th scope="col" class="sortable" data-key="t" tabindex="0"><span class="hd" data-t="t"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable" data-key="n" tabindex="0"><span class="hd" data-t="n"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable" data-key="sec" tabindex="0"><span class="hd" data-t="sec"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="cap" tabindex="0"><span class="hd" data-t="cap"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="w" tabindex="0"><span class="hd" data-t="w"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="p" tabindex="0"><span class="hd" data-t="p"></span><span class="arrow">▾</span></th>
+            <th scope="col" class="sortable num" data-key="ch" tabindex="0"><span class="hd" data-t="ch"></span><span class="arrow">▾</span></th>
+            <th scope="col" id="hd-ark"></th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="empty" id="empty" hidden></div>
+    </div>
+  </section>
+
+  <section id="dropped-section" hidden>
+    <div class="section-head">
+      <h2 id="h-dropped"></h2>
+      <span class="hint" id="hint-dropped"></span>
+    </div>
+    <div class="dropped-list" id="dropped" style="margin-top:12px"></div>
+  </section>
+
+  <footer id="footnotes"></footer>
+
+</div>
+
+<script>
+const DATA = /*__DATA__*/;
+
+/* Both languages ship in the payload, so switching is a re-render, not a fetch.
+   The key is shared with the other two pages: a reader who picked Chinese on
+   the holdings page should not have to pick it again here. */
+const LANGS = DATA.langs.map(l => l.v);
+let lang = (() => {
+  try { const v = localStorage.getItem('ark-lang'); if (LANGS.includes(v)) return v; }
+  catch (e) {}
+  return LANGS[0];
+})();
+const page = () => DATA.i18n[lang];
+const t = k => page().ui[k];
+const lbl = o => (lang === 'zh' && o.label_zh) ? o.label_zh : o.label;
+const desc = c => (lang === 'zh' && c.dz) ? c.dz : (c.d || '');
+
+const usd = n => n.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+/* Trillions once a company is worth one, billions otherwise: the unit a reader
+   holds in their head, not 4,361,834,000,000. */
+function cap(v) {
+  return v >= 1e12 ? '$' + (v / 1e12).toFixed(2) + 'T'
+                   : '$' + (v / 1e9).toFixed(v / 1e9 >= 100 ? 0 : 1) + 'B';
+}
+function money(v) {
+  const a = Math.abs(v);
+  const [d, u] = a >= 1e9 ? [1e9, 'B'] : a >= 1e6 ? [1e6, 'M'] : a >= 1e3 ? [1e3, 'K'] : [1, ''];
+  return (v < 0 ? '-' : '') + '$' + (a / d).toFixed(a / d >= 100 ? 0 : 1) + u;
+}
+const pct = v => (v > 0 ? '+' : '') + v.toFixed(2) + '%';
+
+const SITE_LABEL = {};
+(DATA.sites || []).forEach(x => { SITE_LABEL[x.key] = x; });
+function siteLinks(c) {
+  if (!c.lk || !c.lk.length) return '';
+  const a = c.lk.map(l => {
+    const site = SITE_LABEL[l.k];
+    if (!site) return '';
+    return `<a href="${l.u}" target="_blank" rel="noopener noreferrer">${lbl(site)}</a>`;
+  }).join('');
+  return `<div class="detail-links">${a}</div>`;
+}
+
+const sectorLabel = v => {
+  const g = (DATA.segFilters || []).find(x => x.key === 'sec');
+  const o = g && g.options.find(x => x.v === v);
+  return o ? lbl(o) : v;
+};
+
+/* Movement is shown as places gained or lost, not as the old rank: "+7" is
+   the fact, "was #34" is the lookup, and only one of them belongs in a
+   62-pixel column. */
+function moveCell(c) {
+  if (c.mv === 'in') return `<td class="move-cell" data-m="in">★</td>`;
+  if (c.pr === undefined) return `<td class="move-cell" data-m="flat">·</td>`;
+  const d = c.pr - c.r;
+  if (d === 0) return `<td class="move-cell" data-m="flat">·</td>`;
+  return `<td class="move-cell" data-m="${d > 0 ? 'up' : 'down'}">`
+       + `${d > 0 ? '▲' : '▼'}${Math.abs(d)}</td>`;
+}
+
+const HEADS = {r: 'colRank', t: 'colTicker', n: 'colCompany', sec: 'colSector',
+               cap: 'colCap', w: 'colWeight', p: 'colPrice', ch: 'colChange'};
+
+/* ---- filters ---- */
+
+/* Within a group the selections are ORed; across groups ANDed -- so "Top 10"
+   plus "Technology" means both, while "Top 10" plus "11-50" means either. */
+const GROUPS = DATA.segFilters || [];
+const state = {q: '', sel: {}, key: 'r', dir: 1, open: new Set()};
+GROUPS.forEach(g => { state.sel[g.key] = new Set(); });
+
+function valueOf(c, key) {
+  if (key === 'sec') return c.sec || '';
+  if (key === 'ark') return c.ark !== undefined ? 'y' : 'n';
+  if (key === 'mv') return c.mv;
+  return (c.sg || {})[key];
+}
+function matchesGroup(c, g) {
+  const chosen = state.sel[g.key];
+  return !chosen.size || chosen.has(valueOf(c, g.key));
+}
+function matchesSearch(c) {
+  return !state.q || (c.t + ' ' + c.n).toLowerCase().includes(state.q);
+}
+function visible() {
+  return DATA.companies.filter(c => matchesSearch(c) && GROUPS.every(g => matchesGroup(c, g)));
+}
+/* Facet count: how many rows a chip would leave, ignoring its own group. */
+function countFor(g, v) {
+  return DATA.companies.filter(c => {
+    if (!matchesSearch(c)) return false;
+    for (const o of GROUPS) if (o.key !== g.key && !matchesGroup(c, o)) return false;
+    return valueOf(c, g.key) === v;
+  }).length;
+}
+
+const groupsEl = document.getElementById('filter-groups');
+groupsEl.innerHTML = GROUPS.map(g => `
+  <div class="filter-row">
+    <div class="filter-label" id="lbl-${g.key}">${g.label}</div>
+    <div class="chipset" role="group" aria-labelledby="lbl-${g.key}" data-group="${g.key}">
+      ${g.options.map(o => `<button class="chip" type="button" data-v="${o.v}"
+        aria-pressed="false">${o.label}<span class="count"></span></button>`).join('')}
+    </div>
+  </div>`).join('');
+
+groupsEl.addEventListener('click', e => {
+  const btn = e.target.closest('.chip');
+  if (!btn) return;
+  const key = btn.closest('[data-group]').dataset.group;
+  const bucket = state.sel[key];
+  const v = btn.dataset.v;
+  if (bucket.has(v)) bucket.delete(v); else bucket.add(v);
+  render();
+});
+
+const clearBtn = document.getElementById('clear');
+clearBtn.addEventListener('click', () => {
+  GROUPS.forEach(g => state.sel[g.key].clear());
+  state.q = '';
+  document.getElementById('search').value = '';
+  render();
+});
+document.getElementById('search').addEventListener('input', e => {
+  state.q = e.target.value.trim().toLowerCase();
+  render();
+});
+
+function paintChips() {
+  let active = 0;
+  GROUPS.forEach(g => {
+    active += state.sel[g.key].size;
+    const wrap = groupsEl.querySelector(`[data-group="${g.key}"]`);
+    g.options.forEach(o => {
+      const btn = wrap.querySelector(`[data-v="${CSS.escape(o.v)}"]`);
+      const on = state.sel[g.key].has(o.v);
+      const n = countFor(g, o.v);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.dataset.empty = (!on && n === 0) ? '1' : '0';
+      btn.querySelector('.count').textContent = n;
+    });
+  });
+  clearBtn.hidden = active === 0 && !state.q;
+}
+
+/* ---- static copy ---- */
+
+function paintStatic() {
+  const c = page();
+  document.getElementById('eyebrow').textContent = c.eyebrow;
+  document.getElementById('title').textContent = c.title;
+  document.getElementById('standfirst').textContent = c.standfirst;
+  document.getElementById('provenance').textContent = c.provenance;
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+  document.getElementById('tiles').innerHTML = c.tiles.map(([l, v, n]) => `
+    <div class="tile">
+      <span class="tile-label">${l}</span>
+      <span class="tile-value">${v}</span>
+      <span class="tile-note">${n}</span>
+    </div>`).join('');
+
+  document.getElementById('footnotes').innerHTML = c.footnotes
+    .map(([b, x]) => `<div>${b ? `<b>${b}</b> ` : ''}${x}</div>`).join('');
+
+  document.getElementById('h-board').textContent = t('board');
+  document.getElementById('hint-board').textContent = t('boardHint');
+  document.getElementById('hd-move').textContent = t('colMove');
+  document.getElementById('hd-ark').textContent = t('colArk');
+  document.getElementById('empty').textContent = t('empty');
+  document.getElementById('clear').textContent = t('clear');
+  document.getElementById('search').placeholder = t('search');
+  document.getElementById('toholdings').textContent = t('toHoldings');
+  document.getElementById('tofeed').textContent = t('toFeed');
+  document.querySelectorAll('#board .hd').forEach(el => {
+    el.textContent = t(HEADS[el.dataset.t]);
+  });
+  document.querySelectorAll('#filter-groups .filter-label').forEach(el => {
+    const g = GROUPS.find(x => x.key === el.id.slice(4));
+    if (g) el.textContent = lbl(g);
+  });
+  document.querySelectorAll('#filter-groups .chip').forEach(btn => {
+    const key = btn.closest('[data-group]').dataset.group;
+    const g = GROUPS.find(x => x.key === key);
+    const o = g && g.options.find(x => String(x.v) === btn.dataset.v);
+    if (o) btn.childNodes[0].nodeValue = lbl(o);
+  });
+  paintDropped();
+}
+
+function paintDropped() {
+  const section = document.getElementById('dropped-section');
+  if (!DATA.dropped || !DATA.dropped.length) { section.hidden = true; return; }
+  section.hidden = false;
+  document.getElementById('h-dropped').textContent = t('dropped');
+  document.getElementById('hint-dropped').textContent =
+    t('droppedHint').replace('{n}', DATA.size).replace('{d}', DATA.prevDate);
+  document.getElementById('dropped').innerHTML = DATA.dropped
+    .map(d => `<span><b>${d.t}</b> #${d.r}</span>`).join('');
+}
+
+const switcher = document.getElementById('langswitch');
+switcher.innerHTML = DATA.langs.map(l =>
+  `<button type="button" data-l="${l.v}" aria-pressed="false">${l.label}</button>`).join('');
+switcher.hidden = DATA.langs.length < 2;
+switcher.addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b || b.dataset.l === lang) return;
+  lang = b.dataset.l;
+  try { localStorage.setItem('ark-lang', lang); } catch (err) {}
+  paintStatic();
+  render();
+});
+
+/* ---- sorting ---- */
+
+document.querySelectorAll('#board th.sortable').forEach(th => {
+  const activate = () => {
+    const key = th.dataset.key;
+    if (state.key === key) state.dir *= -1;
+    // Rank and text sort ascending first; every measure sorts biggest first.
+    else { state.key = key; state.dir = (key === 'r' || key === 't' || key === 'n' || key === 'sec') ? 1 : -1; }
+    render();
+  };
+  th.addEventListener('click', activate);
+  th.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+  });
+});
+
+/* ---- render ---- */
+
+function render() {
+  paintChips();
+  const rows = visible();
+  const key = state.key;
+  rows.sort((a, b) => {
+    const va = a[key], vb = b[key];
+    if (typeof va === 'string' || typeof vb === 'string')
+      return state.dir * String(va || '').localeCompare(String(vb || ''));
+    return state.dir * (va - vb);
+  });
+
+  document.querySelectorAll('#board th.sortable').forEach(th => {
+    if (th.dataset.key === key) {
+      th.dataset.dir = state.dir > 0 ? 'asc' : 'desc';
+      th.querySelector('.arrow').textContent = state.dir > 0 ? '▴' : '▾';
+      th.setAttribute('aria-sort', state.dir > 0 ? 'ascending' : 'descending');
+    } else {
+      delete th.dataset.dir;
+      th.removeAttribute('aria-sort');
+    }
+  });
+
+  const shown = rows.reduce((a, c) => a + c.cap, 0);
+  document.getElementById('status').textContent = t('status')
+    .replace('{n}', rows.length)
+    .replace('{t}', DATA.companies.length)
+    .replace('{v}', usd(shown))
+    .replace('{p}', (100 * shown / DATA.total).toFixed(1));
+
+  // The bar is scaled to the largest row on screen, so a filtered view still
+  // spends its full width rather than collapsing against Nvidia.
+  const max = rows.length ? Math.max(...rows.map(c => c.cap)) : 1;
+
+  document.getElementById('rows').innerHTML = rows.map(c => {
+    const open = state.open.has(c.t);
+    const w = Math.max(2, Math.round(96 * c.cap / max));
+    const listed = c.iy ? `${t('listed')} ${c.iy}` : t('listedUnknown');
+    const was = c.mv === 'in' ? t('newEntry').replace('{n}', DATA.size)
+              : c.pr !== undefined ? t('wasRanked').replace('{r}', c.pr) : '';
+    return `
+      <tr class="row-main${open ? ' open' : ''}" data-t="${c.t}" data-top="${c.r <= 10 ? 1 : 0}"
+          tabindex="0" aria-expanded="${open}">
+        <td class="rank-cell">${c.r}</td>
+        ${moveCell(c)}
+        <td class="ticker-cell">${c.t}${c.alt ? ` <span class="alt-sym">${c.alt}</span>` : ''}</td>
+        <td class="name-cell"><span class="name">${c.n}</span></td>
+        <td class="sector-cell">${c.sec ? sectorLabel(c.sec) : '—'}</td>
+        <td class="num cap-cell">
+          <span class="cap-val">${cap(c.cap)}</span>
+          <span class="cap-bar" style="width:${w}px"></span>
+        </td>
+        <td class="num">${c.w.toFixed(2)}%</td>
+        <td class="num price-cell">${c.p ? c.p.toFixed(2) : '—'}</td>
+        <td class="num chg-cell" data-d="${c.ch > 0 ? 'up' : c.ch < 0 ? 'down' : ''}">${pct(c.ch)}</td>
+        <td>${c.ark !== undefined ? `<span class="ark-badge">${t('arkHeld')}</span>` : ''}</td>
+      </tr>
+      ${open ? `<tr class="detail"><td colspan="10"><div class="detail-body">
+        ${desc(c) ? `<p class="detail-desc">${desc(c)}</p>` : ''}
+        <div class="detail-meta">${[
+          c.sec ? sectorLabel(c.sec) + (c.ind ? '  ·  ' + c.ind : '') : '',
+          listed,
+          was,
+          c.ark !== undefined ? `${t('arkPosition')} ${money(c.ark)}` : '',
+        ].filter(Boolean).join('  ·  ')}</div>
+        ${siteLinks(c)}
+      </div></td></tr>` : ''}`;
+  }).join('');
+
+  document.getElementById('empty').hidden = rows.length > 0;
+}
+
+function toggle(e) {
+  const tr = e.target.closest('.row-main');
+  if (!tr) return;
+  if (e.type === 'keydown') {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+  }
+  const k = tr.dataset.t;
+  if (state.open.has(k)) state.open.delete(k); else state.open.add(k);
+  render();
+}
+document.getElementById('rows').addEventListener('click', toggle);
+document.getElementById('rows').addEventListener('keydown', toggle);
+
+paintStatic();
+render();
+</script>

@@ -55,6 +55,71 @@ def venture_date() -> str:
     return dates[-1] if dates else "n/a"
 
 
+def tradeable_funds(date: str, keep: set[str]) -> list[dict]:
+    """Per-fund position count and market value, counting only `keep` CUSIPs.
+
+    Fund totals must describe the filtered universe, not the whole fund, so
+    they are recounted from the positions that survived rather than reused.
+    """
+    mv = {f: 0.0 for f in ETFS if f not in EXCLUDED_FUNDS}
+    n = {f: 0 for f in mv}
+    with (DATA / f"positions_{date}.csv").open(encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            if r["fund"] in EXCLUDED_FUNDS or r["cusip"] not in keep:
+                continue
+            n[r["fund"]] += 1
+            mv[r["fund"]] += float(r["market_value"])
+    return sorted(({"f": f, "n": n[f], "v": mv[f]} for f in mv), key=lambda x: -x["v"])
+
+
+def tradeable_dates() -> list[str]:
+    return sorted(p.name.removeprefix("tradeable_").removesuffix(".csv")
+                  for p in DATA.glob("tradeable_*.csv"))
+
+
+def _book(date: str) -> tuple[dict[str, float], set[str]]:
+    """symbol -> position value, and the CUSIPs behind them, for one day."""
+    value, cusips = {}, set()
+    with (DATA / f"tradeable_{date}.csv").open(encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            value[r["symbol"]] = float(r["total_market_value"])
+            cusips.add(r["cusip"])
+    return value, cusips
+
+
+def summary(date: str | None = None) -> dict | None:
+    """Headline shape of one day's tradeable book, for the home page.
+
+    Change is measured against the previous snapshot on file rather than a
+    fixed lag, so a missed fetch shows up as a longer interval instead of a
+    silently absent comparison.
+    """
+    dates = tradeable_dates()
+    if not dates:
+        return None
+    date = date or dates[-1]
+    value, cusips = _book(date)
+    funds = tradeable_funds(date, cusips)
+    total = sum(f["v"] for f in funds)
+    out = {"date": date, "total": total, "n": len(value), "funds": funds,
+           "top": [{"t": t, "v": v} for t, v in
+                   sorted(value.items(), key=lambda kv: -kv[1])[:5]]}
+
+    earlier = [d for d in dates if d < date]
+    if earlier:
+        prev_value, prev_cusips = _book(earlier[-1])
+        out["prev"] = {
+            "date": earlier[-1],
+            # Totalled the same way as today's, through the fund split, so the
+            # two are comparable rather than two different sums of the book.
+            "total": sum(f["v"] for f in tradeable_funds(earlier[-1], prev_cusips)),
+            "n": len(prev_value),
+            "added": sorted(set(value) - set(prev_value)),
+            "removed": sorted(set(prev_value) - set(value)),
+        }
+    return out
+
+
 def load_full(date: str) -> dict:
     path = DATA / f"baseline_{date}.csv"
     if not path.exists():
@@ -206,19 +271,7 @@ def load_tradeable(date: str) -> dict:
                         for x in sectors],
         })
 
-    # Fund totals must describe the filtered universe, not the whole fund, so
-    # they are recounted from the positions that survived rather than reused.
-    per_fund_mv = {f: 0.0 for f in ETFS if f not in EXCLUDED_FUNDS}
-    per_fund_n = {f: 0 for f in per_fund_mv}
-    with (DATA / f"positions_{date}.csv").open(encoding="utf-8") as fh:
-        keep = {s["c"] for s in securities}
-        for r in csv.DictReader(fh):
-            if r["fund"] in EXCLUDED_FUNDS or r["cusip"] not in keep:
-                continue
-            per_fund_n[r["fund"]] += 1
-            per_fund_mv[r["fund"]] += float(r["market_value"])
-    funds = sorted(({"f": f, "n": per_fund_n[f], "v": per_fund_mv[f]} for f in per_fund_n),
-                   key=lambda x: -x["v"])
+    funds = tradeable_funds(date, {s["c"] for s in securities})
 
     total = sum(f["v"] for f in funds)
     n = len(securities)

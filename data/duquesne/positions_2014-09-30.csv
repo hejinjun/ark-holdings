@@ -1,0 +1,37 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2014-09-30,Duquesne Family Office,38259P508,,Google Inc,equity,166810,98153000.00,12.0398
+2014-09-30,Duquesne Family Office,452327109,ILMN,Illumina Inc.,equity,410100,67224000.00,8.2459
+2014-09-30,Duquesne Family Office,013817101,AA,Alcoa Inc,equity,4018000,64650000.00,7.9302
+2014-09-30,Duquesne Family Office,151020104,CELG,Celgene Corp,equity,560600,53134000.00,6.5176
+2014-09-30,Duquesne Family Office,931422109,,Walgreen Co,equity,648000,38407000.00,4.7111
+2014-09-30,Duquesne Family Office,09062X103,BIIB,Biogen Idec Inc,equity,103800,34338000.00,4.2120
+2014-09-30,Duquesne Family Office,57060U100,,Mkt Vctrs Gld Miners ETF,equity,1546600,33020000.00,4.0504
+2014-09-30,Duquesne Family Office,580037109,MS$F,McDermott Int&apos;l Inc,equity,4555000,26055000.00,3.1960
+2014-09-30,Duquesne Family Office,13321L108,CCJ,Cameco Corp,equity,1428200,25222000.00,3.0938
+2014-09-30,Duquesne Family Office,375558103,GILD,Gilead Sciences Inc,equity,217500,23153000.00,2.8400
+2014-09-30,Duquesne Family Office,031162100,AMGN,Amgen Inc,equity,158900,22319000.00,2.7377
+2014-09-30,Duquesne Family Office,437076102,HD,Home Depot Inc,equity,222400,20403000.00,2.5027
+2014-09-30,Duquesne Family Office,22160K105,COST,Costco Wholesale Corp,equity,158100,19813000.00,2.4303
+2014-09-30,Duquesne Family Office,500255104,KSS,Kohl&apos;s Corp,equity,323900,19768000.00,2.4248
+2014-09-30,Duquesne Family Office,548661107,LOW,Lowe&apos;s Co&apos;s Inc,equity,370900,19628000.00,2.4076
+2014-09-30,Duquesne Family Office,87612E106,TGT,Target Corp,equity,312300,19575000.00,2.4011
+2014-09-30,Duquesne Family Office,58933Y105,MRK,Merck &amp; Co,equity,329600,19539000.00,2.3967
+2014-09-30,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,222679,18371000.00,2.2535
+2014-09-30,Duquesne Family Office,M51363113,,Mellanox Tech&apos;s Ltd,equity,389300,17468000.00,2.1427
+2014-09-30,Duquesne Family Office,92532F100,VRTX,Vertex Pharms Inc,equity,146600,16465000.00,2.0197
+2014-09-30,Duquesne Family Office,02553E106,AEO,Am Eagle Outfitters Inc,equity,1017000,14767000.00,1.8114
+2014-09-30,Duquesne Family Office,969904101,WSM,Williams-Sonoma Inc,equity,217500,14479000.00,1.7760
+2014-09-30,Duquesne Family Office,55616P104,M,"Macy&apos;s, Inc",equity,246400,14336000.00,1.7585
+2014-09-30,Duquesne Family Office,808513105,SCHW,Charles Schwab Corp,equity,485700,14275000.00,1.7510
+2014-09-30,Duquesne Family Office,40415F101,HDB,HDFC Bank Ltd,equity,306000,14253000.00,1.7483
+2014-09-30,Duquesne Family Office,984245100,YPF,YPF S.A.,equity,298900,11056000.00,1.3562
+2014-09-30,Duquesne Family Office,81369Y209,XLV,Hlth Care Slct Sctr SPDR,equity,172300,11012000.00,1.3508
+2014-09-30,Duquesne Family Office,501797104,LBEUR,L Brands Inc,equity,151300,10134000.00,1.2431
+2014-09-30,Duquesne Family Office,81369Y605,XLF,Fin&apos;l Slct Sctr SPDR Fnd,equity,428700,9933000.00,1.2184
+2014-09-30,Duquesne Family Office,78467X109,DIA,SPDR D.J. Ind&apos;l Avg ETF Tst,equity,58300,9915000.00,1.2162
+2014-09-30,Duquesne Family Office,655664100,JWNUSD,Nordstrom Inc,equity,143200,9791000.00,1.2010
+2014-09-30,Duquesne Family Office,344849104,WOO,Foot Locker Inc,equity,175400,9761000.00,1.1973
+2014-09-30,Duquesne Family Office,04033A100,,ARIAD Pharms Inc,equity,1645000,8883000.00,1.0896
+2014-09-30,Duquesne Family Office,651511107,NLNKEUR,NewLink Genetics Corp,equity,182500,3909000.00,0.4795
+2014-09-30,Duquesne Family Office,49803L109,,Kite Pharma Inc,equity,40000,1140000.00,0.1398
+2014-09-30,Duquesne Family Office,01609W102,BABA,Alibaba Group Hldng Ltd,equity,10000,889000.00,0.1090

@@ -1,0 +1,51 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2023-12-31,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,1086120,408425000.00,13.1351
+2023-12-31,Duquesne Family Office,22266T109,CPNG,Coupang Inc,equity,22914940,370993000.00,11.9313
+2023-12-31,Duquesne Family Office,67066G104,NVDA,Nvidia Corporation,equity,617494,305795000.00,9.8345
+2023-12-31,Duquesne Family Office,532457108,LLY,Eli Lilly &amp; Co,equity,402550,234654000.00,7.5466
+2023-12-31,Duquesne Family Office,878742204,TECK,Teck Resources Ltd,equity,5524602,233548000.00,7.5110
+2023-12-31,Duquesne Family Office,G7997R103,,Seagate Technology Hldngs Pl,equity,2116108,180652000.00,5.8098
+2023-12-31,Duquesne Family Office,92537N108,VRT,Vertiv Holdings Co,equity,2313500,111117000.00,3.5736
+2023-12-31,Duquesne Family Office,65249B109,NWSA,News Corp New,equity,4045120,99308000.00,3.1938
+2023-12-31,Duquesne Family Office,369604301,GE,General Electric Co,equity,736095,93948000.00,3.0214
+2023-12-31,Duquesne Family Office,92840M102,VST,Vistra Corp,equity,2385061,91873000.00,2.9547
+2023-12-31,Duquesne Family Office,H42097107,,Ubs Group Ag,equity,2414735,74887000.00,2.4084
+2023-12-31,Duquesne Family Office,48242W106,KBR,Kbr Inc,equity,1158535,64194000.00,2.0645
+2023-12-31,Duquesne Family Office,513272104,LW,Lamb Weston Hldgs Inc,equity,539209,58283000.00,1.8744
+2023-12-31,Duquesne Family Office,13321L108,CCJ,Cameco Corp,equity,1332625,57436000.00,1.8472
+2023-12-31,Duquesne Family Office,166764100,CVX,Chevron Corp New,equity,384595,57366000.00,1.8449
+2023-12-31,Duquesne Family Office,632307104,NTRA,Natera Inc,equity,893030,55939000.00,1.7990
+2023-12-31,Duquesne Family Office,040413106,ANETEUR,Arista Networks Inc,equity,234185,55153000.00,1.7737
+2023-12-31,Duquesne Family Office,980745103,WWD,Woodward Inc,equity,404635,55083000.00,1.7715
+2023-12-31,Duquesne Family Office,68404L201,OPCH,Option Care Health Inc,equity,1456215,49060000.00,1.5778
+2023-12-31,Duquesne Family Office,88023U101,SGI,Tempur Sealy Intl Inc,equity,749100,38182000.00,1.2279
+2023-12-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,1134400,34554000.00,1.1113
+2023-12-31,Duquesne Family Office,067901108,ABX,Barrick Gold Corp,equity,1758300,31808000.00,1.0230
+2023-12-31,Duquesne Family Office,099502106,BAH,Booz Allen Hamilton Hldg Cor,equity,235800,30161000.00,0.9700
+2023-12-31,Duquesne Family Office,87256C101,TKO,Tko Group Holdings Inc,equity,326735,26655000.00,0.8572
+2023-12-31,Duquesne Family Office,65249B208,NWS,News Corp New,equity,975600,25092000.00,0.8070
+2023-12-31,Duquesne Family Office,573874104,MRVL,Marvell Technology Inc,equity,363585,21928000.00,0.7052
+2023-12-31,Duquesne Family Office,35671D857,FCX,Freeport-Mcmoran Inc,equity,471535,20073000.00,0.6456
+2023-12-31,Duquesne Family Office,651639106,NEM,Newmont Corp,equity,474250,19629000.00,0.6313
+2023-12-31,Duquesne Family Office,697435105,PANW,Palo Alto Networks Inc,equity,64715,19083000.00,0.6137
+2023-12-31,Duquesne Family Office,74624M102,P,Pure Storage Inc,equity,531247,18944000.00,0.6092
+2023-12-31,Duquesne Family Office,922475108,VEEV,Veeva Sys Inc,equity,95700,18424000.00,0.5925
+2023-12-31,Duquesne Family Office,98980F104,GTM,Zoominfo Technologies Inc,equity,924100,17087000.00,0.5495
+2023-12-31,Duquesne Family Office,26142V105,DKNG,Draftkings Inc New,equity,423850,14941000.00,0.4805
+2023-12-31,Duquesne Family Office,958102105,WDC,Western Digital Corp.,equity,230000,12045000.00,0.3874
+2023-12-31,Duquesne Family Office,67059N108,NTNX,Nutanix Inc,equity,216600,10330000.00,0.3322
+2023-12-31,Duquesne Family Office,874054109,TTWO,Take-Two Interactive Softwar,equity,63850,10277000.00,0.3305
+2023-12-31,Duquesne Family Office,00724F101,ADBE,Adobe Inc,equity,17130,10220000.00,0.3287
+2023-12-31,Duquesne Family Office,55826T102,SPHR,Sphere Entertainment Co,equity,294751,10010000.00,0.3219
+2023-12-31,Duquesne Family Office,546347105,LPX,Louisiana Pac Corp,equity,135132,9571000.00,0.3078
+2023-12-31,Duquesne Family Office,93403J106,WRBY,Warby Parker Inc,equity,674039,9504000.00,0.3057
+2023-12-31,Duquesne Family Office,75629V104,RXRX,Recursion Pharmaceuticals In,equity,906767,8941000.00,0.2875
+2023-12-31,Duquesne Family Office,78464A698,KRE,Spdr Ser Tr,equity,153965,8072000.00,0.2596
+2023-12-31,Duquesne Family Office,91347P105,OLED,Universal Display Corp,equity,28400,5432000.00,0.1747
+2023-12-31,Duquesne Family Office,808513105,SCHW,Schwab Charles Corp,equity,71700,4933000.00,0.1586
+2023-12-31,Duquesne Family Office,21037T109,CEG,Constellation Energy Corp,equity,38656,4518000.00,0.1453
+2023-12-31,Duquesne Family Office,00288U106,ABCL,Abcellera Biologics Inc,equity,659750,3767000.00,0.1211
+2023-12-31,Duquesne Family Office,13646K108,CP,Canadian Pacific Kansas City,equity,47505,3756000.00,0.1208
+2023-12-31,Duquesne Family Office,G4701H109,IHS,Ihs Holding Limited,equity,770310,3543000.00,0.1139
+2023-12-31,Duquesne Family Office,G65163100,,Joby Aviation Inc,equity,22492,150000.00,0.0048
+2023-12-31,Duquesne Family Office,81728A108,SNSEEUR,Sensei Biotherapeutics Inc,equity,100000,69000.00,0.0022

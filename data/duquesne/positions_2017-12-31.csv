@@ -1,0 +1,31 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2017-12-31,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,3227800,276106000.00,13.9179
+2017-12-31,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc,equity,257350,271092000.00,13.6652
+2017-12-31,Duquesne Family Office,023135106,AMZN,Amazon Com Inc,equity,168003,196474000.00,9.9038
+2017-12-31,Duquesne Family Office,30303M102,META,Facebook Inc,equity,1082200,190965000.00,9.6261
+2017-12-31,Duquesne Family Office,79466L302,CRM,Salesforce Com Inc,equity,1714300,175253000.00,8.8341
+2017-12-31,Duquesne Family Office,640268108,NKTREUR,Nektar Therapeutics,equity,1834000,109526000.00,5.5210
+2017-12-31,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,832500,84699000.00,4.2695
+2017-12-31,Duquesne Family Office,26875P101,EOG,Eog Res Inc,equity,524700,56620000.00,2.8541
+2017-12-31,Duquesne Family Office,949746101,WFC,Wells Fargo Co New,equity,850000,51570000.00,2.5995
+2017-12-31,Duquesne Family Office,060505104,BAC,Bank Amer Corp,equity,1717500,50701000.00,2.5557
+2017-12-31,Duquesne Family Office,47215P106,JD,Jd Com Inc,equity,1098200,45487000.00,2.2929
+2017-12-31,Duquesne Family Office,25179M103,DVN,Devon Energy Corp New,equity,1009800,41806000.00,2.1074
+2017-12-31,Duquesne Family Office,037411105,9990302D,Apache Corp,equity,903000,38125000.00,1.9218
+2017-12-31,Duquesne Family Office,09062X103,BIIB,Biogen Inc,equity,109400,34852000.00,1.7568
+2017-12-31,Duquesne Family Office,70450Y103,PYPL,Paypal Hldgs Inc,equity,465100,34241000.00,1.7260
+2017-12-31,Duquesne Family Office,22943F100,CTRPUSD,Ctrip Com Intl Ltd,equity,728900,32144000.00,1.6203
+2017-12-31,Duquesne Family Office,852857200,STMP,Stamps Com Inc,equity,168000,31584000.00,1.5921
+2017-12-31,Duquesne Family Office,20605P101,CXOEUR,Concho Res Inc,equity,206400,31005000.00,1.5629
+2017-12-31,Duquesne Family Office,H00263105,,Ac Immune Sa,equity,2388700,30575000.00,1.5412
+2017-12-31,Duquesne Family Office,127097103,CTRA,Cabot Oil &amp; Gas Corp,equity,1040200,29750000.00,1.4996
+2017-12-31,Duquesne Family Office,887317303,TWXCHF,Time Warner Inc,equity,278100,25438000.00,1.2823
+2017-12-31,Duquesne Family Office,912909108,USX1,United States Stl Corp New,equity,709200,24957000.00,1.2580
+2017-12-31,Duquesne Family Office,56585A102,MPC,Marathon Pete Corp,equity,321100,21186000.00,1.0679
+2017-12-31,Duquesne Family Office,03349M105,,Andeavor,equity,181700,20776000.00,1.0473
+2017-12-31,Duquesne Family Office,565849106,MRO*,Marathon Oil Corp,equity,1227000,20773000.00,1.0471
+2017-12-31,Duquesne Family Office,91912E105,VALE,Vale S A,equity,1666600,20383000.00,1.0275
+2017-12-31,Duquesne Family Office,40415F101,HDB,Hdfc Bank Ltd,equity,128200,13034000.00,0.6570
+2017-12-31,Duquesne Family Office,292505104,,Encana Corp,equity,846400,11283000.00,0.5688
+2017-12-31,Duquesne Family Office,N97284108,,Yandex N V,equity,304000,9956000.00,0.5019
+2017-12-31,Duquesne Family Office,54150E104,LOMA,Loma Negra Corp,equity,150000,3456000.00,0.1742

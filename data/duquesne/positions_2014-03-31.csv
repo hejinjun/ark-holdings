@@ -1,0 +1,22 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2014-03-31,Duquesne Family Office,38259P508,,Google Inc.,equity,259610,289338000.00,32.6484
+2014-03-31,Duquesne Family Office,931422109,,Walgreen Co,equity,1240000,81877000.00,9.2389
+2014-03-31,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,1724200,70675000.00,7.9748
+2014-03-31,Duquesne Family Office,881624209,TEVA,Teva Pharm Ind&apos;s Ltd,equity,1241000,65574000.00,7.3993
+2014-03-31,Duquesne Family Office,013817101,AA,Alcoa Inc.,equity,5000000,64350000.00,7.2611
+2014-03-31,Duquesne Family Office,00724F101,ADBE,Adobe Systems Inc,equity,976700,64208000.00,7.2451
+2014-03-31,Duquesne Family Office,98138H101,WDAY,Workday Inc.,equity,437079,39962000.00,4.5092
+2014-03-31,Duquesne Family Office,452327109,ILMN,Illumina Inc.,equity,253300,37656000.00,4.2490
+2014-03-31,Duquesne Family Office,13321L108,CCJ,Cameco Corp,equity,1428200,32706000.00,3.6905
+2014-03-31,Duquesne Family Office,046353108,AZNN,Astrazeneca PLC,equity,360500,23389000.00,2.6392
+2014-03-31,Duquesne Family Office,61166W101,,Monsanto Co,equity,177500,20194000.00,2.2787
+2014-03-31,Duquesne Family Office,26884L109,EQT,EQT Corp,equity,175900,17057000.00,1.9247
+2014-03-31,Duquesne Family Office,81369Y209,XLV,Hlth Care Select Sctr SPDR,equity,193300,11306000.00,1.2757
+2014-03-31,Duquesne Family Office,80004C101,,SanDisk Corp,equity,130800,10620000.00,1.1983
+2014-03-31,Duquesne Family Office,N7902X106,,Sensata Technologies Hldng NV,equity,248100,10579000.00,1.1937
+2014-03-31,Duquesne Family Office,N6596X109,,NXP Semiconductors NV,equity,179400,10551000.00,1.1906
+2014-03-31,Duquesne Family Office,464286103,EWA,ISh MSCI Australia Idx Fd,equity,397000,10270000.00,1.1588
+2014-03-31,Duquesne Family Office,81369Y605,XLF,Fin&apos;l Select Sector SPDR Fnd,equity,447600,9999000.00,1.1283
+2014-03-31,Duquesne Family Office,81369Y100,XLB,Mat&apos;ls Select Sctr SPDR Tst,equity,209000,9882000.00,1.1151
+2014-03-31,Duquesne Family Office,464286640,ECH,ISh MSCI Chile Cap Inv Mkt Idx Fd,equity,67000,3052000.00,0.3444
+2014-03-31,Duquesne Family Office,46429B408,EPHE,ISh MSCI Phillipines Inv Mkt Idx Fd,equity,87300,2979000.00,0.3361

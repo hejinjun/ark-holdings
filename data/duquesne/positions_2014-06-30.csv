@@ -1,0 +1,47 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2014-06-30,Duquesne Family Office,38259P508,,Google Inc,equity,259610,151786000.00,10.8318
+2014-06-30,Duquesne Family Office,57060U100,,Mkt Vectors Gld Miners ETF,equity,3895000,103023000.00,7.3520
+2014-06-30,Duquesne Family Office,931422109,,Walgreen Co,equity,1240000,91921000.00,6.5597
+2014-06-30,Duquesne Family Office,013817101,AA,Alcoa Inc.,equity,5744000,85528000.00,6.1035
+2014-06-30,Duquesne Family Office,38259P706,,Google Inc,equity,128910,74159000.00,5.2922
+2014-06-30,Duquesne Family Office,452327109,ILMN,Illumina Inc.,equity,410100,73219000.00,5.2251
+2014-06-30,Duquesne Family Office,881624209,TEVA,Teva Pharm Ind&apos;s Ltd,equity,1241000,65053000.00,4.6423
+2014-06-30,Duquesne Family Office,30303M102,META,Facebook Inc,equity,948500,63825000.00,4.5547
+2014-06-30,Duquesne Family Office,80004C101,,SanDisk Corp,equity,330600,34525000.00,2.4638
+2014-06-30,Duquesne Family Office,26875P101,EOG,EOG Resources Inc.,equity,288200,33679000.00,2.4034
+2014-06-30,Duquesne Family Office,09062X103,BIIB,Biogen Idec Inc.,equity,103800,32729000.00,2.3356
+2014-06-30,Duquesne Family Office,75281A109,RRC,Range Res&apos;s Corp,equity,363400,31598000.00,2.2549
+2014-06-30,Duquesne Family Office,13321L108,CCJ,Cameco Corp,equity,1428200,28007000.00,1.9986
+2014-06-30,Duquesne Family Office,25470M109,DISH,DISH Network Corp,equity,414500,26976000.00,1.9251
+2014-06-30,Duquesne Family Office,580037109,MS$F,McDermott Int&apos;l Inc.,equity,3300000,26697000.00,1.9052
+2014-06-30,Duquesne Family Office,406216101,HAL,Halliburton Co,equity,368700,26181000.00,1.8683
+2014-06-30,Duquesne Family Office,71654V408,PBR,Petroleo Brasileiro SA,equity,1717000,25120000.00,1.7926
+2014-06-30,Duquesne Family Office,718546104,PSX,Phillips 66,equity,303200,24386000.00,1.7402
+2014-06-30,Duquesne Family Office,151020104,CELG,Celgene Corp,equity,276000,23703000.00,1.6915
+2014-06-30,Duquesne Family Office,056752108,BIDU,Baidu.com Inc.,equity,126000,23538000.00,1.6797
+2014-06-30,Duquesne Family Office,01741R102,ATI,Allegheny Tech Inc.,equity,510000,23001000.00,1.6414
+2014-06-30,Duquesne Family Office,723787107,PXDEUR,Pioneer Nat&apos;l Res&apos;s Co,equity,99800,22935000.00,1.6367
+2014-06-30,Duquesne Family Office,N6596X109,,NXP Semiconductors NV,equity,324400,21469000.00,1.5321
+2014-06-30,Duquesne Family Office,98138H101,WDAY,Workday Inc.,equity,222679,20010000.00,1.4280
+2014-06-30,Duquesne Family Office,26884L109,EQT,EQT Corp,equity,175900,18804000.00,1.3419
+2014-06-30,Duquesne Family Office,13645T100,,Canadian Pac Railway Ltd.,equity,92000,16665000.00,1.1893
+2014-06-30,Duquesne Family Office,25179M103,DVN,Devon Energy Corp,equity,207500,16476000.00,1.1758
+2014-06-30,Duquesne Family Office,526057104,LEN,Lennar Corp,equity,370400,15549000.00,1.1096
+2014-06-30,Duquesne Family Office,046353108,AZNN,Astrazeneca PLC,equity,208900,15523000.00,1.1078
+2014-06-30,Duquesne Family Office,81369Y803,XLK,Tech Select Sctr SPDR Fnd,equity,394400,15125000.00,1.0794
+2014-06-30,Duquesne Family Office,343412102,FLR,Fluor Corp,equity,192800,14826000.00,1.0580
+2014-06-30,Duquesne Family Office,23331A109,DHI,D.R. Horton Inc.,equity,494429,12153000.00,0.8673
+2014-06-30,Duquesne Family Office,40412C101,HCA,HCA Hldgs Inc.,equity,194600,10972000.00,0.7830
+2014-06-30,Duquesne Family Office,444859102,HUM,Humana Inc.,equity,83900,10716000.00,0.7647
+2014-06-30,Duquesne Family Office,674599105,OXY,Occidental Pete Corp,equity,103400,10612000.00,0.7573
+2014-06-30,Duquesne Family Office,81369Y209,XLV,Hlth Care Select Sctr SPDR,equity,172300,10481000.00,0.7479
+2014-06-30,Duquesne Family Office,464287184,FXI,IShares FTSE China 25 Idx Fnd,equity,281100,10412000.00,0.7430
+2014-06-30,Duquesne Family Office,02376R102,AAL,American Air Group Inc.,equity,240700,10340000.00,0.7379
+2014-06-30,Duquesne Family Office,867652406,SPWRQ,Sunpower Corp,equity,250800,10278000.00,0.7335
+2014-06-30,Duquesne Family Office,81369Y100,XLB,Mat&apos;s Select Sctr SPDR Trust,equity,202600,10057000.00,0.7177
+2014-06-30,Duquesne Family Office,81369Y605,XLF,Fin&apos;l Select Sctr SPDR Fnd,equity,441500,10040000.00,0.7165
+2014-06-30,Duquesne Family Office,78462F103,SPY,SPDR S&amp;P 500 ETF Trust,equity,51100,10001000.00,0.7137
+2014-06-30,Duquesne Family Office,91913Y100,VLO,Valero Energy Corporation,equity,198500,9945000.00,0.7097
+2014-06-30,Duquesne Family Office,81369Y704,XLI,Ind&apos;l Select Sctr SPDR,equity,183300,9909000.00,0.7071
+2014-06-30,Duquesne Family Office,302130109,EXPD,Expeditors Int&apos;l of Wash Inc.,equity,220000,9715000.00,0.6933
+2014-06-30,Duquesne Family Office,56585A102,MPC,Marathon Pete Corp,equity,123400,9634000.00,0.6875

@@ -1,0 +1,66 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2026-03-31,Duquesne Family Office,632307104,NTRA,Natera Inc,equity,3063606,612691000.00,20.8599
+2026-03-31,Duquesne Family Office,457669307,INSM,Insmed Inc,equity,1154090,188717000.00,6.4251
+2026-03-31,Duquesne Family Office,874039100,TSM,Taiwan Semiconductor Manufac,equity,495280,167380000.00,5.6987
+2026-03-31,Duquesne Family Office,984245100,YPF,Ypf Sociedad Anonima,equity,3235962,149566000.00,5.0922
+2026-03-31,Duquesne Family Office,464286400,EWZ,Ishares Inc,equity,3436170,131915000.00,4.4912
+2026-03-31,Duquesne Family Office,G0896C103,,Bbb Foods Inc,equity,3109202,109972000.00,3.7441
+2026-03-31,Duquesne Family Office,013872106,AA,Alcoa Corp,equity,1493390,99057000.00,3.3725
+2026-03-31,Duquesne Family Office,N62509109,,Newamsterdam Pharma Company,equity,3070146,98275000.00,3.3459
+2026-03-31,Duquesne Family Office,81141R100,SE,Sea Ltd,equity,1099905,91083000.00,3.1010
+2026-03-31,Duquesne Family Office,861012102,STM,Stmicroelectronics N V,equity,2612880,90275000.00,3.0735
+2026-03-31,Duquesne Family Office,980745103,WWD,Woodward Inc,equity,211355,75648000.00,2.5755
+2026-03-31,Duquesne Family Office,881624209,TEVA,Teva Pharmaceutical Inds Ltd,equity,2377285,71604000.00,2.4379
+2026-03-31,Duquesne Family Office,77543R102,ROKU,Roku Inc,equity,750190,70983000.00,2.4167
+2026-03-31,Duquesne Family Office,11135F101,AVGO,Broadcom Inc,equity,195955,60650000.00,2.0649
+2026-03-31,Duquesne Family Office,22266T109,CPNG,Coupang Inc,equity,2667485,50362000.00,1.7146
+2026-03-31,Duquesne Family Office,68404L201,OPCH,Option Care Health Inc,equity,1868550,50301000.00,1.7126
+2026-03-31,Duquesne Family Office,G25508105,CRH,Crh Plc,equity,377555,39689000.00,1.3513
+2026-03-31,Duquesne Family Office,349381103,FIGR,Figure Technology Solutio,equity,1150415,39057000.00,1.3297
+2026-03-31,Duquesne Family Office,37950E259,ARGT,Global X Fds,equity,387400,36152000.00,1.2308
+2026-03-31,Duquesne Family Office,142152107,CAI,Caris Life Sciences Inc,equity,1894450,33873000.00,1.1533
+2026-03-31,Duquesne Family Office,76131D103,QSR,Restaurant Brands Intl Inc,equity,454435,33583000.00,1.1434
+2026-03-31,Duquesne Family Office,76155X100,RVMD,Revolution Medicines Inc,equity,315860,30717000.00,1.0458
+2026-03-31,Duquesne Family Office,518415104,LSCC,Lattice Semiconductor Corp,equity,323135,29974000.00,1.0205
+2026-03-31,Duquesne Family Office,80004C200,SNDK,Sandisk Corp,equity,38155,24241000.00,0.8253
+2026-03-31,Duquesne Family Office,910047109,UAL,United Airls Hldgs Inc,equity,262495,24168000.00,0.8228
+2026-03-31,Duquesne Family Office,444859102,HUM,Humana Inc,equity,137505,23842000.00,0.8117
+2026-03-31,Duquesne Family Office,929740108,WAB,Wabtec,equity,94895,23715000.00,0.8074
+2026-03-31,Duquesne Family Office,90138F102,TWLO,Twilio Inc,equity,181760,22869000.00,0.7786
+2026-03-31,Duquesne Family Office,466313103,JBL,Jabil Inc,equity,82200,21835000.00,0.7434
+2026-03-31,Duquesne Family Office,84265V105,SCCO,Southern Copper Corp,equity,121843,20964000.00,0.7137
+2026-03-31,Duquesne Family Office,46428R107,GSG,Ishares S&amp;P Gsci Commodity-,equity,643000,20737000.00,0.7060
+2026-03-31,Duquesne Family Office,G54950103,LIN,Linde Plc,equity,41200,20425000.00,0.6954
+2026-03-31,Duquesne Family Office,G7997R103,,Seagate Technology Hldngs Pl,equity,50700,19862000.00,0.6762
+2026-03-31,Duquesne Family Office,185899101,CLF,Cleveland-Cliffs Inc New,equity,2313455,19549000.00,0.6656
+2026-03-31,Duquesne Family Office,67080N101,NUVB,Nuvation Bio Inc,equity,4539800,19476000.00,0.6631
+2026-03-31,Duquesne Family Office,093712107,BE,Bloom Energy Corp,equity,136320,18470000.00,0.6288
+2026-03-31,Duquesne Family Office,458140100,INTC,Intel Corp,equity,411400,18155000.00,0.6181
+2026-03-31,Duquesne Family Office,07782B104,BLTE,Belite Bio Inc Sponsored,equity,106100,16917000.00,0.5760
+2026-03-31,Duquesne Family Office,74366E102,PTGX,Protagonist Therapeutics Inc,equity,159700,16832000.00,0.5731
+2026-03-31,Duquesne Family Office,91332U101,U,Unity Software Inc,equity,738785,16209000.00,0.5519
+2026-03-31,Duquesne Family Office,042068205,ARM,Arm Holdings Plc,equity,106700,16142000.00,0.5496
+2026-03-31,Duquesne Family Office,68062P106,OLMA,Olema Pharmaceuticals Inc,equity,986827,14714000.00,0.5010
+2026-03-31,Duquesne Family Office,74743L100,Q,Qnity Electronics Inc,equity,125655,14498000.00,0.4936
+2026-03-31,Duquesne Family Office,000899104,ADMA,Adma Biologics Inc,equity,1545610,13926000.00,0.4741
+2026-03-31,Duquesne Family Office,98420N105,XENE,Xenon Pharmaceuticals Inc,equity,238600,13875000.00,0.4724
+2026-03-31,Duquesne Family Office,N4732M103,JBS,Jbs N.V.,equity,655900,11780000.00,0.4011
+2026-03-31,Duquesne Family Office,234264109,DAKT,Daktronics Inc,equity,562637,11000000.00,0.3745
+2026-03-31,Duquesne Family Office,18915M107,NET,Cloudflare Inc,equity,52535,10840000.00,0.3691
+2026-03-31,Duquesne Family Office,N53745100,LYB,Lyondellbasell Industries Nv,equity,131435,10588000.00,0.3605
+2026-03-31,Duquesne Family Office,92837L109,VIST,Vista Energy S.A.B. De C.V.,equity,134700,10166000.00,0.3461
+2026-03-31,Duquesne Family Office,90184D100,TWST,Twist Bioscience Corp,equity,206000,9789000.00,0.3333
+2026-03-31,Duquesne Family Office,19247G107,COHR,Coherent Corp,equity,40400,9624000.00,0.3277
+2026-03-31,Duquesne Family Office,023135106,AMZN,Amazon Com Inc,equity,45800,9539000.00,0.3248
+2026-03-31,Duquesne Family Office,15101Q207,CLS,Celestica Inc,equity,33275,9373000.00,0.3191
+2026-03-31,Duquesne Family Office,86384P109,STUB,Stubhub Hldgs Inc,equity,1367177,8531000.00,0.2904
+2026-03-31,Duquesne Family Office,23306J309,DBVT,Dbv Technologies S A Sponsored,equity,383363,8008000.00,0.2726
+2026-03-31,Duquesne Family Office,595112103,MU,Micron Technology Inc,equity,23400,7905000.00,0.2691
+2026-03-31,Duquesne Family Office,278768106,ECHO,Echostar Corp,equity,60765,7114000.00,0.2422
+2026-03-31,Duquesne Family Office,020398707,ALM,Almonty Inds Inc,equity,469880,6804000.00,0.2317
+2026-03-31,Duquesne Family Office,74623V103,PCT,Purecycle Technologies Inc,equity,963189,4999000.00,0.1702
+2026-03-31,Duquesne Family Office,55024U109,LITE,Lumentum Hldgs Inc,equity,6963,4893000.00,0.1666
+2026-03-31,Duquesne Family Office,58733R102,MELI,Mercadolibre  Inc,equity,2766,4782000.00,0.1628
+2026-03-31,Duquesne Family Office,83443Q103,SOLS,Solstice Advanced Matls Inc,equity,62525,4762000.00,0.1621
+2026-03-31,Duquesne Family Office,960413102,WLK,Westlake Corporation,equity,21194,2476000.00,0.0843
+2026-03-31,Duquesne Family Office,Y95308105,,Wave Life Sciences Ltd,equity,173000,1254000.00,0.0427

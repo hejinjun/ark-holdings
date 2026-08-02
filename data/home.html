@@ -1,0 +1,1163 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARK — daily brief</title>
+
+<style>
+  :root {
+    color-scheme: light;
+    --ground:      #f4f6f8;
+    --surface:     #ffffff;
+    --surface-alt: #eef1f4;
+    --ink:         #151a1f;
+    --ink-2:       #5a646e;
+    --ink-3:       #8b959f;
+    --rule:        #dde2e7;
+    --rule-strong: #c4ccd4;
+    --accent:      #2a78d6;
+    --accent-soft: #dfebfa;
+    --violet:      #4a3aa7;
+    --orange:      #c04f22;
+    --aqua:        #157f5a;
+    --bar:         #b9d3f0;
+    /* Trade direction. Three redundant encodings, because at 10.5px hue alone
+       does not separate: fill vs tint for intensity, hue for direction, and an
+       arrow glyph that works with no colour at all. */
+    --pos-new-bg:  #0b6b46;  --pos-new-fg:  #ffffff;
+    --pos-buy-bg:  #d5eee2;  --pos-buy-fg:  #0a5c3c;
+    --pos-sell-bg: #fbe0d2;  --pos-sell-fg: #8c3813;
+    --pos-exit-bg: #9c3a18;  --pos-exit-fg: #ffffff;
+    --pos1-bg: #12508f;  --pos1-fg: #ffffff;
+    --pos2-bg: #2f6fb8;  --pos2-fg: #ffffff;
+    --pos3-bg: #b9d5f0;  --pos3-fg: #123a63;
+    --pos4-bg: #e7eef5;  --pos4-fg: #4a5560;
+
+    --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans:  ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono:  ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground:      #101418;
+      --surface:     #171c21;
+      --surface-alt: #1e242a;
+      --ink:         #e9edf1;
+      --ink-2:       #9aa5af;
+      --ink-3:       #6d7883;
+      --rule:        #262d34;
+      --rule-strong: #3a434c;
+      --accent:      #3987e5;
+      --accent-soft: #1b2c42;
+      --violet:      #9085e9;
+      --orange:      #e0763f;
+      --aqua:        #35b98a;
+      --bar:         #2c4d73;
+      --pos-new-bg:  #35b98a;  --pos-new-fg:  #06231a;
+      --pos-buy-bg:  #1b4234;  --pos-buy-fg:  #7fe0b6;
+      --pos-sell-bg: #4a2818;  --pos-sell-fg: #f0a077;
+      --pos-exit-bg: #e0763f;  --pos-exit-fg: #1c0d05;
+
+      --pos1-bg: #6aa9ea;  --pos1-fg: #0b1620;
+      --pos2-bg: #2f6fb8;  --pos2-fg: #ffffff;
+      --pos3-bg: #27435f;  --pos3-fg: #cfe0f2;
+      --pos4-bg: #232a31;  --pos4-fg: #8a949e;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground:      #101418;
+    --surface:     #171c21;
+    --surface-alt: #1e242a;
+    --ink:         #e9edf1;
+    --ink-2:       #9aa5af;
+    --ink-3:       #6d7883;
+    --rule:        #262d34;
+    --rule-strong: #3a434c;
+    --accent:      #3987e5;
+    --accent-soft: #1b2c42;
+    --violet:      #9085e9;
+    --orange:      #e0763f;
+    --aqua:        #35b98a;
+    --bar:         #2c4d73;
+    --pos1-bg: #6aa9ea;  --pos1-fg: #0b1620;
+    --pos2-bg: #2f6fb8;  --pos2-fg: #ffffff;
+    --pos3-bg: #27435f;  --pos3-fg: #cfe0f2;
+    --pos4-bg: #232a31;  --pos4-fg: #8a949e;
+    --pos-new-bg:  #35b98a;  --pos-new-fg:  #06231a;
+    --pos-buy-bg:  #1b4234;  --pos-buy-fg:  #7fe0b6;
+    --pos-sell-bg: #4a2818;  --pos-sell-fg: #f0a077;
+    --pos-exit-bg: #e0763f;  --pos-exit-fg: #1c0d05;
+  }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  /* ---- masthead ---- */
+
+  .masthead { display: flex; flex-direction: column; gap: 10px; }
+
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .langswitch { display: flex; gap: 0; }
+  .langswitch button {
+    font: inherit;
+    font-size: 12px;
+    font-family: var(--mono);
+    padding: 5px 11px;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    cursor: pointer;
+  }
+  .langswitch button:first-child { border-radius: 3px 0 0 3px; }
+  .langswitch button:last-child { border-radius: 0 3px 3px 0; border-left: none; }
+  .langswitch button[aria-pressed="true"] {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .langswitch button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  /* ---- site nav ---- */
+
+  /* Every page carries the same nav, so the current page is marked rather than
+     omitted -- a missing item reads as a broken link, not as "you are here". */
+  .sitenav { display: flex; flex-wrap: wrap; gap: 4px; }
+  .sitenav a {
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 5px 11px;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .sitenav a:hover { border-color: var(--accent); color: var(--ink); }
+  .sitenav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .sitenav a[aria-current="page"] {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ---- trade direction chip ---- */
+
+  /* Shared by the feed and the home page. Solid for opening and closing,
+     tinted for adding and trimming: the fill carries intensity, the hue
+     carries direction, and the arrow works with no colour at all. */
+  .tag-action {
+    justify-self: start;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .tag-action[data-k="new"]  { background: var(--pos-new-bg);  color: var(--pos-new-fg); }
+  .tag-action[data-k="buy"]  { background: var(--pos-buy-bg);  color: var(--pos-buy-fg); }
+  .tag-action[data-k="sell"] { background: var(--pos-sell-bg); color: var(--pos-sell-fg); }
+  .tag-action[data-k="exit"] { background: var(--pos-exit-bg); color: var(--pos-exit-fg); }
+  .tag-action .arrow { font-size: 9px; opacity: 0.85; }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .standfirst {
+    color: var(--ink-2);
+    max-width: 62ch;
+    margin: 0;
+    font-size: 14.5px;
+  }
+
+  .provenance {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    border-top: 1px solid var(--rule);
+    padding-top: 10px;
+    margin-top: 4px;
+  }
+
+  /* ---- summary tiles ---- */
+
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .tile {
+    background: var(--surface);
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .tile-label {
+    font-size: 10.5px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+
+  .tile-value {
+    font-family: var(--mono);
+    font-size: 21px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  .tile-note { font-size: 12px; color: var(--ink-2); }
+
+  /* ---- fund strip ---- */
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .hint { font-size: 12.5px; color: var(--ink-3); }
+
+  .scroller { overflow-x: auto; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+
+  thead th {
+    text-align: left;
+    font-size: 10.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--rule-strong);
+    white-space: nowrap;
+    background: var(--surface);
+  }
+
+  tbody td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: baseline;
+  }
+
+  .num {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .fundtable {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    max-width: 660px;
+  }
+  .fundtable td:first-child, .fundtable th:first-child { padding-left: 18px; }
+  .fundtable td:last-child, .fundtable th:last-child { padding-right: 18px; }
+  .fundtable tbody tr:last-child td { border-bottom: none; font-weight: 600; }
+  .fundtable tbody tr:last-child td { border-top: 1px solid var(--rule-strong); }
+  .ticker-cell { font-family: var(--mono); font-weight: 600; }
+
+  /* ---- controls ---- */
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .search {
+    flex: 1 1 220px;
+    min-width: 180px;
+    font: inherit;
+    font-size: 14px;
+    padding: 8px 12px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+  }
+  .search::placeholder { color: var(--ink-3); }
+  .search:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .chipset { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .filterbar {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .filter-top { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+  .filter-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid var(--rule);
+    padding-top: 12px;
+  }
+
+  .filter-row {
+    display: grid;
+    grid-template-columns: 116px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .filter-label {
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+    padding-top: 7px;
+  }
+
+  .chip .count {
+    color: var(--ink-3);
+    font-weight: 400;
+    margin-left: 5px;
+  }
+  .chip[aria-pressed="true"] .count { color: var(--ink-2); }
+  .chip[data-empty="1"] { opacity: 0.4; }
+
+  .clear {
+    font: inherit;
+    font-size: 12px;
+    padding: 6px 10px;
+    color: var(--ink-2);
+    background: transparent;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .clear:hover { border-color: var(--accent); color: var(--ink); }
+  .clear:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  @media (max-width: 720px) {
+    .filter-row { grid-template-columns: 1fr; gap: 4px; }
+    .filter-label { padding-top: 0; }
+  }
+
+  .chip {
+    font: inherit;
+    font-size: 12px;
+    font-family: var(--mono);
+    padding: 6px 10px;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--ink); }
+  .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .chip[aria-pressed="true"] {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ---- holdings table ---- */
+
+  /* A capped height makes the container the vertical scroller, which is what
+     the sticky header sticks to; without it `top: 0` has nothing to act on. */
+  .holdings-wrap {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: auto;
+    max-height: 74vh;
+  }
+
+  #holdings { font-size: 13px; min-width: 1190px; }
+  #holdings thead th { position: sticky; top: 0; z-index: 2; }
+  #holdings th.sortable { cursor: pointer; user-select: none; }
+  #holdings th.sortable:hover { color: var(--ink); }
+  #holdings th.sortable:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  #holdings th .arrow { opacity: 0; margin-left: 3px; }
+  #holdings th[data-dir] .arrow { opacity: 1; color: var(--accent); }
+  #holdings td:first-child, #holdings th:first-child { padding-left: 18px; }
+  #holdings td:last-child, #holdings th:last-child { padding-right: 18px; }
+
+  .row-main { cursor: pointer; }
+  .row-main:hover { background: var(--surface-alt); }
+  .row-main:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .row-main.open { background: var(--surface-alt); }
+
+  /* Enough columns now that the browser would rather wrap the name than
+     scroll; a floor keeps it on one or two lines and lets the wrapper scroll. */
+  .name-cell { min-width: 236px; max-width: 340px; }
+  .name { display: block; }
+  .cusip {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+  }
+
+  /* magnitude bar sits behind the value, anchored to the right edge */
+  .mv-cell { position: relative; }
+  .mv-inner {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  /* Order-of-magnitude badge on ARK's position. A single hue stepped
+     light-to-dark, because size is ordinal -- categorical colours would imply
+     these tiers are unrelated kinds rather than a scale. The tier is spelled
+     out on the badge so it never depends on colour alone. */
+  .mv-tier {
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    padding: 1px 5px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .mv-tier[data-t="p1"] { background: var(--pos1-bg); color: var(--pos1-fg); }
+  .mv-tier[data-t="p2"] { background: var(--pos2-bg); color: var(--pos2-fg); }
+  .mv-tier[data-t="p3"] { background: var(--pos3-bg); color: var(--pos3-fg); }
+  .mv-tier[data-t="p4"] { background: var(--pos4-bg); color: var(--pos4-fg); }
+
+  .mv-bar {
+    position: absolute;
+    right: 12px;
+    bottom: 3px;
+    height: 3px;
+    border-radius: 0 0 0 0;
+    background: var(--bar);
+  }
+  .mv-val { position: relative; }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.03em;
+    padding: 2px 6px;
+    border-radius: 2px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .tag[data-i="0"] { color: var(--ink-3); }
+  .tag[data-i="1"] { color: var(--violet); }
+  .tag[data-i="2"] { color: var(--orange); }
+  .tag[data-i="3"] { color: var(--aqua); }
+
+  .price-cell { font-family: var(--mono); font-variant-numeric: tabular-nums;
+                text-align: right; white-space: nowrap; }
+
+  /* 52-week range: a track spanning low..high with the last price marked. */
+  .range { display: flex; flex-direction: column; gap: 3px; min-width: 104px; }
+  .range-track {
+    position: relative;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--rule-strong);
+  }
+  .range-mark {
+    position: absolute;
+    top: -2px;
+    width: 3px;
+    height: 8px;
+    border-radius: 1px;
+    background: var(--accent);
+    transform: translateX(-1.5px);
+  }
+  .range-ends {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-3);
+    gap: 8px;
+  }
+
+  .funds-cell { font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); white-space: nowrap; }
+
+  .detail td { background: var(--surface-alt); border-bottom: 1px solid var(--rule-strong); }
+  .detail-desc {
+    margin: 0;
+    /* Fills the detail row instead of wrapping three times in a narrow column,
+       but stays under the table's min-width: an auto-layout table grows to fit
+       its widest cell, so an unbounded line here stretches the whole table and
+       pushes the last columns out of view. */
+    max-width: 1080px;
+    padding-right: 24px;
+    font-size: 13.5px;
+    /* Chinese needs the looser leading; it reads cramped at English spacing. */
+    line-height: 1.7;
+    color: var(--ink);
+    /* Stops a one-word last line -- "software." was orphaning on its own row. */
+    text-wrap: pretty;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+
+  .detail-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+  }
+
+  .detail-body {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 10px 0 12px;
+  }
+
+  .detail-links { display: flex; flex-wrap: wrap; gap: 6px; }
+  .detail-links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 8px;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .detail-links a:hover { border-color: var(--accent); color: var(--accent); }
+  .detail-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .detail-links a::after { content: " ↗"; opacity: 0.45; }
+
+  .fin-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-2);
+  }
+  .fin-row b { color: var(--ink); font-weight: 600; }
+  .fin-row .neg { color: var(--orange); }
+  .fin-row .warn { color: var(--ink-3); font-style: italic; }
+
+  .detail-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .detail-inner span { color: var(--ink-2); }
+  .detail-inner b { color: var(--ink); font-weight: 600; }
+
+  .empty { padding: 28px 18px; color: var(--ink-2); font-size: 14px; }
+
+  .status {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    font-size: 12.5px;
+    color: var(--ink-2);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  footer b { color: var(--ink); font-weight: 600; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+
+
+/* ---- freshness strip ---- */
+
+/* Hairline grid over a ruled background, same construction as .tiles, so the
+   two read as one family rather than two panels that happen to sit together. */
+.sources {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.src {
+  background: var(--surface);
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: 7px 1fr;
+  gap: 3px 8px;
+  align-items: baseline;
+}
+
+/* The dot is the fast read; the word next to the date is the one that
+   survives a colourblind reader or a monochrome print. */
+.src .dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  align-self: center;
+  background: var(--aqua);
+}
+.src[data-s="late"] .dot { background: var(--orange); }
+.src[data-s="stale"] .dot,
+.src[data-s="missing"] .dot { background: var(--pos-exit-bg); }
+.src[data-s="stale"], .src[data-s="missing"] { background: var(--surface-alt); }
+
+.src .slabel {
+  font-size: 10.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+.src .sdate {
+  grid-column: 2;
+  font-family: var(--mono);
+  font-size: 13.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.src .sage { grid-column: 2; font-size: 11.5px; color: var(--ink-2); }
+.src[data-s="stale"] .sage,
+.src[data-s="missing"] .sage { color: var(--orange); font-weight: 600; }
+
+/* ---- card grid ---- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+}
+/* The day's moves are the reason to open the page, so they get the full width
+   and the other cards share the row underneath. */
+.card-wide { grid-column: 1 / -1; }
+
+.cardhead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px 16px;
+  flex-wrap: wrap;
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.cardhead h2 { font-size: 17px; }
+.cardhead .hint { flex: 1 1 200px; }
+.cardhead a {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.cardhead a:hover { text-decoration: underline; }
+
+.cardbody { padding: 14px 18px 16px; display: flex; flex-direction: column; gap: 12px; }
+.cardfoot {
+  margin-top: auto;
+  padding: 10px 18px 12px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- moves ---- */
+
+.moves { display: flex; flex-direction: column; }
+
+.move-row {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr) auto;
+  gap: 4px 14px;
+  align-items: baseline;
+  padding: 9px 18px;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+}
+.move-row:last-child { border-bottom: none; }
+.move-row:hover { background: var(--surface-alt); }
+.move-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* Agreement is the point of the ordering, so it gets the one strong mark. */
+.move-row.agree { box-shadow: inset 3px 0 0 var(--accent); }
+
+.move-row .who { min-width: 0; }
+.move-row .tick { font-family: var(--mono); font-weight: 600; font-size: 13px; }
+.move-row .co {
+  font-size: 12.5px;
+  color: var(--ink-2);
+  /* One line: a wrapped issuer name turns a six-row card into a nine-row one. */
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+.move-row .tail {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+.move-row .val { min-width: 68px; text-align: right; }
+.move-row .agreecount { color: var(--ink-2); min-width: 74px; }
+.move-row.agree .agreecount { color: var(--accent); font-weight: 600; }
+
+@media (max-width: 620px) {
+  .move-row { grid-template-columns: max-content minmax(0, 1fr); padding: 10px 14px; }
+  .move-row .tag-action { grid-row: 1 / 3; align-self: center; }
+  .move-row .tail { justify-content: flex-start; gap: 14px; }
+  .move-row .val, .move-row .agreecount { min-width: 0; text-align: left; }
+}
+
+/* ---- the book ---- */
+
+.headline {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.headline .big {
+  font-family: var(--mono);
+  font-size: clamp(24px, 5vw, 30px);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.headline .sub { font-size: 12.5px; color: var(--ink-2); }
+
+.delta {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  padding: 2px 7px;
+  border-radius: 2px;
+  white-space: nowrap;
+  background: var(--pos-buy-bg);
+  color: var(--pos-buy-fg);
+}
+.delta[data-d="down"] { background: var(--pos-sell-bg); color: var(--pos-sell-fg); }
+.delta[data-d="flat"] { background: var(--surface-alt); color: var(--ink-2); }
+
+.fundsplit { display: flex; flex-direction: column; gap: 6px; }
+.fundrow {
+  display: grid;
+  grid-template-columns: 56px minmax(60px, 1fr) 72px 42px;
+  gap: 10px;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.fundrow .fname { font-weight: 600; }
+.fundrow .ftrack { height: 6px; border-radius: 3px; background: var(--surface-alt); }
+.fundrow .fbar { display: block; height: 6px; border-radius: 3px; background: var(--bar); }
+.fundrow .fval { text-align: right; color: var(--ink-2); }
+.fundrow .fpct { text-align: right; color: var(--ink-3); }
+
+@media (max-width: 400px) {
+  .fundrow { grid-template-columns: 48px minmax(40px, 1fr) 66px; }
+  .fundrow .fpct { display: none; }
+}
+
+/* ---- leaders ---- */
+
+.ranklist { display: flex; flex-direction: column; }
+.rankrow {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) auto;
+  gap: 4px 12px;
+  align-items: baseline;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 13px;
+}
+.ranklist .rankrow:last-child { border-bottom: none; }
+.rankrow .rk {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.rankrow .rname { min-width: 0; display: flex; gap: 7px; align-items: baseline; }
+.rankrow .tick { font-family: var(--mono); font-weight: 600; }
+.rankrow .co {
+  font-size: 12px;
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rankrow .rmove {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.rmove[data-d="up"] { color: var(--aqua); }
+.rmove[data-d="down"] { color: var(--orange); }
+.rankrow .rcap { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+
+.turnover { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 2px;
+  background: var(--surface-alt);
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.pill b { color: var(--ink); font-weight: 600; }
+
+/* ---- roadmap ---- */
+
+.nextlist { display: flex; flex-direction: column; gap: 11px; }
+.nextitem { display: flex; flex-direction: column; gap: 2px; }
+.nextitem b { font-size: 13px; font-weight: 600; }
+.nextitem span { font-size: 12.5px; color: var(--ink-2); line-height: 1.55; }
+
+@media (max-width: 620px) {
+  .wrap { padding: 24px 14px 56px; gap: 22px; }
+  .cardhead, .cardbody { padding-left: 14px; padding-right: 14px; }
+  .cardfoot { padding-left: 14px; padding-right: 14px; }
+}
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <nav class="sitenav" id="sitenav" aria-label="Sections"></nav>
+      <div class="langswitch" id="langswitch" role="group" aria-label="Language"></div>
+    </div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <p class="standfirst" id="standfirst"></p>
+    <div class="provenance" id="provenance"></div>
+  </header>
+
+  <section>
+    <div class="section-head" style="margin-bottom:10px">
+      <h2 id="h-sources"></h2>
+      <span class="hint" id="hint-sources"></span>
+    </div>
+    <div class="sources" id="sources"></div>
+  </section>
+
+  <div class="cards">
+    <section class="card card-wide" id="card-moves"></section>
+    <section class="card" id="card-book"></section>
+    <section class="card" id="card-leaders"></section>
+    <section class="card" id="card-next"></section>
+  </div>
+
+  <footer id="footnotes"></footer>
+</div>
+
+<script>
+const DATA = {"asOf":"2026-07-31","today":"2026-08-02","langs":[{"v":"en","label":"EN"},{"v":"zh","label":"\u4e2d\u6587"}],"sources":[{"k":"holdings","date":"2026-07-31","unit":"sessions","behind":0,"status":"ok","n":33},{"k":"trades","date":"2026-07-30","unit":"sessions","behind":1,"status":"ok","n":32},{"k":"quotes","date":"2026-07-31","unit":"sessions","behind":0,"status":"ok","n":1},{"k":"leaders","date":"2026-08-02","unit":"sessions","behind":0,"status":"ok","n":1},{"k":"financials","date":"2026-07-31","unit":"days","behind":2,"status":"ok","n":1},{"k":"venture","date":"2026-06-30","unit":"days","behind":33,"status":"ok","n":1}],"book":{"date":"2026-07-31","total":11784334589.62,"n":137,"funds":[{"f":"ARKK","n":44,"v":5554008805.920002},{"f":"ARKQ","n":38,"v":1776764712.9399998},{"f":"ARKG","n":32,"v":1582186858.0099995},{"f":"ARKW","n":37,"v":1497602021.35},{"f":"ARKX","n":31,"v":699788947.0499997},{"f":"ARKF","n":33,"v":636857340.37},{"f":"PRNT","n":26,"v":37125903.97999999}],"top":[{"t":"TSLA","v":863970813.0},{"t":"AMD","v":530518164.47},{"t":"SPCX","v":513279881.4},{"t":"SHOP","v":407062375.2},{"t":"TEM","v":379816822.91}],"prev":{"date":"2026-07-30","total":11435774677.77,"n":137,"added":[],"removed":[]}},"moves":{"date":"2026-07-30","conviction":3,"total":17,"tally":{"new":0,"buy":3,"sell":14,"exit":0},"items":[{"t":"META","n":"META PLATFORMS INC-CLASS A","k":"buy","s":26511.0,"f":["ARKF","ARKK","ARKW"],"v":15525106.71},{"t":"","n":"BRERA HOLDINGS PLC-CL B","k":"sell","s":-10615.0,"f":["ARKF","ARKK","ARKW"],"v":38532.45},{"t":"SRTA","n":"STRATA CRITICAL MEDICAL INC","k":"sell","s":-348014.0,"f":["ARKQ","ARKX"],"v":1694828.18},{"t":"LHX","n":"L3HARRIS TECHNOLOGIES INC","k":"buy","s":37635.0,"f":["ARKQ","ARKX"],"v":11197541.549999999},{"t":"TDY","n":"TELEDYNE TECHNOLOGIES INC","k":"sell","s":-2597.0,"f":["ARKQ","ARKX"],"v":1639615.9499999997},{"t":"ESLT","n":"ELBIT SYSTEMS LTD","k":"sell","s":-2142.0,"f":["ARKQ","ARKX"],"v":1647412.2}]},"leaders":{"date":"2026-08-02","prevDate":null,"size":200,"cutoff":60831930226.0,"top":[{"t":"NVDA","n":"NVIDIA Corporation","r":1,"cap":4858150000000.0,"ch":2.928,"ark":234708990.56},{"t":"AAPL","n":"Apple Inc.","r":2,"cap":4537071141960.0,"ch":-7.354},{"t":"GOOG","n":"Alphabet Inc.","r":3,"cap":4361829500000.0,"ch":6.884,"ark":293916689.12},{"t":"MSFT","n":"Microsoft Corporation","r":4,"cap":3450799500578.0,"ch":3.019},{"t":"AMZN","n":"Amazon.com Inc.","r":5,"cap":2921415780629.0,"ch":15.321,"ark":325943539.5}],"moved":[],"in":[],"out":[],"held":26},"i18n":{"en":{"eyebrow":"Daily brief","title":"What moved, and whether the data is any good","standfirst":"One screen answering two questions before anything else: what ARK did in the last session, and whether every feed behind these pages actually updated. A stale source is indistinguishable from a quiet market until someone checks, so the check goes first.","provenance":"holdings 2026-07-31  \u00b7  ranking 2026-08-02  \u00b7  33 sessions archived","sources":{"holdings":"ARK holdings","trades":"Trades","quotes":"Quotes","leaders":"Market cap","financials":"Financials","venture":"ARKVX"},"next":[["13F managers","thirteenf.py ingests a filer's quarterly positions into the same schema as ARK's. No comparison page yet."],["Company financials","Revenue, margin, cash and runway are pulled from SEC XBRL and cached. The detail panel that shows them is switched off."],["Watchlist","Nothing here follows what you own or want to own. That is the next thing worth having."]],"footnotes":[["Freshness is counted in sessions, not clock time.","A Friday file read on Sunday is current, not two days late. Market holidays are not modelled, so the day after one reads as a session behind \u2014 the error points at looking, which is the safe direction."],["Agreement is the ranking, not size.","Four funds adding the same name on the same day is the firm agreeing with itself; one fund moving twice the shares is a rebalance. The moves list sorts on the number of funds first for that reason."],["","Sources: ARK's daily holdings files, Nasdaq's screener, Yahoo quotes, SEC XBRL. Holdings data, not investment advice."]],"nav":{"index":"Today","holdings":"Holdings","activity":"Trades","leaders":"Top 200","archive":"Archive"},"ui":{"sources":"Data on file","sourcesHint":"Every source overwrites in place at origin. These are the newest copies archived here, and how far behind they are.","ok":"current","late":"late","stale":"stale","missing":"missing","sessionsBehind":"{n} session(s) behind","daysBehind":"{n} days old","never":"never fetched","moves":"What ARK did","movesHint":"Newest session, merged across funds. Agreement first.","movesTally":"{new} opened \u00b7 {buy} added \u00b7 {sell} trimmed \u00b7 {exit} closed","movesMore":"all {n} moves \u2192","movesAgree":"{n} funds","book":"The book","bookHint":"US-listed equities only, the part you can actually buy.","bookAll":"all holdings \u2192","bookSymbols":"symbols","bookSince":"vs {d}","bookAdded":"+{n} new","bookRemoved":"\u2212{n} gone","leaders":"Top of the market","leadersHint":"Rank movement since the previous snapshot.","leadersAll":"full ranking \u2192","leadersFirst":"First snapshot on file \u2014 movement starts with the next one.","leadersIn":"in","leadersOut":"out","leadersHeld":"{n} held by ARK","leadersCutoff":"entry at ${v}B","next":"Not wired up yet","nextHint":"Collected or planned, but not yet on a page.","empty":"Nothing on file yet.","arkHeld":"ARK holds","new":"opened","buy":"added","sell":"trimmed","exit":"closed"}},"zh":{"eyebrow":"\u6bcf\u65e5\u7b80\u62a5","title":"\u4eca\u5929\u53d1\u751f\u4e86\u4ec0\u4e48\uff0c\u4ee5\u53ca\u6570\u636e\u672c\u8eab\u8fd8\u53ef\u4e0d\u53ef\u4fe1","standfirst":"\u4e00\u5c4f\u4e4b\u5185\u5148\u56de\u7b54\u4e24\u4e2a\u95ee\u9898\uff1aARK \u5728\u6700\u8fd1\u4e00\u4e2a\u4ea4\u6613\u65e5\u505a\u4e86\u4ec0\u4e48\uff0c\u4ee5\u53ca\u8fd9\u4e9b\u9875\u9762\u80cc\u540e\u7684\u6bcf\u4e00\u8def\u6570\u636e\u5230\u5e95\u6709\u6ca1\u6709\u66f4\u65b0\u3002\u5728\u6709\u4eba\u6838\u5bf9\u4e4b\u524d\uff0c\u6570\u636e\u6e90\u4e0d\u52a8\u548c\u5e02\u573a\u6ca1\u52a8\u770b\u8d77\u6765\u4e00\u6a21\u4e00\u6837\u2014\u2014\u6240\u4ee5\u6838\u5bf9\u653e\u5728\u6700\u524d\u9762\u3002","provenance":"\u6301\u4ed3 2026-07-31  \u00b7  \u699c\u5355 2026-08-02  \u00b7  \u5df2\u5b58\u6863 33 \u4e2a\u4ea4\u6613\u65e5","sources":{"holdings":"ARK \u6301\u4ed3","trades":"\u4ea4\u6613","quotes":"\u62a5\u4ef7","leaders":"\u5e02\u503c\u699c","financials":"\u8d22\u62a5","venture":"ARKVX \u521b\u6295"},"next":[["13F \u7ba1\u7406\u4eba","thirteenf.py \u5df2\u80fd\u628a\u67d0\u4f4d\u7ba1\u7406\u4eba\u7684\u5b63\u5ea6\u6301\u4ed3\u6293\u6210\u4e0e ARK \u76f8\u540c\u7684\u8868\u7ed3\u6784\uff0c\u4f46\u8fd8\u6ca1\u6709\u5bf9\u6bd4\u9875\u9762\u3002"],["\u516c\u53f8\u8d22\u52a1","\u8425\u6536\u3001\u6bdb\u5229\u7387\u3001\u73b0\u91d1\u548c\u7eed\u822a\u6708\u6570\u5df2\u4ece SEC XBRL \u6293\u53d6\u5e76\u7f13\u5b58\uff0c\u5c55\u793a\u5b83\u4eec\u7684\u8be6\u60c5\u9762\u677f\u8fd8\u6ca1\u6709\u6253\u5f00\u3002"],["\u5173\u6ce8\u5217\u8868","\u76ee\u524d\u6ca1\u6709\u4efb\u4f55\u4e00\u9875\u8ddf\u8e2a\u4f60\u81ea\u5df1\u6301\u6709\u6216\u60f3\u6301\u6709\u7684\u6807\u7684\u3002\u8fd9\u662f\u4e0b\u4e00\u4e2a\u503c\u5f97\u505a\u7684\u4e1c\u897f\u3002"]],"footnotes":[["\u65b0\u9c9c\u5ea6\u6309\u4ea4\u6613\u65e5\u8ba1\u7b97\uff0c\u4e0d\u6309\u81ea\u7136\u65e5\u3002","\u5468\u4e94\u7684\u6587\u4ef6\u5728\u5468\u65e5\u770b\u4ecd\u7136\u662f\u6700\u65b0\u7684\uff0c\u4e0d\u7b97\u843d\u540e\u4e24\u5929\u3002\u8282\u5047\u65e5\u6ca1\u6709\u5efa\u6a21\uff0c\u6240\u4ee5\u957f\u5047\u4e4b\u540e\u4f1a\u663e\u793a\u843d\u540e\u4e00\u4e2a\u4ea4\u6613\u65e5\u2014\u2014\u8fd9\u4e2a\u8bef\u5dee\u6307\u5411\u300c\u53bb\u770b\u4e00\u773c\u300d\uff0c\u65b9\u5411\u662f\u5b89\u5168\u7684\u3002"],["\u6392\u5e8f\u770b\u7684\u662f\u4e00\u81f4\u6027\uff0c\u4e0d\u662f\u91d1\u989d\u3002","\u56db\u53ea\u57fa\u91d1\u5728\u540c\u4e00\u5929\u4e70\u540c\u4e00\u4e2a\u6807\u7684\uff0c\u662f\u8fd9\u5bb6\u516c\u53f8\u5728\u8ddf\u81ea\u5df1\u8fbe\u6210\u4e00\u81f4\uff1b\u4e00\u53ea\u57fa\u91d1\u4e70\u4e86\u4e24\u500d\u7684\u80a1\u6570\uff0c\u591a\u534a\u53ea\u662f\u518d\u5e73\u8861\u3002\u6240\u4ee5\u52a8\u4f5c\u5217\u8868\u5148\u6309\u53c2\u4e0e\u57fa\u91d1\u6570\u6392\u5e8f\u3002"],["","\u6570\u636e\u6765\u6e90\uff1aARK \u6bcf\u65e5\u6301\u4ed3\u6587\u4ef6\u3001Nasdaq \u7b5b\u9009\u5668\u3001Yahoo \u62a5\u4ef7\u3001SEC XBRL\u3002\u4ec5\u4e3a\u6301\u4ed3\u6570\u636e\uff0c\u4e0d\u6784\u6210\u6295\u8d44\u5efa\u8bae\u3002"]],"nav":{"index":"\u4eca\u65e5","holdings":"\u6301\u4ed3","activity":"\u4ea4\u6613","leaders":"\u5e02\u503c\u699c","archive":"\u5b58\u6863"},"ui":{"sources":"\u5df2\u5b58\u6863\u7684\u6570\u636e","sourcesHint":"\u6bcf\u4e2a\u6570\u636e\u6e90\u5728\u539f\u7ad9\u70b9\u90fd\u662f\u5c31\u5730\u8986\u76d6\u3001\u4e0d\u7559\u5386\u53f2\u3002\u8fd9\u91cc\u662f\u672c\u5730\u5b58\u6863\u7684\u6700\u65b0\u526f\u672c\uff0c\u4ee5\u53ca\u5b83\u843d\u540e\u4e86\u591a\u4e45\u3002","ok":"\u6700\u65b0","late":"\u504f\u65e7","stale":"\u8fc7\u671f","missing":"\u7f3a\u5931","sessionsBehind":"\u843d\u540e {n} \u4e2a\u4ea4\u6613\u65e5","daysBehind":"{n} \u5929\u524d","never":"\u4ece\u672a\u6293\u53d6","moves":"ARK \u4eca\u5929\u505a\u4e86\u4ec0\u4e48","movesHint":"\u6700\u8fd1\u4e00\u4e2a\u4ea4\u6613\u65e5\uff0c\u8de8\u57fa\u91d1\u5408\u5e76\uff0c\u6309\u4e00\u81f4\u6027\u6392\u5e8f\u3002","movesTally":"\u5efa\u4ed3 {new} \u00b7 \u52a0\u4ed3 {buy} \u00b7 \u51cf\u4ed3 {sell} \u00b7 \u6e05\u4ed3 {exit}","movesMore":"\u67e5\u770b\u5168\u90e8 {n} \u7b14 \u2192","movesAgree":"{n} \u53ea\u57fa\u91d1","book":"\u6301\u4ed3\u5168\u666f","bookHint":"\u4ec5\u7f8e\u80a1\u4e0a\u5e02\u666e\u901a\u80a1\uff0c\u4e5f\u5c31\u662f\u4f60\u771f\u6b63\u4e70\u5f97\u5230\u7684\u90e8\u5206\u3002","bookAll":"\u67e5\u770b\u5168\u90e8\u6301\u4ed3 \u2192","bookSymbols":"\u53ea\u6807\u7684","bookSince":"\u76f8\u6bd4 {d}","bookAdded":"\u65b0\u589e {n}","bookRemoved":"\u79fb\u51fa {n}","leaders":"\u5e02\u573a\u6700\u524d\u6392","leadersHint":"\u76f8\u6bd4\u4e0a\u4e00\u4efd\u5feb\u7167\u7684\u6392\u540d\u53d8\u5316\u3002","leadersAll":"\u67e5\u770b\u5b8c\u6574\u699c\u5355 \u2192","leadersFirst":"\u8fd9\u662f\u7b2c\u4e00\u4efd\u5feb\u7167\u2014\u2014\u6392\u540d\u53d8\u5316\u4ece\u4e0b\u4e00\u4efd\u5f00\u59cb\u6709\u3002","leadersIn":"\u8fdb\u699c","leadersOut":"\u51fa\u699c","leadersHeld":"{n} \u5bb6\u88ab ARK \u6301\u6709","leadersCutoff":"\u5165\u699c\u95e8\u69db ${v}B","next":"\u5c1a\u672a\u63a5\u5165","nextHint":"\u5df2\u7ecf\u5728\u91c7\u96c6\u6216\u5df2\u5217\u5165\u8ba1\u5212\uff0c\u4f46\u8fd8\u6ca1\u6709\u5bf9\u5e94\u9875\u9762\u3002","empty":"\u8fd8\u6ca1\u6709\u6570\u636e\u3002","arkHeld":"ARK \u6301\u6709","new":"\u5efa\u4ed3","buy":"\u52a0\u4ed3","sell":"\u51cf\u4ed3","exit":"\u6e05\u4ed3"}}}};
+
+const LANGS = DATA.langs.map(l => l.v);
+let lang = (() => {
+  try { const v = localStorage.getItem('ark-lang'); if (LANGS.includes(v)) return v; }
+  catch (e) {}
+  return LANGS[0];
+})();
+const page = () => DATA.i18n[lang];
+const t = k => page().ui[k];
+const fill = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k] ?? '');
+const esc = s => String(s).replace(/[&<>"]/g, c =>
+  ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+
+function money(v) {
+  const a = Math.abs(v);
+  const [div, suf] = a >= 1e12 ? [1e12, 'T'] : a >= 1e9 ? [1e9, 'B']
+    : a >= 1e6 ? [1e6, 'M'] : a >= 1e3 ? [1e3, 'K'] : [1, ''];
+  return (v < 0 ? '-$' : '$') + (a / div).toFixed(a / div >= 100 ? 0 : 1) + suf;
+}
+
+/* ---- nav ---- */
+
+// A report served from reports/<date>.html is the same file as holdings.html,
+// so the nav cannot hardcode a depth; it reads the one it is being served at.
+const BASE = location.pathname.includes('/reports/') ? '../' : '';
+const NAV = ['index', 'holdings', 'activity', 'leaders', 'archive'];
+const HERE = 'index';
+
+function paintNav() {
+  const n = page().nav;
+  document.getElementById('sitenav').innerHTML = NAV.map(k =>
+    `<a href="${BASE}${k}.html"${k === HERE ? ' aria-current="page"' : ''}>${esc(n[k])}</a>`
+  ).join('');
+}
+
+/* ---- freshness ---- */
+
+function paintSources() {
+  const names = page().sources;
+  document.getElementById('sources').innerHTML = DATA.sources.map(s => {
+    const age = s.status === 'missing' ? t('never')
+      : s.behind === 0 ? t('ok')
+      : fill(t(s.unit === 'sessions' ? 'sessionsBehind' : 'daysBehind'), {n: s.behind});
+    return `<div class="src" data-s="${s.status}">
+      <span class="dot"></span>
+      <span class="slabel">${esc(names[s.k] || s.k)}</span>
+      <span class="sdate">${s.date || '—'}</span>
+      <span class="sage">${esc(age)}</span>
+    </div>`;
+  }).join('');
+}
+
+/* ---- cards ---- */
+
+const head = (title, hint, href, linkText) => `
+  <div class="cardhead">
+    <h2>${esc(title)}</h2>
+    ${hint ? `<span class="hint">${esc(hint)}</span>` : ''}
+    ${href ? `<a href="${BASE}${href}">${esc(linkText)}</a>` : ''}
+  </div>`;
+
+const ARROW = {new: '▲', buy: '▲', sell: '▼', exit: '▼'};
+
+function paintMoves() {
+  const m = DATA.moves;
+  const el = document.getElementById('card-moves');
+  if (!m) {
+    el.innerHTML = head(t('moves'), '', '', '') +
+      `<div class="cardbody"><span class="hint">${esc(t('empty'))}</span></div>`;
+    return;
+  }
+  const rows = m.items.map(e => {
+    const agree = e.f.length >= m.conviction;
+    return `<a class="move-row${agree ? ' agree' : ''}" href="${BASE}activity.html">
+      <span class="tag-action" data-k="${e.k}"><span class="arrow">${ARROW[e.k]}</span>${esc(t(e.k))}</span>
+      <span class="who"><span class="tick">${esc(e.t || '—')}</span>
+        <span class="co">${esc(e.n)}</span></span>
+      <span class="tail">
+        <span class="val">${e.v ? money(e.v) : '—'}</span>
+        <span class="agreecount">${fill(t('movesAgree'), {n: e.f.length})}</span>
+      </span>
+    </a>`;
+  }).join('');
+
+  el.innerHTML = head(t('moves'), t('movesHint'), 'activity.html',
+                      fill(t('movesMore'), {n: m.total}))
+    + `<div class="moves">${rows}</div>`
+    + `<div class="cardfoot">${m.date}  ·  ${esc(fill(t('movesTally'), m.tally))}</div>`;
+}
+
+function paintBook() {
+  const b = DATA.book;
+  const el = document.getElementById('card-book');
+  const max = Math.max(...b.funds.map(f => f.v), 1);
+  const bars = b.funds.filter(f => f.v > 0).map(f => `
+    <div class="fundrow">
+      <span class="fname">${esc(f.f)}</span>
+      <span class="ftrack"><span class="fbar" style="width:${(f.v / max * 100).toFixed(1)}%"></span></span>
+      <span class="fval">${money(f.v)}</span>
+      <span class="fpct">${(f.v / b.total * 100).toFixed(0)}%</span>
+    </div>`).join('');
+
+  let delta = '';
+  if (b.prev) {
+    const d = b.total - b.prev.total;
+    const pct = b.prev.total ? d / b.prev.total * 100 : 0;
+    const dir = Math.abs(pct) < 0.05 ? 'flat' : d > 0 ? 'up' : 'down';
+    delta = `<span class="delta" data-d="${dir}">${d > 0 ? '+' : ''}${pct.toFixed(1)}%</span>`;
+  }
+
+  const churn = b.prev ? [
+    b.prev.added.length ? `<span class="pill">${esc(fill(t('bookAdded'), {n: b.prev.added.length}))}
+      <b>${b.prev.added.slice(0, 3).map(esc).join(' ')}</b></span>` : '',
+    b.prev.removed.length ? `<span class="pill">${esc(fill(t('bookRemoved'), {n: b.prev.removed.length}))}
+      <b>${b.prev.removed.slice(0, 3).map(esc).join(' ')}</b></span>` : '',
+  ].filter(Boolean).join('') : '';
+
+  el.innerHTML = head(t('book'), t('bookHint'), 'holdings.html', t('bookAll'))
+    + `<div class="cardbody">
+        <div class="headline">
+          <span class="big">${money(b.total)}</span>
+          ${delta}
+          <span class="sub">${b.n} ${esc(t('bookSymbols'))}</span>
+        </div>
+        ${churn ? `<div class="turnover">${churn}</div>` : ''}
+        <div class="fundsplit">${bars}</div>
+      </div>`
+    + (b.prev ? `<div class="cardfoot">${esc(fill(t('bookSince'), {d: b.prev.date}))}</div>` : '');
+}
+
+function paintLeaders() {
+  const l = DATA.leaders;
+  const el = document.getElementById('card-leaders');
+  if (!l) {
+    el.innerHTML = head(t('leaders'), '', '', '') +
+      `<div class="cardbody"><span class="hint">${esc(t('empty'))}</span></div>`;
+    return;
+  }
+  // With movement to show, movement is the story; without it, the ranking is.
+  const moved = l.moved.length > 0;
+  const rows = (moved ? l.moved : l.top).map(c => `
+    <div class="rankrow">
+      <span class="rk">#${c.r}</span>
+      <span class="rname"><span class="tick">${esc(c.t)}</span>
+        <span class="co">${esc(c.n)}</span></span>
+      ${moved
+        ? `<span class="rmove" data-d="${c.d > 0 ? 'up' : 'down'}">${c.d > 0 ? '▲' : '▼'} ${Math.abs(c.d)}</span>`
+        : `<span class="rcap">${money(c.cap)}</span>`}
+    </div>`).join('');
+
+  const turnover = l.prevDate ? `<div class="turnover">
+      <span class="pill"><b>${l.in.length}</b> ${esc(t('leadersIn'))}</span>
+      <span class="pill"><b>${l.out.length}</b> ${esc(t('leadersOut'))}</span>
+      <span class="pill">${esc(fill(t('leadersHeld'), {n: l.held}))}</span>
+    </div>` : `<span class="hint">${esc(t('leadersFirst'))}</span>`;
+
+  el.innerHTML = head(t('leaders'), t('leadersHint'), 'leaders.html', t('leadersAll'))
+    + `<div class="cardbody">${turnover}<div class="ranklist">${rows}</div></div>`
+    + `<div class="cardfoot">${esc(fill(t('leadersCutoff'), {v: (l.cutoff / 1e9).toFixed(0)}))}  ·  ${l.date}</div>`;
+}
+
+function paintNext() {
+  document.getElementById('card-next').innerHTML =
+    head(t('next'), t('nextHint'), '', '')
+    + `<div class="cardbody"><div class="nextlist">${
+      page().next.map(([b, x]) =>
+        `<div class="nextitem"><b>${esc(b)}</b><span>${esc(x)}</span></div>`).join('')
+    }</div></div>`;
+}
+
+/* ---- shell ---- */
+
+const switcher = document.getElementById('langswitch');
+switcher.innerHTML = DATA.langs.map(l =>
+  `<button type="button" data-l="${l.v}" aria-pressed="false">${l.label}</button>`).join('');
+switcher.addEventListener('click', ev => {
+  const b = ev.target.closest('button');
+  if (!b || b.dataset.l === lang) return;
+  lang = b.dataset.l;
+  try { localStorage.setItem('ark-lang', lang); } catch (err) {}
+  render();
+});
+
+function render() {
+  const c = page();
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.title = c.title;
+  document.getElementById('eyebrow').textContent = c.eyebrow;
+  document.getElementById('title').textContent = c.title;
+  document.getElementById('standfirst').textContent = c.standfirst;
+  document.getElementById('provenance').textContent = c.provenance;
+  document.getElementById('h-sources').textContent = t('sources');
+  document.getElementById('hint-sources').textContent = t('sourcesHint');
+  document.getElementById('footnotes').innerHTML = c.footnotes
+    .map(([b, x]) => `<div>${b ? `<b>${esc(b)}</b> ` : ''}${esc(x)}</div>`).join('');
+  switcher.querySelectorAll('button').forEach(b =>
+    b.setAttribute('aria-pressed', b.dataset.l === lang ? 'true' : 'false'));
+
+  paintNav();
+  paintSources();
+  paintMoves();
+  paintBook();
+  paintLeaders();
+  paintNext();
+}
+
+render();
+</script>

@@ -1,0 +1,29 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2013-09-30,Duquesne Family Office,38259P508,,Google Inc.,equity,223250,195547000.00,23.1250
+2013-09-30,Duquesne Family Office,806857108,SLB,Schlumberger Ltd.,equity,993000,87741000.00,10.3761
+2013-09-30,Duquesne Family Office,247361702,DAL,Delta Air Lines Inc.,equity,3110000,73365000.00,8.6760
+2013-09-30,Duquesne Family Office,023135106,AMZN,Amazon.com Inc.,equity,157700,49303000.00,5.8305
+2013-09-30,Duquesne Family Office,452327109,ILMN,Illumina Inc.,equity,506700,40957000.00,4.8435
+2013-09-30,Duquesne Family Office,98138H101,WDAY,Workday Inc.,equity,505500,40910000.00,4.8379
+2013-09-30,Duquesne Family Office,375558103,GILD,Gilead Sciences Inc.,equity,610700,38395000.00,4.5405
+2013-09-30,Duquesne Family Office,406216101,HAL,Halliburton Co,equity,633700,30513000.00,3.6084
+2013-09-30,Duquesne Family Office,723787107,PXDEUR,Pioneer Nat&apos;l Res&apos;s Co,equity,143000,26998000.00,3.1927
+2013-09-30,Duquesne Family Office,124857202,,CBS Corp,equity,481700,26571000.00,3.1422
+2013-09-30,Duquesne Family Office,229678107,,Cubist Pharm&apos;s Inc.,equity,413000,26246000.00,3.1038
+2013-09-30,Duquesne Family Office,031162100,AMGN,Amgen Inc.,equity,231000,25855000.00,3.0576
+2013-09-30,Duquesne Family Office,29264F205,,Endo Health Sol&apos;ns Inc.,equity,527000,23947000.00,2.8319
+2013-09-30,Duquesne Family Office,09062X103,BIIB,Biogen Idec Inc.,equity,91500,22030000.00,2.6052
+2013-09-30,Duquesne Family Office,95058W100,WEN,Wendy&apos;s Co,equity,2000000,16960000.00,2.0057
+2013-09-30,Duquesne Family Office,464288281,EMB,Ishares JPM USD Emg Bnd,equity,136500,14879000.00,1.7596
+2013-09-30,Duquesne Family Office,097023105,BA,Boeing Co,equity,99200,11656000.00,1.3784
+2013-09-30,Duquesne Family Office,478160104,JNJ,Johnson &amp; Johnson,equity,129000,11183000.00,1.3225
+2013-09-30,Duquesne Family Office,81369Y407,XLY,Cons Disc Sel Sctr SPDR Fnd,equity,170800,10356000.00,1.2247
+2013-09-30,Duquesne Family Office,16411R208,LNG,Cheniere Energy Inc.,equity,303200,10351000.00,1.2241
+2013-09-30,Duquesne Family Office,81369Y704,XLI,Ind&apos;l Select Sctr SPDR,equity,222900,10336000.00,1.2223
+2013-09-30,Duquesne Family Office,464286772,EWY,IShares MSCI Sth Kor Cap Idx Fnd,equity,165500,10183000.00,1.2042
+2013-09-30,Duquesne Family Office,81369Y506,XLE,Engy Select Sctr SPDR Fnd,equity,116900,9689000.00,1.1458
+2013-09-30,Duquesne Family Office,464287184,FXI,IShares FTSE China 25 Idx Fnd,equity,260700,9667000.00,1.1432
+2013-09-30,Duquesne Family Office,654902204,NOK,Nokia Oyj,equity,1000000,6510000.00,0.7699
+2013-09-30,Duquesne Family Office,G4412G101,HLF,Herbalife Ltd.,equity,79032,5514000.00,0.6521
+2013-09-30,Duquesne Family Office,81369Y100,XLB,Mat&apos;ls Select Sctr SPDR Tst,equity,120400,5057000.00,0.5980
+2013-09-30,Duquesne Family Office,97717W851,DXJ,WisdomTree Jpn Hdgd Eq Fnd,equity,102000,4889000.00,0.5782

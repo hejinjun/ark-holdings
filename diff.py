@@ -1,7 +1,8 @@
 """Derive ARK's trades by differencing consecutive holdings snapshots.
 
-  python3 diff.py            # newest pair of dates
-  python3 diff.py --all      # every consecutive pair on file
+  python3 diff.py                        # ARK, newest pair of dates
+  python3 diff.py --all                  # every consecutive pair
+  python3 diff.py --source duquesne --all
 
 ARK publishes what it holds, never what it traded, so the trades have to be
 inferred. The naive difference is wrong, and wrong in a way that looks
@@ -30,7 +31,8 @@ import statistics
 import sys
 from pathlib import Path
 
-DATA = Path(__file__).parent / "data"
+ROOT = Path(__file__).parent / "data"
+DATA = ROOT   # rebound by --source; ARK lives at the root for historical reasons
 
 # Residual noise after dividing out the flow: rounding in ARK's own numbers
 # leaves ratios a hair off 1.0, so a position must move more than this fraction
@@ -163,6 +165,11 @@ def report(prev_date, curr_date, trades, factors):
 
 
 def main(argv: list[str]) -> int:
+    global DATA
+    if "--source" in argv:
+        DATA = ROOT / argv[argv.index("--source") + 1]
+        if not DATA.is_dir():
+            raise SystemExit(f"no such source: {DATA}")
     dates = snapshots()
     if len(dates) < 2:
         raise SystemExit(f"need two snapshots to diff; have {len(dates)}")

@@ -1,0 +1,19 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2015-09-30,Duquesne Family Office,30303M102,META,Facebook Inc,equity,4093300,367988000.00,42.3725
+2015-09-30,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,1389000,61477000.00,7.0789
+2015-09-30,Duquesne Family Office,40415F101,HDB,HDFC Bank Ltd,equity,1003600,61310000.00,7.0596
+2015-09-30,Duquesne Family Office,949746101,WFC,Wells Fargo &amp; Co,equity,1188900,61050000.00,7.0297
+2015-09-30,Duquesne Family Office,023135106,AMZN,Amazon.com Inc,equity,97300,49807000.00,5.7351
+2015-09-30,Duquesne Family Office,22943F100,CTRPUSD,Ctrip.com Int&apos;l Ltd,equity,480600,30364000.00,3.4963
+2015-09-30,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,438379,30187000.00,3.4759
+2015-09-30,Duquesne Family Office,47215P106,JD,JD.Com Inc,equity,1078400,28103000.00,3.2360
+2015-09-30,Duquesne Family Office,452327109,ILMN,Illumina Inc,equity,155800,27393000.00,3.1542
+2015-09-30,Duquesne Family Office,904311107,UAA,"Under Armour, Inc",equity,259800,25143000.00,2.8951
+2015-09-30,Duquesne Family Office,30212P303,EXPE,Expedia Inc,equity,173100,20370000.00,2.3455
+2015-09-30,Duquesne Family Office,143658300,CCL1EUR,Carnival Corp,equity,388400,19303000.00,2.2227
+2015-09-30,Duquesne Family Office,741503403,,Priceline Group Inc,equity,15600,19295000.00,2.2218
+2015-09-30,Duquesne Family Office,V7780T103,,Royal Carib&apos;n Cruises Ltd,equity,213500,19021000.00,2.1902
+2015-09-30,Duquesne Family Office,70450Y103,PYPL,PayPal Holdings Inc,equity,565200,17544000.00,2.0201
+2015-09-30,Duquesne Family Office,723787107,PXDEUR,Pioneer Nat&apos;l Res&apos;s Co,equity,82700,10060000.00,1.1584
+2015-09-30,Duquesne Family Office,26875P101,EOG,EOG Resources Inc,equity,138000,10046000.00,1.1568
+2015-09-30,Duquesne Family Office,260543103,,Dow Chemical Co,equity,235800,9998000.00,1.1512

@@ -1,0 +1,519 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARK — daily brief</title>
+
+<style>
+/*__STYLES__*/
+
+/* ---- freshness strip ---- */
+
+/* Hairline grid over a ruled background, same construction as .tiles, so the
+   two read as one family rather than two panels that happen to sit together. */
+.sources {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.src {
+  background: var(--surface);
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: 7px 1fr;
+  gap: 3px 8px;
+  align-items: baseline;
+}
+
+/* The dot is the fast read; the word next to the date is the one that
+   survives a colourblind reader or a monochrome print. */
+.src .dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  align-self: center;
+  background: var(--aqua);
+}
+.src[data-s="late"] .dot { background: var(--orange); }
+.src[data-s="stale"] .dot,
+.src[data-s="missing"] .dot { background: var(--pos-exit-bg); }
+.src[data-s="stale"], .src[data-s="missing"] { background: var(--surface-alt); }
+
+.src .slabel {
+  font-size: 10.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+.src .sdate {
+  grid-column: 2;
+  font-family: var(--mono);
+  font-size: 13.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.src .sage { grid-column: 2; font-size: 11.5px; color: var(--ink-2); }
+.src[data-s="stale"] .sage,
+.src[data-s="missing"] .sage { color: var(--orange); font-weight: 600; }
+
+/* ---- card grid ---- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+}
+/* The day's moves are the reason to open the page, so they get the full width
+   and the other cards share the row underneath. */
+.card-wide { grid-column: 1 / -1; }
+
+.cardhead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px 16px;
+  flex-wrap: wrap;
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.cardhead h2 { font-size: 17px; }
+.cardhead .hint { flex: 1 1 200px; }
+.cardhead a {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.cardhead a:hover { text-decoration: underline; }
+
+.cardbody { padding: 14px 18px 16px; display: flex; flex-direction: column; gap: 12px; }
+.cardfoot {
+  margin-top: auto;
+  padding: 10px 18px 12px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- moves ---- */
+
+.moves { display: flex; flex-direction: column; }
+
+.move-row {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr) auto;
+  gap: 4px 14px;
+  align-items: baseline;
+  padding: 9px 18px;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+}
+.move-row:last-child { border-bottom: none; }
+.move-row:hover { background: var(--surface-alt); }
+.move-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* Agreement is the point of the ordering, so it gets the one strong mark. */
+.move-row.agree { box-shadow: inset 3px 0 0 var(--accent); }
+
+.move-row .who { min-width: 0; }
+.move-row .tick { font-family: var(--mono); font-weight: 600; font-size: 13px; }
+.move-row .co {
+  font-size: 12.5px;
+  color: var(--ink-2);
+  /* One line: a wrapped issuer name turns a six-row card into a nine-row one. */
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+.move-row .tail {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+.move-row .val { min-width: 68px; text-align: right; }
+.move-row .agreecount { color: var(--ink-2); min-width: 74px; }
+.move-row.agree .agreecount { color: var(--accent); font-weight: 600; }
+
+@media (max-width: 620px) {
+  .move-row { grid-template-columns: max-content minmax(0, 1fr); padding: 10px 14px; }
+  .move-row .tag-action { grid-row: 1 / 3; align-self: center; }
+  .move-row .tail { justify-content: flex-start; gap: 14px; }
+  .move-row .val, .move-row .agreecount { min-width: 0; text-align: left; }
+}
+
+/* ---- the book ---- */
+
+.headline {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.headline .big {
+  font-family: var(--mono);
+  font-size: clamp(24px, 5vw, 30px);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.headline .sub { font-size: 12.5px; color: var(--ink-2); }
+
+.delta {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  padding: 2px 7px;
+  border-radius: 2px;
+  white-space: nowrap;
+  background: var(--pos-buy-bg);
+  color: var(--pos-buy-fg);
+}
+.delta[data-d="down"] { background: var(--pos-sell-bg); color: var(--pos-sell-fg); }
+.delta[data-d="flat"] { background: var(--surface-alt); color: var(--ink-2); }
+
+.fundsplit { display: flex; flex-direction: column; gap: 6px; }
+.fundrow {
+  display: grid;
+  grid-template-columns: 56px minmax(60px, 1fr) 72px 42px;
+  gap: 10px;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.fundrow .fname { font-weight: 600; }
+.fundrow .ftrack { height: 6px; border-radius: 3px; background: var(--surface-alt); }
+.fundrow .fbar { display: block; height: 6px; border-radius: 3px; background: var(--bar); }
+.fundrow .fval { text-align: right; color: var(--ink-2); }
+.fundrow .fpct { text-align: right; color: var(--ink-3); }
+
+@media (max-width: 400px) {
+  .fundrow { grid-template-columns: 48px minmax(40px, 1fr) 66px; }
+  .fundrow .fpct { display: none; }
+}
+
+/* ---- leaders ---- */
+
+.ranklist { display: flex; flex-direction: column; }
+.rankrow {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) auto;
+  gap: 4px 12px;
+  align-items: baseline;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 13px;
+}
+.ranklist .rankrow:last-child { border-bottom: none; }
+.rankrow .rk {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.rankrow .rname { min-width: 0; display: flex; gap: 7px; align-items: baseline; }
+.rankrow .tick { font-family: var(--mono); font-weight: 600; }
+.rankrow .co {
+  font-size: 12px;
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rankrow .rmove {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.rmove[data-d="up"] { color: var(--aqua); }
+.rmove[data-d="down"] { color: var(--orange); }
+.rankrow .rcap { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+
+.turnover { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 2px;
+  background: var(--surface-alt);
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.pill b { color: var(--ink); font-weight: 600; }
+
+/* ---- roadmap ---- */
+
+.nextlist { display: flex; flex-direction: column; gap: 11px; }
+.nextitem { display: flex; flex-direction: column; gap: 2px; }
+.nextitem b { font-size: 13px; font-weight: 600; }
+.nextitem span { font-size: 12.5px; color: var(--ink-2); line-height: 1.55; }
+
+@media (max-width: 620px) {
+  .wrap { padding: 24px 14px 56px; gap: 22px; }
+  .cardhead, .cardbody { padding-left: 14px; padding-right: 14px; }
+  .cardfoot { padding-left: 14px; padding-right: 14px; }
+}
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <nav class="sitenav" id="sitenav" aria-label="Sections"></nav>
+      <div class="langswitch" id="langswitch" role="group" aria-label="Language"></div>
+    </div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <p class="standfirst" id="standfirst"></p>
+    <div class="provenance" id="provenance"></div>
+  </header>
+
+  <section>
+    <div class="section-head" style="margin-bottom:10px">
+      <h2 id="h-sources"></h2>
+      <span class="hint" id="hint-sources"></span>
+    </div>
+    <div class="sources" id="sources"></div>
+  </section>
+
+  <div class="cards">
+    <section class="card card-wide" id="card-moves"></section>
+    <section class="card" id="card-book"></section>
+    <section class="card" id="card-leaders"></section>
+    <section class="card" id="card-next"></section>
+  </div>
+
+  <footer id="footnotes"></footer>
+</div>
+
+<script>
+const DATA = /*__DATA__*/;
+
+const LANGS = DATA.langs.map(l => l.v);
+let lang = (() => {
+  try { const v = localStorage.getItem('ark-lang'); if (LANGS.includes(v)) return v; }
+  catch (e) {}
+  return LANGS[0];
+})();
+const page = () => DATA.i18n[lang];
+const t = k => page().ui[k];
+const fill = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k] ?? '');
+const esc = s => String(s).replace(/[&<>"]/g, c =>
+  ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+
+function money(v) {
+  const a = Math.abs(v);
+  const [div, suf] = a >= 1e12 ? [1e12, 'T'] : a >= 1e9 ? [1e9, 'B']
+    : a >= 1e6 ? [1e6, 'M'] : a >= 1e3 ? [1e3, 'K'] : [1, ''];
+  return (v < 0 ? '-$' : '$') + (a / div).toFixed(a / div >= 100 ? 0 : 1) + suf;
+}
+
+/* ---- nav ---- */
+
+// A report served from reports/<date>.html is the same file as holdings.html,
+// so the nav cannot hardcode a depth; it reads the one it is being served at.
+const BASE = location.pathname.includes('/reports/') ? '../' : '';
+const NAV = ['index', 'holdings', 'activity', 'leaders', 'archive'];
+const HERE = 'index';
+
+function paintNav() {
+  const n = page().nav;
+  document.getElementById('sitenav').innerHTML = NAV.map(k =>
+    `<a href="${BASE}${k}.html"${k === HERE ? ' aria-current="page"' : ''}>${esc(n[k])}</a>`
+  ).join('');
+}
+
+/* ---- freshness ---- */
+
+function paintSources() {
+  const names = page().sources;
+  document.getElementById('sources').innerHTML = DATA.sources.map(s => {
+    const age = s.status === 'missing' ? t('never')
+      : s.behind === 0 ? t('ok')
+      : fill(t(s.unit === 'sessions' ? 'sessionsBehind' : 'daysBehind'), {n: s.behind});
+    return `<div class="src" data-s="${s.status}">
+      <span class="dot"></span>
+      <span class="slabel">${esc(names[s.k] || s.k)}</span>
+      <span class="sdate">${s.date || '—'}</span>
+      <span class="sage">${esc(age)}</span>
+    </div>`;
+  }).join('');
+}
+
+/* ---- cards ---- */
+
+const head = (title, hint, href, linkText) => `
+  <div class="cardhead">
+    <h2>${esc(title)}</h2>
+    ${hint ? `<span class="hint">${esc(hint)}</span>` : ''}
+    ${href ? `<a href="${BASE}${href}">${esc(linkText)}</a>` : ''}
+  </div>`;
+
+const ARROW = {new: '▲', buy: '▲', sell: '▼', exit: '▼'};
+
+function paintMoves() {
+  const m = DATA.moves;
+  const el = document.getElementById('card-moves');
+  if (!m) {
+    el.innerHTML = head(t('moves'), '', '', '') +
+      `<div class="cardbody"><span class="hint">${esc(t('empty'))}</span></div>`;
+    return;
+  }
+  const rows = m.items.map(e => {
+    const agree = e.f.length >= m.conviction;
+    return `<a class="move-row${agree ? ' agree' : ''}" href="${BASE}activity.html">
+      <span class="tag-action" data-k="${e.k}"><span class="arrow">${ARROW[e.k]}</span>${esc(t(e.k))}</span>
+      <span class="who"><span class="tick">${esc(e.t || '—')}</span>
+        <span class="co">${esc(e.n)}</span></span>
+      <span class="tail">
+        <span class="val">${e.v ? money(e.v) : '—'}</span>
+        <span class="agreecount">${fill(t('movesAgree'), {n: e.f.length})}</span>
+      </span>
+    </a>`;
+  }).join('');
+
+  el.innerHTML = head(t('moves'), t('movesHint'), 'activity.html',
+                      fill(t('movesMore'), {n: m.total}))
+    + `<div class="moves">${rows}</div>`
+    + `<div class="cardfoot">${m.date}  ·  ${esc(fill(t('movesTally'), m.tally))}</div>`;
+}
+
+function paintBook() {
+  const b = DATA.book;
+  const el = document.getElementById('card-book');
+  const max = Math.max(...b.funds.map(f => f.v), 1);
+  const bars = b.funds.filter(f => f.v > 0).map(f => `
+    <div class="fundrow">
+      <span class="fname">${esc(f.f)}</span>
+      <span class="ftrack"><span class="fbar" style="width:${(f.v / max * 100).toFixed(1)}%"></span></span>
+      <span class="fval">${money(f.v)}</span>
+      <span class="fpct">${(f.v / b.total * 100).toFixed(0)}%</span>
+    </div>`).join('');
+
+  let delta = '';
+  if (b.prev) {
+    const d = b.total - b.prev.total;
+    const pct = b.prev.total ? d / b.prev.total * 100 : 0;
+    const dir = Math.abs(pct) < 0.05 ? 'flat' : d > 0 ? 'up' : 'down';
+    delta = `<span class="delta" data-d="${dir}">${d > 0 ? '+' : ''}${pct.toFixed(1)}%</span>`;
+  }
+
+  const churn = b.prev ? [
+    b.prev.added.length ? `<span class="pill">${esc(fill(t('bookAdded'), {n: b.prev.added.length}))}
+      <b>${b.prev.added.slice(0, 3).map(esc).join(' ')}</b></span>` : '',
+    b.prev.removed.length ? `<span class="pill">${esc(fill(t('bookRemoved'), {n: b.prev.removed.length}))}
+      <b>${b.prev.removed.slice(0, 3).map(esc).join(' ')}</b></span>` : '',
+  ].filter(Boolean).join('') : '';
+
+  el.innerHTML = head(t('book'), t('bookHint'), 'holdings.html', t('bookAll'))
+    + `<div class="cardbody">
+        <div class="headline">
+          <span class="big">${money(b.total)}</span>
+          ${delta}
+          <span class="sub">${b.n} ${esc(t('bookSymbols'))}</span>
+        </div>
+        ${churn ? `<div class="turnover">${churn}</div>` : ''}
+        <div class="fundsplit">${bars}</div>
+      </div>`
+    + (b.prev ? `<div class="cardfoot">${esc(fill(t('bookSince'), {d: b.prev.date}))}</div>` : '');
+}
+
+function paintLeaders() {
+  const l = DATA.leaders;
+  const el = document.getElementById('card-leaders');
+  if (!l) {
+    el.innerHTML = head(t('leaders'), '', '', '') +
+      `<div class="cardbody"><span class="hint">${esc(t('empty'))}</span></div>`;
+    return;
+  }
+  // With movement to show, movement is the story; without it, the ranking is.
+  const moved = l.moved.length > 0;
+  const rows = (moved ? l.moved : l.top).map(c => `
+    <div class="rankrow">
+      <span class="rk">#${c.r}</span>
+      <span class="rname"><span class="tick">${esc(c.t)}</span>
+        <span class="co">${esc(c.n)}</span></span>
+      ${moved
+        ? `<span class="rmove" data-d="${c.d > 0 ? 'up' : 'down'}">${c.d > 0 ? '▲' : '▼'} ${Math.abs(c.d)}</span>`
+        : `<span class="rcap">${money(c.cap)}</span>`}
+    </div>`).join('');
+
+  const turnover = l.prevDate ? `<div class="turnover">
+      <span class="pill"><b>${l.in.length}</b> ${esc(t('leadersIn'))}</span>
+      <span class="pill"><b>${l.out.length}</b> ${esc(t('leadersOut'))}</span>
+      <span class="pill">${esc(fill(t('leadersHeld'), {n: l.held}))}</span>
+    </div>` : `<span class="hint">${esc(t('leadersFirst'))}</span>`;
+
+  el.innerHTML = head(t('leaders'), t('leadersHint'), 'leaders.html', t('leadersAll'))
+    + `<div class="cardbody">${turnover}<div class="ranklist">${rows}</div></div>`
+    + `<div class="cardfoot">${esc(fill(t('leadersCutoff'), {v: (l.cutoff / 1e9).toFixed(0)}))}  ·  ${l.date}</div>`;
+}
+
+function paintNext() {
+  document.getElementById('card-next').innerHTML =
+    head(t('next'), t('nextHint'), '', '')
+    + `<div class="cardbody"><div class="nextlist">${
+      page().next.map(([b, x]) =>
+        `<div class="nextitem"><b>${esc(b)}</b><span>${esc(x)}</span></div>`).join('')
+    }</div></div>`;
+}
+
+/* ---- shell ---- */
+
+const switcher = document.getElementById('langswitch');
+switcher.innerHTML = DATA.langs.map(l =>
+  `<button type="button" data-l="${l.v}" aria-pressed="false">${l.label}</button>`).join('');
+switcher.addEventListener('click', ev => {
+  const b = ev.target.closest('button');
+  if (!b || b.dataset.l === lang) return;
+  lang = b.dataset.l;
+  try { localStorage.setItem('ark-lang', lang); } catch (err) {}
+  render();
+});
+
+function render() {
+  const c = page();
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.title = c.title;
+  document.getElementById('eyebrow').textContent = c.eyebrow;
+  document.getElementById('title').textContent = c.title;
+  document.getElementById('standfirst').textContent = c.standfirst;
+  document.getElementById('provenance').textContent = c.provenance;
+  document.getElementById('h-sources').textContent = t('sources');
+  document.getElementById('hint-sources').textContent = t('sourcesHint');
+  document.getElementById('footnotes').innerHTML = c.footnotes
+    .map(([b, x]) => `<div>${b ? `<b>${esc(b)}</b> ` : ''}${esc(x)}</div>`).join('');
+  switcher.querySelectorAll('button').forEach(b =>
+    b.setAttribute('aria-pressed', b.dataset.l === lang ? 'true' : 'false'));
+
+  paintNav();
+  paintSources();
+  paintMoves();
+  paintBook();
+  paintLeaders();
+  paintNext();
+}
+
+render();
+</script>

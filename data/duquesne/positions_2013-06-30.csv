@@ -1,0 +1,18 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2013-06-30,Duquesne Family Office,38259P508,,Google Inc.,equity,196543,196543.00,29.1709
+2013-06-30,Duquesne Family Office,124857202,,CBS Corp,equity,99890,99890.00,14.8257
+2013-06-30,Duquesne Family Office,247361702,DAL,Delta Air Lines Inc.,equity,72249,72249.00,10.7232
+2013-06-30,Duquesne Family Office,742718109,PG,Procter &amp; Gamble Co,equity,43599,43599.00,6.4710
+2013-06-30,Duquesne Family Office,90341W108,,US Airways Group Inc.,equity,38817,38817.00,5.7612
+2013-06-30,Duquesne Family Office,16117M305,,Charter Comm&apos;s Inc,equity,33687,33687.00,4.9998
+2013-06-30,Duquesne Family Office,98138H101,WDAY,Workday Inc.,equity,32397,32397.00,4.8084
+2013-06-30,Duquesne Family Office,375558103,GILD,Gilead Sciences Inc.,equity,31311,31311.00,4.6472
+2013-06-30,Duquesne Family Office,92343V104,VZ,Verizon Comm&apos;s Inc.,equity,23811,23811.00,3.5340
+2013-06-30,Duquesne Family Office,229678107,,Cubist Pharms Inc.,equity,19944,19944.00,2.9601
+2013-06-30,Duquesne Family Office,09062X103,BIIB,Biogen Idec Inc.,equity,19691,19691.00,2.9225
+2013-06-30,Duquesne Family Office,N53745100,LYB,LyondellBasell Ind&apos;s NV,equity,14445,14445.00,2.1439
+2013-06-30,Duquesne Family Office,478160104,JNJ,Johnson &amp; Johnson,equity,11076,11076.00,1.6439
+2013-06-30,Duquesne Family Office,81369Y605,XLF,Select Sector SPDR TR,equity,10616,10616.00,1.5756
+2013-06-30,Duquesne Family Office,097023105,BA,Boeing Co,equity,10162,10162.00,1.5082
+2013-06-30,Duquesne Family Office,101137107,BSX,Boston Scientific Corp,equity,9270,9270.00,1.3759
+2013-06-30,Duquesne Family Office,81369Y803,XLK,Select Sector SPDR TR,equity,6256,6256.00,0.9285

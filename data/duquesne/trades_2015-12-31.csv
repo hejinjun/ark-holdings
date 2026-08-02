@@ -1,0 +1,37 @@
+trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_class,prev_shares,shares,expected_shares,active_shares,active_pct,flow_factor
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,EEM,IShrs MSCI Emg&apos;g Mkt Idx,464287234,equity,0,2971000,0,2971000,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,KO,Coca-Cola Co,191216100,equity,0,1388900,0,1388900,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,PM,Philip Morris Int&apos;l Inc.,718172109,equity,0,554800,0,554800,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,SO,Southern Co,842587107,equity,0,1017400,0,1017400,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,DUK,Duke Energy Corp,26441C204,equity,0,649100,0,649100,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,PPL,PPL Corp,69351T106,equity,0,974700,0,974700,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,PEP,Pepsico Inc.,713448108,equity,0,353300,0,353300,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,EMR,Emerson Electric Inc.,291011104,equity,0,551000,0,551000,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,CAT,Caterpillar Inc.,149123101,equity,0,330000,0,330000,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,ABX,Barrick Gold Corp,067901108,equity,0,1832600,0,1832600,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,LUV,Southwest Airlines Co.,844741108,equity,0,493000,0,493000,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,VZ,Verizon Comms Inc.,92343V104,equity,0,400000,0,400000,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,ZTS,Zoetis Inc.,98978V103,equity,0,477900,0,477900,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,HD,Home Depot Inc.,437076102,equity,0,150700,0,150700,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,POST,Post Holdings Inc.,737446104,equity,0,291200,0,291200,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,WDAY,Workday Inc.,98138H101,equity,0,259700,0,259700,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,MCD,McDonald&apos;s Corp,580135101,equity,0,158200,0,158200,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,AEM,Agnico Eagle Mines Ltd,008474108,equity,0,434900,0,434900,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,,WhiteWave Foods Co,966244105,equity,0,364000,0,364000,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,ED,Consolidated Edison Inc.,209115104,equity,0,141900,0,141900,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,WEC,WEC Energy Grp Inc.,92939U106,equity,0,178000,0,178000,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,AEP,Am Elect Pwr Co Inc.,025537101,equity,0,160200,0,160200,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,EL,The Estee Lauder Co Inc.,518439104,equity,0,111900,0,111900,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,JD,JD.Com Inc.,47215P106,equity,0,356400,0,356400,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,new,WMB,Williams Co&apos;s Inc.,969457100,equity,0,278400,0,278400,,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,buy,GOOGL,Alphabet Inc.,02079K305,equity,32800,55700,26231,29469,112.34,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,buy,P,Pure Storage Inc.,74624M102,equity,1600000,1984600,1279557,705043,55.10,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,buy,SGI,Tempur Sealy Int&apos;l Inc.,88023U101,equity,125500,125500,100365,25135,25.04,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,sell,AMZN,Amazon.com Inc.,023135106,equity,190000,77200,151947,-74747,-49.19,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,sell,MSFT,Microsoft Corp,594918104,equity,1165000,517100,931677,-414577,-44.50,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,sell,HDB,HDFC Bank Ltd.,40415F101,equity,491100,125800,392744,-266944,-67.97,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,exit,NOC,Northrop Grumman Corp,666807102,equity,135600,0,108442,-135600,-100.00,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,exit,SYF,Syncrony Fin&apos;l,87165B103,equity,473600,0,378749,-473600,-100.00,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,exit,CMG,Chipotle Mex Grill Inc.,169656105,equity,20200,0,16154,-20200,-100.00,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,exit,RTN1USD,Raytheon Co,755111507,equity,417800,0,334124,-417800,-100.00,0.799723
+2015-12-31,2015-12-31,2016-03-31,Duquesne Family Office,exit,CTRPUSD,Ctrip.com Int&apos;l Ltd.,22943F100,equity,772300,0,617626,-772300,-100.00,0.799723

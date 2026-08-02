@@ -1,0 +1,33 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2016-12-31,Duquesne Family Office,464287655,IWM,Ishares Tr,equity,991900,133758000.00,13.0365
+2016-12-31,Duquesne Family Office,00287Y109,ABBV,Abbvie Inc,equity,1221723,76504000.00,7.4564
+2016-12-31,Duquesne Family Office,060505104,BAC,Bank Amer Corp,equity,2562400,56629000.00,5.5193
+2016-12-31,Duquesne Family Office,406216101,HAL,Halliburton Co,equity,1041300,56324000.00,5.4895
+2016-12-31,Duquesne Family Office,81369Y605,XLF,Select Sector Spdr Tr,equity,2397500,55742000.00,5.4328
+2016-12-31,Duquesne Family Office,172967424,C,Citigroup Inc,equity,927100,55098000.00,5.3700
+2016-12-31,Duquesne Family Office,693475105,PNC,Pnc Finl Svcs Group Inc,equity,466000,54503000.00,5.3121
+2016-12-31,Duquesne Family Office,949746101,WFC,Wells Fargo &amp; Co New,equity,960400,52928000.00,5.1586
+2016-12-31,Duquesne Family Office,81369Y704,XLI,Select Sector Spdr Tr,equity,827100,51462000.00,5.0157
+2016-12-31,Duquesne Family Office,N53745100,LYB,Lyondellbasell Industries N,equity,568500,48766000.00,4.7529
+2016-12-31,Duquesne Family Office,58933Y105,MRK,Merck &amp; Co Inc,equity,683800,40255000.00,3.9234
+2016-12-31,Duquesne Family Office,26875P101,EOG,Eog Res Inc,equity,380800,38499000.00,3.7523
+2016-12-31,Duquesne Family Office,35671D857,FCX,Freeport-Mcmoran Inc,equity,2882600,38021000.00,3.7057
+2016-12-31,Duquesne Family Office,013872106,AA,Alcoa Corp,equity,1200800,33718000.00,3.2863
+2016-12-31,Duquesne Family Office,46625H100,JPM,Jpmorgan Chase &amp; Co,equity,327500,28260000.00,2.7543
+2016-12-31,Duquesne Family Office,670346105,NUE,Nucor Corp,equity,362000,21546000.00,2.1000
+2016-12-31,Duquesne Family Office,H00263105,,Ac Immune Sa,equity,1579031,20496000.00,1.9976
+2016-12-31,Duquesne Family Office,723787107,PXDEUR,Pioneer Nat Res Co,equity,112300,20222000.00,1.9709
+2016-12-31,Duquesne Family Office,984332106,,Yahoo Inc,equity,483100,18681000.00,1.8207
+2016-12-31,Duquesne Family Office,088606108,BHP,Bhp Billiton Ltd,equity,325000,11629000.00,1.1334
+2016-12-31,Duquesne Family Office,045327103,AZPNUSD,Aspen Technology Inc,equity,209900,11477000.00,1.1186
+2016-12-31,Duquesne Family Office,74624M102,P,Pure Storage Inc,equity,926133,10475000.00,1.0209
+2016-12-31,Duquesne Family Office,H8817H100,RIG,Transocean Ltd,equity,701700,10343000.00,1.0081
+2016-12-31,Duquesne Family Office,969457100,WMB,Williams Cos Inc Del,equity,327300,10192000.00,0.9933
+2016-12-31,Duquesne Family Office,260003108,DOV,Dover Corp,equity,135600,10161000.00,0.9903
+2016-12-31,Duquesne Family Office,127097103,CTRA,Cabot Oil &amp; Gas Corp,equity,429700,10038000.00,0.9783
+2016-12-31,Duquesne Family Office,291011104,EMR,Emerson Elec Co,equity,175000,9756000.00,0.9509
+2016-12-31,Duquesne Family Office,26884L109,EQT,Eqt Corp,equity,142200,9300000.00,0.9064
+2016-12-31,Duquesne Family Office,75281A109,RRC,Range Res Corp,equity,270000,9277000.00,0.9042
+2016-12-31,Duquesne Family Office,912909108,USX1,United States Stl Corp New,equity,275000,9078000.00,0.8848
+2016-12-31,Duquesne Family Office,845467109,SWN1EUR,Southwestern Energy Co,equity,828700,8967000.00,0.8740
+2016-12-31,Duquesne Family Office,008916108,,Agrium Inc,equity,38974,3919000.00,0.3820

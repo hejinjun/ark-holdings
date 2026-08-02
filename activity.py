@@ -109,6 +109,41 @@ def price_for(prices: dict, cusip: str, trade_date: str) -> float:
     return 0.0
 
 
+def summary(limit: int = 6) -> dict | None:
+    """The latest session's moves, ranked by agreement, for the home page.
+
+    Only the newest trades file is read: the home page answers "what happened
+    today", and loading thirty of them to show six rows is work the visitor
+    never sees.
+    """
+    paths = sorted(DATA.glob("trades_*.csv"))
+    if not paths:
+        return None
+    with paths[-1].open(encoding="utf-8") as fh:
+        rows = [r for r in csv.DictReader(fh)
+                if r.get("asset_class") not in SKIP_CLASSES]
+    merged = merge(rows)
+    if not merged:
+        return None
+
+    prices = price_map()
+    tally = {"new": 0, "buy": 0, "sell": 0, "exit": 0}
+    for g in merged:
+        tally[g["kind"]] += 1
+
+    return {
+        "date": merged[0]["date"],
+        "conviction": CONVICTION,
+        "total": len(merged),
+        "tally": tally,
+        "items": [{
+            "t": g["ticker"], "n": g["company"], "k": g["kind"],
+            "s": g["shares"], "f": g["funds"],
+            "v": abs(g["shares"]) * price_for(prices, g["cusip"], g["date"]),
+        } for g in merged[:limit]],
+    }
+
+
 def build(days: int) -> dict:
     rows = load_trades(days)
     if not rows:

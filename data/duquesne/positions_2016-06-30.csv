@@ -1,0 +1,32 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2016-06-30,Duquesne Family Office,30303M102,META,Facebook Inc.,equity,932394,106554000.00,12.2381
+2016-06-30,Duquesne Family Office,406216101,HAL,Halliburton Co,equity,2177600,98624000.00,11.3273
+2016-06-30,Duquesne Family Office,00287Y109,ABBV,AbbVie Inc.,equity,1324920,82026000.00,9.4210
+2016-06-30,Duquesne Family Office,464287234,EEM,IShrs MSCI Emg&apos;g Mkt Idx,equity,2093400,71929000.00,8.2613
+2016-06-30,Duquesne Family Office,067901108,ABX,Barrick Gold Corp,equity,1832600,39126000.00,4.4938
+2016-06-30,Duquesne Family Office,35671D857,FCX,Freeport-McMoRan Inc,equity,3470700,38664000.00,4.4407
+2016-06-30,Duquesne Family Office,013817101,AA,Alcoa Inc.,equity,3390700,31432000.00,3.6101
+2016-06-30,Duquesne Family Office,244199105,DE,Deere &amp; Co,equity,360500,29215000.00,3.3555
+2016-06-30,Duquesne Family Office,023135106,AMZN,Amazon.com Inc.,equity,35400,25333000.00,2.9096
+2016-06-30,Duquesne Family Office,737446104,POST,Post Hldgs Inc.,equity,291200,24079000.00,2.7656
+2016-06-30,Duquesne Family Office,008474108,AEM,Agnico Eagle Mines Ltd,equity,434900,23267000.00,2.6723
+2016-06-30,Duquesne Family Office,98978V103,ZTS,Zoetis Inc.,equity,477900,22681000.00,2.6050
+2016-06-30,Duquesne Family Office,125269100,CF,CF Ind&apos;s Hldgs Inc.,equity,930800,22432000.00,2.5764
+2016-06-30,Duquesne Family Office,74624M102,P,Pure Storage Inc.,equity,1984600,21632000.00,2.4845
+2016-06-30,Duquesne Family Office,008916108,,Agrium Inc.,equity,220500,19938000.00,2.2900
+2016-06-30,Duquesne Family Office,73755L107,POT1EUR,Potash Corp of Sask Inc.,equity,1192000,19358000.00,2.2233
+2016-06-30,Duquesne Family Office,966244105,,WhiteWave Foods Co,equity,364000,17086000.00,1.9624
+2016-06-30,Duquesne Family Office,22943F100,CTRPUSD,Ctrip.com Int&apos;l Ltd.,equity,409000,16851000.00,1.9354
+2016-06-30,Duquesne Family Office,40415F101,HDB,HDFC Bank Ltd.,equity,232000,15393000.00,1.7679
+2016-06-30,Duquesne Family Office,G47791101,,Ingersoll-Rand Plc,equity,238500,15188000.00,1.7444
+2016-06-30,Duquesne Family Office,002824100,ABT,Abbott Labs,equity,385400,15150000.00,1.7400
+2016-06-30,Duquesne Family Office,67066G104,NVDA,NVIDIA Corp.,equity,320000,15043000.00,1.7277
+2016-06-30,Duquesne Family Office,79466L302,CRM,Salesforce.com Inc.,equity,189000,15008000.00,1.7237
+2016-06-30,Duquesne Family Office,773903109,ROK,Rockwell Automation Inc.,equity,130100,14938000.00,1.7157
+2016-06-30,Duquesne Family Office,369550108,GD,General Dynamics Corp,equity,104900,14606000.00,1.6776
+2016-06-30,Duquesne Family Office,755111507,RTN1USD,Raytheon Co,equity,77100,10482000.00,1.2039
+2016-06-30,Duquesne Family Office,582839106,,Mead Johnson Nut&apos;n Co,equity,110300,10010000.00,1.1497
+2016-06-30,Duquesne Family Office,670346105,NUE,Nucor Corp,equity,201000,9931000.00,1.1406
+2016-06-30,Duquesne Family Office,00846U101,A,Agilent Tech&apos;s Inc.,equity,220300,9773000.00,1.1225
+2016-06-30,Duquesne Family Office,277432100,EMN,Eastman Chem Co,equity,131100,8902000.00,1.0224
+2016-06-30,Duquesne Family Office,969457100,WMB,Williams Co&apos;s Inc.,equity,278400,6022000.00,0.6916

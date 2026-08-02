@@ -42,27 +42,7 @@
 /* Agreement is the point of the page, so it gets the one strong mark on it. */
 .move.agree { box-shadow: inset 3px 0 0 var(--accent); }
 
-.tag-action {
-  justify-self: start;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 4px;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 2px;
-  white-space: nowrap;
-}
-/* Solid for opening and closing, tinted for adding and trimming: the fill
-   carries intensity, the hue carries direction. */
-.tag-action[data-k="new"]  { background: var(--pos-new-bg);  color: var(--pos-new-fg); }
-.tag-action[data-k="buy"]  { background: var(--pos-buy-bg);  color: var(--pos-buy-fg); }
-.tag-action[data-k="sell"] { background: var(--pos-sell-bg); color: var(--pos-sell-fg); }
-.tag-action[data-k="exit"] { background: var(--pos-exit-bg); color: var(--pos-exit-fg); }
-
-/* The arrow is the encoding that survives with no colour at all. */
-.tag-action .arrow { font-size: 9px; opacity: 0.85; }
+/* .tag-action lives in styles.css: the home page shows the same chip. */
 
 .move .tick { font-family: var(--mono); font-weight: 600; font-size: 13px; }
 .move .co { font-size: 13px; color: var(--ink-2); }
@@ -125,12 +105,10 @@
 
   <header class="masthead">
     <div class="masthead-top">
-      <div class="eyebrow" id="eyebrow"></div>
-      <div style="display:flex; gap:10px; align-items:center">
-        <a class="clear" id="tolist" href="index.html" style="text-decoration:none"></a>
-        <div class="langswitch" id="langswitch" role="group" aria-label="Language"></div>
-      </div>
+      <nav class="sitenav" id="sitenav" aria-label="Sections"></nav>
+      <div class="langswitch" id="langswitch" role="group" aria-label="Language"></div>
     </div>
+    <div class="eyebrow" id="eyebrow"></div>
     <h1 id="title"></h1>
     <p class="standfirst" id="standfirst"></p>
     <div class="provenance" id="provenance"></div>
@@ -172,6 +150,9 @@ const page = () => DATA.i18n[lang];
 const t = k => page().ui[k];
 const lbl = o => (lang === 'zh' && o.label_zh) ? o.label_zh : o.label;
 const desc = e => (lang === 'zh' && e.dz) ? e.dz : (e.ds || '');
+
+const HERE = 'activity';
+/*__NAV__*/
 
 const usd = n => n.toLocaleString('en-US', {maximumFractionDigits: 0});
 function money(v) {
@@ -263,11 +244,11 @@ switcher.addEventListener('click', ev => {
 
 function paintStatic() {
   const c = page();
+  paintNav();
   document.getElementById('eyebrow').textContent = c.eyebrow;
   document.getElementById('title').textContent = c.title;
   document.getElementById('standfirst').textContent = c.standfirst;
   document.getElementById('provenance').textContent = c.provenance;
-  document.getElementById('tolist').textContent = t('holdings');
   document.getElementById('clear').textContent = t('clear');
   document.getElementById('empty').textContent = t('empty');
   document.getElementById('search').placeholder = t('search');

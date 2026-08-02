@@ -1,0 +1,36 @@
+trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_class,prev_shares,shares,expected_shares,active_shares,active_pct,flow_factor
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,SLB,Schlumberger Ltd.,806857108,equity,0,993000,0,993000,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,AMZN,Amazon.com Inc.,023135106,equity,0,157700,0,157700,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,ILMN,Illumina Inc.,452327109,equity,0,506700,0,506700,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,HAL,Halliburton Co,406216101,equity,0,633700,0,633700,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,PXDEUR,Pioneer Nat&apos;l Res&apos;s Co,723787107,equity,0,143000,0,143000,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,AMGN,Amgen Inc.,031162100,equity,0,231000,0,231000,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,,Endo Health Sol&apos;ns Inc.,29264F205,equity,0,527000,0,527000,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,WEN,Wendy&apos;s Co,95058W100,equity,0,2000000,0,2000000,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,EMB,Ishares JPM USD Emg Bnd,464288281,equity,0,136500,0,136500,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,XLY,Cons Disc Sel Sctr SPDR Fnd,81369Y407,equity,0,170800,0,170800,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,LNG,Cheniere Energy Inc.,16411R208,equity,0,303200,0,303200,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,XLI,Ind&apos;l Select Sctr SPDR,81369Y704,equity,0,222900,0,222900,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,EWY,IShares MSCI Sth Kor Cap Idx Fnd,464286772,equity,0,165500,0,165500,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,XLE,Engy Select Sctr SPDR Fnd,81369Y506,equity,0,116900,0,116900,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,FXI,IShares FTSE China 25 Idx Fnd,464287184,equity,0,260700,0,260700,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,NOK,Nokia Oyj,654902204,equity,0,1000000,0,1000000,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,HLF,Herbalife Ltd.,G4412G101,equity,0,79032,0,79032,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,XLB,Mat&apos;ls Select Sctr SPDR Tst,81369Y100,equity,0,120400,0,120400,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,new,DXJ,WisdomTree Jpn Hdgd Eq Fnd,97717W851,equity,0,102000,0,102000,,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,buy,DAL,Delta Air Lines Inc.,247361702,equity,72249,3110000,841470,2268530,269.59,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,buy,GILD,Gilead Sciences Inc.,375558103,equity,31311,610700,364673,246027,67.47,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,buy,,Cubist Pharm&apos;s Inc.,229678107,equity,19944,413000,232284,180716,77.80,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,buy,WDAY,Workday Inc.,98138H101,equity,32397,505500,377322,128178,33.97,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,sell,,Google Inc.,38259P508,equity,196543,223250,2289098,-2065848,-90.25,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,sell,,CBS Corp,124857202,equity,99890,481700,1163399,-681699,-58.60,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,sell,BIIB,Biogen Idec Inc.,09062X103,equity,19691,91500,229337,-137837,-60.10,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,sell,BA,Boeing Co,097023105,equity,10162,99200,118355,-19155,-16.18,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,exit,,US Airways Group Inc.,90341W108,equity,38817,0,452094,-38817,-100.00,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,exit,VZ,Verizon Comm&apos;s Inc.,92343V104,equity,23811,0,277322,-23811,-100.00,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,exit,PG,Procter &amp; Gamble Co,742718109,equity,43599,0,507789,-43599,-100.00,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,exit,BSX,Boston Scientific Corp,101137107,equity,9270,0,107966,-9270,-100.00,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,exit,LYB,LyondellBasell Ind&apos;s NV,N53745100,equity,14445,0,168238,-14445,-100.00,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,exit,XLF,Select Sector SPDR TR,81369Y605,equity,10616,0,123642,-10616,-100.00,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,exit,,Charter Comm&apos;s Inc,16117M305,equity,33687,0,392346,-33687,-100.00,11.646804
+2013-06-30,2013-06-30,2013-09-30,Duquesne Family Office,exit,XLK,Select Sector SPDR TR,81369Y803,equity,6256,0,72862,-6256,-100.00,11.646804

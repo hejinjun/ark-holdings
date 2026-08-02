@@ -1,0 +1,33 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2016-03-31,Duquesne Family Office,30303M102,META,Facebook Inc.,equity,2023694,230903000.00,20.9637
+2016-03-31,Duquesne Family Office,464287234,EEM,IShrs MSCI Emg&apos;g Mkt Idx,equity,2971000,101757000.00,9.2385
+2016-03-31,Duquesne Family Office,191216100,KO,Coca-Cola Co,equity,1388900,64431000.00,5.8497
+2016-03-31,Duquesne Family Office,718172109,PM,Philip Morris Int&apos;l Inc.,equity,554800,54431000.00,4.9418
+2016-03-31,Duquesne Family Office,842587107,SO,Southern Co,equity,1017400,52630000.00,4.7783
+2016-03-31,Duquesne Family Office,26441C204,DUK,Duke Energy Corp,equity,649100,52369000.00,4.7546
+2016-03-31,Duquesne Family Office,023135106,AMZN,Amazon.com Inc.,equity,77200,45829000.00,4.1608
+2016-03-31,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc.,equity,55700,42494000.00,3.8580
+2016-03-31,Duquesne Family Office,69351T106,PPL,PPL Corp,equity,974700,37107000.00,3.3689
+2016-03-31,Duquesne Family Office,713448108,PEP,Pepsico Inc.,equity,353300,36206000.00,3.2871
+2016-03-31,Duquesne Family Office,291011104,EMR,Emerson Electric Inc.,equity,551000,29963000.00,2.7203
+2016-03-31,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,517100,28559000.00,2.5929
+2016-03-31,Duquesne Family Office,74624M102,P,Pure Storage Inc.,equity,1984600,27169000.00,2.4667
+2016-03-31,Duquesne Family Office,149123101,CAT,Caterpillar Inc.,equity,330000,25258000.00,2.2932
+2016-03-31,Duquesne Family Office,067901108,ABX,Barrick Gold Corp,equity,1832600,24887000.00,2.2595
+2016-03-31,Duquesne Family Office,844741108,LUV,Southwest Airlines Co.,equity,493000,22086000.00,2.0052
+2016-03-31,Duquesne Family Office,92343V104,VZ,Verizon Comms Inc.,equity,400000,21632000.00,1.9640
+2016-03-31,Duquesne Family Office,98978V103,ZTS,Zoetis Inc.,equity,477900,21185000.00,1.9234
+2016-03-31,Duquesne Family Office,437076102,HD,Home Depot Inc.,equity,150700,20108000.00,1.8256
+2016-03-31,Duquesne Family Office,737446104,POST,Post Holdings Inc.,equity,291200,20026000.00,1.8182
+2016-03-31,Duquesne Family Office,98138H101,WDAY,Workday Inc.,equity,259700,19955000.00,1.8117
+2016-03-31,Duquesne Family Office,580135101,MCD,McDonald&apos;s Corp,equity,158200,19883000.00,1.8052
+2016-03-31,Duquesne Family Office,008474108,AEM,Agnico Eagle Mines Ltd,equity,434900,15726000.00,1.4278
+2016-03-31,Duquesne Family Office,966244105,,WhiteWave Foods Co,equity,364000,14793000.00,1.3431
+2016-03-31,Duquesne Family Office,209115104,ED,Consolidated Edison Inc.,equity,141900,10872000.00,0.9871
+2016-03-31,Duquesne Family Office,92939U106,WEC,WEC Energy Grp Inc.,equity,178000,10692000.00,0.9707
+2016-03-31,Duquesne Family Office,025537101,AEP,Am Elect Pwr Co Inc.,equity,160200,10637000.00,0.9657
+2016-03-31,Duquesne Family Office,518439104,EL,The Estee Lauder Co Inc.,equity,111900,10553000.00,0.9581
+2016-03-31,Duquesne Family Office,47215P106,JD,JD.Com Inc.,equity,356400,9445000.00,0.8575
+2016-03-31,Duquesne Family Office,40415F101,HDB,HDFC Bank Ltd.,equity,125800,7753000.00,0.7039
+2016-03-31,Duquesne Family Office,88023U101,SGI,Tempur Sealy Int&apos;l Inc.,equity,125500,7629000.00,0.6926
+2016-03-31,Duquesne Family Office,969457100,WMB,Williams Co&apos;s Inc.,equity,278400,4474000.00,0.4062

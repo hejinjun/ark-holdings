@@ -1,0 +1,23 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2018-03-31,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc,equity,259150,268775000.00,14.8508
+2018-03-31,Duquesne Family Office,023135106,AMZN,Amazon Com Inc,equity,170853,247282000.00,13.6632
+2018-03-31,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,2430200,221804000.00,12.2555
+2018-03-31,Duquesne Family Office,79466L302,CRM,Salesforce Com Inc,equity,1705300,198326000.00,10.9582
+2018-03-31,Duquesne Family Office,458140100,INTC,Intel Corp,equity,2462600,128252000.00,7.0864
+2018-03-31,Duquesne Family Office,640268108,NKTREUR,Nektar Therapeutics,equity,1192300,126694000.00,7.0003
+2018-03-31,Duquesne Family Office,01609W102,BABA,Alibaba Group Hldg Ltd,equity,657400,120659000.00,6.6668
+2018-03-31,Duquesne Family Office,595112103,MU,Micron Technology Inc,equity,2187500,114056000.00,6.3020
+2018-03-31,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,569200,72351000.00,3.9976
+2018-03-31,Duquesne Family Office,47215P106,JD,Jd Com Inc,equity,1783000,72194000.00,3.9890
+2018-03-31,Duquesne Family Office,64110L106,NFLX,Netflix Inc,equity,189700,56028000.00,3.0957
+2018-03-31,Duquesne Family Office,852857200,STMP,Stamps Com Inc,equity,158000,31766000.00,1.7552
+2018-03-31,Duquesne Family Office,00724F101,ADBE,Adobe Sys Inc,equity,122500,26470000.00,1.4626
+2018-03-31,Duquesne Family Office,874080104,TAL,Tal Ed Group,equity,682000,25295000.00,1.3976
+2018-03-31,Duquesne Family Office,H00263105,,Ac Immune Sa,equity,2388700,24699000.00,1.3647
+2018-03-31,Duquesne Family Office,747525103,QCOM,Qualcomm Inc,equity,411000,22774000.00,1.2583
+2018-03-31,Duquesne Family Office,22943F100,CTRPUSD,Ctrip Com Intl Ltd,equity,305700,14252000.00,0.7875
+2018-03-31,Duquesne Family Office,N97284108,,Yandex N V,equity,304000,11993000.00,0.6627
+2018-03-31,Duquesne Family Office,92763W103,VIPS,Vipshop Hldgs Ltd,equity,572800,9520000.00,0.5260
+2018-03-31,Duquesne Family Office,85917A100,STL,Sterling Bancorp Del,equity,401600,9056000.00,0.5004
+2018-03-31,Duquesne Family Office,46116X101,ITCIEUR,Intra Cellular Therapies Inc,equity,296986,6252000.00,0.3454
+2018-03-31,Duquesne Family Office,G68707101,,Pagseguro Digital Ltd Com,equity,35000,1341000.00,0.0741

@@ -1,0 +1,30 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2015-06-30,Duquesne Family Office,78463V907,,SPDR Gold Trust,equity,2880000,323626000.00,21.8070
+2015-06-30,Duquesne Family Office,30303M102,META,Facebook Inc,equity,1872700,160612000.00,10.8226
+2015-06-30,Duquesne Family Office,949746101,WFC,Wells Fargo &amp; Co,equity,1679400,94449000.00,6.3643
+2015-06-30,Duquesne Family Office,N53745100,LYB,LyondellBasell Ind&apos;s NV,equity,716950,74219000.00,5.0011
+2015-06-30,Duquesne Family Office,406216101,HAL,Halliburton Co,equity,1547000,66629000.00,4.4897
+2015-06-30,Duquesne Family Office,35671D857,FCX,Freeport-McMoRan Inc,equity,3547000,66045000.00,4.4503
+2015-06-30,Duquesne Family Office,172967424,C,Citigroup Inc,equity,1175000,64907000.00,4.3737
+2015-06-30,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,1398100,61726000.00,4.1593
+2015-06-30,Duquesne Family Office,40415F101,HDB,HDFC Bank Ltd,equity,1003600,60748000.00,4.0934
+2015-06-30,Duquesne Family Office,260543103,,Dow Chemical Co,equity,1163300,59526000.00,4.0111
+2015-06-30,Duquesne Family Office,46625H100,JPM,JP Morgan Chase &amp; Co,equity,777300,52670000.00,3.5491
+2015-06-30,Duquesne Family Office,452327109,ILMN,Illumina Inc,equity,206500,45091000.00,3.0384
+2015-06-30,Duquesne Family Office,013817101,AA,Alcoa Inc,equity,3650000,40698000.00,2.7424
+2015-06-30,Duquesne Family Office,651639106,NEM,Newmont Mining Corp,equity,1279900,29898000.00,2.0146
+2015-06-30,Duquesne Family Office,26875P101,EOG,EOG Res&apos;s Inc,equity,310900,27219000.00,1.8341
+2015-06-30,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,330679,25261000.00,1.7022
+2015-06-30,Duquesne Family Office,00971T101,AKAM,Akamai Tech Inc,equity,355300,24807000.00,1.6716
+2015-06-30,Duquesne Family Office,47215P106,JD,JD.Com Inc,equity,593000,20221000.00,1.3626
+2015-06-30,Duquesne Family Office,278642103,EBAY,EBay Inc,equity,327000,19698000.00,1.3273
+2015-06-30,Duquesne Family Office,867914103,,SunTrust Banks Inc,equity,457100,19664000.00,1.3250
+2015-06-30,Duquesne Family Office,054937107,BBTUSD,BB&amp;T Corp,equity,485600,19575000.00,1.3190
+2015-06-30,Duquesne Family Office,693475105,PNC,"PNC Fin&apos;l Services Group, Inc",equity,204600,19570000.00,1.3187
+2015-06-30,Duquesne Family Office,01609W102,BABA,Alibaba Group Hldg Ltd,equity,219100,18025000.00,1.2146
+2015-06-30,Duquesne Family Office,723787107,PXDEUR,Pioneer Nat&apos;l Res&apos;s Co,equity,114800,15922000.00,1.0729
+2015-06-30,Duquesne Family Office,026874784,AIG,Am Int&apos;l Grp Inc,equity,250300,15474000.00,1.0427
+2015-06-30,Duquesne Family Office,277432100,EMN,Eastman Chemical Co,equity,186000,15219000.00,1.0255
+2015-06-30,Duquesne Family Office,22943F100,CTRPUSD,Ctrip.com Int&apos;l Ltd,equity,201400,14626000.00,0.9856
+2015-06-30,Duquesne Family Office,192446102,CTSH,Cognizant Tech Sol&apos;s Corp,equity,236800,14466000.00,0.9748
+2015-06-30,Duquesne Family Office,655044105,NBL2EUR,Noble Energy Inc,equity,315200,13453000.00,0.9065

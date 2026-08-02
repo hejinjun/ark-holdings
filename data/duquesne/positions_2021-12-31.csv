@@ -1,0 +1,49 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2021-12-31,Duquesne Family Office,22266T109,CPNG,Coupang Inc,equity,17763525,521892000.00,18.9826
+2021-12-31,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc,equity,94414,273521000.00,9.9487
+2021-12-31,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,800490,269221000.00,9.7923
+2021-12-31,Duquesne Family Office,35671D857,FCX,Freeport-Mcmoran Inc,equity,4836809,201840000.00,7.3415
+2021-12-31,Duquesne Family Office,023135106,AMZN,Amazon Com Inc,equity,56882,189664000.00,6.8986
+2021-12-31,Duquesne Family Office,697435105,PANW,Palo Alto Networks Inc,equity,229500,127776000.00,4.6476
+2021-12-31,Duquesne Family Office,146869102,CVNA,Carvana Co,equity,522127,121024000.00,4.4020
+2021-12-31,Duquesne Family Office,09857L108,BKNG,Booking Holdings Inc,equity,42917,102968000.00,3.7452
+2021-12-31,Duquesne Family Office,166764100,CVX,Chevron Corp New,equity,824440,96748000.00,3.5190
+2021-12-31,Duquesne Family Office,872590104,TMUS,T-Mobile Us Inc,equity,796303,92355000.00,3.3592
+2021-12-31,Duquesne Family Office,009066101,ABNB,Airbnb Inc,equity,496861,82722000.00,3.0088
+2021-12-31,Duquesne Family Office,83304A106,SNAP,Snap Inc,equity,1444155,67919000.00,2.4704
+2021-12-31,Duquesne Family Office,971378104,WSC,Willscot Mobil Mini Hldng Co,equity,1501942,61339000.00,2.2311
+2021-12-31,Duquesne Family Office,48242W106,KBR,Kbr Inc,equity,1036426,49355000.00,1.7952
+2021-12-31,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,2537199,46507000.00,1.6916
+2021-12-31,Duquesne Family Office,855244109,SBUX,Starbucks Corp,equity,361990,42342000.00,1.5401
+2021-12-31,Duquesne Family Office,74276L105,PRCT,Procept Biorobotics Corp,equity,1660435,41527000.00,1.5104
+2021-12-31,Duquesne Family Office,68404L201,OPCH,Option Care Health Inc,equity,1190938,33870000.00,1.2319
+2021-12-31,Duquesne Family Office,83200N103,SMARGBP,Smartsheet Inc,equity,390011,30206000.00,1.0987
+2021-12-31,Duquesne Family Office,69608A108,PLTR,Palantir Technologies Inc,equity,1632937,29736000.00,1.0816
+2021-12-31,Duquesne Family Office,538034109,LYV,Live Nation Entertainment In,equity,244590,29275000.00,1.0648
+2021-12-31,Duquesne Family Office,30212P303,EXPE,Expedia Group Inc,equity,154070,27844000.00,1.0128
+2021-12-31,Duquesne Family Office,81141R100,SE,Sea Ltd,equity,104689,23420000.00,0.8518
+2021-12-31,Duquesne Family Office,45687V106,IR,Ingersoll Rand Inc,equity,333295,20621000.00,0.7500
+2021-12-31,Duquesne Family Office,22266L106,COUPEUR,Coupa Software Inc,equity,129399,20452000.00,0.7439
+2021-12-31,Duquesne Family Office,25470M109,DISH,Dish Network Corporation,equity,570434,18505000.00,0.6731
+2021-12-31,Duquesne Family Office,75615P103,RETAEUR,Reata Pharmaceuticals Inc,equity,406264,10713000.00,0.3897
+2021-12-31,Duquesne Family Office,40171V100,GWRE,Guidewire Software Inc,equity,88250,10019000.00,0.3644
+2021-12-31,Duquesne Family Office,87652V109,TASK,Taskus Inc,equity,181000,9767000.00,0.3553
+2021-12-31,Duquesne Family Office,00288U106,ABCL,Abcellera Biologics Inc,equity,659750,9434000.00,0.3431
+2021-12-31,Duquesne Family Office,G4701H109,IHS,Ihs Holding Limited,equity,771096,8698000.00,0.3164
+2021-12-31,Duquesne Family Office,536797103,LAD,Lithia Mtrs Inc,equity,29081,8636000.00,0.3141
+2021-12-31,Duquesne Family Office,681116109,OLLI,Ollies Bargain Outlet Hldgs,equity,158200,8098000.00,0.2945
+2021-12-31,Duquesne Family Office,687793109,OSCR,Oscar Health Inc,equity,994289,7805000.00,0.2839
+2021-12-31,Duquesne Family Office,79589L106,IOT,Samsara Inc,equity,272700,7666000.00,0.2788
+2021-12-31,Duquesne Family Office,86771W105,RUN,Sunrun Inc,equity,178450,6121000.00,0.2226
+2021-12-31,Duquesne Family Office,539830109,LMT,Lockheed Martin Corp,equity,14450,5136000.00,0.1868
+2021-12-31,Duquesne Family Office,110448107,BTI,British Amern Tob Plc,equity,132550,4959000.00,0.1804
+2021-12-31,Duquesne Family Office,31188V100,FSLY,Fastly Inc,equity,130685,4633000.00,0.1685
+2021-12-31,Duquesne Family Office,75629V104,RXRX,Recursion Pharmaceuticals In,equity,259941,4453000.00,0.1620
+2021-12-31,Duquesne Family Office,142038108,CRBU,Caribou Biosciences Inc,equity,271430,4096000.00,0.1490
+2021-12-31,Duquesne Family Office,20464U100,COMP,Compass Inc,equity,399100,3628000.00,0.1320
+2021-12-31,Duquesne Family Office,683712103,OPEN,Opendoor Technologies Inc,equity,233000,3404000.00,0.1238
+2021-12-31,Duquesne Family Office,12510Q100,CCC,Ccc Intelligent Solutions Hl,equity,281879,3211000.00,0.1168
+2021-12-31,Duquesne Family Office,81730H109,S,Sentinelone Inc,equity,60000,3029000.00,0.1102
+2021-12-31,Duquesne Family Office,004225108,ACAD,Acadia Pharmaceuticals Inc,equity,74400,1736000.00,0.0631
+2021-12-31,Duquesne Family Office,G2007L105,,Cazoo Group Ltd,equity,140100,845000.00,0.0307
+2021-12-31,Duquesne Family Office,81728A108,SNSEEUR,Sensei Biotherapeutics Inc,equity,100000,580000.00,0.0211

@@ -58,11 +58,19 @@ jobs:
         continue-on-error: true
         run: python3 fundamentals.py
 
+      # The screener overwrites in place exactly like ARK's files do, so this
+      # snapshot is the only record of what the ranking looked like today.
+      # It must run after fundamentals.py, which is what refreshes the cache.
+      - name: Snapshot the market cap leaderboard
+        continue-on-error: true
+        run: python3 leaders.py
+
       - name: Commit the day's data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/raw data/*.csv data/reference/nasdaq_screener.json
+          git add data/raw data/*.csv data/leaders_meta.json \
+                  data/reference/nasdaq_screener.json
           if git diff --cached --quiet; then
             echo "no change -- ARK did not publish a new file"
           else

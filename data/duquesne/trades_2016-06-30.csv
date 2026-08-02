@@ -1,0 +1,44 @@
+trade_date,from_snapshot,to_snapshot,fund,action,ticker,company,cusip,asset_class,prev_shares,shares,expected_shares,active_shares,active_pct,flow_factor
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,BABA,Alibaba Group Hldg Ltd,01609W102,equity,0,470600,0,470600,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,MRK,Merck &amp; Co Inc,58933Y105,equity,0,683800,0,683800,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,,Broadcom Ltd,Y09827109,equity,0,201900,0,201900,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,ATVIEUR,Activision Blizzard Inc,00507V109,equity,0,748700,0,748700,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,EOG,Eog Res Inc,26875P101,equity,0,270300,0,270300,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,BAC,Bank Amer Corp,060505104,equity,0,1579700,0,1579700,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,,Ac Immune Sa,H00263105,equity,0,1500000,0,1500000,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,AMAT,Applied Matls Inc,038222105,equity,0,777500,0,777500,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,WDAY,Workday Inc,98138H101,equity,0,239700,0,239700,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,INTC,Intel Corp,458140100,equity,0,547200,0,547200,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,EPI,Wisdomtree Tr,97717W422,equity,0,952800,0,952800,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,,Priceline Grp Inc,741503403,equity,0,13780,0,13780,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,GOOGL,Alphabet Inc,02079K305,equity,0,25000,0,25000,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,IBB,Ishares Tr,464287556,equity,0,67800,0,67800,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,MU,Micron Technology Inc,595112103,equity,0,927200,0,927200,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,LRCXEUR,Lam Research Corp,512807108,equity,0,169000,0,169000,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,MSFT,Microsoft Corp,594918104,equity,0,264700,0,264700,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,,Juno Therapeutics Inc,48205A109,equity,0,493000,0,493000,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,BHP,Bhp Billiton Ltd,088606108,equity,0,325000,0,325000,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,PXDEUR,Pioneer Nat Res Co,723787107,equity,0,54400,0,54400,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,NKTREUR,Nektar Therapeutics,640268108,equity,0,572100,0,572100,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,new,PNC,Pnc Finl Svcs Group Inc,693475105,equity,0,69500,0,69500,,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,buy,EEM,Ishares Tr,464287234,equity,2093400,4534600,2093400,2441200,116.61,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,buy,ABT,Abbott Labs,002824100,equity,385400,1068000,385400,682600,177.11,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,buy,FCX,Freeport-Mcmoran Inc,35671D857,equity,3470700,4877000,3470700,1406300,40.52,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,buy,HDB,Hdfc Bank Ltd,40415F101,equity,232000,378600,232000,146600,63.19,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,buy,AEM,Agnico Eagle Mines Ltd,008474108,equity,434900,530800,434900,95900,22.05,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,buy,AMZN,Amazon Com Inc,023135106,equity,35400,35800,35400,400,1.13,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,sell,META,Facebook Inc,30303M102,equity,932394,187894,932394,-744500,-79.85,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,sell,,Agrium Inc,008916108,equity,220500,38974,220500,-181526,-82.32,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,sell,NVDA,Nvidia Corp,67066G104,equity,320000,223800,320000,-96200,-30.06,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,exit,AA,Alcoa Inc.,013817101,equity,3390700,0,3390700,-3390700,-100.00,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,exit,EMN,Eastman Chem Co,277432100,equity,131100,0,131100,-131100,-100.00,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,exit,,Mead Johnson Nut&apos;n Co,582839106,equity,110300,0,110300,-110300,-100.00,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,exit,,WhiteWave Foods Co,966244105,equity,364000,0,364000,-364000,-100.00,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,exit,HAL,Halliburton Co,406216101,equity,2177600,0,2177600,-2177600,-100.00,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,exit,CRM,Salesforce.com Inc.,79466L302,equity,189000,0,189000,-189000,-100.00,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,exit,CF,CF Ind&apos;s Hldgs Inc.,125269100,equity,930800,0,930800,-930800,-100.00,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,exit,RTN1USD,Raytheon Co,755111507,equity,77100,0,77100,-77100,-100.00,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,exit,CTRPUSD,Ctrip.com Int&apos;l Ltd.,22943F100,equity,409000,0,409000,-409000,-100.00,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,exit,DE,Deere &amp; Co,244199105,equity,360500,0,360500,-360500,-100.00,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,exit,POT1EUR,Potash Corp of Sask Inc.,73755L107,equity,1192000,0,1192000,-1192000,-100.00,1.000000
+2016-06-30,2016-06-30,2016-09-30,Duquesne Family Office,exit,,Ingersoll-Rand Plc,G47791101,equity,238500,0,238500,-238500,-100.00,1.000000

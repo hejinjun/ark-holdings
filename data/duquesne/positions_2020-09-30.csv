@@ -1,0 +1,59 @@
+date,fund,cusip,ticker,company,asset_class,shares,market_value,weight
+2020-09-30,Duquesne Family Office,594918104,MSFT,Microsoft Corp,equity,2645630,556455000.00,16.3143
+2020-09-30,Duquesne Family Office,023135106,AMZN,Amazon Com Inc,equity,86717,273048000.00,8.0053
+2020-09-30,Duquesne Family Office,872590104,TMUS,T-Mobile Us Inc,equity,1994124,228048000.00,6.6860
+2020-09-30,Duquesne Family Office,01609W102,BABA,Alibaba Group Hldg Ltd,equity,545755,160441000.00,4.7038
+2020-09-30,Duquesne Family Office,81141R100,SE,Sea Ltd,equity,981083,151126000.00,4.4307
+2020-09-30,Duquesne Family Office,64110L106,NFLX,Netflix Inc,equity,278372,139194000.00,4.0809
+2020-09-30,Duquesne Family Office,707569109,PENN,Penn Natl Gaming Inc,equity,1892501,137585000.00,4.0337
+2020-09-30,Duquesne Family Office,067901108,ABX,Barrick Gold Corp,equity,4853153,136422000.00,3.9997
+2020-09-30,Duquesne Family Office,855244109,SBUX,Starbucks Corp,equity,1462100,125624000.00,3.6831
+2020-09-30,Duquesne Family Office,47215P106,JD,Jd.Com Inc,equity,1521943,118118000.00,3.4630
+2020-09-30,Duquesne Family Office,35671D857,FCX,Freeport-Mcmoran Inc,equity,6318400,98820000.00,2.8972
+2020-09-30,Duquesne Family Office,67020Y100,NUANEUR,Nuance Communications Inc,equity,2911525,96634000.00,2.8331
+2020-09-30,Duquesne Family Office,58733R102,MELI,Mercadolibre Inc,equity,71121,76987000.00,2.2571
+2020-09-30,Duquesne Family Office,92189F106,GDX,Vaneck Vectors Etf Tr,equity,1808825,70834000.00,2.0767
+2020-09-30,Duquesne Family Office,02079K305,GOOGL,Alphabet Inc,equity,41181,60355000.00,1.7695
+2020-09-30,Duquesne Family Office,65339F101,NEE,Nextera Energy Inc,equity,215884,59921000.00,1.7568
+2020-09-30,Duquesne Family Office,30303M102,META,Facebook Inc,equity,207895,54448000.00,1.5963
+2020-09-30,Duquesne Family Office,02043Q107,ALNY,Alnylam Pharmaceuticals Inc,equity,368419,53642000.00,1.5727
+2020-09-30,Duquesne Family Office,75615P103,RETAEUR,Reata Pharmaceuticals Inc,equity,543901,52987000.00,1.5535
+2020-09-30,Duquesne Family Office,83200N103,SMARGBP,Smartsheet Inc,equity,1070448,52902000.00,1.5510
+2020-09-30,Duquesne Family Office,98138H101,WDAY,Workday Inc,equity,236095,50791000.00,1.4891
+2020-09-30,Duquesne Family Office,81369Y704,XLI,Select Sector Spdr Tr,equity,650000,50037000.00,1.4670
+2020-09-30,Duquesne Family Office,31620M106,FIS,Fidelity Natl Information Sv,equity,317851,46791000.00,1.3718
+2020-09-30,Duquesne Family Office,92343V104,VZ,Verizon Communications Inc,equity,567443,33757000.00,0.9897
+2020-09-30,Duquesne Family Office,143658300,CCL1EUR,Carnival Corp,equity,2002500,30398000.00,0.8912
+2020-09-30,Duquesne Family Office,09857L108,BKNG,Booking Holdings Inc,equity,17290,29578000.00,0.8672
+2020-09-30,Duquesne Family Office,30212P303,EXPE,Expedia Group Inc,equity,316278,29000000.00,0.8502
+2020-09-30,Duquesne Family Office,70450Y103,PYPL,Paypal Hldgs Inc,equity,141333,27847000.00,0.8164
+2020-09-30,Duquesne Family Office,369604103,,General Electric Co,equity,4375778,27261000.00,0.7992
+2020-09-30,Duquesne Family Office,538034109,LYV,Live Nation Entertainment In,equity,489607,26380000.00,0.7734
+2020-09-30,Duquesne Family Office,95058W100,WEN,Wendys Co,equity,1170047,26086000.00,0.7648
+2020-09-30,Duquesne Family Office,874080104,TAL,Tal Education Group,equity,312300,23747000.00,0.6962
+2020-09-30,Duquesne Family Office,87165B103,SYF,Synchrony Financial,equity,883630,23125000.00,0.6780
+2020-09-30,Duquesne Family Office,146869102,CVNA,Carvana Co,equity,91916,20503000.00,0.6011
+2020-09-30,Duquesne Family Office,697435105,PANW,Palo Alto Networks Inc,equity,82300,20143000.00,0.5906
+2020-09-30,Duquesne Family Office,75886F107,REGN,Regeneron Pharmaceuticals,equity,35582,19918000.00,0.5840
+2020-09-30,Duquesne Family Office,254687106,DIS,Disney Walt Co,equity,143300,17781000.00,0.5213
+2020-09-30,Duquesne Family Office,31188V100,FSLY,Fastly Inc,equity,180442,16904000.00,0.4956
+2020-09-30,Duquesne Family Office,526057104,LEN,Lennar Corp,equity,184872,15100000.00,0.4427
+2020-09-30,Duquesne Family Office,032654105,ADI,Analog Devices Inc,equity,127511,14886000.00,0.4364
+2020-09-30,Duquesne Family Office,09061G101,BMRN,Biomarin Pharmaceutical Inc,equity,192700,14661000.00,0.4298
+2020-09-30,Duquesne Family Office,988498101,YUM,Yum Brands Inc,equity,151124,13798000.00,0.4045
+2020-09-30,Duquesne Family Office,902973304,USB,Us Bancorp Del,equity,363500,13031000.00,0.3820
+2020-09-30,Duquesne Family Office,835699307,SONY,Sony Corp,equity,167335,12843000.00,0.3765
+2020-09-30,Duquesne Family Office,25470M109,DISH,Dish Network Corporation,equity,392679,11399000.00,0.3342
+2020-09-30,Duquesne Family Office,46266C105,IQV,Iqvia Hldgs Inc,equity,71710,11304000.00,0.3314
+2020-09-30,Duquesne Family Office,18915M107,NET,Cloudflare Inc,equity,256535,10533000.00,0.3088
+2020-09-30,Duquesne Family Office,90353T100,UBER,Uber Technologies Inc,equity,271444,9902000.00,0.2903
+2020-09-30,Duquesne Family Office,747525103,QCOM,Qualcomm Inc,equity,82569,9717000.00,0.2849
+2020-09-30,Duquesne Family Office,46625H100,JPM,Jpmorgan Chase &amp; Co,equity,98165,9450000.00,0.2771
+2020-09-30,Duquesne Family Office,878742204,TECK,Teck Resources Ltd,equity,661200,9204000.00,0.2698
+2020-09-30,Duquesne Family Office,07725L102,ONC,Beigene Ltd,equity,31025,8887000.00,0.2606
+2020-09-30,Duquesne Family Office,Y2573F102,,Flex Ltd,equity,711240,7923000.00,0.2323
+2020-09-30,Duquesne Family Office,517834107,LVS,Las Vegas Sands Corp,equity,77901,3635000.00,0.1066
+2020-09-30,Duquesne Family Office,23331A109,DHI,D R Horton Inc,equity,46470,3515000.00,0.1031
+2020-09-30,Duquesne Family Office,G04553106,,Arco Platform Ltd Com,equity,84675,3458000.00,0.1014
+2020-09-30,Duquesne Family Office,922107107,,Vapotherm Inc,equity,77660,2252000.00,0.0660
+2020-09-30,Duquesne Family Office,98887Q104,ZLAB,Zai Lab Ltd,equity,20570,1711000.00,0.0502
