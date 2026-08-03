@@ -487,14 +487,20 @@ LEADERS_FOOTNOTES = {
 
 # One nav for every page, so a new page is added here and appears on all of
 # them. Keys match the file each entry points at.
+#
+# Holdings and Trades were dropped from here: they are ARK's own detail pages,
+# not generic ones, and the redesigned home page already routes to them --
+# the ARK card links to holdings.html, and each move row links to
+# activity.html. A dedicated nav slot for one holder's pages, while every
+# other filer's pages get none, is exactly the ARK-first bias the home page
+# redesign removed; the fix is not to add a slot per filer but to let the
+# home page keep doing that job for all of them.
 NAV = {
     "en": {
-        "index": "Today", "holdings": "Holdings", "activity": "Trades",
-        "leaders": "Top 300", "manager": "13F", "archive": "Archive",
+        "index": "Today", "leaders": "Top 300", "manager": "13F", "archive": "Archive",
     },
     "zh": {
-        "index": "今日", "holdings": "持仓", "activity": "交易",
-        "leaders": "市值榜", "manager": "管理人", "archive": "存档",
+        "index": "今日", "leaders": "市值榜", "manager": "管理人", "archive": "存档",
     },
 }
 
@@ -519,9 +525,9 @@ SOURCES = {
 HOME = {
     "en": {
         "sources": "Data on file",
-        "sourcesHint": "The newest copy of every source, and how far behind it is. 13F "
-                       "gets one row per filer; anything archived but not read by any "
-                       "page yet is marked unused rather than shown as current.",
+        "sourcesHint": "The newest copy of every source, and how far behind it is. "
+                       "\"Archived, unused\" means the data is on file but no page "
+                       "reads it yet.",
         "ok": "current", "late": "late", "stale": "stale", "missing": "missing",
         "unused": "archived, unused",
         "sessionBehind": "1 session behind",
@@ -531,9 +537,8 @@ HOME = {
         "never": "never fetched",
         "quartersOnFile": "{n} quarters on file",
         "moves": "What moved",
-        "movesHint": "Grouped by each holder's own cadence — a quarter's exit and a "
-                    "day's add are not the same unit, so they are not sorted into one "
-                    "queue against each other.",
+        "movesHint": "Grouped by each holder's own reporting cadence: ARK's latest "
+                    "session, a 13F filer's latest quarter.",
         "sessionHead": "Last session · {d}",
         "quarterHead": "{q} change",
         "movesAgree": "{n} funds agree",
@@ -546,22 +551,20 @@ HOME = {
         "asOfQuarter": "as of {d} — a quarter end, not today",
         "archived": "{n} sessions archived",
         "quartersArchived": "{n} quarters archived",
-        "notIngestedHint": "CIK {cik} is in the registry, not yet ingested",
-        "notIngestedBody": "python3 thirteenf.py {name} would give this a book. "
-                           "Comparing two managers is the only real test of whether "
-                           "the ingest generalises.",
+        "notIngestedHint": "CIK {cik} · no holdings data yet",
+        "notIngestedBody": "This manager is tracked but its holdings have not been "
+                           "fetched yet.",
         "notIngestedFoot": "not ingested",
         "watchlist": "Watchlist",
-        "watchlistSub": "What you hold or want to — the fourth holder",
-        "watchlistBody": "Nothing here yet. It's the same kind of thing as the cards "
-                         "above — a holding, just authored by you. With it, the "
-                         "market ranking and the move stream could answer \"does this "
-                         "affect me\".",
+        "watchlistSub": "What you hold, or want to",
+        "watchlistBody": "Not live yet. Once it is, you'll be able to track what you "
+                         "hold or watch here, and see it flagged across the market "
+                         "ranking and the move stream.",
         "watchlistFoot": "planned",
         "leaders": "Top of the market",
-        "leadersHint": "The market's own coordinate system, not a holder — a "
-                      "different kind of thing from the cards above, the ruler they "
-                      "share instead. The marks show who on this list actually owns it.",
+        "leadersHint": "The largest companies on the US market, ranked; movement is "
+                      "since the previous snapshot. The marks show who on this list "
+                      "is held by whom.",
         "leadersFirst": "First snapshot on file — movement starts with the next one.",
         "leadersIn": "in", "leadersOut": "out", "leadersHeld": "{n} held by ARK",
         "leadersCutoff": "entry at ${v}B",
@@ -570,8 +573,8 @@ HOME = {
     },
     "zh": {
         "sources": "数据在不在",
-        "sourcesHint": "每一路数据的最新副本，以及落后多久。13F 按管理人分行；"
-                       "已存档但还没有页面在用的数据标成「只存不用」，不算作最新。",
+        "sourcesHint": "每一路数据的最新副本，以及落后多久。「只存不用」表示这份数据"
+                       "已经存档，但暂时没有页面在读它。",
         "ok": "最新", "late": "偏旧", "stale": "过期", "missing": "缺失",
         "unused": "只存不用",
         "sessionBehind": "落后 1 个交易日",
@@ -581,8 +584,8 @@ HOME = {
         "never": "从未抓取",
         "quartersOnFile": "{n} 个季度存档",
         "moves": "谁在动",
-        "movesHint": "按持有人自己的节奏分组——一个季度的清仓和一天的加仓不是同一种单位，"
-                    "不能排在一条队列里比大小。",
+        "movesHint": "按每位持有人自己的申报节奏分组：ARK 是最近一个交易日，"
+                    "13F 管理人是最近一个季度。",
         "sessionHead": "本交易日 · {d}",
         "quarterHead": "{q} 变化",
         "movesAgree": "{n} 只基金一致",
@@ -595,18 +598,17 @@ HOME = {
         "asOfQuarter": "{d} — 是季度末，不是今天",
         "archived": "已存档 {n} 个交易日",
         "quartersArchived": "已存档 {n} 个季度",
-        "notIngestedHint": "CIK {cik} 在注册表里，还没抓过",
-        "notIngestedBody": "运行 python3 thirteenf.py {name} 之后这里会有一本书。"
-                           "两个管理人之间的对比才是检验这套抓取能不能推广的唯一办法。",
+        "notIngestedHint": "CIK {cik} · 还没有持仓数据",
+        "notIngestedBody": "这位管理人已经在追踪名单里，持仓数据还没有开始抓取。",
         "notIngestedFoot": "未抓取",
         "watchlist": "我的关注",
-        "watchlistSub": "你自己持有或想持有的标的 — 第四个持有人",
-        "watchlistBody": "还没有这个模块。它和上面几个是同一种东西：一份持仓，只是作者是你。"
-                         "有了它，市值榜和变化流才能回答「这条动作跟我有关吗」。",
+        "watchlistSub": "你自己持有，或想持有的标的",
+        "watchlistBody": "还没有上线。上线后，你可以在这里追踪自己持有或关注的标的，"
+                         "并在市值榜和交易流里看到它们被标记出来。",
         "watchlistFoot": "计划中",
         "leaders": "市值榜 300",
-        "leadersHint": "市场坐标系，不是持有人——所以它跟上面几张卡不是同一类东西，"
-                      "而是它们共用的尺子。标记显示榜上每一位是被谁持有的。",
+        "leadersHint": "美股市值最高的一批公司，排名变化相比上一份快照。"
+                      "标记显示榜上每一位分别被谁持有。",
         "leadersFirst": "这是第一份快照——排名变化从下一份开始有。",
         "leadersIn": "进榜", "leadersOut": "出榜", "leadersHeld": "{n} 家被 ARK 持有",
         "leadersCutoff": "入榜门槛 ${v}B",
@@ -620,20 +622,17 @@ HOME_PAGE = {
         "eyebrow": "Daily brief",
         "title": "Who holds what, and what moved",
         "standfirst": (
-            "One screen, three questions: who moved, where the market stands, and "
-            "whether the data behind it is any good. ARK is the one holder that "
-            "reports daily, not the subject of the page — a 13F filer and the "
-            "market-cap ranking are cards of the same size, and a watchlist is the "
-            "fourth holder this site does not have yet."
+            "See who's trading, where the market stands, and whether the data "
+            "behind it is fresh — on one screen. ARK's daily book, a 13F filer's "
+            "quarterly moves, and the largest companies on the US market, together."
         ),
     },
     "zh": {
         "eyebrow": "每日简报",
         "title": "谁持有什么，变了什么",
         "standfirst": (
-            "一屏之内回答三件事：谁动了、市场坐标在哪、这些数据可不可信。"
-            "ARK 是唯一一个日频的持有人，不是页面的主语——13F 管理人和市值榜是同等大小的"
-            "模块，关注列表是还没做的第四个持有人。"
+            "一屏看清谁在买卖、市场格局如何、这些数据新不新。"
+            "ARK 每日持仓、13F 管理人的季度调仓、美股市值最高的公司，都在这一页。"
         ),
     },
 }

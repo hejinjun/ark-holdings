@@ -42,7 +42,7 @@ def archive_page(all_dates: list[str]) -> str:
     nav = "\n".join(
         f'    <a href="{k}.html"{" aria-current=\'page\'" if k == "archive" else ""}>'
         f'{i18n.NAV["en"][k]}</a>'
-        for k in ("index", "holdings", "activity", "leaders", "manager", "archive"))
+        for k in ("index", "leaders", "manager", "archive"))
     items = "\n".join(
         f'    <li><a href="reports/{d}.html">{d}</a>'
         f'{" <em>latest</em>" if d == all_dates[-1] else ""}</li>'
