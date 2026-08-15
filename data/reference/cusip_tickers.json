@@ -241,6 +241,12 @@
  "04351P101": {},
  "045327103": {},
  "046353108": {},
+ "051774107": {
+  "name": "AURORA INNOVATION INC",
+  "ticker": "AUR",
+  "type": "Common Stock",
+  "via": "figi"
+ },
  "052769106": {
   "name": "AUTODESK INC",
   "ticker": "ADSK",
@@ -306,6 +312,12 @@
  "067901108": {
   "name": "BARRICK GOLD CORP",
   "ticker": "ABX",
+  "type": "Common Stock",
+  "via": "figi"
+ },
+ "07373V105": {
+  "name": "BEAM THERAPEUTICS INC",
+  "ticker": "BEAM",
   "type": "Common Stock",
   "via": "figi"
  },
@@ -438,6 +450,12 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "12514G108": {
+  "name": "CDW CORP/DE",
+  "ticker": "CDW",
+  "type": "Common Stock",
+  "via": "figi"
+ },
  "125269100": {
   "name": "CF INDUSTRIES HOLDINGS INC",
   "ticker": "CF",
@@ -552,6 +570,12 @@
  "149123101": {
   "name": "CATERPILLAR INC",
   "ticker": "CAT",
+  "type": "Common Stock",
+  "via": "figi"
+ },
+ "149568107": {
+  "name": "CAVCO INDUSTRIES INC",
+  "ticker": "CVCO",
   "type": "Common Stock",
   "via": "figi"
  },
@@ -793,6 +817,12 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "24477V105": {
+  "name": "DEFINIUM THERAPEUTICS INC",
+  "ticker": "DFTX",
+  "type": "Common Stock",
+  "via": "figi"
+ },
  "247361702": {
   "name": "DELTA AIR LINES INC",
   "ticker": "DAL",
@@ -937,6 +967,12 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "29444U700": {
+  "name": "EQUINIX INC",
+  "ticker": "EQIX",
+  "type": "REIT",
+  "via": "figi"
+ },
  "30212P303": {
   "name": "EXPEDIA GROUP INC",
   "ticker": "EXPE",
@@ -970,6 +1006,12 @@
  "31428X106": {
   "name": "FEDEX CORP",
   "ticker": "FDX",
+  "type": "Common Stock",
+  "via": "figi"
+ },
+ "315616102": {
+  "name": "F5 INC",
+  "ticker": "FFIV",
   "type": "Common Stock",
   "via": "figi"
  },
@@ -1022,6 +1064,12 @@
  "35137L105": {
   "name": "FOX CORP - CLASS A",
   "ticker": "FOXA",
+  "type": "Common Stock",
+  "via": "figi"
+ },
+ "35137L204": {
+  "name": "FOX CORP - CLASS B",
+  "ticker": "FOX",
   "type": "Common Stock",
   "via": "figi"
  },
@@ -1171,6 +1219,18 @@
  "446150104": {
   "name": "HUNTINGTON BANCSHARES INC",
   "ticker": "HBAN",
+  "type": "Common Stock",
+  "via": "figi"
+ },
+ "44812J104": {
+  "name": "HUT 8 CORP",
+  "ticker": "HUT",
+  "type": "Common Stock",
+  "via": "figi"
+ },
+ "44916Y106": {
+  "name": "HYPERLIQUID STRATEGIES",
+  "ticker": "PURR",
   "type": "Common Stock",
   "via": "figi"
  },
@@ -1392,6 +1452,12 @@
   "via": "figi"
  },
  "512807108": {},
+ "512807306": {
+  "name": "LAM RESEARCH CORP",
+  "ticker": "LRCX",
+  "type": "Common Stock",
+  "via": "figi"
+ },
  "513272104": {
   "name": "LAMB WESTON HOLDINGS INC",
   "ticker": "LW",
@@ -1604,6 +1670,12 @@
   "via": "figi"
  },
  "61166W101": {},
+ "61225M102": {
+  "name": "MONTE ROSA THERAPEUTICS INC",
+  "ticker": "GLUE",
+  "type": "Common Stock",
+  "via": "figi"
+ },
  "61559X104": {
   "name": "MOONLAKE IMMUNOTHERAPEUTICS",
   "ticker": "MLTX",
@@ -1631,6 +1703,12 @@
  "632307104": {
   "name": "NATERA INC",
   "ticker": "NTRA",
+  "type": "Common Stock",
+  "via": "figi"
+ },
+ "63942X106": {
+  "name": "NAVITAS SEMICONDUCTOR CORP",
+  "ticker": "NVTS",
   "type": "Common Stock",
   "via": "figi"
  },
@@ -1995,6 +2073,12 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "750917106": {
+  "name": "RAMBUS INC",
+  "ticker": "RMBS",
+  "type": "Common Stock",
+  "via": "figi"
+ },
  "75281A109": {
   "name": "RANGE RESOURCES CORP",
   "ticker": "RRC",
@@ -2027,6 +2111,18 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "75943R102": {
+  "name": "RELAY THERAPEUTICS INC",
+  "ticker": "RLAY",
+  "type": "Common Stock",
+  "via": "figi"
+ },
+ "759916109": {
+  "name": "REPLIGEN CORP",
+  "ticker": "RGEN",
+  "type": "Common Stock",
+  "via": "figi"
+ },
  "76131D103": {
   "name": "RESTAURANT BRANDS INTERN",
   "ticker": "QSR",
@@ -2039,10 +2135,28 @@
   "type": "Common Stock",
   "via": "figi"
  },
+ "76243J105": {
+  "name": "RHYTHM PHARMACEUTICALS INC",
+  "ticker": "RYTM",
+  "type": "Common Stock",
+  "via": "figi"
+ },
  "762760106": {},
+ "767292105": {
+  "name": "RIOT PLATFORMS INC",
+  "ticker": "RIOT",
+  "type": "Common Stock",
+  "via": "figi"
+ },
  "771049103": {
   "name": "ROBLOX CORP -CLASS A",
   "ticker": "RBLX",
+  "type": "Common Stock",
+  "via": "figi"
+ },
+ "77311W101": {
+  "name": "ROCKET COS INC-CLASS A",
+  "ticker": "RKT",
   "type": "Common Stock",
   "via": "figi"
  },
@@ -2232,6 +2346,18 @@
   "via": "figi"
  },
  "830566105": {},
+ "83056P715": {
+  "name": "SKEENA RESOURCES LTD",
+  "ticker": "SKE",
+  "type": "Common Stock",
+  "via": "figi"
+ },
+ "830830105": {
+  "name": "CHAMPION HOMES INC",
+  "ticker": "SKY",
+  "type": "Common Stock",
+  "via": "figi"
+ },
  "83200N103": {},
  "83304A106": {
   "name": "SNAP INC - A",
@@ -2573,6 +2699,12 @@
   "type": "ADR",
   "via": "figi"
  },
+ "91823B109": {
+  "name": "UWM HOLDINGS CORP",
+  "ticker": "UWMC",
+  "type": "Common Stock",
+  "via": "figi"
+ },
  "91912E105": {
   "name": "VALE SA-SP ADR",
   "ticker": "VALE",
@@ -2868,12 +3000,14 @@
  "G04553106": {},
  "G06242104": {},
  "G0896C103": {},
+ "G11448100": {},
  "G2007L105": {},
  "G25508105": {},
  "G27358103": {},
  "G28302100": {},
  "G29183103": {},
  "G3643J108": {},
+ "G3730V105": {},
  "G4412G101": {},
  "G4701H109": {},
  "G47567105": {},
@@ -2910,6 +3044,7 @@
  "N7902X106": {},
  "N82405106": {},
  "N97284108": {},
+ "Q4982L109": {},
  "V7780T103": {},
  "Y09827109": {},
  "Y2573F102": {},
